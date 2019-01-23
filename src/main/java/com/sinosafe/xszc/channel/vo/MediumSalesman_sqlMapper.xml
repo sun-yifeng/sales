@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.MediumSalesman">
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEX" property="sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ID_NUMBER" property="idNumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE" property="approve" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.MediumSalesman">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEX" property="sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ID_NUMBER" property="idNumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE" property="approve" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+	    t1.PK_ID,
+		t1.CHANNEL_CODE,
+		t1.NAME,
+		t1.SEX,
+		t1.ID_NUMBER,
+		t1.BIRTHDAY,
+		t1.MOBILE,
+		t1.EMAIL,
+		t1.VALID_IND,
+		t1.CREATED_USER,
+		t1.CREATED_DATE,
+        t1.UPDATED_USER,
+        t1.UPDATED_DATE,
+        t1.STATUS
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		t1.PK_ID as "pkId",
+		t1.CHANNEL_CODE as "channelCode",
+		t1.NAME as "name",
+		t1.SEX as "sex",
+		t1.ID_NUMBER as "idNumber",
+		t1.BIRTHDAY as "birthday",
+		t1.MOBILE as "mobile",
+		t1.EMAIL as "email",
+		t1.VALID_IND as "validInd",
+		t1.CREATED_USER as "createdUser",
+		to_char(CREATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "createdDate",
+		t1.UPDATED_USER as "updatedUser",
+		to_char(UPDATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "updatedDate",
+		t1.STATUS as "status"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{pkId,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{name,jdbcType=VARCHAR},
+ 		#{sex,jdbcType=VARCHAR},
+ 		#{idNumber,jdbcType=VARCHAR},
+ 		#{birthday,jdbcType=VARCHAR},
+ 		#{mobile,jdbcType=VARCHAR},
+ 		#{email,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		to_date(#{createdDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{status,jdbcType=CHAR}
+ 	</sql>
+	
+	
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+		select count(1)
+		from CHANNEL_SALESMAN t 
+		where t.valid_ind='1' 
+		and t.id_number=#{idNumber,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="updateByPrimaryKey"  parameterType="com.sinosafe.xszc.channel.vo.MediumSalesman" >
+	update CHANNEL_SALESMAN
+	<set>
+	    APPROVE = '0',
+  	<if test="mobile != null and mobile != ''">
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss')
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.MediumSalesman" >
+	    insert into CHANNEL_SALESMAN t1 (
+			<include refid="Base_Column_List" />
+	    )
+		values (
+			<include refid="Insert_Base_values" />
+	    )
+	</insert>
+	
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+	select * from (
+			select a.*,rownum rn from (
+					     select t1.PK_ID,
+			         d1.dept_simple_name as "parentDeptName",
+			         d2.dept_simple_name as "deptName",
+			         s.cname as "cname",
+			         t1.CHANNEL_CODE "channelCode",
+			         t1.NAME as "name",
+			         decode(t1.SEX,'1','男','2','女','9','未知','','9') as "sex",
+			         t1.ID_NUMBER as "idNumber",
+			         t1.BIRTHDAY as "birthday",
+			         t1.MOBILE as "mobile",
+			         t1.EMAIL as "email",
+			         decode(t1.STATUS,'1','在职','2','离职','','离职') as "status",
+			         decode(t1.APPROVE,'0','未审核','1','已审核','','未审核')  as "approve",
+			         t1.VALID_IND as "validInd",
+			         t1.CREATED_USER as "createdUser",
+			         to_char(t1.CREATED_DATE, 'yyyy-MM-dd HH24:mi:ss') as "createdDate",
+			         t1.UPDATED_USER as "updatedUser",
+			         t1.UPDATED_DATE as "updatedDate",
+			         substr(t3.dept_code, 0, 2) as "towDeptCode",
+			         substr(t3.dept_code, 0, 4) as "threeDeptCode"
+				      from CHANNEL_SALESMAN t1 
+			          left join channel_main t3 on t1.channel_code=t3.channel_code
+			          left join department d1 on d1.dept_code = substr(t3.dept_code, 0, 2) and d1.valid_ind='1'
+                      left join department d2 on d2.dept_code = substr(t3.dept_code, 0, 4) and d2.valid_ind='1'
+			          left join (
+			                select c1.medium_cname as cname,c1.channel_code as channelCode from channel_medium_detail c1 where c1.valid_ind=1
+			                union all 
+			                select c2.channel_name as cname,c2.channel_code as channelCode from channel_agent_detail c2 where c2.valid_ind=1
+			          ) s on s.channelcode = t1.channel_code
+			         where 1=1
+			           and t1.valid_ind = '1'
+			           and t3.valid_ind = '1'
+			     <if test="twoDeptCode != null and twoDeptCode != ''">
+				and substr(t3.dept_code, 0, 2) = #{twoDeptCode,jdbcType=VARCHAR}
+				</if>
+				<if test="threeDeptCode != null and threeDeptCode != ''">
+				and substr(t3.dept_code, 0, 4) = #{threeDeptCode,jdbcType=VARCHAR}
+				</if>
+				<if test="channelCode != null and channelCode != ''">
+				and t1.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="name != null and name != ''">
+				and t1.NAME like '%' || trim(#{name,jdbcType=VARCHAR}) || '%'
+			    </if>
+				<if test="approve != null and approve != ''">
+				and t1.APPROVE = #{approve,jdbcType=VARCHAR}
+			    </if>
+			    order by t1.UPDATED_DATE desc
+					    ) a where rownum &lt;= #{endpoint} 
+				) where rn &gt;= #{startpoint}
+			 </when>
+				<otherwise>
+				<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+				 select count(1) as "count"
+				      from CHANNEL_SALESMAN t1 
+			          left join channel_main t3 on t1.channel_code=t3.channel_code
+			          left join department d1 on d1.dept_code = substr(t3.dept_code, 0, 2) and d1.valid_ind='1'
+                      left join department d2 on d2.dept_code = substr(t3.dept_code, 0, 4) and d2.valid_ind='1'
+			          left join (
+			                select c1.medium_cname as cname,c1.channel_code as channelCode from channel_medium_detail c1 where c1.valid_ind=1
+			                union all 
+			                select c2.channel_name as cname,c2.channel_code as channelCode from channel_agent_detail c2 where c2.valid_ind=1
+			          ) s on s.channelcode = t1.channel_code
+			         where 1=1
+			           and t1.valid_ind = '1'
+			           and t3.valid_ind = '1'
+			     <if test="twoDeptCode != null and twoDeptCode != ''">
+				and substr(t3.dept_code, 0, 2) = #{twoDeptCode,jdbcType=VARCHAR}
+				</if>
+				<if test="threeDeptCode != null and threeDeptCode != ''">
+				and substr(t3.dept_code, 0, 4) = #{threeDeptCode,jdbcType=VARCHAR}
+				</if>
+				<if test="channelCode != null and channelCode != ''">
+				and t1.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="name != null and name != ''">
+				and t1.NAME like '%' || trim(#{name,jdbcType=VARCHAR}) || '%'
+				</if>
+				<if test="approve != null and approve != ''">
+				and t1.APPROVE = #{approve,jdbcType=VARCHAR}
+			    </if>
+				</otherwise>
+		</choose>
+	</select>
+	
+	<select id="queryDeptListPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+	select * from (
+			select a.*,rownum rn from (
+					    select t1.PK_ID,
+			         d1.dept_simple_name as "parentDeptName",
+			         d2.dept_simple_name as "deptName",
+			         s.cname as "cname",
+			         t1.CHANNEL_CODE "channelCode",
+			         t1.NAME as "name",
+			         decode(t1.SEX,'1','男','2','女','9','未知','','9') as "sex",
+			         t1.ID_NUMBER as "idNumber",
+			         t1.BIRTHDAY as "birthday",
+			         t1.MOBILE as "mobile",
+			         t1.EMAIL as "email",
+			         decode(t1.STATUS,'1','在职','2','离职','','离职') as "status",
+			         decode(t1.APPROVE,'0','未审核','1','已审核','','未审核')  as "approve",
+			         t1.VALID_IND as "validInd",
+			         t1.CREATED_USER as "createdUser",
+			         to_char(t1.CREATED_DATE, 'yyyy-MM-dd HH24:mi:ss') as "createdDate",
+			         t1.UPDATED_USER as "updatedUser",
+			         t1.UPDATED_DATE as "updatedDate",
+			         substr(t3.dept_code, 0, 2) as "towDeptCode",
+			         substr(t3.dept_code, 0, 4) as "threeDeptCode"
+				      from CHANNEL_SALESMAN t1 
+			          left join channel_main t3 on t1.channel_code=t3.channel_code
+			          left join department d1 on d1.dept_code = substr(t3.dept_code, 0, 2) and d1.valid_ind='1'
+                      left join department d2 on d2.dept_code = substr(t3.dept_code, 0, 4) and d2.valid_ind='1'
+			          left join (
+			                select c1.medium_cname as cname,c1.channel_code as channelCode from channel_medium_detail c1 where c1.valid_ind=1
+			                union all 
+			                select c2.channel_name as cname,c2.channel_code as channelCode from channel_agent_detail c2 where c2.valid_ind=1
+			          ) s on s.channelcode = t1.channel_code
+			         where 1=1
+			           and t1.valid_ind = '1'
+			           and t3.valid_ind = '1'
+			     and substr(t3.dept_code, 0, 2) = #{curDeptCode,jdbcType=VARCHAR}
+			     <if test="threeDeptCode != null and threeDeptCode != ''">
+				and substr(t3.dept_code, 0, 4) = #{threeDeptCode,jdbcType=VARCHAR}
+				</if>
+				<if test="channelCode != null and channelCode != ''">
+				and t1.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="name != null and name != ''">
+				and t1.NAME like '%' || trim(#{name,jdbcType=VARCHAR}) || '%'
+				</if>
+				<if test="approve != null and approve != ''">
+				and t1.APPROVE = #{approve,jdbcType=VARCHAR}
+			    </if>
+				order by t1.UPDATED_DATE desc
+							) a where rownum &lt;= #{endpoint} 
+				) where rn &gt;= #{startpoint}
+			     </when>
+				<otherwise>
+				<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+				 select count(1) as "count"
+			         from CHANNEL_SALESMAN t1 
+			          left join channel_main t3 on t1.channel_code=t3.channel_code
+			          left join department d1 on d1.dept_code = substr(t3.dept_code, 0, 2) and d1.valid_ind='1'
+                      left join department d2 on d2.dept_code = substr(t3.dept_code, 0, 4) and d2.valid_ind='1'
+			          left join (
+			                select c1.medium_cname as cname,c1.channel_code as channelCode from channel_medium_detail c1 where c1.valid_ind=1
+			                union all 
+			                select c2.channel_name as cname,c2.channel_code as channelCode from channel_agent_detail c2 where c2.valid_ind=1
+			          ) s on s.channelcode = t1.channel_code
+			         where 1=1
+			           and t1.valid_ind = '1'
+			           and t3.valid_ind = '1'
+			           and substr(t3.dept_code, 0, 2) = #{curDeptCode,jdbcType=VARCHAR}
+			     <if test="threeDeptCode != null and threeDeptCode != ''">
+				and substr(t3.dept_code, 0, 4) = #{threeDeptCode,jdbcType=VARCHAR}
+				</if>
+				<if test="channelCode != null and channelCode != ''">
+				and t1.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="name != null and name != ''">
+				and t1.NAME like '%' || trim(#{name,jdbcType=VARCHAR}) || '%'
+				</if>
+				<if test="approve != null and approve != ''">
+				and t1.APPROVE = #{approve,jdbcType=VARCHAR}
+			    </if>
+				</otherwise>
+		</choose>
+	</select>
+	
+	<select id="querySalesmanId"  parameterType="map"  resultType="long">
+			select count(1) 
+			from CHANNEL_SALESMAN t
+			where 1=1
+			and t.valid_ind='1'
+			and t.status='1'
+			and t.id_number = #{addIdCard,jdbcType=VARCHAR}
+	</select>
+	
+	<insert id="saveSalesmanAdd" parameterType="map" >
+	    insert into CHANNEL_SALESMAN t1 (
+			<include refid="Base_Column_List" />
+	    )
+		 values (
+		#{pkId,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{addName,jdbcType=VARCHAR},
+ 		#{addSex,jdbcType=VARCHAR},
+ 		#{addIdCard,jdbcType=VARCHAR},
+ 		#{addBirthday,jdbcType=VARCHAR},
+ 		#{addMobile,jdbcType=VARCHAR},
+ 		#{addEmail,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		to_date(#{createdDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{addStatus,jdbcType=CHAR}
+	    )
+	</insert>
+	
+		<update id="updateRowsApprove"  parameterType="map" >
+			update CHANNEL_SALESMAN
+			set APPROVE = '1' 
+			where PK_ID = #{pkId,jdbcType=VARCHAR}
+	   </update>
+	   
+	   <!-- 将渠道销售人员数据同步 -->
+	<select id="syncChannelSalesman" parameterType="map" statementType="CALLABLE" >
+		<![CDATA[ 
+          { call SALESUPPORT_IMPORT_HX.p_single_salesman(
+           #{i_pk_id, mode=IN, jdbcType=VARCHAR},
+           #{o_result_code, mode=OUT, jdbcType=VARCHAR},
+           #{o_result_msg, mode=OUT, jdbcType=VARCHAR}
+           )} 
+        ]]> 
+	</select>
+</mapper>

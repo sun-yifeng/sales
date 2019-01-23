@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.dubbo.channel.vo.ChannelMain">
+
+	<!-- 模糊查询个人代理人 -->
+	<select id="findPersonByMap" parameterType="map" resultType="map">
+		select t1.channel_code as "channelCode",
+		t2.channel_name as "channelName",
+		t1.dept_code as "deptCode",
+		t3.dept_cname as "deptCname",
+		t1.channel_category as "channelCategory",
+		t1.channel_flag as "channelFlag",
+		t1.business_line as "businessLine",
+		t1.channel_flag as "channelFlag",
+		t2.certify_type as "certifyType",
+		t2.certify_no as "certifyNo",
+		t2.mobile as "mobile",
+		t2.tel as "tel",
+		t2.adderss as "adderss",
+		t1.biz_source as "bizSource"
+		from channel_main t1
+		inner join channel_agent_detail t2
+		on t1.channel_code = t2.channel_code
+		left join department t3
+		on t1.dept_code = t3.dept_code
+		where 1 = 1
+		and t1.valid_ind = '1'
+		and t1.approve_flag = '1'
+		and rownum <![CDATA[<=100]]>
+		<if test="channelCode != null and channelCode != ''">
+			and t1.channel_code like trim(#{channelCode,jdbcType=CHAR})||'%'
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and t1.dept_code like trim(#{deptCode,jdbcType=CHAR})||'%'
+		</if>
+		<if test="channelName != null and channelName != ''">
+			and t2.channel_name like trim(#{channelName,jdbcType=CHAR})||'%'
+		</if>
+	</select>
+
+	<!-- 精准查询个人代理人，多个渠道代码 -->
+	<select id="findPersonByList" parameterType="java.util.List" resultType="map">
+		select t1.channel_code as "channelCode",
+		t2.channel_name as "channelName",
+		t1.dept_code as "deptCode",
+		t3.dept_cname as "deptCname",
+		t1.channel_category as "channelCategory",
+		t1.channel_flag as "channelFlag",
+		t1.business_line as "businessLine",
+		t1.channel_flag as "channelFlag",
+		t2.certify_type as "certifyType",
+		t2.certify_no as "certifyNo",
+		t2.mobile as "mobile",
+		t2.tel as "tel",
+		t2.adderss as "adderss"
+		from channel_main t1
+		inner join channel_agent_detail t2
+		on t1.channel_code = t2.channel_code
+		left join department t3
+		on t1.dept_code = t3.dept_code
+		where 1 = 1
+		and t1.valid_ind = '1'
+		and t1.approve_flag = '1'
+		and t1.channel_code in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			trim(#{item,jdbcType=CHAR})
+		</foreach>
+	</select>
+
+	<!-- 模糊查询中介机构 -->
+	<select id="findMediumByMap" parameterType="map" resultType="map">
+		select t1.channel_code as "channelCode",
+		t2.medium_cname as "channelName",
+		t1.dept_code as "deptCode",
+		t3.dept_cname as "deptCname",
+		t2.process_user_code as "processUserCode",
+		t1.business_line as "businessLine",
+		t1.channel_category as "channelCategory",
+		t1.channel_type as "channelType",
+		t1.channel_flag as "channelFlag",
+		t2.parent_channel_code as "parentChannelCode",
+		t2.parter_level as "parterLevel",
+		t1.contact as "contact",
+		t1.tel as "tel",
+		t1.office_address as "officeAddress",
+		t2.area_code as "areaCode"
+		from channel_main t1
+		inner join channel_medium_detail t2
+		on t1.channel_code = t2.channel_code
+		left join department t3
+		on t1.dept_code = t3.dept_code
+		where 1 = 1
+		and t1.valid_ind = '1'
+		and t1.approve_flag = '1'
+		and rownum <![CDATA[<=100]]>
+		<if test="channelCode != null and channelCode != ''">
+			and t1.channel_code like trim(#{channelCode,jdbcType=CHAR})||'%'
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and t1.dept_code like trim(#{deptCode,jdbcType=CHAR})||'%'
+		</if>
+		<if test="channelName != null and channelName != ''">
+			and t2.medium_cname like trim(#{channelName,jdbcType=CHAR})||'%'
+		</if>
+	</select>
+
+	<!-- 精准查询中介机构，多个渠道代码 -->
+	<select id="findMediumByList" parameterType="java.util.List" resultType="map">
+		select t1.channel_code as "channelCode",
+		t2.medium_cname as "channelName",
+		t1.dept_code as "deptCode",
+		t3.dept_cname as "deptCname",
+		t2.process_user_code as "processUserCode",
+		t1.business_line as "businessLine",
+		t1.channel_category as "channelCategory",
+		t1.channel_type as "channelType",
+		t1.channel_flag as "channelFlag",
+		t2.parent_channel_code as "parentChannelCode",
+		t2.parter_level as "parterLevel",
+		t1.contact as "contact",
+		t1.tel as "tel",
+		t1.office_address as "officeAddress",
+		t2.area_code as "areaCode"
+		from channel_main t1
+		inner join channel_medium_detail t2
+		on t1.channel_code = t2.channel_code
+		left join department t3
+		on t1.dept_code = t3.dept_code
+		where 1 = 1
+		and t1.valid_ind = '1'
+		and t1.approve_flag = '1'
+		and t1.channel_code in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			trim(#{item,jdbcType=CHAR})
+		</foreach>
+	</select>
+
+</mapper>

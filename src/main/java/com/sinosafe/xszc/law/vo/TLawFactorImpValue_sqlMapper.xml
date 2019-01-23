@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TLawFactorImpValue" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE"    property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND"  property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="INDEX_CODE" property="indexCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="INDEX_VALUE"  property="indexValue" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="IMP_TYPE"   property="impType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INDEX_NAME" property="indexName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TLawFactorImpValue">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="INDEX_CODE" property="indexCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="INDEX_VALUE" property="indexValue" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="IMP_TYPE" property="impType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INDEX_NAME" property="indexName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="CHAR"    javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+ 	
+ 	<sql id="insert_Column_List" >
+		UPDATED_USER,
+		PK_ID,
+		CREATED_USER,
+		DEPT_CODE,
+		UPDATED_DATE,
+		SALESMAN_CNAME,
+		VALID_IND,
+		INDEX_CODE,
+		CREATED_DATE,
+		INDEX_VALUE,
+		IMP_TYPE,
+		SALESMAN_CODE,
+		GROUP_NAME,
+		INDEX_NAME,
+		GROUP_CODE,
+		EMPLOY_CODE,
+		CALC_MONTH,
+		VERSION_ID
+	</sql>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		PK_ID,
+		CREATED_USER,
+		DEPT_CODE,
+		to_char(UPDATED_DATE,'yyyy-MM-dd HH24:mi:ss') UPDATED_DATE,
+		SALESMAN_CNAME,
+		VALID_IND,
+		INDEX_CODE,
+		to_char(CREATED_DATE,'yyyy-MM-dd HH24:mi:ss') CREATED_DATE,
+		to_char(INDEX_VALUE, 'fm99999999999990.00') INDEX_VALUE,
+		IMP_TYPE,
+		SALESMAN_CODE,
+		GROUP_NAME,
+		INDEX_NAME,
+		GROUP_CODE,
+		EMPLOY_CODE,
+		CALC_MONTH,
+		VERSION_ID
+	</sql>
+	
+	<sql id="user_Base_Column_List" >
+		t1.UPDATED_USER,
+		t1.PK_ID,
+		t1.CREATED_USER,
+		t1.DEPT_CODE||'-'||t2.DEPT_SIMPLE_NAME as DEPT_CODE,
+		to_char(t1.UPDATED_DATE,'yyyy-MM-dd HH24:mi:ss') UPDATED_DATE,
+		t1.SALESMAN_CNAME,
+		t1.VALID_IND,
+		t1.INDEX_CODE,
+		to_char(t1.CREATED_DATE,'yyyy-MM-dd HH24:mi:ss') CREATED_DATE,
+		t1.INDEX_VALUE,
+		t1.IMP_TYPE,
+		t1.SALESMAN_CODE,
+		t1.GROUP_NAME,
+		t1.INDEX_NAME,
+		t1.GROUP_CODE,
+		t1.EMPLOY_CODE,
+		t1.CALC_MONTH,
+		t1.VERSION_ID
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		PK_ID as "pkId",
+		CREATED_USER as "createdUser",
+		DEPT_CODE as "deptCode",
+		UPDATED_DATE as "updatedDate",
+		SALESMAN_CNAME as "salesmanCname",
+		VALID_IND as "validInd",
+		INDEX_CODE as "indexCode",
+		CREATED_DATE as "createdDate",
+		INDEX_VALUE as "indexValue",
+		IMP_TYPE as "impType",
+		SALESMAN_CODE as "salesmanCode",
+		GROUP_NAME as "groupName",
+		INDEX_NAME as "indexName",
+		GROUP_CODE as "groupCode",
+		EMPLOY_CODE as "employCode",
+		CALC_MONTH as "calcMonth",
+		VERSION_ID as "versionId"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		to_date(#{updatedDate,jdbcType=VARCHAR},'YYYY-MM-DD HH24:MI:SS'),
+ 		#{salesmanCname,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{indexCode,jdbcType=VARCHAR},
+ 		to_date(#{createdDate,jdbcType=VARCHAR},'YYYY-MM-DD HH24:MI:SS'),
+ 		#{indexValue,jdbcType=VARCHAR},
+ 		#{impType,jdbcType=CHAR},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{groupName,jdbcType=VARCHAR},
+ 		#{indexName,jdbcType=VARCHAR},
+ 		#{groupCode,jdbcType=VARCHAR},
+ 		#{employCode,jdbcType=VARCHAR},
+ 		#{calcMonth,jdbcType=CHAR},
+ 		#{versionId,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE like '${deptCode}%' 
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and SALESMAN_CNAME like '%${salesmanCname}%' 
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="indexCode != null and indexCode != ''">
+			and INDEX_CODE = #{indexCode,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="indexValue != null and indexValue != ''">
+			and INDEX_VALUE = #{indexValue,jdbcType=DOUBLE}
+		</if>
+		<if test="impType != null and impType != ''">
+			and IMP_TYPE = #{impType,jdbcType=CHAR}
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and GROUP_NAME like '%${groupName}%' 
+		</if>
+		<if test="indexName != null and indexName != ''">
+			and INDEX_NAME = #{indexName,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="employCode != null and employCode != ''">
+			and calc_Month = #{calcMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and version_Id = #{versionId,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="user_Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and t1.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and t1.PK_ID = #{pkId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and t1.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and t1.DEPT_CODE like '${deptCode}%' 
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and t1.UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and t1.SALESMAN_CNAME like '%${salesmanCname}%' 
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and t1.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="indexCode != null and indexCode != ''">
+			and t1.INDEX_CODE = #{indexCode,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and t1.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="indexValue != null and indexValue != ''">
+			and t1.INDEX_VALUE = #{indexValue,jdbcType=DOUBLE}
+		</if>
+		<if test="impType != null and impType != ''">
+			and t1.IMP_TYPE = #{impType,jdbcType=CHAR}
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and t1.SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and t1.GROUP_NAME like '%${groupName}%' 
+		</if>
+		<if test="indexName != null and indexName != ''">
+			and t1.INDEX_NAME = #{indexName,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and t1.GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="employCode != null and employCode != ''">
+			and t1.calc_Month = #{calcMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and t1.version_Id = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test=" calcMonth != null and calcMonth != '' ">
+		    and t1.calc_month = #{calcMonth,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TLawFactorImpValue" >
+	    insert into T_LAW_FACTOR_IMP_VALUE (
+			<include refid="insert_Column_List" />
+	    )
+		values (
+			<include refid="Insert_Base_values" />
+	    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+	    insert into T_LAW_FACTOR_IMP_VALUE (
+			<include refid="insert_Column_List" />
+	    )
+		values (
+			<include refid="Insert_Base_values" />
+	    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+       delete from T_LAW_FACTOR_IMP_VALUE  where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_LAW_FACTOR_IMP_VALUE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_LAW_FACTOR_IMP_VALUE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCname != null and salesmanCname != ''">
+		SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="indexCode != null and indexCode != ''">
+		INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="indexValue != null and indexValue != ''">
+		INDEX_VALUE = #{indexValue,jdbcType=DOUBLE},
+	</if>
+  	<if test="impType != null and impType != ''">
+		IMP_TYPE = #{impType,jdbcType=CHAR},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="indexName != null and indexName != ''">
+		INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="employCode != null and employCode != ''">
+		EMPLOY_CODE = #{employCode,jdbcType=VARCHAR}
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		calc_Month = #{calcMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		version_Id = #{versionId,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_LAW_FACTOR_IMP_VALUE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			INDEX_VALUE = #{indexValue,jdbcType=DOUBLE},
+  			IMP_TYPE = #{impType,jdbcType=CHAR},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+  			calc_Month = #{calcMonth,jdbcType=VARCHAR},
+  			version_Id = #{versionId,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateChangeRow" parameterType="map" >
+		update T_LAW_FACTOR_IMP_VALUE
+		set
+  		   INDEX_VALUE = #{indexValue,jdbcType=DOUBLE}
+  		where
+  		   <if test="impType==1">
+  		   	   SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR} 
+  		   </if> 
+  		   <if test="impType==2">
+  		   	   group_code = #{groupCode,jdbcType=VARCHAR} 
+  		   </if> 
+  		   and INDEX_CODE = #{indexCode,jdbcType=VARCHAR} 
+  		   and calc_month = #{calcMonth,jdbcType=CHAR} 
+  		   and version_id = #{versionId,jdbcType=VARCHAR} 
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TLawFactorImpValue" >
+	update T_LAW_FACTOR_IMP_VALUE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE =  to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+	</if>
+  	<if test="salesmanCname != null and salesmanCname != ''">
+		SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="indexCode != null and indexCode != ''">
+		INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = to_date(#{createdDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+	</if>
+  	<if test="indexValue != null and indexValue != ''">
+		INDEX_VALUE = #{indexValue,jdbcType=DOUBLE},
+	</if>
+  	<if test="impType != null and impType != ''">
+		IMP_TYPE = #{impType,jdbcType=CHAR},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="indexName != null and indexName != ''">
+		INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="employCode != null and employCode != ''">
+		EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		calc_Month = #{calcMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		version_Id = #{versionId,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TLawFactorImpValue" >
+		update T_LAW_FACTOR_IMP_VALUE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			INDEX_VALUE = #{indexValue,jdbcType=DOUBLE},
+  			IMP_TYPE = #{impType,jdbcType=CHAR},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			INDEX_NAME = #{indexName,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+  			calc_Month = #{calcMonth,jdbcType=VARCHAR},
+  			version_id = #{versionId,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_FACTOR_IMP_VALUE
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_FACTOR_IMP_VALUE
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_FACTOR_IMP_VALUE <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 查询团队长 -->
+	<select id="queryGroupLeaderByGroupCode" parameterType="java.lang.String" resultType="map">
+	   select distinct t.group_leader as "salesmanCode",
+                t2.salesman_cname as "salesmanCname",
+                t.group_code as "groupCode"
+		  from group_leader_record t, salesman t2
+		 where t.group_leader = t2.salesman_code
+		   and t.group_code = #{groupCode,jdbcType=VARCHAR}
+		   and t.VALID_IND = '1'
+	</select>
+	
+	<!-- 查询某个id是否存在 -->
+	<select id="countByPrimaryKey" resultType="long" parameterType="java.lang.String" >
+	    select count(1) count 
+	    from T_LAW_FACTOR_IMP_VALUE 
+		where PK_ID = #{pkId,jdbcType=VARCHAR}  and VALID_IND = '1'
+	</select>
+	
+	<select id="countBySalesmanCode" resultType="long" parameterType="map" >
+	    select count(1) count 
+	    from T_LAW_FACTOR_IMP_VALUE 
+		where salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+		  and index_code=#{indexCode,jdbcType=VARCHAR}
+		  and VALID_IND = '1'
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.TLawFactorImpValue" resultType="long">
+	select count(1)
+	from T_LAW_FACTOR_IMP_VALUE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="user_Base_Column_List"/>
+		from 
+		 T_LAW_FACTOR_IMP_VALUE 
+		 t1 inner join department t2
+		 on t1.dept_code=t2.dept_code
+		<include refid="user_Base_Where_Sql"/>
+		<if test="impType==1">
+			order by t1.salesman_cname asc,t1.index_code asc
+		</if>
+		<if test="impType==2">
+			order by t1.group_code asc,t1.index_code asc
+		</if>
+		) a where rownum &lt;= #{endpoint}  
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+		select * from (
+			select a.*,rownum rn from (
+			select 
+			<include refid="Base_Column_List"/>
+			from T_LAW_FACTOR_IMP_VALUE
+			<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_FACTOR_IMP_VALUE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_FACTOR_IMP_VALUE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_FACTOR_IMP_VALUE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_FACTOR_IMP_VALUE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<select id="queryLawDefineByVersionId" parameterType="java.lang.String" resultType="java.util.HashMap" >
+		select 
+		  t.version_id "versionId",
+		  t.line_code "lineCode",
+		  t.dept_code "deptCode"
+		from t_law_define t
+		where t.valid_ind = '1'
+		  and t.version_id = #{versionId,jdbcType=VARCHAR}
+	</select>
+	
+	<insert id="insertLawElectricPolicy" parameterType="java.util.List" >
+		insert into t_law_electric_policy(
+			electric_policy_id,
+			version_id,
+			valid_ind,
+			line_code,
+			dept_code,
+			policy_number,
+			insured_person,
+			business_employee_number,
+			business_name,
+			data_month,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date,
+			batch_number
+		) 
+		<foreach collection="list" index="index" item="item" separator=" UNION ALL ">
+        select
+	        sys_guid(),
+	        #{item.versionId,jdbcType=VARCHAR},
+	        #{item.validInd,jdbcType=VARCHAR},
+	        #{item.lineCode,jdbcType=VARCHAR},
+	        #{item.deptCode,jdbcType=VARCHAR},
+	        #{item.policyNumber,jdbcType=VARCHAR},
+	        #{item.insuredPerson,jdbcType=VARCHAR},
+	        #{item.businessEmployeeNumber,jdbcType=VARCHAR},
+	        #{item.businessName,jdbcType=VARCHAR},
+	        to_char(add_months(sysdate,-1),'yyyymm'),
+	        #{item.createdUser,jdbcType=VARCHAR},
+	        sysdate,
+	        #{item.updatedUser,jdbcType=VARCHAR},
+	        sysdate,
+	        #{item.batchNumber,jdbcType=VARCHAR}
+        FROM DUAL
+        </foreach> 
+		
+	</insert>
+	
+	<select id="queryElectricPolicyListPage" parameterType="java.util.Map" resultType="java.util.HashMap" >
+		select
+			version_id "versionId",
+			valid_ind "validInd",
+			line_code "lineCode",
+			dept_code "deptCode",
+			policy_number "policyNumber",
+			insured_person "insuredPerson",
+			business_employee_number "businessEmployeeNumber",
+			business_name "businessName",
+			data_month "dataMonth",
+			created_user "createdUser",
+			created_date "createdDate",
+			updated_user "updatedUser",
+			updated_date "updatedDate",
+			batch_number "batchNumber"
+		from t_law_electric_policy t
+		where t.valid_ind = '1'
+		  and t.version_id = #{versionId,jdbcType=VARCHAR}
+		  and t.data_month = #{dataMonth,jdbcType=VARCHAR}
+		  <if test=" businessEmployeeNumber != null and businessEmployeeNumber != '' " >
+		  and t.business_employee_number = #{businessEmployeeNumber,jdbcType=VARCHAR}
+		  </if>
+	</select>
+	
+	<update id="deleteElectricPolicy" parameterType="java.lang.String">
+		update t_law_electric_policy t 
+		set t.valid_ind = '0'
+		where t.valid_ind = '1'
+		  and t.version_id = #{versionId,jdbcType=VARCHAR}
+		  and t.data_month = to_char(add_months(sysdate,-1),'yyyymm')
+	</update>
+	
+</mapper>

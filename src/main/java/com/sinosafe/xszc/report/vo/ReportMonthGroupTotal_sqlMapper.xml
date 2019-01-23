@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportMonthGroupTotal" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Long" jdbcType="BIGINT" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PERCENT_NOT_CAR" property="percentNotCar" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_RATE_LAST_MONTH" property="claimRateLastMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_RATE_LAST_MONTH_YEAR" property="claimRateLastMonthYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCEASE_COUNT" property="inceaseCount" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_LAST_MONTH" property="gotFeeLastMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_PLAN_PERCETN" property="groupPlanPercetn" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MENBER_COUNT_LAST_YEAR" property="menberCountLastYear" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_THIS_YEAE" property="gotFeeThisYeae" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_TOTAL_FEE" property="groupTotalFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_LEADER" property="groupLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_NOT_CAR" property="gotFeeNotCar" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_THIS_MONTH" property="gotFeeThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MENBER_COUNT_THIS_YEAR" property="menberCountThisYear" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="CLAIM_RATE_THIS_MONTH" property="claimRateThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="AVG_FEE" property="avgFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CLAIM_RATE_THIS_MONTH_YEAR" property="claimRateThisMonthYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_PLAN_FEE" property="groupPlanFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="RENEWAL_RATE_CAR" property="renewalRateCar" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_INCEASE_RATE" property="gotFeeInceaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CNAME" property="groupCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_LAST_YEAE" property="gotFeeLastYeae" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportMonthGroupTotal">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Long" jdbcType="BIGINT" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PERCENT_NOT_CAR" property="percentNotCar" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_RATE_LAST_MONTH" property="claimRateLastMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_RATE_LAST_MONTH_YEAR" property="claimRateLastMonthYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCEASE_COUNT" property="inceaseCount" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_LAST_MONTH" property="gotFeeLastMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_PLAN_PERCETN" property="groupPlanPercetn" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MENBER_COUNT_LAST_YEAR" property="menberCountLastYear" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_THIS_YEAE" property="gotFeeThisYeae" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_TOTAL_FEE" property="groupTotalFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_LEADER" property="groupLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_NOT_CAR" property="gotFeeNotCar" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_THIS_MONTH" property="gotFeeThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MENBER_COUNT_THIS_YEAR" property="menberCountThisYear" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="CLAIM_RATE_THIS_MONTH" property="claimRateThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="AVG_FEE" property="avgFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CLAIM_RATE_THIS_MONTH_YEAR" property="claimRateThisMonthYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_PLAN_FEE" property="groupPlanFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="RENEWAL_RATE_CAR" property="renewalRateCar" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_INCEASE_RATE" property="gotFeeInceaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CNAME" property="groupCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_LAST_YEAE" property="gotFeeLastYeae" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		PK_ID,
+		t.CREATED_USER,
+		t.UPDATED_DATE,
+		to_char(PERCENT_NOT_CAR*100, 'fm99999999999990.00')  || '%' as "percentNotCar",
+		de.dept_simple_name DEPT_CODE_2,
+		dept.dept_simple_name DEPT_CODE_3,
+		to_char(CLAIM_RATE_LAST_MONTH*100, 'fm99999999999990.00')  || '%' as "claimRateLastMonth",
+		t.CREATED_DATE,
+		SALESMAN_CODE,
+		to_char(CLAIM_RATE_LAST_MONTH_YEAR*100, 'fm99999999999990.00')  || '%' as "claimRateLastMonthYear",
+		INCEASE_COUNT,
+		to_char(GOT_FEE_LAST_MONTH, 'fm99999999999990.00') as "gotFeeLastMonth",
+		to_char(GROUP_PLAN_PERCETN*100, 'fm99999999999990.00')  || '%' as "groupPlanPercetn",
+		t.UPDATED_USER,
+		MENBER_COUNT_LAST_YEAR,
+		to_char(GOT_FEE_THIS_YEAE, 'fm99999999999990.00') as "gotFeeThisYeae",
+		to_char(GROUP_TOTAL_FEE, 'fm99999999999990.00') as "groupTotalFee",
+		GROUP_LEADER,
+		STAT_MONTH,
+		to_char(GOT_FEE_NOT_CAR, 'fm99999999999990.00') as "gotFeeNotCar",
+		to_char(GOT_FEE_THIS_MONTH, 'fm99999999999990.00') as "gotFeeThisMonth",
+		MENBER_COUNT_THIS_YEAR,
+		to_char(CLAIM_RATE_THIS_MONTH*100, 'fm99999999999990.00')  || '%' as "claimRateThisMonth",
+		to_char(AVG_FEE, 'fm99999999999990.00') as "avgFee",
+		to_char(CLAIM_RATE_THIS_MONTH_YEAR*100, 'fm99999999999990.00')  || '%' as "claimRateThisMonthYear",
+		to_char(GROUP_PLAN_FEE, 'fm99999999999990.00') as "groupPlanFee",
+		to_char(RENEWAL_RATE_CAR*100, 'fm99999999999990.00')  || '%' as "renewalRateCar",
+		to_char(GOT_FEE_INCEASE_RATE*100, 'fm99999999999990.00')  || '%' as "gotFeeInceaseRate",
+		GROUP_CODE,
+		GROUP_CNAME,
+		to_char(GOT_FEE_LAST_YEAE, 'fm99999999999990.00') as "gotFeeLastYeae"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		PK_ID as "pkId",
+		CREATED_USER as "createdUser",
+		UPDATED_DATE as "updatedDate",
+		PERCENT_NOT_CAR as "percentNotCar",
+		DEPT_CODE_2 as "deptCode2",
+		DEPT_CODE_3 as "deptCode3",
+		CLAIM_RATE_LAST_MONTH as "claimRateLastMonth",
+		CREATED_DATE as "createdDate",
+		SALESMAN_CODE as "salesmanCode",
+		CLAIM_RATE_LAST_MONTH_YEAR as "claimRateLastMonthYear",
+		INCEASE_COUNT as "inceaseCount",
+		GOT_FEE_LAST_MONTH as "gotFeeLastMonth",
+		GROUP_PLAN_PERCETN as "groupPlanPercetn",
+		UPDATED_USER as "updatedUser",
+		MENBER_COUNT_LAST_YEAR as "menberCountLastYear",
+		GOT_FEE_THIS_YEAE as "gotFeeThisYeae",
+		GROUP_TOTAL_FEE as "groupTotalFee",
+		GROUP_LEADER as "groupLeader",
+		STAT_MONTH as "statMonth",
+		GOT_FEE_NOT_CAR as "gotFeeNotCar",
+		GOT_FEE_THIS_MONTH as "gotFeeThisMonth",
+		MENBER_COUNT_THIS_YEAR as "menberCountThisYear",
+		CLAIM_RATE_THIS_MONTH as "claimRateThisMonth",
+		AVG_FEE as "avgFee",
+		CLAIM_RATE_THIS_MONTH_YEAR as "claimRateThisMonthYear",
+		GROUP_PLAN_FEE as "groupPlanFee",
+		RENEWAL_RATE_CAR as "renewalRateCar",
+		GOT_FEE_INCEASE_RATE as "gotFeeInceaseRate",
+		GROUP_CODE as "groupCode",
+		GROUP_CNAME as "groupCname",
+		GOT_FEE_LAST_YEAE as "gotFeeLastYeae"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{pkId,jdbcType=BIGINT},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{percentNotCar,jdbcType=DOUBLE},
+ 		#{deptCode2,jdbcType=VARCHAR},
+ 		#{deptCode3,jdbcType=VARCHAR},
+ 		#{claimRateLastMonth,jdbcType=DOUBLE},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{claimRateLastMonthYear,jdbcType=DOUBLE},
+ 		#{inceaseCount,jdbcType=INTEGER},
+ 		#{gotFeeLastMonth,jdbcType=DOUBLE},
+ 		#{groupPlanPercetn,jdbcType=DOUBLE},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{menberCountLastYear,jdbcType=INTEGER},
+ 		#{gotFeeThisYeae,jdbcType=DOUBLE},
+ 		#{groupTotalFee,jdbcType=DOUBLE},
+ 		#{groupLeader,jdbcType=VARCHAR},
+ 		#{statMonth,jdbcType=INTEGER},
+ 		#{gotFeeNotCar,jdbcType=DOUBLE},
+ 		#{gotFeeThisMonth,jdbcType=DOUBLE},
+ 		#{menberCountThisYear,jdbcType=INTEGER},
+ 		#{claimRateThisMonth,jdbcType=DOUBLE},
+ 		#{avgFee,jdbcType=DOUBLE},
+ 		#{claimRateThisMonthYear,jdbcType=DOUBLE},
+ 		#{groupPlanFee,jdbcType=DOUBLE},
+ 		#{renewalRateCar,jdbcType=DOUBLE},
+ 		#{gotFeeInceaseRate,jdbcType=DOUBLE},
+ 		#{groupCode,jdbcType=VARCHAR},
+ 		#{groupCname,jdbcType=VARCHAR},
+ 		#{gotFeeLastYeae,jdbcType=DOUBLE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=BIGINT}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="percentNotCar != null and percentNotCar != ''">
+			and PERCENT_NOT_CAR = #{percentNotCar,jdbcType=DOUBLE}
+		</if>
+		<if test="deptCode2 != null and deptCode2 != ''">
+			and DEPT_CODE_2 = f_get_inter_dept(#{deptCode2,jdbcType=VARCHAR})
+		</if>
+		<if test="deptCode3 != null and deptCode3 != ''">
+			and DEPT_CODE_3 = f_get_inter_dept(#{deptCode3,jdbcType=VARCHAR})
+		</if>
+		<if test="claimRateLastMonth != null and claimRateLastMonth != ''">
+			and CLAIM_RATE_LAST_MONTH = #{claimRateLastMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="claimRateLastMonthYear != null and claimRateLastMonthYear != ''">
+			and CLAIM_RATE_LAST_MONTH_YEAR = #{claimRateLastMonthYear,jdbcType=DOUBLE}
+		</if>
+		<if test="inceaseCount != null and inceaseCount != ''">
+			and INCEASE_COUNT = #{inceaseCount,jdbcType=INTEGER}
+		</if>
+		<if test="gotFeeLastMonth != null and gotFeeLastMonth != ''">
+			and GOT_FEE_LAST_MONTH = #{gotFeeLastMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="groupPlanPercetn != null and groupPlanPercetn != ''">
+			and GROUP_PLAN_PERCETN = #{groupPlanPercetn,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="menberCountLastYear != null and menberCountLastYear != ''">
+			and MENBER_COUNT_LAST_YEAR = #{menberCountLastYear,jdbcType=INTEGER}
+		</if>
+		<if test="gotFeeThisYeae != null and gotFeeThisYeae != ''">
+			and GOT_FEE_THIS_YEAE = #{gotFeeThisYeae,jdbcType=DOUBLE}
+		</if>
+		<if test="groupTotalFee != null and groupTotalFee != ''">
+			and GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE}
+		</if>
+		<if test="groupLeader != null and groupLeader != ''">
+			and GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR}
+		</if>
+		<if test="statMonth != null and statMonth != ''">
+			and to_date(substr(to_char(STAT_MONTH,'yyyy-mm-dd'),1,7),'yyyy-mm') = to_date(#{statMonth,jdbcType=VARCHAR},'yyyymm')
+		</if>
+		<if test="gotFeeNotCar != null and gotFeeNotCar != ''">
+			and GOT_FEE_NOT_CAR = #{gotFeeNotCar,jdbcType=DOUBLE}
+		</if>
+		<if test="gotFeeThisMonth != null and gotFeeThisMonth != ''">
+			and GOT_FEE_THIS_MONTH = #{gotFeeThisMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="menberCountThisYear != null and menberCountThisYear != ''">
+			and MENBER_COUNT_THIS_YEAR = #{menberCountThisYear,jdbcType=INTEGER}
+		</if>
+		<if test="claimRateThisMonth != null and claimRateThisMonth != ''">
+			and CLAIM_RATE_THIS_MONTH = #{claimRateThisMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="avgFee != null and avgFee != ''">
+			and AVG_FEE = #{avgFee,jdbcType=DOUBLE}
+		</if>
+		<if test="claimRateThisMonthYear != null and claimRateThisMonthYear != ''">
+			and CLAIM_RATE_THIS_MONTH_YEAR = #{claimRateThisMonthYear,jdbcType=DOUBLE}
+		</if>
+		<if test="groupPlanFee != null and groupPlanFee != ''">
+			and GROUP_PLAN_FEE = #{groupPlanFee,jdbcType=DOUBLE}
+		</if>
+		<if test="renewalRateCar != null and renewalRateCar != ''">
+			and RENEWAL_RATE_CAR = #{renewalRateCar,jdbcType=DOUBLE}
+		</if>
+		<if test="gotFeeInceaseRate != null and gotFeeInceaseRate != ''">
+			and GOT_FEE_INCEASE_RATE = #{gotFeeInceaseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCname != null and groupCname != ''">
+			and GROUP_CNAME = #{groupCname,jdbcType=VARCHAR}
+		</if>
+		<if test="gotFeeLastYeae != null and gotFeeLastYeae != ''">
+			and GOT_FEE_LAST_YEAE = #{gotFeeLastYeae,jdbcType=DOUBLE}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportMonthGroupTotal" >
+    insert into REPORT_MONTH_GROUP_TOTAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_MONTH_GROUP_TOTAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from REPORT_MONTH_GROUP_TOTAL
+    where PK_ID = #{pkId,jdbcType=BIGINT}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_MONTH_GROUP_TOTAL
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_MONTH_GROUP_TOTAL
+	<set>
+ 	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="percentNotCar != null and percentNotCar != ''">
+		PERCENT_NOT_CAR = #{percentNotCar,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimRateLastMonth != null and claimRateLastMonth != ''">
+		CLAIM_RATE_LAST_MONTH = #{claimRateLastMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimRateLastMonthYear != null and claimRateLastMonthYear != ''">
+		CLAIM_RATE_LAST_MONTH_YEAR = #{claimRateLastMonthYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="inceaseCount != null and inceaseCount != ''">
+		INCEASE_COUNT = #{inceaseCount,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeLastMonth != null and gotFeeLastMonth != ''">
+		GOT_FEE_LAST_MONTH = #{gotFeeLastMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupPlanPercetn != null and groupPlanPercetn != ''">
+		GROUP_PLAN_PERCETN = #{groupPlanPercetn,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="menberCountLastYear != null and menberCountLastYear != ''">
+		MENBER_COUNT_LAST_YEAR = #{menberCountLastYear,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeThisYeae != null and gotFeeThisYeae != ''">
+		GOT_FEE_THIS_YEAE = #{gotFeeThisYeae,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupTotalFee != null and groupTotalFee != ''">
+		GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupLeader != null and groupLeader != ''">
+		GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeNotCar != null and gotFeeNotCar != ''">
+		GOT_FEE_NOT_CAR = #{gotFeeNotCar,jdbcType=DOUBLE},
+	</if>
+  	<if test="gotFeeThisMonth != null and gotFeeThisMonth != ''">
+		GOT_FEE_THIS_MONTH = #{gotFeeThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="menberCountThisYear != null and menberCountThisYear != ''">
+		MENBER_COUNT_THIS_YEAR = #{menberCountThisYear,jdbcType=INTEGER},
+	</if>
+  	<if test="claimRateThisMonth != null and claimRateThisMonth != ''">
+		CLAIM_RATE_THIS_MONTH = #{claimRateThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="avgFee != null and avgFee != ''">
+		AVG_FEE = #{avgFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="claimRateThisMonthYear != null and claimRateThisMonthYear != ''">
+		CLAIM_RATE_THIS_MONTH_YEAR = #{claimRateThisMonthYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupPlanFee != null and groupPlanFee != ''">
+		GROUP_PLAN_FEE = #{groupPlanFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="renewalRateCar != null and renewalRateCar != ''">
+		RENEWAL_RATE_CAR = #{renewalRateCar,jdbcType=DOUBLE},
+	</if>
+  	<if test="gotFeeInceaseRate != null and gotFeeInceaseRate != ''">
+		GOT_FEE_INCEASE_RATE = #{gotFeeInceaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCname != null and groupCname != ''">
+		GROUP_CNAME = #{groupCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="gotFeeLastYeae != null and gotFeeLastYeae != ''">
+		GOT_FEE_LAST_YEAE = #{gotFeeLastYeae,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_MONTH_GROUP_TOTAL
+		set 
+ 			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			PERCENT_NOT_CAR = #{percentNotCar,jdbcType=DOUBLE},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+  			DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+  			CLAIM_RATE_LAST_MONTH = #{claimRateLastMonth,jdbcType=DOUBLE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			CLAIM_RATE_LAST_MONTH_YEAR = #{claimRateLastMonthYear,jdbcType=DOUBLE},
+  			INCEASE_COUNT = #{inceaseCount,jdbcType=INTEGER},
+  			GOT_FEE_LAST_MONTH = #{gotFeeLastMonth,jdbcType=DOUBLE},
+  			GROUP_PLAN_PERCETN = #{groupPlanPercetn,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			MENBER_COUNT_LAST_YEAR = #{menberCountLastYear,jdbcType=INTEGER},
+  			GOT_FEE_THIS_YEAE = #{gotFeeThisYeae,jdbcType=DOUBLE},
+  			GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+  			GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+  			STAT_MONTH = #{statMonth,jdbcType=INTEGER},
+  			GOT_FEE_NOT_CAR = #{gotFeeNotCar,jdbcType=DOUBLE},
+  			GOT_FEE_THIS_MONTH = #{gotFeeThisMonth,jdbcType=DOUBLE},
+  			MENBER_COUNT_THIS_YEAR = #{menberCountThisYear,jdbcType=INTEGER},
+  			CLAIM_RATE_THIS_MONTH = #{claimRateThisMonth,jdbcType=DOUBLE},
+  			AVG_FEE = #{avgFee,jdbcType=DOUBLE},
+  			CLAIM_RATE_THIS_MONTH_YEAR = #{claimRateThisMonthYear,jdbcType=DOUBLE},
+  			GROUP_PLAN_FEE = #{groupPlanFee,jdbcType=DOUBLE},
+  			RENEWAL_RATE_CAR = #{renewalRateCar,jdbcType=DOUBLE},
+  			GOT_FEE_INCEASE_RATE = #{gotFeeInceaseRate,jdbcType=DOUBLE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			GROUP_CNAME = #{groupCname,jdbcType=VARCHAR},
+  			GOT_FEE_LAST_YEAE = #{gotFeeLastYeae,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportMonthGroupTotal" >
+	update REPORT_MONTH_GROUP_TOTAL
+	<set>
+ 	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="percentNotCar != null and percentNotCar != ''">
+		PERCENT_NOT_CAR = #{percentNotCar,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimRateLastMonth != null and claimRateLastMonth != ''">
+		CLAIM_RATE_LAST_MONTH = #{claimRateLastMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimRateLastMonthYear != null and claimRateLastMonthYear != ''">
+		CLAIM_RATE_LAST_MONTH_YEAR = #{claimRateLastMonthYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="inceaseCount != null and inceaseCount != ''">
+		INCEASE_COUNT = #{inceaseCount,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeLastMonth != null and gotFeeLastMonth != ''">
+		GOT_FEE_LAST_MONTH = #{gotFeeLastMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupPlanPercetn != null and groupPlanPercetn != ''">
+		GROUP_PLAN_PERCETN = #{groupPlanPercetn,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="menberCountLastYear != null and menberCountLastYear != ''">
+		MENBER_COUNT_LAST_YEAR = #{menberCountLastYear,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeThisYeae != null and gotFeeThisYeae != ''">
+		GOT_FEE_THIS_YEAE = #{gotFeeThisYeae,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupTotalFee != null and groupTotalFee != ''">
+		GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupLeader != null and groupLeader != ''">
+		GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeNotCar != null and gotFeeNotCar != ''">
+		GOT_FEE_NOT_CAR = #{gotFeeNotCar,jdbcType=DOUBLE},
+	</if>
+  	<if test="gotFeeThisMonth != null and gotFeeThisMonth != ''">
+		GOT_FEE_THIS_MONTH = #{gotFeeThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="menberCountThisYear != null and menberCountThisYear != ''">
+		MENBER_COUNT_THIS_YEAR = #{menberCountThisYear,jdbcType=INTEGER},
+	</if>
+  	<if test="claimRateThisMonth != null and claimRateThisMonth != ''">
+		CLAIM_RATE_THIS_MONTH = #{claimRateThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="avgFee != null and avgFee != ''">
+		AVG_FEE = #{avgFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="claimRateThisMonthYear != null and claimRateThisMonthYear != ''">
+		CLAIM_RATE_THIS_MONTH_YEAR = #{claimRateThisMonthYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupPlanFee != null and groupPlanFee != ''">
+		GROUP_PLAN_FEE = #{groupPlanFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="renewalRateCar != null and renewalRateCar != ''">
+		RENEWAL_RATE_CAR = #{renewalRateCar,jdbcType=DOUBLE},
+	</if>
+  	<if test="gotFeeInceaseRate != null and gotFeeInceaseRate != ''">
+		GOT_FEE_INCEASE_RATE = #{gotFeeInceaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCname != null and groupCname != ''">
+		GROUP_CNAME = #{groupCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="gotFeeLastYeae != null and gotFeeLastYeae != ''">
+		GOT_FEE_LAST_YEAE = #{gotFeeLastYeae,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportMonthGroupTotal" >
+		update REPORT_MONTH_GROUP_TOTAL
+		set 
+ 			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			PERCENT_NOT_CAR = #{percentNotCar,jdbcType=DOUBLE},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+  			DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+  			CLAIM_RATE_LAST_MONTH = #{claimRateLastMonth,jdbcType=DOUBLE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			CLAIM_RATE_LAST_MONTH_YEAR = #{claimRateLastMonthYear,jdbcType=DOUBLE},
+  			INCEASE_COUNT = #{inceaseCount,jdbcType=INTEGER},
+  			GOT_FEE_LAST_MONTH = #{gotFeeLastMonth,jdbcType=DOUBLE},
+  			GROUP_PLAN_PERCETN = #{groupPlanPercetn,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			MENBER_COUNT_LAST_YEAR = #{menberCountLastYear,jdbcType=INTEGER},
+  			GOT_FEE_THIS_YEAE = #{gotFeeThisYeae,jdbcType=DOUBLE},
+  			GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+  			GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+  			STAT_MONTH = #{statMonth,jdbcType=INTEGER},
+  			GOT_FEE_NOT_CAR = #{gotFeeNotCar,jdbcType=DOUBLE},
+  			GOT_FEE_THIS_MONTH = #{gotFeeThisMonth,jdbcType=DOUBLE},
+  			MENBER_COUNT_THIS_YEAR = #{menberCountThisYear,jdbcType=INTEGER},
+  			CLAIM_RATE_THIS_MONTH = #{claimRateThisMonth,jdbcType=DOUBLE},
+  			AVG_FEE = #{avgFee,jdbcType=DOUBLE},
+  			CLAIM_RATE_THIS_MONTH_YEAR = #{claimRateThisMonthYear,jdbcType=DOUBLE},
+  			GROUP_PLAN_FEE = #{groupPlanFee,jdbcType=DOUBLE},
+  			RENEWAL_RATE_CAR = #{renewalRateCar,jdbcType=DOUBLE},
+  			GOT_FEE_INCEASE_RATE = #{gotFeeInceaseRate,jdbcType=DOUBLE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			GROUP_CNAME = #{groupCname,jdbcType=VARCHAR},
+  			GOT_FEE_LAST_YEAE = #{gotFeeLastYeae,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select <include refid="Base_Column_List" />
+	from REPORT_MONTH_GROUP_TOTAL
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Long" >
+    select <include refid="Base_Column_List" />
+	from REPORT_MONTH_GROUP_TOTAL
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_MONTH_GROUP_TOTAL <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportMonthGroupTotal" resultType="long">
+	select count(1)
+	from REPORT_MONTH_GROUP_TOTAL <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MONTH_GROUP_TOTAL t
+		left join department de 
+			on t.DEPT_CODE_2 = de.inter_code
+		left join department dept 
+			on t.DEPT_CODE_3 = dept.inter_code
+		<include refid="Base_Where_Sql"/>
+		order by t.dept_code_2,t.Group_Code desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MONTH_GROUP_TOTAL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MONTH_GROUP_TOTAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MONTH_GROUP_TOTAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_MONTH_GROUP_TOTAL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_MONTH_GROUP_TOTAL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

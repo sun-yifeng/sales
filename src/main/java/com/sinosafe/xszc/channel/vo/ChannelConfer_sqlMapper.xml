@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelConfer" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="CONFER_CODE" property="conferCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EXPIRE_DATE" property="expireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CALCLATE_PERIOD" property="calclatePeriod" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="SIGN_DATE" property="signDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="RATE" property="rate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_CHANNEL" property="financeChannel" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONFER_TYPE" property="conferType" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="EXTEND_CONFER_CODE" property="extendConferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GRANT_FLAG" property="grantFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VALID_DATE" property="validDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="FEATURE" property="feature" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="GRANT_DEPT" property="grantDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MEDIUM_CNAME" property="mediumCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CNAME" property="deptCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_NAME" property="channelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFER_ID" property="conferId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_FLAG" property="approveFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_CODE" property="approveCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALCLATE_FLAG" property="calclateFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMM_TYPE" property="paymentTax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelConfer">
+		<id column="CONFER_CODE" property="conferCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EXPIRE_DATE" property="expireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CALCLATE_PERIOD" property="calclatePeriod" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="SIGN_DATE" property="signDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="RATE" property="rate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_CHANNEL" property="financeChannel" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONFER_TYPE" property="conferType" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="EXTEND_CONFER_CODE" property="extendConferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GRANT_FLAG" property="grantFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VALID_DATE" property="validDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="FEATURE" property="feature" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="GRANT_DEPT" property="grantDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFER_ID" property="conferId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_FLAG" property="approveFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_CODE" property="approveCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALCLATE_FLAG" property="calclateFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMM_TYPE" property="paymentTax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		EXPIRE_DATE,
+		CALCLATE_PERIOD,
+		SIGN_DATE,
+		RATE,
+		CREATED_USER,
+		CHANNEL_CODE,
+		FINANCE_CHANNEL,
+		REMARK,
+		DEPT_CODE,
+		UPDATED_DATE,
+		CONFER_TYPE,
+		CONFER_CODE,
+		EXTEND_CONFER_CODE,
+		GRANT_FLAG,
+		VALID_IND,
+		CREATED_DATE,
+		VALID_DATE,
+		FEATURE,
+		GRANT_DEPT,
+		CONFER_ID,
+		APPROVE_FLAG,
+		CALCLATE_FLAG,
+		COMM_TYPE
+	</sql>
+	
+	<sql id="Base_Column_List_S" >
+		mn.UPDATED_USER,
+		to_char(mn.EXPIRE_DATE,'yyyy-mm-dd') as "EXPIRE_DATE",
+		CALCLATE_PERIOD,
+		to_char(mn.SIGN_DATE,'yyyy-mm-dd') as "SIGN_DATE",
+		RATE,
+		mn.CREATED_USER,
+		mn.CHANNEL_CODE,
+		mn.REMARK,
+		mn.DEPT_CODE,
+		mn.UPDATED_DATE,
+		CONFER_CODE,
+		EXTEND_CONFER_CODE,
+		GRANT_FLAG,
+		mn.VALID_IND,
+		mn.CREATED_DATE,
+		to_char(mn.VALID_DATE,'yyyy-mm-dd') as "VALID_DATE",
+		GRANT_DEPT,
+		CONFER_ID,
+		CALCLATE_FLAG,
+		COMM_TYPE as "paymentTax"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		EXPIRE_DATE as "expireDate",
+		CALCLATE_PERIOD as "calclatePeriod",
+		SIGN_DATE as "signDate",
+		RATE as "rate",
+		CREATED_USER as "createdUser",
+		CHANNEL_CODE as "channelCode",
+		FINANCE_CHANNEL as "financeChannel",
+		REMARK as "remark",
+		DEPT_CODE as "deptCode",
+		UPDATED_DATE as "updatedDate",
+		CONFER_TYPE as "conferType",
+		CONFER_CODE as "conferCode",
+		EXTEND_CONFER_CODE as "extendConferCode",
+		GRANT_FLAG as "grantFlag",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		VALID_DATE as "validDate",
+		FEATURE as "feature",
+		GRANT_DEPT as "grantDept",
+		CONFER_ID as "conferId",
+		APPROVE_FLAG as "approveFlag",
+		CALCLATE_FLAG as "calclateFlag",
+		COMM_TYPE  as "commType"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{calclatePeriod,jdbcType=INTEGER},
+ 		to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{rate,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{financeChannel,jdbcType=CHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{conferType,jdbcType=CHAR},
+ 		#{conferCode,jdbcType=VARCHAR},
+ 		#{extendConferCode,jdbcType=VARCHAR},
+ 		#{grantFlag,jdbcType=CHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{feature,jdbcType=CHAR},
+ 		#{grantDept,jdbcType=VARCHAR},
+ 		#{conferId,jdbcType=VARCHAR},
+ 		#{approveFlag,jdbcType=CHAR},
+ 		#{calclateFlag,jdbcType=CHAR},
+ 		#{paymentTax,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="expireDate != null and expireDate != ''">
+			and EXPIRE_DATE = #{expireDate,jdbcType=DATE}
+		</if>
+		<if test="calclatePeriod != null and calclatePeriod != ''">
+			and CALCLATE_PERIOD = #{calclatePeriod,jdbcType=INTEGER}
+		</if>
+		<if test="signDate != null and signDate != ''">
+			and mn.SIGN_DATE = to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd')
+		</if>
+		<if test="rate != null and rate != ''">
+			and RATE = #{rate,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and mn.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="financeChannel != null and financeChannel != ''">
+			and FINANCE_CHANNEL = #{financeChannel,jdbcType=CHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="conferType != null and conferType != ''">
+			and CONFER_TYPE = #{conferType,jdbcType=CHAR}
+		</if>
+		<if test="conferCode != null and conferCode != ''">
+			and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		</if>
+		<if test="extendConferCode != null and extendConferCode != ''">
+			and EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR}
+		</if>
+		<if test="grantFlag != null and grantFlag != ''">
+			and GRANT_FLAG = #{grantFlag,jdbcType=CHAR}
+		</if>
+			and mn.VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="validDate != null and validDate != ''">
+			and VALID_DATE = #{validDate,jdbcType=DATE}
+		</if>
+		<if test="feature != null and feature != ''">
+			and FEATURE = #{feature,jdbcType=CHAR}
+		</if>
+		<if test="grantDept != null and grantDept != ''">
+			and GRANT_DEPT = #{grantDept,jdbcType=VARCHAR}
+		</if>
+		<if test="conferId != null and conferId != ''">
+			and CONFER_ID = #{conferId,jdbcType=VARCHAR}
+		</if>
+		<if test="calclateFlag != null and calclateFlag != ''">
+			and CALCLATE_FLAG = #{calclateFlag,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConfer" >
+    insert into CHANNEL_CONFER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_CONFER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_CONFER
+    where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_CONFER
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_CONFER
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="expireDate != null and expireDate != ''">
+		EXPIRE_DATE = #{expireDate,jdbcType=DATE},
+	</if>
+  	<if test="calclatePeriod != null and calclatePeriod != ''">
+		CALCLATE_PERIOD = #{calclatePeriod,jdbcType=INTEGER},
+	</if>
+  	<if test="signDate != null and signDate != ''">
+		SIGN_DATE = #{signDate,jdbcType=DATE},
+	</if>
+  	<if test="rate != null and rate != ''">
+		RATE = #{rate,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="financeChannel != null and financeChannel != ''">
+		FINANCE_CHANNEL = #{financeChannel,jdbcType=CHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="conferType != null and conferType != ''">
+		CONFER_TYPE = #{conferType,jdbcType=CHAR},
+	</if>
+   	<if test="extendConferCode != null and extendConferCode != ''">
+		EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="grantFlag != null and grantFlag != ''">
+		GRANT_FLAG = #{grantFlag,jdbcType=CHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="validDate != null and validDate != ''">
+		VALID_DATE = #{validDate,jdbcType=DATE},
+	</if>
+  	<if test="feature != null and feature != ''">
+		FEATURE = #{feature,jdbcType=CHAR},
+	</if>
+  	<if test="grantDept != null and grantDept != ''">
+		GRANT_DEPT = #{grantDept,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_CONFER
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			EXPIRE_DATE = #{expireDate,jdbcType=DATE},
+  			CALCLATE_PERIOD = #{calclatePeriod,jdbcType=INTEGER},
+  			SIGN_DATE = #{signDate,jdbcType=DATE},
+  			RATE = #{rate,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			FINANCE_CHANNEL = #{financeChannel,jdbcType=CHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			CONFER_TYPE = #{conferType,jdbcType=CHAR},
+   			EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR},
+  			GRANT_FLAG = #{grantFlag,jdbcType=CHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			VALID_DATE = #{validDate,jdbcType=DATE},
+  			FEATURE = #{feature,jdbcType=CHAR},
+  			GRANT_DEPT = #{grantDept,jdbcType=VARCHAR}
+  		where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConfer" >
+	update CHANNEL_CONFER
+	<set>
+		APPROVE_FLAG = '0',
+		UPDATED_DATE = SYSDATE,
+	<if test="updatedUser != null and updatedUser != ''">
+		APPROVE_CODE = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="expireDate != null and expireDate != ''">
+		EXPIRE_DATE = to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd'),
+	</if>
+  	<if test="calclatePeriod != null and calclatePeriod != ''">
+		CALCLATE_PERIOD = #{calclatePeriod,jdbcType=INTEGER},
+	</if>
+  	<if test="signDate != null and signDate != ''">
+		SIGN_DATE = to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd'),
+	</if>
+  	<if test="rate != null and rate != ''">
+		RATE = #{rate,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="financeChannel != null and financeChannel != ''">
+		FINANCE_CHANNEL = #{financeChannel,jdbcType=CHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="conferType != null and conferType != ''">
+		CONFER_TYPE = #{conferType,jdbcType=CHAR},
+	</if>
+   	<if test="extendConferCode != null and extendConferCode != ''">
+		EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="grantFlag != null and grantFlag != ''">
+		GRANT_FLAG = #{grantFlag,jdbcType=CHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="validDate != null and validDate != ''">
+		VALID_DATE = to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd'),
+	</if>
+  	<if test="feature != null and feature != ''">
+		FEATURE = #{feature,jdbcType=CHAR},
+	</if>
+  	<if test="grantDept != null and grantDept != ''">
+		GRANT_DEPT = #{grantDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="calclateFlag != null and calclateFlag != ''">
+		calclate_flag = #{calclateFlag,jdbcType=VARCHAR},
+	</if>
+  	<if test="paymentTax != null and paymentTax != ''">
+		comm_type = #{paymentTax,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConfer" >
+		update CHANNEL_CONFER
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			EXPIRE_DATE = to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd'),
+  			SIGN_DATE = to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd'),
+  			VALID_DATE = to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd'),
+  			CALCLATE_PERIOD = #{calclatePeriod,jdbcType=INTEGER},
+  			RATE = #{rate,jdbcType=DOUBLE},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			FINANCE_CHANNEL = #{financeChannel,jdbcType=CHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			<!--CONFER_TYPE = #{conferType,jdbcType=CHAR},-->
+   			EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR},
+  			GRANT_FLAG = #{grantFlag,jdbcType=CHAR},
+  			FEATURE = #{feature,jdbcType=CHAR},
+  			GRANT_DEPT = #{grantDept,jdbcType=VARCHAR},
+  			APPROVE_FLAG = #{approveFlag,jdbcType=CHAR},
+  			APPROVE_CODE = #{approveCode,jdbcType=VARCHAR}
+  		where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deleteById" parameterType="map" >
+		update CHANNEL_CONFER
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_CONFER
+	where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_CONFER
+	where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_CONFER mn <include refid="Base_Where_Sql" />
+	</select>
+	
+	<select id="queryConferCode" parameterType="java.lang.String" resultType="long">
+	select count(1)
+	from CHANNEL_CONFER where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConfer" resultType="long">
+	select count(1)
+	from CHANNEL_CONFER <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select <include refid="Base_Column_List_S" />,
+		MEDIUM_CNAME,DEPT_SIMPLE_NAME DEPT_CNAME,
+		decode(APPROVE_FLAG, '0', '未审核', '1', '已审核', '已审核') as APPROVE_FLAG,
+		sa.salesman_cname APPROVE_CODE,
+		decode(CONFER_TYPE, 'B', '代理协议', 'Q', '经纪协议', 'H', '互联网服务协议', '') as "conferTypeName",
+		CONFER_TYPE as "conferType"
+		from CHANNEL_CONFER mn 
+		left join CHANNEL_MEDIUM_DETAIL pb 
+		on pb.CHANNEL_CODE = mn.CHANNEL_CODE 
+		left join DEPARTMENT dept 
+		on mn.DEPT_CODE = dept.DEPT_CODE
+		left join salesman sa 
+		on mn.APPROVE_CODE = sa.employ_code
+		<include refid="Base_Where_Sql"/>
+		order by mn.EXPIRE_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryAgentListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select <include refid="Base_Column_List_S" />,
+		mn.confer_type as "conferType",
+		pb.CHANNEL_NAME,DEPT_SIMPLE_NAME DEPT_CNAME,
+		decode(APPROVE_FLAG, '0', '未审核', '1', '已审核', '已审核') APPROVE_FLAG,
+		sa.salesman_cname APPROVE_CODE,
+		decode(FINANCE_CHANNEL, '0', '否', '1', '是', '') FINANCE_CHANNEL,
+		fe.CHANNEL_NAME FEATURE
+		from CHANNEL_CONFER mn 
+		left join CHANNEL_AGENT_DETAIL pb 
+		on pb.CHANNEL_CODE = mn.CHANNEL_CODE 
+		left join DEPARTMENT dept 
+		on mn.DEPT_CODE = dept.DEPT_CODE
+		left join CHANNEL_FEATURE fe
+		on fe.CHANNEL_CODE = mn.FEATURE
+		left join salesman sa 
+		on mn.APPROVE_CODE = sa.employ_code
+		<include refid="Base_Where_Sql"/>
+		order by mn.EXPIRE_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 中介机构详细情况 -->
+	<select id="queryListsPage" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List_S" />,
+		MEDIUM_CNAME,mn.DEPT_CODE || '-' || DEPT_SIMPLE_NAME DEPT_CNAME,CONFER_TYPE
+		from CHANNEL_CONFER mn 
+		left join CHANNEL_MEDIUM_DETAIL pb 
+		on pb.CHANNEL_CODE = mn.CHANNEL_CODE 
+		left join DEPARTMENT dept 
+		on mn.DEPT_CODE = dept.DEPT_CODE
+		<!-- <include refid="Base_Where_Sql"/> -->
+		where 1=1
+        <choose>
+        	<when test="conferCode != null and conferCode != ''">
+        		and mn.CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+        	</when>
+        	<otherwise>
+        	    and 1=2
+        	</otherwise>
+        </choose>
+	</select>
+	
+	<select id="queryAgentListsPage" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List_S" />,
+		CHANNEL_NAME,mn.DEPT_CODE || '-' || DEPT_SIMPLE_NAME DEPT_CNAME,FINANCE_CHANNEL,FEATURE
+		from CHANNEL_CONFER mn 
+		left join CHANNEL_Agent_DETAIL pb 
+		on pb.CHANNEL_CODE = mn.CHANNEL_CODE 
+		left join DEPARTMENT dept 
+		on mn.DEPT_CODE = dept.DEPT_CODE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_CONFER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_CONFER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_CONFER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_CONFER
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_CONFER <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<select id="queryCountForHistory" parameterType="com.sinosafe.xszc.channel.vo.ChannelConfer" resultType="long">
+		select count(1) from CHANNEL_CONFER 
+			where 
+		EXPIRE_DATE = to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd')
+		and CALCLATE_PERIOD = #{calclatePeriod,jdbcType=INTEGER}
+		and SIGN_DATE = to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd')
+		<if test="rate != null and rate != ''">
+				and RATE = #{rate,jdbcType=DOUBLE}
+			</if>
+			<if test="rate == null or rate == ''">
+				and RATE is null
+		</if>
+		and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		<if test="financeChannel != null and financeChannel != ''">
+				and FINANCE_CHANNEL = #{financeChannel,jdbcType=CHAR}
+			</if>
+			<if test="financeChannel == null or financeChannel == ''">
+				and FINANCE_CHANNEL is null
+		</if>
+		<if test="remark != null and remark != ''">
+				and REMARK = #{remark,jdbcType=VARCHAR}
+			</if>
+			<if test="remark == null or remark == ''">
+				and REMARK is null
+		</if>
+		and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		<if test="conferType != null and conferType != ''">
+				and CONFER_TYPE = #{conferType,jdbcType=CHAR}
+			</if>
+			<if test="conferType == null or conferType == ''">
+				and CONFER_TYPE is null
+		</if>
+		and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		<if test="extendConferCode != null and extendConferCode != ''">
+				and EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR}
+			</if>
+			<if test="extendConferCode == null or extendConferCode == ''">
+				and EXTEND_CONFER_CODE is null
+		</if>
+		<if test="grantFlag != null and grantFlag != ''">
+				and GRANT_FLAG = #{grantFlag,jdbcType=CHAR}
+			</if>
+			<if test="grantFlag == null or grantFlag == ''">
+				and GRANT_FLAG is null
+		</if>
+		and VALID_IND = 1
+		and VALID_DATE = to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd')
+		<if test="feature != null and feature != ''">
+				and FEATURE = #{feature,jdbcType=CHAR}
+			</if>
+			<if test="feature == null or feature == ''">
+				and FEATURE is null
+		</if>
+		<if test="grantDept != null and grantDept != ''">
+				and GRANT_DEPT = #{grantDept,jdbcType=VARCHAR}
+			</if>
+			<if test="grantDept == null or grantDept == ''">
+				and GRANT_DEPT is null
+		</if>
+	</select>
+	
+	<update id="approveConfer" parameterType="map" >
+		update channel_confer
+		set APPROVE_FLAG = #{approveFlag,jdbcType=CHAR},
+  		APPROVE_CODE = #{approveCode,jdbcType=VARCHAR},
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where CONFER_CODE in (
+			<foreach item="item" index="index" collection="conferCodes" separator=",">
+				#{item}
+			</foreach>
+		)
+	</update>
+	
+	<!-- 更新协议的经办部门 -->
+	<update id="updateDeptCodeByChannelCode" parameterType="com.sinosafe.xszc.channel.vo.ChannelMain" >
+		update CHANNEL_CONFER
+		set 
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			APPROVE_FLAG = '0',
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate
+  		where 1=1
+	  		and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		  	and VALID_IND = '1'
+	  		and DEPT_CODE != #{deptCode,jdbcType=VARCHAR}
+	</update>
+</mapper>

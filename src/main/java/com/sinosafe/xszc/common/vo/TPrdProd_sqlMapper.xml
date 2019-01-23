@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.common.vo.TPrdProd" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="C_PROD_NO" property="cProdNo" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="C_PRD_ATTR" property="cPrdAttr" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_CATEGORY_NO" property="cCategoryNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="T_BGN_TM" property="tBgnTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_ADB_TM" property="tAdbTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_RISK_TYP" property="cRiskTyp" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_KIND_NO" property="cKindNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_CNM_ABR" property="cCnmAbr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_DOC_ID" property="cDocId" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="T_END_TM" property="tEndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_RELAT_CODE" property="cRelatCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_YEAR_FLAG" property="cYearFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_NME_CN" property="cNmeCn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_IF_FORCE" property="cIfForce" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_SAVEINS_FLAG" property="cSaveinsFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_DOC_FMP" property="cDocFmp" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_ARG_FLAG" property="cArgFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_APP_FLAG" property="cAppFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_LONGTERM_FLAG" property="cLongtermFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_NME_EN" property="cNmeEn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.common.vo.TPrdProd">
+		<id column="C_PROD_NO" property="cProdNo" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="C_PRD_ATTR" property="cPrdAttr" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_CATEGORY_NO" property="cCategoryNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="T_BGN_TM" property="tBgnTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_ADB_TM" property="tAdbTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_RISK_TYP" property="cRiskTyp" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_KIND_NO" property="cKindNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_CNM_ABR" property="cCnmAbr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_DOC_ID" property="cDocId" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="T_END_TM" property="tEndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_RELAT_CODE" property="cRelatCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_YEAR_FLAG" property="cYearFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_NME_CN" property="cNmeCn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_IF_FORCE" property="cIfForce" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_SAVEINS_FLAG" property="cSaveinsFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_DOC_FMP" property="cDocFmp" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_ARG_FLAG" property="cArgFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_APP_FLAG" property="cAppFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_LONGTERM_FLAG" property="cLongtermFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_NME_EN" property="cNmeEn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		C_PRD_ATTR,
+		C_CATEGORY_NO,
+		T_BGN_TM,
+		T_ADB_TM,
+		C_RISK_TYP,
+		C_KIND_NO,
+		C_CNM_ABR,
+		C_DOC_ID,
+		C_PROD_NO,
+		T_END_TM,
+		C_RELAT_CODE,
+		C_YEAR_FLAG,
+		C_NME_CN,
+		C_IF_FORCE,
+		C_SAVEINS_FLAG,
+		C_DOC_FMP,
+		C_ARG_FLAG,
+		C_APP_FLAG,
+		C_LONGTERM_FLAG,
+		C_NME_EN
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		C_PRD_ATTR as "cPrdAttr",
+		C_CATEGORY_NO as "cCategoryNo",
+		T_BGN_TM as "tBgnTm",
+		T_ADB_TM as "tAdbTm",
+		C_RISK_TYP as "cRiskTyp",
+		C_KIND_NO as "cKindNo",
+		C_CNM_ABR as "cCnmAbr",
+		C_DOC_ID as "cDocId",
+		C_PROD_NO as "cProdNo",
+		T_END_TM as "tEndTm",
+		C_RELAT_CODE as "cRelatCode",
+		C_YEAR_FLAG as "cYearFlag",
+		C_NME_CN as "cNmeCn",
+		C_IF_FORCE as "cIfForce",
+		C_SAVEINS_FLAG as "cSaveinsFlag",
+		C_DOC_FMP as "cDocFmp",
+		C_ARG_FLAG as "cArgFlag",
+		C_APP_FLAG as "cAppFlag",
+		C_LONGTERM_FLAG as "cLongtermFlag",
+		C_NME_EN as "cNmeEn"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{cPrdAttr,jdbcType=CHAR},
+ 		#{cCategoryNo,jdbcType=VARCHAR},
+ 		#{tBgnTm,jdbcType=DATE},
+ 		#{tAdbTm,jdbcType=DATE},
+ 		#{cRiskTyp,jdbcType=VARCHAR},
+ 		#{cKindNo,jdbcType=VARCHAR},
+ 		#{cCnmAbr,jdbcType=VARCHAR},
+ 		#{cDocId,jdbcType=VARCHAR},
+ 		#{cProdNo,jdbcType=VARCHAR},
+ 		#{tEndTm,jdbcType=DATE},
+ 		#{cRelatCode,jdbcType=VARCHAR},
+ 		#{cYearFlag,jdbcType=CHAR},
+ 		#{cNmeCn,jdbcType=VARCHAR},
+ 		#{cIfForce,jdbcType=CHAR},
+ 		#{cSaveinsFlag,jdbcType=CHAR},
+ 		#{cDocFmp,jdbcType=VARCHAR},
+ 		#{cArgFlag,jdbcType=CHAR},
+ 		#{cAppFlag,jdbcType=CHAR},
+ 		#{cLongtermFlag,jdbcType=CHAR},
+ 		#{cNmeEn,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="cPrdAttr != null and cPrdAttr != ''">
+			and C_PRD_ATTR = #{cPrdAttr,jdbcType=CHAR}
+		</if>
+		<if test="cCategoryNo != null and cCategoryNo != ''">
+			and C_CATEGORY_NO = #{cCategoryNo,jdbcType=VARCHAR}
+		</if>
+		<if test="tBgnTm != null and tBgnTm != ''">
+			and T_BGN_TM = #{tBgnTm,jdbcType=DATE}
+		</if>
+		<if test="tAdbTm != null and tAdbTm != ''">
+			and T_ADB_TM = #{tAdbTm,jdbcType=DATE}
+		</if>
+		<if test="cRiskTyp != null and cRiskTyp != ''">
+			and C_RISK_TYP = #{cRiskTyp,jdbcType=VARCHAR}
+		</if>
+		<if test="cKindNo != null and cKindNo != ''">
+			and C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+		</if>
+		<if test="cCnmAbr != null and cCnmAbr != ''">
+			and C_CNM_ABR = #{cCnmAbr,jdbcType=VARCHAR}
+		</if>
+		<if test="cDocId != null and cDocId != ''">
+			and C_DOC_ID = #{cDocId,jdbcType=VARCHAR}
+		</if>
+		<if test="cProdNo != null and cProdNo != ''">
+			and C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+		</if>
+		<if test="tEndTm != null and tEndTm != ''">
+			and T_END_TM = #{tEndTm,jdbcType=DATE}
+		</if>
+		<if test="cRelatCode != null and cRelatCode != ''">
+			and C_RELAT_CODE = #{cRelatCode,jdbcType=VARCHAR}
+		</if>
+		<if test="cYearFlag != null and cYearFlag != ''">
+			and C_YEAR_FLAG = #{cYearFlag,jdbcType=CHAR}
+		</if>
+		<if test="cNmeCn != null and cNmeCn != ''">
+			and C_NME_CN = #{cNmeCn,jdbcType=VARCHAR}
+		</if>
+		<if test="cIfForce != null and cIfForce != ''">
+			and C_IF_FORCE = #{cIfForce,jdbcType=CHAR}
+		</if>
+		<if test="cSaveinsFlag != null and cSaveinsFlag != ''">
+			and C_SAVEINS_FLAG = #{cSaveinsFlag,jdbcType=CHAR}
+		</if>
+		<if test="cDocFmp != null and cDocFmp != ''">
+			and C_DOC_FMP = #{cDocFmp,jdbcType=VARCHAR}
+		</if>
+		<if test="cArgFlag != null and cArgFlag != ''">
+			and C_ARG_FLAG = #{cArgFlag,jdbcType=CHAR}
+		</if>
+		<if test="cAppFlag != null and cAppFlag != ''">
+			and C_APP_FLAG = #{cAppFlag,jdbcType=CHAR}
+		</if>
+		<if test="cLongtermFlag != null and cLongtermFlag != ''">
+			and C_LONGTERM_FLAG = #{cLongtermFlag,jdbcType=CHAR}
+		</if>
+		<if test="cNmeEn != null and cNmeEn != ''">
+			and C_NME_EN = #{cNmeEn,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.common.vo.TPrdProd" >
+    insert into T_PRD_PROD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_PRD_PROD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_PRD_PROD
+    where C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_PRD_PROD
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_PRD_PROD
+	<set>
+	<if test="cPrdAttr != null and cPrdAttr != ''">
+		C_PRD_ATTR = #{cPrdAttr,jdbcType=CHAR},
+	</if>
+  	<if test="cCategoryNo != null and cCategoryNo != ''">
+		C_CATEGORY_NO = #{cCategoryNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="tBgnTm != null and tBgnTm != ''">
+		T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+	</if>
+  	<if test="tAdbTm != null and tAdbTm != ''">
+		T_ADB_TM = #{tAdbTm,jdbcType=DATE},
+	</if>
+  	<if test="cRiskTyp != null and cRiskTyp != ''">
+		C_RISK_TYP = #{cRiskTyp,jdbcType=VARCHAR},
+	</if>
+  	<if test="cKindNo != null and cKindNo != ''">
+		C_KIND_NO = #{cKindNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="cCnmAbr != null and cCnmAbr != ''">
+		C_CNM_ABR = #{cCnmAbr,jdbcType=VARCHAR},
+	</if>
+  	<if test="cDocId != null and cDocId != ''">
+		C_DOC_ID = #{cDocId,jdbcType=VARCHAR},
+	</if>
+   	<if test="tEndTm != null and tEndTm != ''">
+		T_END_TM = #{tEndTm,jdbcType=DATE},
+	</if>
+  	<if test="cRelatCode != null and cRelatCode != ''">
+		C_RELAT_CODE = #{cRelatCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="cYearFlag != null and cYearFlag != ''">
+		C_YEAR_FLAG = #{cYearFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cNmeCn != null and cNmeCn != ''">
+		C_NME_CN = #{cNmeCn,jdbcType=VARCHAR},
+	</if>
+  	<if test="cIfForce != null and cIfForce != ''">
+		C_IF_FORCE = #{cIfForce,jdbcType=CHAR},
+	</if>
+  	<if test="cSaveinsFlag != null and cSaveinsFlag != ''">
+		C_SAVEINS_FLAG = #{cSaveinsFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cDocFmp != null and cDocFmp != ''">
+		C_DOC_FMP = #{cDocFmp,jdbcType=VARCHAR},
+	</if>
+  	<if test="cArgFlag != null and cArgFlag != ''">
+		C_ARG_FLAG = #{cArgFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cAppFlag != null and cAppFlag != ''">
+		C_APP_FLAG = #{cAppFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cLongtermFlag != null and cLongtermFlag != ''">
+		C_LONGTERM_FLAG = #{cLongtermFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cNmeEn != null and cNmeEn != ''">
+		C_NME_EN = #{cNmeEn,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_PRD_PROD
+		set 
+			C_PRD_ATTR = #{cPrdAttr,jdbcType=CHAR},
+  			C_CATEGORY_NO = #{cCategoryNo,jdbcType=VARCHAR},
+  			T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+  			T_ADB_TM = #{tAdbTm,jdbcType=DATE},
+  			C_RISK_TYP = #{cRiskTyp,jdbcType=VARCHAR},
+  			C_KIND_NO = #{cKindNo,jdbcType=VARCHAR},
+  			C_CNM_ABR = #{cCnmAbr,jdbcType=VARCHAR},
+  			C_DOC_ID = #{cDocId,jdbcType=VARCHAR},
+   			T_END_TM = #{tEndTm,jdbcType=DATE},
+  			C_RELAT_CODE = #{cRelatCode,jdbcType=VARCHAR},
+  			C_YEAR_FLAG = #{cYearFlag,jdbcType=CHAR},
+  			C_NME_CN = #{cNmeCn,jdbcType=VARCHAR},
+  			C_IF_FORCE = #{cIfForce,jdbcType=CHAR},
+  			C_SAVEINS_FLAG = #{cSaveinsFlag,jdbcType=CHAR},
+  			C_DOC_FMP = #{cDocFmp,jdbcType=VARCHAR},
+  			C_ARG_FLAG = #{cArgFlag,jdbcType=CHAR},
+  			C_APP_FLAG = #{cAppFlag,jdbcType=CHAR},
+  			C_LONGTERM_FLAG = #{cLongtermFlag,jdbcType=CHAR},
+  			C_NME_EN = #{cNmeEn,jdbcType=VARCHAR}
+  		where C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.common.vo.TPrdProd" >
+	update T_PRD_PROD
+	<set>
+	<if test="cPrdAttr != null and cPrdAttr != ''">
+		C_PRD_ATTR = #{cPrdAttr,jdbcType=CHAR},
+	</if>
+  	<if test="cCategoryNo != null and cCategoryNo != ''">
+		C_CATEGORY_NO = #{cCategoryNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="tBgnTm != null and tBgnTm != ''">
+		T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+	</if>
+  	<if test="tAdbTm != null and tAdbTm != ''">
+		T_ADB_TM = #{tAdbTm,jdbcType=DATE},
+	</if>
+  	<if test="cRiskTyp != null and cRiskTyp != ''">
+		C_RISK_TYP = #{cRiskTyp,jdbcType=VARCHAR},
+	</if>
+  	<if test="cKindNo != null and cKindNo != ''">
+		C_KIND_NO = #{cKindNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="cCnmAbr != null and cCnmAbr != ''">
+		C_CNM_ABR = #{cCnmAbr,jdbcType=VARCHAR},
+	</if>
+  	<if test="cDocId != null and cDocId != ''">
+		C_DOC_ID = #{cDocId,jdbcType=VARCHAR},
+	</if>
+   	<if test="tEndTm != null and tEndTm != ''">
+		T_END_TM = #{tEndTm,jdbcType=DATE},
+	</if>
+  	<if test="cRelatCode != null and cRelatCode != ''">
+		C_RELAT_CODE = #{cRelatCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="cYearFlag != null and cYearFlag != ''">
+		C_YEAR_FLAG = #{cYearFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cNmeCn != null and cNmeCn != ''">
+		C_NME_CN = #{cNmeCn,jdbcType=VARCHAR},
+	</if>
+  	<if test="cIfForce != null and cIfForce != ''">
+		C_IF_FORCE = #{cIfForce,jdbcType=CHAR},
+	</if>
+  	<if test="cSaveinsFlag != null and cSaveinsFlag != ''">
+		C_SAVEINS_FLAG = #{cSaveinsFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cDocFmp != null and cDocFmp != ''">
+		C_DOC_FMP = #{cDocFmp,jdbcType=VARCHAR},
+	</if>
+  	<if test="cArgFlag != null and cArgFlag != ''">
+		C_ARG_FLAG = #{cArgFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cAppFlag != null and cAppFlag != ''">
+		C_APP_FLAG = #{cAppFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cLongtermFlag != null and cLongtermFlag != ''">
+		C_LONGTERM_FLAG = #{cLongtermFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cNmeEn != null and cNmeEn != ''">
+		C_NME_EN = #{cNmeEn,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.common.vo.TPrdProd" >
+		update T_PRD_PROD
+		set 
+			C_PRD_ATTR = #{cPrdAttr,jdbcType=CHAR},
+  			C_CATEGORY_NO = #{cCategoryNo,jdbcType=VARCHAR},
+  			T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+  			T_ADB_TM = #{tAdbTm,jdbcType=DATE},
+  			C_RISK_TYP = #{cRiskTyp,jdbcType=VARCHAR},
+  			C_KIND_NO = #{cKindNo,jdbcType=VARCHAR},
+  			C_CNM_ABR = #{cCnmAbr,jdbcType=VARCHAR},
+  			C_DOC_ID = #{cDocId,jdbcType=VARCHAR},
+   			T_END_TM = #{tEndTm,jdbcType=DATE},
+  			C_RELAT_CODE = #{cRelatCode,jdbcType=VARCHAR},
+  			C_YEAR_FLAG = #{cYearFlag,jdbcType=CHAR},
+  			C_NME_CN = #{cNmeCn,jdbcType=VARCHAR},
+  			C_IF_FORCE = #{cIfForce,jdbcType=CHAR},
+  			C_SAVEINS_FLAG = #{cSaveinsFlag,jdbcType=CHAR},
+  			C_DOC_FMP = #{cDocFmp,jdbcType=VARCHAR},
+  			C_ARG_FLAG = #{cArgFlag,jdbcType=CHAR},
+  			C_APP_FLAG = #{cAppFlag,jdbcType=CHAR},
+  			C_LONGTERM_FLAG = #{cLongtermFlag,jdbcType=CHAR},
+  			C_NME_EN = #{cNmeEn,jdbcType=VARCHAR}
+  		where C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_PRD_PROD
+	where C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_PRD_PROD
+	where C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_PRD_PROD <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.common.vo.TPrdProd" resultType="long">
+	select count(1)
+	from T_PRD_PROD <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select t.c_prod_no as "code",t.c_nme_cn as "name" from t_prd_prod t
+		where t.t_bgn_tm &lt; sysdate-1 
+		and nvl(t.t_end_tm,sysdate) &gt;= sysdate
+		<if test="prdType != null and prdType != ''">
+			and t.c_kind_no = #{prdType}
+		</if>
+		order by t.c_prod_no
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_PRD_PROD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_PRD_PROD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_PRD_PROD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_PRD_PROD
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_PRD_PROD <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

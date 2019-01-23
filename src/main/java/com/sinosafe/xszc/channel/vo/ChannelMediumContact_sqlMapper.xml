@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelMediumContact" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="CONTECT_ID" property="contectId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POST" property="post" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ADDRESSS" property="addresss" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MSG_CUSTOMER" property="msgCustomer" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MSG_CAR" property="msgCar" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="TITLE" property="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMPANY_PHONE" property="companyPhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="IS_SEND_TRUEAGT" property="isSendTrueagt" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="IS_SEND_CMPNYCONTACT" property="isSendCmpnycontact" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="AGTINFO_SOURCE" property="agtinfoSource" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="GET_FLAG" property="getFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelMediumContact">
+		<id column="CONTECT_ID" property="contectId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POST" property="post" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ADDRESSS" property="addresss" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MSG_CUSTOMER" property="msgCustomer" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MSG_CAR" property="msgCar" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="TITLE" property="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_USER,
+		CHANNEL_CODE,
+		REMARK,
+		CONTECT_ID,
+		UPDATED_DATE,
+		CONTACT,
+		POST,
+		VALID_IND,
+		CREATED_DATE,
+		ADDRESSS,
+		MOBILE,
+		TEL,
+		MSG_CUSTOMER,
+		EMAIL,
+		FAX,
+		MSG_CAR,
+		TITLE,
+		COMPANY_PHONE,
+		IS_SEND_TRUEAGT,
+		IS_SEND_CMPNYCONTACT,
+		AGTINFO_SOURCE,
+		GET_FLAG
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_USER as "createdUser",
+		CHANNEL_CODE as "channelCode",
+		REMARK as "remark",
+		CONTECT_ID as "contectId",
+		UPDATED_DATE as "updatedDate",
+		CONTACT as "contact",
+		POST as "post",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		ADDRESSS as "addresss",
+		MOBILE as "mobile",
+		TEL as "tel",
+		MSG_CUSTOMER as "msgCustomer",
+		EMAIL as "email",
+		FAX as "fax",
+		MSG_CAR as "msgCar",
+		TITLE as "title"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		#{contectId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{contact,jdbcType=VARCHAR},
+ 		#{post,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{addresss,jdbcType=VARCHAR},
+ 		#{mobile,jdbcType=VARCHAR},
+ 		#{tel,jdbcType=VARCHAR},
+ 		#{msgCustomer,jdbcType=CHAR},
+ 		#{email,jdbcType=VARCHAR},
+ 		#{fax,jdbcType=VARCHAR},
+ 		#{msgCar,jdbcType=CHAR},
+ 		#{title,jdbcType=VARCHAR},
+ 		#{companyPhone,jdbcType=VARCHAR},
+ 		#{isSendTrueagt,jdbcType=CHAR},
+ 		#{isSendCmpnycontact,jdbcType=CHAR},
+ 		#{agtinfoSource,jdbcType=CHAR},
+ 		#{getFlag,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="contectId != null and contectId != ''">
+			and CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="contact != null and contact != ''">
+			and CONTACT = #{contact,jdbcType=VARCHAR}
+		</if>
+		<if test="post != null and post != ''">
+			and POST = #{post,jdbcType=VARCHAR}
+		</if>
+			and VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="addresss != null and addresss != ''">
+			and ADDRESSS = #{addresss,jdbcType=VARCHAR}
+		</if>
+		<if test="mobile != null and mobile != ''">
+			and MOBILE = #{mobile,jdbcType=VARCHAR}
+		</if>
+		<if test="tel != null and tel != ''">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="msgCustomer != null and msgCustomer != ''">
+			and MSG_CUSTOMER = #{msgCustomer,jdbcType=CHAR}
+		</if>
+		<if test="email != null and email != ''">
+			and EMAIL = #{email,jdbcType=VARCHAR}
+		</if>
+		<if test="fax != null and fax != ''">
+			and FAX = #{fax,jdbcType=VARCHAR}
+		</if>
+		<if test="msgCar != null and msgCar != ''">
+			and MSG_CAR = #{msgCar,jdbcType=CHAR}
+		</if>
+		<if test="title != null and title != ''">
+			and TITLE = #{title,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumContact" >
+    insert into CHANNEL_MEDIUM_CONTACT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_MEDIUM_CONTACT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_MEDIUM_CONTACT
+    where CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_MEDIUM_CONTACT
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_MEDIUM_CONTACT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="contact != null and contact != ''">
+		CONTACT = #{contact,jdbcType=VARCHAR},
+	</if>
+  	<if test="post != null and post != ''">
+		POST = #{post,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="addresss != null and addresss != ''">
+		ADDRESSS = #{addresss,jdbcType=VARCHAR},
+	</if>
+  	<if test="mobile != null and mobile != ''">
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="msgCustomer != null and msgCustomer != ''">
+		MSG_CUSTOMER = #{msgCustomer,jdbcType=CHAR},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="fax != null and fax != ''">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="msgCar != null and msgCar != ''">
+		MSG_CAR = #{msgCar,jdbcType=CHAR},
+	</if>
+  	<if test="title != null and title != ''">
+		TITLE = #{title,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_MEDIUM_CONTACT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+   			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			CONTACT = #{contact,jdbcType=VARCHAR},
+  			POST = #{post,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			ADDRESSS = #{addresss,jdbcType=VARCHAR},
+  			MOBILE = #{mobile,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			MSG_CUSTOMER = #{msgCustomer,jdbcType=CHAR},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			MSG_CAR = #{msgCar,jdbcType=CHAR},
+  			TITLE = #{title,jdbcType=VARCHAR}
+  		where CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumContact" >
+	update CHANNEL_MEDIUM_CONTACT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="contact != null and contact != ''">
+		CONTACT = #{contact,jdbcType=VARCHAR},
+	</if>
+  	<if test="post != null and post != ''">
+		POST = #{post,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="addresss != null and addresss != ''">
+		ADDRESSS = #{addresss,jdbcType=VARCHAR},
+	</if>
+  	<if test="mobile != null and mobile != ''">
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="msgCustomer != null and msgCustomer != ''">
+		MSG_CUSTOMER = #{msgCustomer,jdbcType=CHAR},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="fax != null and fax != ''">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="msgCar != null and msgCar != ''">
+		MSG_CAR = #{msgCar,jdbcType=CHAR},
+	</if>
+  	<if test="title != null and title != ''">
+		TITLE = #{title,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumContact" >
+		update CHANNEL_MEDIUM_CONTACT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+			UPDATED_DATE = sysdate,
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			CONTACT = #{contact,jdbcType=VARCHAR},
+  			POST = #{post,jdbcType=VARCHAR},
+  			ADDRESSS = #{addresss,jdbcType=VARCHAR},
+  			MOBILE = #{mobile,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			MSG_CUSTOMER = #{msgCustomer,jdbcType=CHAR},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			MSG_CAR = #{msgCar,jdbcType=CHAR},
+  			TITLE = #{title,jdbcType=VARCHAR},
+  			COMPANY_PHONE = #{companyPhone,jdbcType=VARCHAR},
+	 		IS_SEND_TRUEAGT = #{isSendTrueagt,jdbcType=CHAR},
+	 		IS_SEND_CMPNYCONTACT = #{isSendCmpnycontact,jdbcType=CHAR},
+	 		AGTINFO_SOURCE = #{agtinfoSource,jdbcType=CHAR},
+	 		GET_FLAG = #{getFlag,jdbcType=CHAR}
+  		where CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deleteById" parameterType="map" >
+		update CHANNEL_MEDIUM_CONTACT
+		set VALID_IND = 0,
+		GET_FLAG = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where CONTECT_ID in (
+			<foreach item="item" index="index" collection="pkIds" separator=",">
+				#{item}
+			</foreach>
+		)
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_CONTACT
+	where CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_CONTACT
+	where CONTECT_ID = #{contectId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_CONTACT <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumContact" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_CONTACT <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.* from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_CONTACT
+		<include refid="Base_Where_Sql"/>
+		order by CREATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rownum &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryIdList" parameterType="java.lang.String" resultMap="BaseResultVo">
+		select * from 
+			CHANNEL_MEDIUM_CONTACT 
+			where VALID_IND = 1 
+			and CHANNEL_CODE = #{channelCode}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_CONTACT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_CONTACT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_CONTACT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_MEDIUM_CONTACT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_MEDIUM_CONTACT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportWeekSaleTrace" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="TO_YEAR_COMPANSATION" property="toYearCompansation" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="PAST_YEARS" property="pastYears" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WEEK_SIGN" property="weekSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="LAST_YEAR_COMPANSATION" property="lastYearCompansation" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POLICY_INCREASE_TATE" property="policyIncreaseTate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTH_SIGN" property="monthSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="YEAR_INCOME" property="yearIncome" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TERM_INCREASE_RATE" property="termIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="LINK_RELATIVE_RATIO" property="linkRelativeRatio" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="INSURE_CODE" property="insureCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REPORT_WEEK" property="reportWeek" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM_PLAN_RATE" property="premiumPlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="YEAR_INCREASE_RATE" property="yearIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SCHEDULE_PLAN_RATE" property="schedulePlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BIZ_LINE" property="bizLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="YEAR_SIGN" property="yearSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PREMIUM_PLAN" property="premiumPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTH_INCOME" property="monthIncome" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WEEK_INCOME" property="weekIncome" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="LAST_TWELFTH_MONTH" property="lastTwelfthMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportWeekSaleTrace">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="TO_YEAR_COMPANSATION" property="toYearCompansation" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="PAST_YEARS" property="pastYears" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WEEK_SIGN" property="weekSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="LAST_YEAR_COMPANSATION" property="lastYearCompansation" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POLICY_INCREASE_TATE" property="policyIncreaseTate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTH_SIGN" property="monthSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="YEAR_INCOME" property="yearIncome" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TERM_INCREASE_RATE" property="termIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="LINK_RELATIVE_RATIO" property="linkRelativeRatio" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="INSURE_CODE" property="insureCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REPORT_WEEK" property="reportWeek" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM_PLAN_RATE" property="premiumPlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="YEAR_INCREASE_RATE" property="yearIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SCHEDULE_PLAN_RATE" property="schedulePlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BIZ_LINE" property="bizLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="YEAR_SIGN" property="yearSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PREMIUM_PLAN" property="premiumPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTH_INCOME" property="monthIncome" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WEEK_INCOME" property="weekIncome" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="LAST_TWELFTH_MONTH" property="lastTwelfthMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		to_char(TO_YEAR_COMPANSATION*100, 'fm99999999999990.00') || '%' as "toYearCompansation",
+		PK_ID,
+		PAST_YEARS,
+		to_char(WEEK_SIGN, 'fm99999999999990.00') as "weekSign",
+		to_char(LAST_YEAR_COMPANSATION*100, 'fm99999999999990.00') || '%' as "lastYearCompansation",
+		CREATED_USER,
+		PARENT_DEPT,
+		DEPT_NAME,
+		to_char(POLICY_INCREASE_TATE*100, 'fm99999999999990.00') || '%' as "policyIncreaseTate",
+		to_char(MONTH_SIGN, 'fm99999999999990.00') as "monthSign",
+		UPDATED_DATE,
+		to_char(YEAR_INCOME, 'fm99999999999990.00') as "yearIncome",
+		to_char(TERM_INCREASE_RATE, 'fm99999999999990.00') as "termIncreaseRate",
+		to_char(LINK_RELATIVE_RATIO*100, 'fm99999999999990.00') || '%' as "linkRelativeRatio",
+		CREATED_DATE,
+		INSURE_CODE,
+		REPORT_WEEK,
+		UPDATED_USER,
+		to_char(PREMIUM_PLAN_RATE*100, 'fm99999999999990.00') || '%' as "premiumPlanRate",
+		to_char(YEAR_INCREASE_RATE*100, 'fm99999999999990.00') || '%' as "yearIncreaseRate",
+		to_char(SCHEDULE_PLAN_RATE*100, 'fm99999999999990.00') || '%' as "schedulePlanRate",
+		BIZ_LINE,
+		DEPT_CODE,
+		to_char(YEAR_SIGN, 'fm99999999999990.00') as "yearSign",
+		PREMIUM_PLAN,
+		to_char(MONTH_INCOME, 'fm99999999999990.00') as "monthIncome",
+		to_char(WEEK_INCOME, 'fm99999999999990.00') as "weekIncome",
+		LAST_TWELFTH_MONTH
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		TO_YEAR_COMPANSATION as "toYearCompansation",
+		PK_ID as "pkId",
+		PAST_YEARS as "pastYears",
+		WEEK_SIGN as "weekSign",
+		LAST_YEAR_COMPANSATION as "lastYearCompansation",
+		CREATED_USER as "createdUser",
+		PARENT_DEPT as "parentDept",
+		DEPT_NAME as "deptName",
+		POLICY_INCREASE_TATE as "policyIncreaseTate",
+		MONTH_SIGN as "monthSign",
+		UPDATED_DATE as "updatedDate",
+		YEAR_INCOME as "yearIncome",
+		TERM_INCREASE_RATE as "termIncreaseRate",
+		LINK_RELATIVE_RATIO as "linkRelativeRatio",
+		CREATED_DATE as "createdDate",
+		INSURE_CODE as "insureCode",
+		REPORT_WEEK as "reportWeek",
+		UPDATED_USER as "updatedUser",
+		PREMIUM_PLAN_RATE as "premiumPlanRate",
+		YEAR_INCREASE_RATE as "yearIncreaseRate",
+		SCHEDULE_PLAN_RATE as "schedulePlanRate",
+		BIZ_LINE as "bizLine",
+		DEPT_CODE as "deptCode",
+		YEAR_SIGN as "yearSign",
+		PREMIUM_PLAN as "premiumPlan",
+		MONTH_INCOME as "monthIncome",
+		WEEK_INCOME as "weekIncome",
+		LAST_TWELFTH_MONTH as "lastTwelfthMonth"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{toYearCompansation,jdbcType=DOUBLE},
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{pastYears,jdbcType=DOUBLE},
+ 		#{weekSign,jdbcType=DOUBLE},
+ 		#{lastYearCompansation,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{parentDept,jdbcType=VARCHAR},
+ 		#{deptName,jdbcType=VARCHAR},
+ 		#{policyIncreaseTate,jdbcType=DOUBLE},
+ 		#{monthSign,jdbcType=DOUBLE},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{yearIncome,jdbcType=DOUBLE},
+ 		#{termIncreaseRate,jdbcType=DOUBLE},
+ 		#{linkRelativeRatio,jdbcType=DOUBLE},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{insureCode,jdbcType=VARCHAR},
+ 		#{reportWeek,jdbcType=VARCHAR},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{premiumPlanRate,jdbcType=DOUBLE},
+ 		#{yearIncreaseRate,jdbcType=DOUBLE},
+ 		#{schedulePlanRate,jdbcType=DOUBLE},
+ 		#{bizLine,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{yearSign,jdbcType=DOUBLE},
+ 		#{premiumPlan,jdbcType=DOUBLE},
+ 		#{monthIncome,jdbcType=DOUBLE},
+ 		#{weekIncome,jdbcType=DOUBLE},
+ 		#{lastTwelfthMonth,jdbcType=DOUBLE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="toYearCompansation != null and toYearCompansation != ''">
+			and TO_YEAR_COMPANSATION = #{toYearCompansation,jdbcType=DOUBLE}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="pastYears != null and pastYears != ''">
+			and PAST_YEARS = #{pastYears,jdbcType=DOUBLE}
+		</if>
+		<if test="weekSign != null and weekSign != ''">
+			and WEEK_SIGN = #{weekSign,jdbcType=DOUBLE}
+		</if>
+		<if test="lastYearCompansation != null and lastYearCompansation != ''">
+			and LAST_YEAR_COMPANSATION = #{lastYearCompansation,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptName != null and deptName != ''">
+			and DEPT_NAME = #{deptName,jdbcType=VARCHAR}
+		</if>
+		<if test="policyIncreaseTate != null and policyIncreaseTate != ''">
+			and POLICY_INCREASE_TATE = #{policyIncreaseTate,jdbcType=DOUBLE}
+		</if>
+		<if test="monthSign != null and monthSign != ''">
+			and MONTH_SIGN = #{monthSign,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="yearIncome != null and yearIncome != ''">
+			and YEAR_INCOME = #{yearIncome,jdbcType=DOUBLE}
+		</if>
+		<if test="termIncreaseRate != null and termIncreaseRate != ''">
+			and TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="linkRelativeRatio != null and linkRelativeRatio != ''">
+			and LINK_RELATIVE_RATIO = #{linkRelativeRatio,jdbcType=DOUBLE}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="insureCode != null and insureCode != ''">
+			and INSURE_CODE = #{insureCode,jdbcType=VARCHAR}
+		</if>
+		<if test="reportWeek != null and reportWeek != ''">
+			and REPORT_WEEK = #{reportWeek,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="premiumPlanRate != null and premiumPlanRate != ''">
+			and PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE}
+		</if>
+		<if test="yearIncreaseRate != null and yearIncreaseRate != ''">
+			and YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="schedulePlanRate != null and schedulePlanRate != ''">
+			and SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE}
+		</if>
+		<if test="bizLine != null and bizLine != ''">
+			and BIZ_LINE like #{bizLine,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="yearSign != null and yearSign != ''">
+			and YEAR_SIGN = #{yearSign,jdbcType=DOUBLE}
+		</if>
+		<if test="premiumPlan != null and premiumPlan != ''">
+			and PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE}
+		</if>
+		<if test="monthIncome != null and monthIncome != ''">
+			and MONTH_INCOME = #{monthIncome,jdbcType=DOUBLE}
+		</if>
+		<if test="weekIncome != null and weekIncome != ''">
+			and WEEK_INCOME = #{weekIncome,jdbcType=DOUBLE}
+		</if>
+		<if test="lastTwelfthMonth != null and lastTwelfthMonth != ''">
+			and LAST_TWELFTH_MONTH = #{lastTwelfthMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="reportStartWeek != null and reportStartWeek !='' ">
+			and to_date(REPORT_WEEK,'yyyy-mm-dd') &gt;= to_date(#{reportStartWeek},'yyyy-mm-dd')
+		</if>
+		<if test="reportEndWeek != null and reportEndWeek !='' ">
+			and to_date(REPORT_WEEK,'yyyy-mm-dd') &lt;= to_date(#{reportEndWeek},'yyyy-mm-dd')
+		</if>
+		<choose>
+		   <when test="deptCode != null and deptCode !='' ">
+		      and DEPT_CODE like f_get_inter_dept(#{deptCode,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <when test="parentDept != null and parentDept !='' ">
+		      and PARENT_DEPT like f_get_inter_dept(#{parentDept,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <otherwise></otherwise>
+		</choose>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekSaleTrace" >
+    insert into REPORT_WEEK_SALE_TRACE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_WEEK_SALE_TRACE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from REPORT_WEEK_SALE_TRACE
+    where PK_ID = #{pkId,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_WEEK_SALE_TRACE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_WEEK_SALE_TRACE
+	<set>
+	<if test="toYearCompansation != null and toYearCompansation != ''">
+		TO_YEAR_COMPANSATION = #{toYearCompansation,jdbcType=DOUBLE},
+	</if>
+   	<if test="pastYears != null and pastYears != ''">
+		PAST_YEARS = #{pastYears,jdbcType=DOUBLE},
+	</if>
+  	<if test="weekSign != null and weekSign != ''">
+		WEEK_SIGN = #{weekSign,jdbcType=DOUBLE},
+	</if>
+  	<if test="lastYearCompansation != null and lastYearCompansation != ''">
+		LAST_YEAR_COMPANSATION = #{lastYearCompansation,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="parentDept != null and parentDept != ''">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptName != null and deptName != ''">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="policyIncreaseTate != null and policyIncreaseTate != ''">
+		POLICY_INCREASE_TATE = #{policyIncreaseTate,jdbcType=DOUBLE},
+	</if>
+  	<if test="monthSign != null and monthSign != ''">
+		MONTH_SIGN = #{monthSign,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="yearIncome != null and yearIncome != ''">
+		YEAR_INCOME = #{yearIncome,jdbcType=DOUBLE},
+	</if>
+  	<if test="termIncreaseRate != null and termIncreaseRate != ''">
+		TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="linkRelativeRatio != null and linkRelativeRatio != ''">
+		LINK_RELATIVE_RATIO = #{linkRelativeRatio,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="insureCode != null and insureCode != ''">
+		INSURE_CODE = #{insureCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="reportWeek != null and reportWeek != ''">
+		REPORT_WEEK = #{reportWeek,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="premiumPlanRate != null and premiumPlanRate != ''">
+		PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="yearIncreaseRate != null and yearIncreaseRate != ''">
+		YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="schedulePlanRate != null and schedulePlanRate != ''">
+		SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="bizLine != null and bizLine != ''">
+		BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="yearSign != null and yearSign != ''">
+		YEAR_SIGN = #{yearSign,jdbcType=DOUBLE},
+	</if>
+  	<if test="premiumPlan != null and premiumPlan != ''">
+		PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+	</if>
+  	<if test="monthIncome != null and monthIncome != ''">
+		MONTH_INCOME = #{monthIncome,jdbcType=DOUBLE},
+	</if>
+  	<if test="weekIncome != null and weekIncome != ''">
+		WEEK_INCOME = #{weekIncome,jdbcType=DOUBLE},
+	</if>
+  	<if test="lastTwelfthMonth != null and lastTwelfthMonth != ''">
+		LAST_TWELFTH_MONTH = #{lastTwelfthMonth,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_WEEK_SALE_TRACE
+		set 
+			TO_YEAR_COMPANSATION = #{toYearCompansation,jdbcType=DOUBLE},
+   			PAST_YEARS = #{pastYears,jdbcType=DOUBLE},
+  			WEEK_SIGN = #{weekSign,jdbcType=DOUBLE},
+  			LAST_YEAR_COMPANSATION = #{lastYearCompansation,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			POLICY_INCREASE_TATE = #{policyIncreaseTate,jdbcType=DOUBLE},
+  			MONTH_SIGN = #{monthSign,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			YEAR_INCOME = #{yearIncome,jdbcType=DOUBLE},
+  			TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+  			LINK_RELATIVE_RATIO = #{linkRelativeRatio,jdbcType=DOUBLE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			INSURE_CODE = #{insureCode,jdbcType=VARCHAR},
+  			REPORT_WEEK = #{reportWeek,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+  			YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+  			SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+  			BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			YEAR_SIGN = #{yearSign,jdbcType=DOUBLE},
+  			PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+  			MONTH_INCOME = #{monthIncome,jdbcType=DOUBLE},
+  			WEEK_INCOME = #{weekIncome,jdbcType=DOUBLE},
+  			LAST_TWELFTH_MONTH = #{lastTwelfthMonth,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekSaleTrace" >
+	update REPORT_WEEK_SALE_TRACE
+	<set>
+	<if test="toYearCompansation != null and toYearCompansation != ''">
+		TO_YEAR_COMPANSATION = #{toYearCompansation,jdbcType=DOUBLE},
+	</if>
+   	<if test="pastYears != null and pastYears != ''">
+		PAST_YEARS = #{pastYears,jdbcType=DOUBLE},
+	</if>
+  	<if test="weekSign != null and weekSign != ''">
+		WEEK_SIGN = #{weekSign,jdbcType=DOUBLE},
+	</if>
+  	<if test="lastYearCompansation != null and lastYearCompansation != ''">
+		LAST_YEAR_COMPANSATION = #{lastYearCompansation,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="parentDept != null and parentDept != ''">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptName != null and deptName != ''">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="policyIncreaseTate != null and policyIncreaseTate != ''">
+		POLICY_INCREASE_TATE = #{policyIncreaseTate,jdbcType=DOUBLE},
+	</if>
+  	<if test="monthSign != null and monthSign != ''">
+		MONTH_SIGN = #{monthSign,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="yearIncome != null and yearIncome != ''">
+		YEAR_INCOME = #{yearIncome,jdbcType=DOUBLE},
+	</if>
+  	<if test="termIncreaseRate != null and termIncreaseRate != ''">
+		TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="linkRelativeRatio != null and linkRelativeRatio != ''">
+		LINK_RELATIVE_RATIO = #{linkRelativeRatio,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="insureCode != null and insureCode != ''">
+		INSURE_CODE = #{insureCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="reportWeek != null and reportWeek != ''">
+		REPORT_WEEK = #{reportWeek,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="premiumPlanRate != null and premiumPlanRate != ''">
+		PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="yearIncreaseRate != null and yearIncreaseRate != ''">
+		YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="schedulePlanRate != null and schedulePlanRate != ''">
+		SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="bizLine != null and bizLine != ''">
+		BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="yearSign != null and yearSign != ''">
+		YEAR_SIGN = #{yearSign,jdbcType=DOUBLE},
+	</if>
+  	<if test="premiumPlan != null and premiumPlan != ''">
+		PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+	</if>
+  	<if test="monthIncome != null and monthIncome != ''">
+		MONTH_INCOME = #{monthIncome,jdbcType=DOUBLE},
+	</if>
+  	<if test="weekIncome != null and weekIncome != ''">
+		WEEK_INCOME = #{weekIncome,jdbcType=DOUBLE},
+	</if>
+  	<if test="lastTwelfthMonth != null and lastTwelfthMonth != ''">
+		LAST_TWELFTH_MONTH = #{lastTwelfthMonth,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekSaleTrace" >
+		update REPORT_WEEK_SALE_TRACE
+		set 
+			TO_YEAR_COMPANSATION = #{toYearCompansation,jdbcType=DOUBLE},
+   			PAST_YEARS = #{pastYears,jdbcType=DOUBLE},
+  			WEEK_SIGN = #{weekSign,jdbcType=DOUBLE},
+  			LAST_YEAR_COMPANSATION = #{lastYearCompansation,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			POLICY_INCREASE_TATE = #{policyIncreaseTate,jdbcType=DOUBLE},
+  			MONTH_SIGN = #{monthSign,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			YEAR_INCOME = #{yearIncome,jdbcType=DOUBLE},
+  			TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+  			LINK_RELATIVE_RATIO = #{linkRelativeRatio,jdbcType=DOUBLE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			INSURE_CODE = #{insureCode,jdbcType=VARCHAR},
+  			REPORT_WEEK = #{reportWeek,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+  			YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+  			SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+  			BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			YEAR_SIGN = #{yearSign,jdbcType=DOUBLE},
+  			PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+  			MONTH_INCOME = #{monthIncome,jdbcType=DOUBLE},
+  			WEEK_INCOME = #{weekIncome,jdbcType=DOUBLE},
+  			LAST_TWELFTH_MONTH = #{lastTwelfthMonth,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_WEEK_SALE_TRACE
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_WEEK_SALE_TRACE
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_WEEK_SALE_TRACE <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekSaleTrace" resultType="long">
+	select count(1)
+	from REPORT_WEEK_SALE_TRACE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+		order by PK_ID asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_WEEK_SALE_TRACE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_WEEK_SALE_TRACE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

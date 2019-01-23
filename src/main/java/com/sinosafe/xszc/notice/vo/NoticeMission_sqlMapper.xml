@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.notice.vo.NoticeMission" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="MISSION_ID" property="missionId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOTIC_ID" property="noticId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="NEXT_PUBLISH_DATE" property="nextPublishDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="period" property="period" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="business_line" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.notice.vo.NoticeMission">
+		<id column="MISSION_ID" property="missionId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOTIC_ID" property="noticId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="NEXT_PUBLISH_DATE" property="nextPublishDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		CREATED_DATE,
+		CREATED_USER,
+		NOTIC_ID,
+		UPDATED_DATE,
+		NEXT_PUBLISH_DATE,
+		PUBLISH_DATE,
+		MISSION_ID
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		CREATED_USER as "createdUser",
+		NOTIC_ID as "noticId",
+		UPDATED_DATE as "updatedDate",
+		NEXT_PUBLISH_DATE as "nextPublishDate",
+		PUBLISH_DATE as "publishDate",
+		MISSION_ID as "missionId"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{noticId,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		<if test="months != null and months != ''">
+			add_months(trunc(#{publishDate,jdbcType=DATE}) , #{months}),
+		</if>
+ 		<if test="days != null and days != ''">
+	 		trunc(#{publishDate,jdbcType=DATE}) + #{days},
+		</if>
+ 		trunc(#{publishDate,jdbcType=DATE}),
+ 		#{missionId,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="nextPublishDate != null and nextPublishDate != ''">
+			and NEXT_PUBLISH_DATE = #{nextPublishDate,jdbcType=DATE}
+		</if>
+		<if test="publishDate != null and publishDate != ''">
+			and PUBLISH_DATE = #{publishDate,jdbcType=DATE}
+		</if>
+		<if test="missionId != null and missionId != ''">
+			and MISSION_ID = #{missionId,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeMission" >
+    insert into NOTICE_MISSION (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into NOTICE_MISSION (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from NOTICE_MISSION
+    where MISSION_ID = #{missionId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from NOTICE_MISSION
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update NOTICE_MISSION
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="noticId != null and noticId != ''">
+		NOTIC_ID = #{noticId,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="nextPublishDate != null and nextPublishDate != '' ">
+		<if test="months != null and months != ''">
+			NEXT_PUBLISH_DATE = add_months(trunc(sysdate) , #{months}),
+		</if>
+ 		<if test="days != null and days != ''">
+			NEXT_PUBLISH_DATE = trunc(sysdate) + #{days},
+		</if>
+	</if>
+  	<if test="publishDate != null and publishDate != ''">
+		PUBLISH_DATE = trunc(sysdate),
+	</if>
+   	</set>
+	where MISSION_ID = #{missionId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update NOTICE_MISSION
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			NOTIC_ID = #{noticId,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			NEXT_PUBLISH_DATE = #{nextPublishDate,jdbcType=DATE},
+  			PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+   		where MISSION_ID = #{missionId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeMission" >
+	update NOTICE_MISSION
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="noticId != null and noticId != ''">
+		NOTIC_ID = #{noticId,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="nextPublishDate != null and nextPublishDate != ''">
+		NEXT_PUBLISH_DATE = #{nextPublishDate,jdbcType=DATE},
+	</if>
+  	<if test="publishDate != null and publishDate != ''">
+		PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+	</if>
+   	</set>
+	where MISSION_ID = #{missionId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeMission" >
+		update NOTICE_MISSION
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			NOTIC_ID = #{noticId,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			NEXT_PUBLISH_DATE = #{nextPublishDate,jdbcType=DATE},
+  			PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+   		where MISSION_ID = #{missionId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from NOTICE_MISSION
+	where MISSION_ID = #{missionId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from NOTICE_MISSION
+	where MISSION_ID = #{missionId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from NOTICE_MISSION <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeMission" resultType="long">
+	select count(1)
+	from NOTICE_MISSION <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE_MISSION
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE_MISSION
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE_MISSION
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE_MISSION
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from NOTICE_MISSION
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from NOTICE_MISSION <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<select id="queryTaskByNow" parameterType="map" resultMap="BaseResultMap">
+		select 
+			nm.UPDATED_USER,
+			nm.VALID_IND,
+			nm.CREATED_DATE,
+			nm.CREATED_USER,
+			nm.UPDATED_DATE,
+			nm.NEXT_PUBLISH_DATE,
+			n.PUBLISH_DATE,
+			nm.MISSION_ID,
+			n.NOTIC_ID,
+			n.DEPT_CODE as "deptCode",
+			n.PUBLISHER as "publisher",
+			n.TILTLE as "tiltle",
+			n.RELATION_TYPE as "relationType",
+			n.CREATED_USER_ROLE as "createdUserRole",
+			n.FEEDBACK_TYPE as "feedbackType",
+			n.period
+		from NOTICE_MISSION nm
+		  left join NOTICE n on nm.NOTIC_ID = n.NOTIC_ID
+		where nm.VALID_IND = '1' 
+		  and n.valid_ind = '1'
+		  and n.status not in ('0','9')
+		  and ( n.PUBLISH_DATE = trunc(sysdate) or nm.next_publish_date = trunc(sysdate) )
+		  <!-- and ( nm.PUBLISH_DATE = trunc(sysdate) or nm.next_publish_date = trunc(sysdate) ) -->
+	</select>
+	
+	<select id="queryTaskByNow2" parameterType="map" resultMap="BaseResultMap">
+		select 
+			MISSION_ID,nm.NOTIC_ID,NEXT_PUBLISH_DATE,
+			n.PERIOD as "period",NOTIC_GROUP_ID as "noticGroupId",
+			n.DEPT_CODE as "deptCode",
+			n.PUBLISHER as "publisher",
+			n.TILTLE as "tiltle"
+		from NOTICE_MISSION nm 
+		left join NOTICE n 
+		on nm.NOTIC_ID = n.NOTIC_ID and n.VALID_IND = '1' 
+		where nm.VALID_IND = '1'
+ 		  and NEXT_PUBLISH_DATE = trunc(sysdate)
+	</select>
+	
+	<update id="deleteByNoticId" parameterType="map" >
+		update NOTICE_MISSION
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+</mapper>

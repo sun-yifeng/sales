@@ -1,0 +1,8 @@
+/*如果要自动计算分页组件高度需要增加此样式*/
+html, body {
+	width: 100%; height: 100%; padding: 0; margin: 0; overflow: hidden;
+}
+
+div.icon-help {
+	background-image: url("images/icon-help.png"); margin-top: -2px;
+}

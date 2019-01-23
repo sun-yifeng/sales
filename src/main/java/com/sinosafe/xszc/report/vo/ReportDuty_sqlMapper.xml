@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportDuty" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<result column="VHL_TYPE" property="vhlType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_PRM" property="nPrm" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="C_INTER_CDE" property="cInterCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRIMARY_C_PROD_NAME" property="primaryCProdName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportDuty">
+		<result column="VHL_TYPE" property="vhlType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_PRM" property="nPrm" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="C_INTER_CDE" property="cInterCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRIMARY_C_PROD_NAME" property="primaryCProdName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		VHL_TYPE,
+		to_char(N_PRM, 'fm99999999999990.00') as "nPrm",
+		to_char(UPDATE_DATE,'yyyy-mm-dd') as "UPDATE_DATE",
+		C_INTER_CDE,
+		PRIMARY_C_PROD_NAME
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		VHL_TYPE as "vhlType",
+		N_PRM as "nPrm",
+		UPDATE_DATE as "updateDate",
+		C_INTER_CDE as "cInterCde",
+		PRIMARY_C_PROD_NAME as "primaryCProdName"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{vhlType,jdbcType=VARCHAR},
+ 		#{nPrm,jdbcType=INTEGER},
+ 		#{updateDate,jdbcType=DATE},
+ 		#{cInterCde,jdbcType=VARCHAR},
+ 		#{primaryCProdName,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="began != null and began !=''">
+			and UPDATE_DATE &gt;= (select to_date(#{began,jdbcType=VARCHAR},'yyyy/mm/dd') from dual)
+		</if>
+		<if test="end != null and end !=''">
+			and UPDATE_DATE &lt;= (select to_date(#{end,jdbcType=VARCHAR},'yyyy/mm/dd') from dual)
+		</if>
+		<if test="vhlType != null and vhlType!=''">
+			and VHL_TYPE = #{vhlType,jdbcType=VARCHAR}
+		</if>
+		<if test="nPrm != null and nPrm!=''">
+			and N_PRM = #{nPrm,jdbcType=INTEGER}
+		</if>
+		<!--<if test="updateDate != null and updateDate!=''">
+			and UPDATE_DATE = #{updateDate,jdbcType=DATE}
+		</if> -->
+		<if test="cInterCde != null">
+			and C_INTER_CDE = #{cInterCde,jdbcType=VARCHAR}
+		</if>
+		<if test="primaryCProdName != null and primaryCProdName!='' ">
+			and PRIMARY_C_PROD_NAME = #{primaryCProdName,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportDuty" >
+    insert into REPORT_DAY_SALE_TRACE_HEBEI (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_DAY_SALE_TRACE_HEBEI (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_DAY_SALE_TRACE_HEBEI
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+
+	<!-- 单独条件分页查询并导出Excel语句,注意下面语句中的查询字段不可以更改顺序不可修改，否则将导致导出数据混乱 -->
+	<select id="queryListToExcel" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select rownum rn,a.* from (
+		select UPDATE_DATE,nvl(VHL_TYPE,' ') VHL_TYPE,
+		nvl(PRIMARY_C_PROD_NAME,' ') PRIMARY_C_PROD_NAME,
+		nvl(N_PRM,0) N_PRM,nvl(C_INTER_CDE,' ') C_INTER_CDE
+		from REPORT_DAY_SALE_TRACE_HEBEI
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_DAY_SALE_TRACE_HEBEI <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportDuty" resultType="long">
+	select count(1)
+	from REPORT_DAY_SALE_TRACE_HEBEI <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE_HEBEI
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE_HEBEI
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE_HEBEI
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE_HEBEI
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_DAY_SALE_TRACE_HEBEI
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_DAY_SALE_TRACE_HEBEI <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE_HEBEI
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageVo" parameterType="map" resultMap="BaseResultVo">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_DAY_SALE_TRACE_HEBEI
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_DAY_SALE_TRACE_HEBEI <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE_HEBEI
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+</mapper>

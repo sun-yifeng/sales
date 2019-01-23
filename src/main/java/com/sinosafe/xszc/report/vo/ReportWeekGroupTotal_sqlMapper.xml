@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportWeekGroupTotal" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Long" jdbcType="BIGINT" />
+		<result column="INCEASE_RATE" property="inceaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="GROUP_PLAN_PERCENT" property="groupPlanPercent" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALIM_RATE_LAST_WEEK" property="calimRateLastWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_WEEK" property="statWeek" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="WEEK_ENG_DATE" property="weekEngDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_THIS_WEEK" property="gotFeeThisWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_PLAN_YEAR" property="groupPlanYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALIM_RATE_TISH_WEEK" property="calimRateTishWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_YEAR" property="statYear" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="GOT_FEE_LAST_WEEK" property="gotFeeLastWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_TOTAL_FEE" property="groupTotalFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_LEADER" property="groupLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_LAST_YEAR" property="gotFeeLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_THIS_YEAR" property="gotFeeThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WEEK_BNG_DATE" property="weekBngDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CNAME" property="groupCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportWeekGroupTotal">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Long" jdbcType="BIGINT" />
+		<result column="INCEASE_RATE" property="inceaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="GROUP_PLAN_PERCENT" property="groupPlanPercent" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALIM_RATE_LAST_WEEK" property="calimRateLastWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_WEEK" property="statWeek" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="WEEK_ENG_DATE" property="weekEngDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_THIS_WEEK" property="gotFeeThisWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_PLAN_YEAR" property="groupPlanYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALIM_RATE_TISH_WEEK" property="calimRateTishWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_YEAR" property="statYear" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="GOT_FEE_LAST_WEEK" property="gotFeeLastWeek" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_TOTAL_FEE" property="groupTotalFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_LEADER" property="groupLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOT_FEE_LAST_YEAR" property="gotFeeLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOT_FEE_THIS_YEAR" property="gotFeeThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WEEK_BNG_DATE" property="weekBngDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CNAME" property="groupCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		to_char(INCEASE_RATE*100, 'fm99999999999990.00')  || '%' as "inceaseRate",
+		PK_ID,
+		to_char(GROUP_PLAN_PERCENT*100, 'fm99999999999990.00')  || '%' as "groupPlanPercent",
+		t.CREATED_USER,
+		to_char(CALIM_RATE_LAST_WEEK*100, 'fm99999999999990.00')  || '%' as "calimRateLastWeek",
+		t.UPDATED_DATE,
+		de.dept_simple_name DEPT_CODE_2,
+		dept.dept_simple_name DEPT_CODE_3,
+		STAT_WEEK,
+		t.CREATED_DATE,
+		WEEK_ENG_DATE,
+		SALESMAN_CODE,
+		to_char(GOT_FEE_THIS_WEEK, 'fm99999999999990.00') as "gotFeeThisWeek",
+		to_char(GROUP_PLAN_YEAR, 'fm99999999999990.00') as "groupPlanYear",
+		to_char(CALIM_RATE_TISH_WEEK*100, 'fm99999999999990.00')  || '%' as "calimRateTishWeek",
+		t.UPDATED_USER,
+		STAT_YEAR,
+		to_char(GOT_FEE_LAST_WEEK, 'fm99999999999990.00') as "gotFeeLastWeek",
+		to_char(GROUP_TOTAL_FEE, 'fm99999999999990.00') as "groupTotalFee",
+		GROUP_LEADER,
+		to_char(GOT_FEE_LAST_YEAR, 'fm99999999999990.00') as "gotFeeLastYear",
+		to_char(GOT_FEE_THIS_YEAR, 'fm99999999999990.00') as "gotFeeThisYear",
+		WEEK_BNG_DATE,
+		GROUP_CODE,
+		GROUP_CNAME
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		INCEASE_RATE as "inceaseRate",
+		PK_ID as "pkId",
+		GROUP_PLAN_PERCENT as "groupPlanPercent",
+		CREATED_USER as "createdUser",
+		CALIM_RATE_LAST_WEEK as "calimRateLastWeek",
+		UPDATED_DATE as "updatedDate",
+		DEPT_CODE_2 as "deptCode2",
+		DEPT_CODE_3 as "deptCode3",
+		STAT_WEEK as "statWeek",
+		CREATED_DATE as "createdDate",
+		WEEK_ENG_DATE as "weekEngDate",
+		SALESMAN_CODE as "salesmanCode",
+		GOT_FEE_THIS_WEEK as "gotFeeThisWeek",
+		GROUP_PLAN_YEAR as "groupPlanYear",
+		CALIM_RATE_TISH_WEEK as "calimRateTishWeek",
+		UPDATED_USER as "updatedUser",
+		STAT_YEAR as "statYear",
+		GOT_FEE_LAST_WEEK as "gotFeeLastWeek",
+		GROUP_TOTAL_FEE as "groupTotalFee",
+		GROUP_LEADER as "groupLeader",
+		GOT_FEE_LAST_YEAR as "gotFeeLastYear",
+		GOT_FEE_THIS_YEAR as "gotFeeThisYear",
+		WEEK_BNG_DATE as "weekBngDate",
+		GROUP_CODE as "groupCode",
+		GROUP_CNAME as "groupCname"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{inceaseRate,jdbcType=DOUBLE},
+ 		#{pkId,jdbcType=BIGINT},
+ 		#{groupPlanPercent,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{calimRateLastWeek,jdbcType=DOUBLE},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{deptCode2,jdbcType=VARCHAR},
+ 		#{deptCode3,jdbcType=VARCHAR},
+ 		#{statWeek,jdbcType=INTEGER},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{weekEngDate,jdbcType=DATE},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{gotFeeThisWeek,jdbcType=DOUBLE},
+ 		#{groupPlanYear,jdbcType=VARCHAR},
+ 		#{calimRateTishWeek,jdbcType=DOUBLE},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{statYear,jdbcType=INTEGER},
+ 		#{gotFeeLastWeek,jdbcType=DOUBLE},
+ 		#{groupTotalFee,jdbcType=DOUBLE},
+ 		#{groupLeader,jdbcType=VARCHAR},
+ 		#{gotFeeLastYear,jdbcType=DOUBLE},
+ 		#{gotFeeThisYear,jdbcType=DOUBLE},
+ 		#{weekBngDate,jdbcType=DATE},
+ 		#{groupCode,jdbcType=VARCHAR},
+ 		#{groupCname,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="inceaseRate != null and inceaseRate != ''">
+			and INCEASE_RATE = #{inceaseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=BIGINT}
+		</if>
+		<if test="groupPlanPercent != null and groupPlanPercent != ''">
+			and GROUP_PLAN_PERCENT = #{groupPlanPercent,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="calimRateLastWeek != null and calimRateLastWeek != ''">
+			and CALIM_RATE_LAST_WEEK = #{calimRateLastWeek,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptCode2 != null and deptCode2 != ''">
+			and DEPT_CODE_2 = f_get_inter_dept(#{deptCode2,jdbcType=VARCHAR})
+		</if>
+		<if test="deptCode3 != null and deptCode3 != ''">
+			and DEPT_CODE_3 = f_get_inter_dept(#{deptCode3,jdbcType=VARCHAR})
+		</if>
+		<if test="statWeek != null and statWeek != ''">
+			and STAT_WEEK = #{statWeek,jdbcType=INTEGER}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="reportStartWeek != null and reportStartWeek != ''">
+			and WEEK_BNG_DATE &lt;= to_date(#{reportStartWeek,jdbcType=VARCHAR},'yyyy/mm/dd') 
+			and WEEK_ENG_DATE &gt;= to_date(#{reportStartWeek,jdbcType=VARCHAR},'yyyy/mm/dd') 
+		</if>
+		<!--<if test="weekEngDate != null and weekEngDate != ''">
+			and WEEK_ENG_DATE = #{weekEngDate,jdbcType=DATE}
+		</if>
+		<if test="weekBngDate != null and weekBngDate != ''">
+			and WEEK_BNG_DATE = #{weekBngDate,jdbcType=DATE}
+		</if>-->
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="gotFeeThisWeek != null and gotFeeThisWeek != ''">
+			and GOT_FEE_THIS_WEEK = #{gotFeeThisWeek,jdbcType=DOUBLE}
+		</if>
+		<if test="groupPlanYear != null and groupPlanYear != ''">
+			and GROUP_PLAN_YEAR = #{groupPlanYear,jdbcType=VARCHAR}
+		</if>
+		<if test="calimRateTishWeek != null and calimRateTishWeek != ''">
+			and CALIM_RATE_TISH_WEEK = #{calimRateTishWeek,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="statYear != null and statYear != ''">
+			and STAT_YEAR = #{statYear,jdbcType=INTEGER}
+		</if>
+		<if test="gotFeeLastWeek != null and gotFeeLastWeek != ''">
+			and GOT_FEE_LAST_WEEK = #{gotFeeLastWeek,jdbcType=DOUBLE}
+		</if>
+		<if test="groupTotalFee != null and groupTotalFee != ''">
+			and GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE}
+		</if>
+		<if test="groupLeader != null and groupLeader != ''">
+			and GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR}
+		</if>
+		<if test="gotFeeLastYear != null and gotFeeLastYear != ''">
+			and GOT_FEE_LAST_YEAR = #{gotFeeLastYear,jdbcType=DOUBLE}
+		</if>
+		<if test="gotFeeThisYear != null and gotFeeThisYear != ''">
+			and GOT_FEE_THIS_YEAR = #{gotFeeThisYear,jdbcType=DOUBLE}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCname != null and groupCname != ''">
+			and GROUP_CNAME = #{groupCname,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekGroupTotal" >
+    insert into REPORT_WEEK_GROUP_TOTAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_WEEK_GROUP_TOTAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from REPORT_WEEK_GROUP_TOTAL
+    where PK_ID = #{pkId,jdbcType=BIGINT}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_WEEK_GROUP_TOTAL
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_WEEK_GROUP_TOTAL
+	<set>
+	<if test="inceaseRate != null and inceaseRate != ''">
+		INCEASE_RATE = #{inceaseRate,jdbcType=DOUBLE},
+	</if>
+   	<if test="groupPlanPercent != null and groupPlanPercent != ''">
+		GROUP_PLAN_PERCENT = #{groupPlanPercent,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="calimRateLastWeek != null and calimRateLastWeek != ''">
+		CALIM_RATE_LAST_WEEK = #{calimRateLastWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="statWeek != null and statWeek != ''">
+		STAT_WEEK = #{statWeek,jdbcType=INTEGER},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="weekEngDate != null and weekEngDate != ''">
+		WEEK_ENG_DATE = #{weekEngDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="gotFeeThisWeek != null and gotFeeThisWeek != ''">
+		GOT_FEE_THIS_WEEK = #{gotFeeThisWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupPlanYear != null and groupPlanYear != ''">
+		GROUP_PLAN_YEAR = #{groupPlanYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="calimRateTishWeek != null and calimRateTishWeek != ''">
+		CALIM_RATE_TISH_WEEK = #{calimRateTishWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="statYear != null and statYear != ''">
+		STAT_YEAR = #{statYear,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeLastWeek != null and gotFeeLastWeek != ''">
+		GOT_FEE_LAST_WEEK = #{gotFeeLastWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupTotalFee != null and groupTotalFee != ''">
+		GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupLeader != null and groupLeader != ''">
+		GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="gotFeeLastYear != null and gotFeeLastYear != ''">
+		GOT_FEE_LAST_YEAR = #{gotFeeLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="gotFeeThisYear != null and gotFeeThisYear != ''">
+		GOT_FEE_THIS_YEAR = #{gotFeeThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="weekBngDate != null and weekBngDate != ''">
+		WEEK_BNG_DATE = #{weekBngDate,jdbcType=DATE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCname != null and groupCname != ''">
+		GROUP_CNAME = #{groupCname,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_WEEK_GROUP_TOTAL
+		set 
+			INCEASE_RATE = #{inceaseRate,jdbcType=DOUBLE},
+   			GROUP_PLAN_PERCENT = #{groupPlanPercent,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CALIM_RATE_LAST_WEEK = #{calimRateLastWeek,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+  			DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+  			STAT_WEEK = #{statWeek,jdbcType=INTEGER},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			WEEK_ENG_DATE = #{weekEngDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GOT_FEE_THIS_WEEK = #{gotFeeThisWeek,jdbcType=DOUBLE},
+  			GROUP_PLAN_YEAR = #{groupPlanYear,jdbcType=VARCHAR},
+  			CALIM_RATE_TISH_WEEK = #{calimRateTishWeek,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			STAT_YEAR = #{statYear,jdbcType=INTEGER},
+  			GOT_FEE_LAST_WEEK = #{gotFeeLastWeek,jdbcType=DOUBLE},
+  			GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+  			GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+  			GOT_FEE_LAST_YEAR = #{gotFeeLastYear,jdbcType=DOUBLE},
+  			GOT_FEE_THIS_YEAR = #{gotFeeThisYear,jdbcType=DOUBLE},
+  			WEEK_BNG_DATE = #{weekBngDate,jdbcType=DATE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			GROUP_CNAME = #{groupCname,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekGroupTotal" >
+	update REPORT_WEEK_GROUP_TOTAL
+	<set>
+	<if test="inceaseRate != null and inceaseRate != ''">
+		INCEASE_RATE = #{inceaseRate,jdbcType=DOUBLE},
+	</if>
+   	<if test="groupPlanPercent != null and groupPlanPercent != ''">
+		GROUP_PLAN_PERCENT = #{groupPlanPercent,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="calimRateLastWeek != null and calimRateLastWeek != ''">
+		CALIM_RATE_LAST_WEEK = #{calimRateLastWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="statWeek != null and statWeek != ''">
+		STAT_WEEK = #{statWeek,jdbcType=INTEGER},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="weekEngDate != null and weekEngDate != ''">
+		WEEK_ENG_DATE = #{weekEngDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="gotFeeThisWeek != null and gotFeeThisWeek != ''">
+		GOT_FEE_THIS_WEEK = #{gotFeeThisWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupPlanYear != null and groupPlanYear != ''">
+		GROUP_PLAN_YEAR = #{groupPlanYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="calimRateTishWeek != null and calimRateTishWeek != ''">
+		CALIM_RATE_TISH_WEEK = #{calimRateTishWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="statYear != null and statYear != ''">
+		STAT_YEAR = #{statYear,jdbcType=INTEGER},
+	</if>
+  	<if test="gotFeeLastWeek != null and gotFeeLastWeek != ''">
+		GOT_FEE_LAST_WEEK = #{gotFeeLastWeek,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupTotalFee != null and groupTotalFee != ''">
+		GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupLeader != null and groupLeader != ''">
+		GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="gotFeeLastYear != null and gotFeeLastYear != ''">
+		GOT_FEE_LAST_YEAR = #{gotFeeLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="gotFeeThisYear != null and gotFeeThisYear != ''">
+		GOT_FEE_THIS_YEAR = #{gotFeeThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="weekBngDate != null and weekBngDate != ''">
+		WEEK_BNG_DATE = #{weekBngDate,jdbcType=DATE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCname != null and groupCname != ''">
+		GROUP_CNAME = #{groupCname,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekGroupTotal" >
+		update REPORT_WEEK_GROUP_TOTAL
+		set 
+			INCEASE_RATE = #{inceaseRate,jdbcType=DOUBLE},
+   			GROUP_PLAN_PERCENT = #{groupPlanPercent,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CALIM_RATE_LAST_WEEK = #{calimRateLastWeek,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+  			DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+  			STAT_WEEK = #{statWeek,jdbcType=INTEGER},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			WEEK_ENG_DATE = #{weekEngDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GOT_FEE_THIS_WEEK = #{gotFeeThisWeek,jdbcType=DOUBLE},
+  			GROUP_PLAN_YEAR = #{groupPlanYear,jdbcType=VARCHAR},
+  			CALIM_RATE_TISH_WEEK = #{calimRateTishWeek,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			STAT_YEAR = #{statYear,jdbcType=INTEGER},
+  			GOT_FEE_LAST_WEEK = #{gotFeeLastWeek,jdbcType=DOUBLE},
+  			GROUP_TOTAL_FEE = #{groupTotalFee,jdbcType=DOUBLE},
+  			GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+  			GOT_FEE_LAST_YEAR = #{gotFeeLastYear,jdbcType=DOUBLE},
+  			GOT_FEE_THIS_YEAR = #{gotFeeThisYear,jdbcType=DOUBLE},
+  			WEEK_BNG_DATE = #{weekBngDate,jdbcType=DATE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			GROUP_CNAME = #{groupCname,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select <include refid="Base_Column_List" />
+	from REPORT_WEEK_GROUP_TOTAL
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Long" >
+    select <include refid="Base_Column_List" />
+	from REPORT_WEEK_GROUP_TOTAL
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_WEEK_GROUP_TOTAL <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportWeekGroupTotal" resultType="long">
+	select count(1)
+	from REPORT_WEEK_GROUP_TOTAL <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_GROUP_TOTAL t
+		left join department de 
+			on t.DEPT_CODE_2 = de.inter_code
+		left join department dept 
+			on t.DEPT_CODE_3 = dept.inter_code
+		<include refid="Base_Where_Sql"/>
+		order by t.dept_code_2,t.Group_Code desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_GROUP_TOTAL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_GROUP_TOTAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_WEEK_GROUP_TOTAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_WEEK_GROUP_TOTAL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_WEEK_GROUP_TOTAL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

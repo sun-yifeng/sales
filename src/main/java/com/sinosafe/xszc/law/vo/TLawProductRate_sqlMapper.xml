@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TLawProductRate" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PRODUCT_RATE_ID" property="productRateId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PRODUCT_RATE" property="productRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WORK_flag" property="workflag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAR_FLAG" property="carFlag" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TLawProductRate">
+		<id column="PRODUCT_RATE_ID" property="productRateId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PRODUCT_RATE" property="productRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="WORK_flag" property="workflag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAR_FLAG" property="carFlag" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		CREATED_DATE,
+		PRODUCT_RATE,
+		WORK_flag,
+		CREATED_USER,
+		CAR_FLAG,
+		PRODUCT_RATE_ID,
+		UPDATED_DATE,
+		DEPT_CODE_2
+	</sql>
+	
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="User_Base_Column_List" >
+		t.UPDATED_USER,
+		t.VALID_IND,
+		t.CREATED_DATE,
+		t.PRODUCT_RATE,
+		t.WORK_flag,
+		t.CREATED_USER,
+		t.CAR_FLAG,
+		t.PRODUCT_RATE_ID,
+		t.UPDATED_DATE,
+		d.dept_simple_name as DEPT_CODE_2
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		PRODUCT_RATE as "productRate",
+		WORK_flag as "workflag",
+		CREATED_USER as "createdUser",
+		CAR_FLAG as "carFlag",
+		PRODUCT_RATE_ID as "productRateId",
+		UPDATED_DATE as "updatedDate",
+		DEPT_CODE_2 as "deptCode2"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{productRate,jdbcType=DOUBLE},
+ 		#{workflag,jdbcType=CHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{carFlag,jdbcType=CHAR},
+ 		#{productRateId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{deptCode2,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+			valid_ind='1'
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="productRate != null and productRate != ''">
+			and PRODUCT_RATE = #{productRate,jdbcType=DOUBLE}
+		</if>
+		<if test="workflag != null and workflag != ''">
+			and WORK_flag = #{workflag,jdbcType=CHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="carFlag != null and carFlag != ''">
+			and CAR_FLAG = #{carFlag,jdbcType=CHAR}
+		</if>
+		<if test="productRateId != null and productRateId != ''">
+			and PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptCode2 != null and deptCode2 != ''">
+			and DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="User_Base_Where_Sql">
+		<where>
+			t.valid_ind='1'
+		<if test="updatedUser != null and updatedUser != ''">
+			and t.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and t.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and t.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="productRate != null and productRate != ''">
+			and t.PRODUCT_RATE = #{productRate,jdbcType=DOUBLE}
+		</if>
+		<if test="workflag != null and workflag != ''">
+			and t.WORK_flag = #{workflag,jdbcType=CHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and t.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="carFlag != null and carFlag != ''">
+			and t.CAR_FLAG = #{carFlag,jdbcType=CHAR}
+		</if>
+		<if test="productRateId != null and productRateId != ''">
+			and t.PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and t.UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptCode2 != null and deptCode2 != ''">
+			and t.DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TLawProductRate" >
+    insert into T_LAW_PRODUCT_RATE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_LAW_PRODUCT_RATE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_LAW_PRODUCT_RATE
+    where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_LAW_PRODUCT_RATE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_LAW_PRODUCT_RATE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="productRate != null and productRate != ''">
+		PRODUCT_RATE = #{productRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="workflag != null and workflag != ''">
+		WORK_flag = #{workflag,jdbcType=CHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="carFlag != null and carFlag != ''">
+		CAR_FLAG = #{carFlag,jdbcType=CHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_LAW_PRODUCT_RATE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			PRODUCT_RATE = #{productRate,jdbcType=DOUBLE},
+  			WORK_flag = #{workflag,jdbcType=CHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CAR_FLAG = #{carFlag,jdbcType=CHAR},
+   			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+  		where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TLawProductRate" >
+	update T_LAW_PRODUCT_RATE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="productRate != null and productRate != ''">
+		PRODUCT_RATE = #{productRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="workflag != null and workflag != ''">
+		WORK_flag = #{workflag,jdbcType=CHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="carFlag != null and carFlag != ''">
+		CAR_FLAG = #{carFlag,jdbcType=CHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TLawProductRate" >
+		update T_LAW_PRODUCT_RATE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = sysdate,
+  			PRODUCT_RATE = #{productRate,jdbcType=DOUBLE},
+  			WORK_flag = #{workflag,jdbcType=CHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CAR_FLAG = #{carFlag,jdbcType=CHAR},
+   			UPDATED_DATE = sysdate,
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+  		where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_PRODUCT_RATE
+	where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_PRODUCT_RATE
+	where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_PRODUCT_RATE t where t.VALID_IND = '1'
+			<if test="carFlag != null and carFlag != ''">
+				t.CAR_FLAG = #{carFlag,jdbcType=CHAR},
+			</if>
+			<if test="workflag != null and workflag != ''">
+				t.WORK_flag = #{workflag,jdbcType=CHAR},
+			</if>
+		  	<if test="productRate != null and productRate != ''">
+				t.PRODUCT_RATE = #{productRate,jdbcType=DOUBLE},
+			</if>
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.TLawProductRate" resultType="long">
+	select count(1)
+	from T_LAW_PRODUCT_RATE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="User_Base_Column_List"/>
+		from T_LAW_PRODUCT_RATE t
+		inner join department d
+  		on t.dept_code_2 = d.dept_code
+		<include refid="User_Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_PRODUCT_RATE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_PRODUCT_RATE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_PRODUCT_RATE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_PRODUCT_RATE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_PRODUCT_RATE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<update id="deleteById" parameterType="map" >
+		update T_LAW_PRODUCT_RATE
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where PRODUCT_RATE_ID = #{productRateId,jdbcType=VARCHAR}
+	</update>
+	
+</mapper>

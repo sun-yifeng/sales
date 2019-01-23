@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.group.vo.GroupLeaderRecord" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="LEADER_RECORD_ID" property="leaderRecordId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_LEADER" property="groupLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="STATISTIC" property="statistic" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.group.vo.GroupLeaderRecord">
+		<id column="LEADER_RECORD_ID" property="leaderRecordId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_LEADER" property="groupLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="STATISTIC" property="statistic" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		UPDATED_DATE,
+		LEADER_RECORD_ID,
+		CREATED_USER,
+		GROUP_LEADER,
+		CREATED_DATE,
+		STATUS,
+		STATISTIC,
+		GROUP_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		LEADER_RECORD_ID as "leaderRecordId",
+		CREATED_USER as "createdUser",
+		GROUP_LEADER as "groupLeader",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		STATISTIC as "statistic",
+		GROUP_CODE as "groupCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{leaderRecordId,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{groupLeader,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{statistic,jdbcType=CHAR},
+ 		#{groupCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="leaderRecordId != null and leaderRecordId != ''">
+			and LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="groupLeader != null and groupLeader != ''">
+			and GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="statistic != null and statistic != ''">
+			and STATISTIC = #{statistic,jdbcType=CHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.group.vo.GroupLeaderRecord" >
+    insert into GROUP_LEADER_RECORD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	<!--把团队长信息保存到历史记录表里 -->
+	<insert id ="insertLeaderHistory" parameterType="com.sinosafe.xszc.group.vo.GroupLeaderRecord">
+		insert into group_leader_history (
+		History_ID,
+		<include refid="Base_Column_List"/>
+		)
+		select 
+		#{historyId,jdbcType=VARCHAR},
+		#{updatedUser,jdbcType=VARCHAR},
+		VALID_IND,
+		sysdate,
+		LEADER_RECORD_ID,
+		CREATED_USER,
+		GROUP_LEADER,
+		CREATED_DATE,
+		STATUS,
+		STATISTIC,
+		GROUP_CODE
+		from group_leader_record
+	where group_code=#{groupCode,jdbcType=VARCHAR} and valid_ind='1'
+		
+	</insert>
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into GROUP_LEADER_RECORD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from GROUP_LEADER_RECORD
+    where LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from GROUP_LEADER_RECORD
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update GROUP_LEADER_RECORD
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupLeader != null and groupLeader != ''">
+		GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="statistic != null and statistic != ''">
+		STATISTIC = #{statistic,jdbcType=CHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update GROUP_LEADER_RECORD
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			STATISTIC = #{statistic,jdbcType=CHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 团队是否参与组织架构的统计，0不参与，1参与，设置团队长参与统计，取消或者不设置团队长则不统计  -->
+	<update id="updateGroupMainStatFlag" parameterType="map" >
+		update group_main t
+		   set t.stat_flag = #{statFlag,jdbcType=VARCHAR}
+		 where 1 = 1
+		   and t.valid_ind = '1'
+		   and t.virtual_flag = '0'
+		   and t.group_code = #{groupCode,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.group.vo.GroupLeaderRecord" >
+	update GROUP_LEADER_RECORD
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupLeader != null and groupLeader != ''">
+		GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="statistic != null and statistic != ''">
+		STATISTIC = #{statistic,jdbcType=CHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.group.vo.GroupLeaderRecord" >
+		update GROUP_LEADER_RECORD
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			GROUP_LEADER = #{groupLeader,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			STATISTIC = #{statistic,jdbcType=CHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from GROUP_LEADER_RECORD
+	where LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from GROUP_LEADER_RECORD
+	where LEADER_RECORD_ID = #{leaderRecordId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from GROUP_LEADER_RECORD <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.group.vo.GroupLeaderRecord" resultType="long">
+	select count(1)
+	from GROUP_LEADER_RECORD <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_LEADER_RECORD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_LEADER_RECORD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_LEADER_RECORD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_LEADER_RECORD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from GROUP_LEADER_RECORD
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from GROUP_LEADER_RECORD <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 根据团队长表中的group_leader 查询对应的中文名字 -->
+	<select id="queryGroupLeaderName" parameterType="map" resultMap="BaseResultMap">
+		select ss.salesman_code  as "salesmanCode",
+      				ss.salesman_cname as "salesmanCname"
+		  from group_leader_record glr
+				 inner join salesman ss on glr.group_leader = ss.salesman_code and ss.valid_ind = '1'
+		<if test="groupLeader != null and groupLeader != ''">
+			where glr.group_leader = #{groupLeader}
+		</if>
+	</select>
+	
+</mapper>

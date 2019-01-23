@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.LawFactor" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SERNO" property="serno" javaType="java.lang.String" jdbcType="INTEGER" />
+		<result column="DATA_UNIT" property="dataUnit" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FUNC_NAME" property="funcName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ITEM_NAME" property="itemName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ORDER_NO" property="orderNo" jdbcType="INTEGER" javaType="java.lang.String" />
+ 		<result column="ITEM_CODE" property="itemCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ITEM_NOTE" property="itemNote" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="DATA_TYPE" property="dataType" jdbcType="INTEGER" javaType="java.lang.String" />
+  		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.LawFactor">
+		<id column="SERNO" property="serno" javaType="java.lang.String" jdbcType="INTEGER" />
+		<result column="DATA_UNIT" property="dataUnit" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FUNC_NAME" property="funcName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ITEM_NAME" property="itemName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ORDER_NO" property="orderNo" jdbcType="INTEGER" javaType="java.lang.String" />
+ 		<result column="ITEM_CODE" property="itemCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ITEM_NOTE" property="itemNote" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="DATA_TYPE" property="dataType" jdbcType="INTEGER" javaType="java.lang.String" />
+  		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		t1.DATA_UNIT,
+		t1.CHANNEL_ID,
+		t1.FUNC_NAME,
+		t1.ITEM_NAME,
+		t1.LAST_OPT,
+		t1.ORDER_NO,
+		t1.ITEM_CODE,
+		t1.ITEM_NOTE,
+		t1.OPT_DATE,
+		t1.SERNO,
+		t1.DATA_TYPE,
+		t1.VALID_IND,
+		t2.DEPT_CODE||t2.DEPT_SIMPLE_NAME as "DEPT_CODE",
+		decode(t1.LINE_CODE,'925004','电话直销','925005','网销业务','925006','渠道重客','925007','其他业务','925008','信用保证险','925009','创新','其他') as "LINE_CODE"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		t1.DATA_UNIT as "dataUnit",
+		t1.CHANNEL_ID as "channelId",
+		t1.FUNC_NAME as "funcName",
+		t1.ITEM_NAME as "itemName",
+		t1.LAST_OPT as "lastOpt",
+		t1.ORDER_NO as "orderNo",
+		t1.ITEM_CODE as "itemCode",
+		t1.ITEM_NOTE as "itemNote",
+		t1.OPT_DATE as "optDate",
+		t1.SERNO as "serno",
+		t1.DATA_TYPE as "dataType",
+		t1.VALID_IND as "validInd",
+		t2.DEPT_CODE||t2.DEPT_SIMPLE_NAME as "deptCode",
+		t1.LINE_CODE as "lineCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{dataUnit,jdbcType=VARCHAR},
+ 		#{channelId,jdbcType=VARCHAR},
+ 		#{funcName,jdbcType=VARCHAR},
+ 		#{itemName,jdbcType=VARCHAR},
+ 		#{lastOpt,jdbcType=VARCHAR},
+ 		#{orderNo,jdbcType=INTEGER},
+ 		#{itemCode,jdbcType=VARCHAR},
+ 		#{itemNote,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{serno,jdbcType=INTEGER},
+ 		#{dataType,jdbcType=INTEGER},
+ 		#{validInd,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{lineCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<if test="dataUnit != null and data != '' ">
+			and DATA_UNIT = #{dataUnit,jdbcType=VARCHAR}
+		</if>
+		<if test="channelId != null and channelId != '' ">
+			and CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="funcName != null and funcName != '' ">
+			and FUNC_NAME = #{funcName,jdbcType=VARCHAR}
+		</if>
+		<if test="itemName != null and itemName != '' ">
+			and ITEM_NAME = #{itemName,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != '' ">
+			and LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="orderNo != null and orderNo != '' ">
+			and ORDER_NO = #{orderNo,jdbcType=INTEGER}
+		</if>
+		<if test="itemCode != null and itemCode != '' ">
+			and ITEM_CODE = #{itemCode,jdbcType=VARCHAR}
+		</if>
+		<if test="itemNote != null and itemNote != '' ">
+			and ITEM_NOTE = #{itemNote,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != '' ">
+			and OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="serno != null and serno != '' ">
+			and SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+		<if test="dataType != null and dataType != '' ">
+			and DATA_TYPE = #{dataType,jdbcType=INTEGER}
+		</if>
+		<if test="validInd != null and validInd != '' ">
+			and VALID_IND = #{validInd,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != '' ">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lineCode != null and lineCode != '' ">
+			and LINE_CODE = #{lineCode,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.LawFactor" >
+    insert into T_FACTOR_DEF (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_FACTOR_DEF (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_FACTOR_DEF
+    where SERNO = #{serno,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_FACTOR_DEF
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_FACTOR_DEF
+	<set>
+	<if test="dataUnit != null">
+		DATA_UNIT = #{dataUnit,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelId != null">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="funcName != null">
+		FUNC_NAME = #{funcName,jdbcType=VARCHAR},
+	</if>
+  	<if test="itemName != null">
+		ITEM_NAME = #{itemName,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="orderNo != null">
+		ORDER_NO = #{orderNo,jdbcType=INTEGER},
+	</if>
+  	<if test="itemCode != null">
+		ITEM_CODE = #{itemCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="itemNote != null">
+		ITEM_NOTE = #{itemNote,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+   	<if test="dataType != null">
+		DATA_TYPE = #{dataType,jdbcType=INTEGER}
+	</if>
+  	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_FACTOR_DEF
+		set 
+			DATA_UNIT = #{dataUnit,jdbcType=VARCHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			FUNC_NAME = #{funcName,jdbcType=VARCHAR},
+  			ITEM_NAME = #{itemName,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			ORDER_NO = #{orderNo,jdbcType=INTEGER},
+  			ITEM_CODE = #{itemCode,jdbcType=VARCHAR},
+  			ITEM_NOTE = #{itemNote,jdbcType=VARCHAR},
+  			OPT_DATE = #{optDate,jdbcType=DATE},
+   			DATA_TYPE = #{dataType,jdbcType=INTEGER}
+  		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.LawFactor" >
+	update T_FACTOR_DEF
+	<set>
+	<if test="dataUnit != null">
+		DATA_UNIT = #{dataUnit,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelId != null">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="funcName != null">
+		FUNC_NAME = #{funcName,jdbcType=VARCHAR},
+	</if>
+  	<if test="itemName != null">
+		ITEM_NAME = #{itemName,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="orderNo != null">
+		ORDER_NO = #{orderNo,jdbcType=INTEGER},
+	</if>
+  	<if test="itemCode != null">
+		ITEM_CODE = #{itemCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="itemNote != null">
+		ITEM_NOTE = #{itemNote,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+   	<if test="dataType != null">
+		DATA_TYPE = #{dataType,jdbcType=INTEGER}
+	</if>
+  	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.LawFactor" >
+		update T_FACTOR_DEF
+		set 
+			DATA_UNIT = #{dataUnit,jdbcType=VARCHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			FUNC_NAME = #{funcName,jdbcType=VARCHAR},
+  			ITEM_NAME = #{itemName,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			ORDER_NO = #{orderNo,jdbcType=INTEGER},
+  			ITEM_CODE = #{itemCode,jdbcType=VARCHAR},
+  			ITEM_NOTE = #{itemNote,jdbcType=VARCHAR},
+  			OPT_DATE = sysdate,
+   			DATA_TYPE = #{dataType,jdbcType=INTEGER}
+  		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_FACTOR_DEF
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_FACTOR_DEF
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+		select count(1)
+		from T_FACTOR_DEF where 1=1 and VALID_IND = '1'
+		<if test="dataUnit != null and data != '' ">
+			and DATA_UNIT = #{dataUnit,jdbcType=VARCHAR}
+		</if>
+		<if test="channelId != null and channelId != '' ">
+			and CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="funcName != null and funcName != '' ">
+			and FUNC_NAME = #{funcName,jdbcType=VARCHAR}
+		</if>
+		<if test="itemName != null and itemName != '' ">
+			and ITEM_NAME = #{itemName,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != '' ">
+			and LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="orderNo != null and orderNo != '' ">
+			and ORDER_NO = #{orderNo,jdbcType=INTEGER}
+		</if>
+		<if test="itemCode != null and itemCode != '' ">
+			and ITEM_CODE = #{itemCode,jdbcType=VARCHAR}
+		</if>
+		<if test="itemNote != null and itemNote != '' ">
+			and ITEM_NOTE = #{itemNote,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != '' ">
+			and OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="serno != null and serno != '' ">
+			and SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+		<if test="dataType != null and dataType != '' ">
+			and DATA_TYPE = #{dataType,jdbcType=INTEGER}
+		</if>
+		<if test="deptCode != null and deptCode != '' ">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lineCode != null and lineCode != '' ">
+			and LINE_CODE = #{lineCode,jdbcType=VARCHAR}
+		</if>
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.LawFactor" resultType="long">
+		select count(1)
+		from T_FACTOR_DEF where 1=1
+		<if test="dataUnit != null and data != '' ">
+			and DATA_UNIT = #{dataUnit,jdbcType=VARCHAR}
+		</if>
+		<if test="channelId != null and channelId != '' ">
+			and CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="funcName != null and funcName != '' ">
+			and FUNC_NAME = #{funcName,jdbcType=VARCHAR}
+		</if>
+		<if test="itemName != null and itemName != '' ">
+			and ITEM_NAME = #{itemName,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != '' ">
+			and LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="orderNo != null and orderNo != '' ">
+			and ORDER_NO = #{orderNo,jdbcType=INTEGER}
+		</if>
+		<if test="itemCode != null and itemCode != '' ">
+			and ITEM_CODE = #{itemCode,jdbcType=VARCHAR}
+		</if>
+		<if test="itemNote != null and itemNote != '' ">
+			and ITEM_NOTE = #{itemNote,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != '' ">
+			and OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="serno != null and serno != '' ">
+			and SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+		<if test="dataType != null and dataType != '' ">
+			and DATA_TYPE = #{dataType,jdbcType=INTEGER}
+		</if>
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_FACTOR_DEF t1
+          left join department t2
+		     on t1.dept_code = t2.dept_code
+			 where t1.VALID_IND = '1'
+		<include refid="Base_Where_Sql"/>
+		order by OPT_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_FACTOR_DEF
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_FACTOR_DEF
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_FACTOR_DEF
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_FACTOR_DEF
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_FACTOR_DEF <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_FACTOR_DEF
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageVo" parameterType="map" resultMap="BaseResultVo">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_FACTOR_DEF
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_FACTOR_DEF <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_FACTOR_DEF
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 生成流水号-->
+	<select id="serialNumber" parameterType="com.sinosafe.xszc.law.vo.LawFactor" resultType="long">
+			SELECT max(t.serno) + 1
+			  from t_factor_def t
+	</select>
+	
+	<!-- 删除 -->
+	<update id="deleteByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.LawFactor" >
+		update t_factor_def
+		set 
+  			VALID_IND = '0',
+  			OPT_DATE = sysdate
+  		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 查询因素COD和名称 用于指标因素关系指定 -->
+	<select id="queryCodeAndName" parameterType="map" resultMap="BaseResultMap">
+		select tf.item_code as "itemCode", 
+		       tf.item_name as "itemName"
+		  from t_factor_def tf
+		 where tf.valid_ind = '1'
+	</select>
+	
+</mapper>

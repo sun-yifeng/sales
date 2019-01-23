@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.activity.vo.Activity" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="ACTIVITY_ID" property="activityId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FREQUENCY" property="frequency" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CLIENT" property="client" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="ATTEND" property="attend" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BEGIN_DATE" property="beginDate" jdbcType="DATE" javaType="java.lang.String" />
+  		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTIVITY_PREMIUM" property="activityPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="ACTIVITY_MEMBER" property="activityMember" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTIVITY_NAME" property="activityName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EXPECT" property="expect" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="ACTIVITY_TARGET" property="activityTarget" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROJECT_USER" property="projectUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPLOAD_ID" property="uploadId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.activity.vo.Activity">
+		<id column="ACTIVITY_ID" property="activityId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FREQUENCY" property="frequency" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CLIENT" property="client" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ATTEND" property="attend" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BEGIN_DATE" property="beginDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTIVITY_PREMIUM" property="activityPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="ACTIVITY_MEMBER" property="activityMember" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTIVITY_NAME" property="activityName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EXPECT" property="expect" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ACTIVITY_TARGET" property="activityTarget" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROJECT_USER" property="projectUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		FREQUENCY,
+		CLIENT,
+		CREATED_USER,
+		END_DATE,
+		ATTEND,
+		BEGIN_DATE,
+		ACTIVITY_ID,
+		DEPT_CODE,
+		ACTIVITY_MEMBER,
+		ACTIVITY_NAME,
+		UPDATED_DATE,
+		STATUS,
+		EXPECT,
+		VALID_IND,
+		CREATED_DATE,
+		ACTIVITY_TARGET,
+		PROJECT_USER	</sql>
+	
+	<sql id="Base_Column_List2" >
+		UPDATED_USER,
+		FREQUENCY,
+		CLIENT,
+		CREATED_USER,
+		END_DATE,
+		ATTEND,
+		BEGIN_DATE,
+		ACTIVITY_ID,
+		DEPT_CODE,
+		ACTIVITY_MEMBER,
+		ACTIVITY_NAME,
+		UPDATED_DATE,
+		STATUS,
+		EXPECT,
+		VALID_IND,
+		CREATED_DATE,
+		ACTIVITY_TARGET,
+		PROJECT_USER,
+		(select upload_id from upload  where upload.main_id = activity.activity_id and upload.module='05') UPLOAD_ID
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		FREQUENCY as "frequency",
+		CLIENT as "client",
+		CREATED_USER as "createdUser",
+		to_char(END_DATE,'yyyy-mm-dd hh24:mi:ss') as "endDate",
+		ATTEND as "attend",
+		to_char(BEGIN_DATE,'yyyy-mm-dd hh24:mi:ss') as "beginDate",
+		ACTIVITY_ID as "activityId",
+		DEPT_CODE as "deptCode",
+		ACTIVITY_PREMIUM as "activityPremium",
+		ACTIVITY_MEMBER as "activityMember",
+		ACTIVITY_NAME as "activityName",
+		to_char(UPDATED_DATE,'yyyy-mm-dd hh24:mi:ss') as "updatedDate",
+		STATUS as "status",
+		decode(status,'0','0-草稿','1','1-已下发','2','2-活动结束') as "statusName",
+		EXPECT as "expect",
+		VALID_IND as "validInd",
+		to_char(CREATED_DATE,'yyyy-mm-dd hh24:mi:ss') as "createdDate",
+		ACTIVITY_TARGET as "activityTarget",
+		PROJECT_USER as "projectUser",
+		(select upload_id from upload  where upload.main_id = activity.activity_id and upload.module='05') as "uploadId"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{frequency,jdbcType=CHAR},
+ 		#{client,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		to_date(#{endDate},'yyyy-mm-dd'),
+ 		#{attend,jdbcType=VARCHAR},
+ 		to_date(#{beginDate},'yyyy-mm-dd'),
+ 		#{activityId,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{activityMember,jdbcType=VARCHAR},
+ 		#{activityName,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{expect,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{activityTarget,jdbcType=VARCHAR},
+ 		#{projectUser,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="frequency != null and frequency != ''">
+			and FREQUENCY = #{frequency,jdbcType=CHAR}
+		</if>
+		<if test="client != null and client != ''">
+			and CLIENT = #{client,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="endDate != null and endDate != ''">
+			and END_DATE = to_date(#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="attend != null and attend != ''">
+			and ATTEND = #{attend,jdbcType=VARCHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and BEGIN_DATE = to_date(#{beginDate},'yyyy-mm-dd')
+		</if>
+		<if test="activityId != null and activityId != ''">
+			and ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE like #{deptCode,jdbcType=VARCHAR}||'%'
+		</if>
+		<if test="activityPremium != null and activityPremium != ''">
+			and ACTIVITY_PREMIUM = #{activityPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="activityMember != null and activityMember != ''">
+			and ACTIVITY_MEMBER = #{activityMember,jdbcType=VARCHAR}
+		</if>
+		<if test="activityName != null and activityName != ''">
+			and ACTIVITY_NAME = #{activityName,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="expect != null and expect != ''">
+			and EXPECT = #{expect,jdbcType=VARCHAR}
+		</if>
+		
+		
+			and VALID_IND = '1'
+			
+			
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="activityTarget != null and activityTarget != ''">
+			and ACTIVITY_TARGET = #{activityTarget,jdbcType=VARCHAR}
+		</if>
+		<if test="projectUser != null and projectUser != ''">
+			and PROJECT_USER = #{projectUser,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.activity.vo.Activity" >
+    insert into ACTIVITY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into ACTIVITY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ACTIVITY
+    where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from ACTIVITY
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update ACTIVITY
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="frequency != null and frequency != ''">
+		FREQUENCY = #{frequency,jdbcType=CHAR},
+	</if>
+  	<if test="client != null and client != ''">
+		CLIENT = #{client,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="endDate != null and endDate != ''">
+		END_DATE = to_date(#{endDate}||' 23:59:59','yyyy-mm-dd hh24:mi:ss'),
+	</if>
+  	<if test="attend != null and attend != ''">
+		ATTEND = #{attend,jdbcType=VARCHAR},
+	</if>
+  	<if test="beginDate != null and beginDate != ''">
+		BEGIN_DATE = to_date(#{beginDate' 00:00:00','yyyy-mm-dd hh24:mi:ss'),
+	</if>
+   	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="activityPremium != null and activityPremium != ''">
+		ACTIVITY_PREMIUM = #{activityPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="activityMember != null and activityMember != ''">
+		ACTIVITY_MEMBER = #{activityMember,jdbcType=VARCHAR},
+	</if>
+  	<if test="activityName != null and activityName != ''">
+		ACTIVITY_NAME = #{activityName,jdbcType=VARCHAR},
+	</if>
+	
+		UPDATED_DATE = sysdate,
+	
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="expect != null and expect != ''">
+		EXPECT = #{expect,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="activityTarget != null and activityTarget != ''">
+		ACTIVITY_TARGET = #{activityTarget,jdbcType=VARCHAR},
+	</if>
+  	<if test="projectUser != null and projectUser != ''">
+		PROJECT_USER = #{projectUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update ACTIVITY
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			FREQUENCY = #{frequency,jdbcType=CHAR},
+  			CLIENT = #{client,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			END_DATE = #{endDate,jdbcType=DATE},
+  			ATTEND = #{attend,jdbcType=VARCHAR},
+  			BEGIN_DATE = #{beginDate,jdbcType=DATE},
+   			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			ACTIVITY_PREMIUM = #{activityPremium,jdbcType=DOUBLE},
+  			ACTIVITY_MEMBER = #{activityMember,jdbcType=VARCHAR},
+  			ACTIVITY_NAME = #{activityName,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			EXPECT = #{expect,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			ACTIVITY_TARGET = #{activityTarget,jdbcType=VARCHAR},
+  			PROJECT_USER = #{projectUser,jdbcType=VARCHAR}
+  		where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.activity.vo.Activity" >
+	update ACTIVITY
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="frequency != null and frequency != ''">
+		FREQUENCY = #{frequency,jdbcType=CHAR},
+	</if>
+  	<if test="client != null and client != ''">
+		CLIENT = #{client,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="endDate != null and endDate != ''">
+		END_DATE = #{endDate,jdbcType=DATE},
+	</if>
+  	<if test="attend != null and attend != ''">
+		ATTEND = #{attend,jdbcType=VARCHAR},
+	</if>
+  	<if test="beginDate != null and beginDate != ''">
+		BEGIN_DATE = #{beginDate,jdbcType=DATE},
+	</if>
+   	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="activityPremium != null and activityPremium != ''">
+		ACTIVITY_PREMIUM = #{activityPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="activityMember != null and activityMember != ''">
+		ACTIVITY_MEMBER = #{activityMember,jdbcType=VARCHAR},
+	</if>
+  	<if test="activityName != null and activityName != ''">
+		ACTIVITY_NAME = #{activityName,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="expect != null and expect != ''">
+		EXPECT = #{expect,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="activityTarget != null and activityTarget != ''">
+		ACTIVITY_TARGET = #{activityTarget,jdbcType=VARCHAR},
+	</if>
+  	<if test="projectUser != null and projectUser != ''">
+		PROJECT_USER = #{projectUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.activity.vo.Activity" >
+		update ACTIVITY
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			FREQUENCY = #{frequency,jdbcType=CHAR},
+  			CLIENT = #{client,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			END_DATE = #{endDate,jdbcType=DATE},
+  			ATTEND = #{attend,jdbcType=VARCHAR},
+  			BEGIN_DATE = #{beginDate,jdbcType=DATE},
+   			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			ACTIVITY_PREMIUM = #{activityPremium,jdbcType=DOUBLE},
+  			ACTIVITY_MEMBER = #{activityMember,jdbcType=VARCHAR},
+  			ACTIVITY_NAME = #{activityName,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			EXPECT = #{expect,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			ACTIVITY_TARGET = #{activityTarget,jdbcType=VARCHAR},
+  			PROJECT_USER = #{projectUser,jdbcType=VARCHAR}
+  		where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from ACTIVITY
+	where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from ACTIVITY
+	where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from ACTIVITY <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.activity.vo.Activity" resultType="long">
+	select count(1)
+	from ACTIVITY <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List_JavaName"/>
+		from ACTIVITY
+		<include refid="Base_Where_Sql"/>
+		order by created_date desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from ACTIVITY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from ACTIVITY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from ACTIVITY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from ACTIVITY
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from ACTIVITY <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

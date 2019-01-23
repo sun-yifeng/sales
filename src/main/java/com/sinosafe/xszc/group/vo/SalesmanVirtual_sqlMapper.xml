@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SALEMHISTORY_ID" property="historyId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<id column="VIRTUAL_ID" property="virtualId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CNAME" property="cname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CERTIRY_NO" property="certiryNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENTER_DATE" property="enterDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VIRTUAL_SALESMAN_CODE" property="virtualSalesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENAME" property="ename" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_TYPE" property="salesmanCode" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.group.vo.SalesmanVirtual">
+		<id column="VIRTUAL_ID" property="virtualId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="DATE" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CNAME" property="cname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CERTIRY_NO" property="certiryNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENTER_DATE" property="enterDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="VIRTUAL_SALESMAN_CODE" property="virtualSalesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENAME" property="ename" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_TYPE" property="salesmanCode" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		VIRTUAL_ID,
+		DEPT_CODE,
+		CNAME,
+		VALID_IND,
+		SALESMAN_CODE,
+		CERTIRY_NO,
+		VIRTUAL_SALESMAN_CODE,
+		ENAME,
+		EMPLOY_CODE,
+		BIRTHDAY,
+		CREATED_USER,
+		CREATED_DATE,
+		UPDATED_USER,
+		UPDATED_DATE, 
+		ENTER_DATE, 
+		END_DATE,
+		SALESMAN_TYPE
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+ 		#{virtualId,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{cname,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{certiryNo,jdbcType=VARCHAR},
+ 		#{virtualSalesmanCode,jdbcType=VARCHAR},
+ 		#{ename,jdbcType=VARCHAR},
+ 		#{employCode,jdbcType=VARCHAR},
+ 		to_date(#{birthday},'yyyy-mm-dd'),
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		sysdate,
+		#{updatedUser,jdbcType=VARCHAR},
+ 		sysdate,
+ 		to_date(#{enterDate},'yyyy-mm-dd'),
+ 		to_date(#{endDate},'yyyy-mm-dd'),
+ 		#{salesmanType,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		BIRTHDAY as "birthday",
+		VIRTUAL_ID as "virtualId",
+		CREATED_USER as "createdUser",
+		DEPT_CODE as "deptCode",
+		UPDATED_DATE as "updatedDate",
+		CNAME as "cname",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		SALESMAN_CODE as "salesmanCode",
+		CERTIRY_NO as "certiryNo",
+		ENTER_DATE as "enterDate",
+		VIRTUAL_SALESMAN_CODE as "virtualSalesmanCode",
+		ENAME as "ename",
+		EMPLOY_CODE as "employCode",
+		END_DATE as "endDate",
+		SALESMAN_TYPE as "salesmanType"
+	</sql>
+	<sql id="virtualhistory_sql">
+	    SALEMHISTORY_ID,
+		VIRTUAL_ID,
+		SALESMAN_CODE,
+		DEPT_CODE,
+		VIRTUAL_SALESMAN_CODE,
+		CNAME,
+		ENAME,
+		ENTER_DATE,
+		VALID_IND,
+		CREATED_USER,
+		CREATED_DATE,
+		UPDATED_USER,
+		UPDATED_DATE,
+		EMPLOY_CODE,
+		END_DATE,
+		CERTIRY_NO,
+		BIRTHDAY,
+		SALESMAN_TYPE
+	</sql>
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="birthday != null and birthday != ''">
+			and BIRTHDAY = #{birthday,jdbcType=DATE}
+		</if>
+		<if test="virtualId != null and virtualId != ''">
+			and VIRTUAL_ID = #{virtualId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="cname != null and cname != ''">
+			and CNAME = #{cname,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="certiryNo != null and certiryNo != ''">
+			and CERTIRY_NO = #{certiryNo,jdbcType=VARCHAR}
+		</if>
+		<if test="enterDate != null and enterDate != ''">
+			and ENTER_DATE = #{enterDate,jdbcType=DATE}
+		</if>
+		<if test="virtualSalesmanCode != null and virtualSalesmanCode != ''">
+			and VIRTUAL_SALESMAN_CODE = #{virtualSalesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="ename != null and ename != ''">
+			and ENAME = #{ename,jdbcType=VARCHAR}
+		</if>
+		<if test="employCode != null and employCode != ''">
+			and EMPLOY_CODE = #{employCode,jdbcType=VARCHAR}
+		</if>
+		<if test="endDate != null and endDate != ''">
+			and END_DATE = #{endDate,jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanType != null and salesmanType != ''">
+			and SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR}
+		</if>
+		</where>
+	</sql>
+	
+    <!-- 查看或者修改非HR人员页面 -->
+	<select id="selectByPrimaryKeyMap" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select t1.virtual_id,
+		       t1.created_user,
+		       t1.dept_code,
+		       t1.cname,
+		       t1.valid_ind,
+		       t1.salesman_code,
+		       t1.certiry_no,
+		       t1.virtual_salesman_code,
+		       t1.ename,
+		       t1.employ_code,
+		       to_char(t1.birthday, 'yyyy-mm-dd') as "birthday",
+		       to_char(t1.enter_date, 'yyyy-mm-dd') as "enterDate",
+		       to_char(t1.end_date, 'yyyy-mm-dd') as "endDate",
+		       t2.dept_simple_name as "deptNameFour",
+		       t3.dept_simple_name as "deptNameThree",
+		       t4.dept_simple_name as "deptNameTwo",
+		       t5.salesman_cname as "salesmanCname",
+		       decode(t1.SALESMAN_TYPE,'0','销售助理','1','远程出单点出单人员','2','独立考核的非HR人员','') as "salesmanType"
+		  from salesman_virtual t1
+		       left join department t2 on t1.dept_code = t2.dept_code
+		       left join department t3 on t2.parent_dept_code = t3.dept_code
+		       left join department t4 on t3.parent_dept_code = t4.dept_code
+		       left join salesman t5 on t1.salesman_code = t5.salesman_code
+		 where virtual_id = #{virtualId,jdbcType=VARCHAR}
+	</select>
+	
+	
+	 <!-- 查看或者修改非HR人员页面 -->
+	<select id="selectByPrimaryKeyMap2" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select t1.salemhistory_id,
+		       t1.virtual_id,
+		       t1.created_user,
+		       t1.dept_code,
+		       t1.cname,
+		       t1.valid_ind,
+		       t1.salesman_code,
+		       t1.certiry_no,
+		       t1.virtual_salesman_code,
+		       t1.ename,
+		       t1.employ_code,
+		       to_char(t1.birthday, 'yyyy-mm-dd') as "birthday",
+		       to_char(t1.enter_date, 'yyyy-mm-dd') as "enterDate",
+		       to_char(t1.end_date, 'yyyy-mm-dd') as "endDate",
+		       t2.dept_simple_name as "deptNameFour",
+		       t3.dept_simple_name as "deptNameThree",
+		       t4.dept_simple_name as "deptNameTwo",
+		       t5.salesman_cname as "salesmanCname",
+		       decode(t1.SALESMAN_TYPE,'0','销售助理','1','远程出单点出单人员','2','独立考核的非HR人员','') as "salesmanType"
+		  from salesman_virtual_history t1
+		       left join department t2 on t1.dept_code = t2.dept_code
+		       left join department t3 on t2.parent_dept_code = t3.dept_code
+		       left join department t4 on t3.parent_dept_code = t4.dept_code
+		       left join salesman t5 on t1.salesman_code = t5.salesman_code
+		 where salemhistory_id = #{historyId,jdbcType=VARCHAR}
+	</select>
+	<!-- 多级部门代码的查询条件 -->
+	<sql id="Base_Where_Sql_Multi_Table">
+		<if test="trueOrFalse == 0">
+			and sv.salesman_type != '1'
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and ss.salesman_cname like '%' || trim(#{salesmanCname,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="cname != null and cname != ''">
+			and sv.CNAME like '%' || trim(#{cname,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="salesmanType != null and salesmanType != ''">
+			and sv.salesman_type = #{salesmanType,jdbcType=VARCHAR}
+		</if>
+		<!-- 多级机构代码 -->
+		<if test="deptCodeTwo != null and deptCodeTwo != '' and deptCodeTwo != '00'">
+			<choose>
+				<when test="deptCodeFour != null and deptCodeFour != ''">
+				    and sv.DEPT_CODE like #{deptCodeFour,jdbcType=VARCHAR} || '%'
+				</when>
+				<when test="deptCodeThree != null and deptCodeThree != ''">
+				    and sv.DEPT_CODE like #{deptCodeThree,jdbcType=VARCHAR} || '%'
+				</when>
+				<otherwise>
+				    and sv.DEPT_CODE like #{deptCodeTwo,jdbcType=VARCHAR} || '%'
+				</otherwise>
+			</choose>
+		</if>
+	</sql>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	     select count(1)
+			  from SALESMAN_VIRTUAL sv
+			  left join salesman ss on sv.salesman_code = ss.salesman_code
+			 WHERE sv.VALID_IND = '1' 
+		<include refid="Base_Where_Sql_Multi_Table" />
+	</select>
+	
+	<select id="countVirtualHistory" parameterType="map" resultType="long">
+	     select count(1)
+			  from SALESMAN_VIRTUAL_HISTORY sv
+			   WHERE sv.VALID_IND = '1' and sv.VIRTUAL_ID=#{virtualId,jdbcType=VARCHAR}
+		<include refid="Base_Where_Sql_Multi_Table"/>
+		</select>
+		
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+			select sv.DEPT_CODE,
+			       sv.UPDATED_USER,
+			       sv.ENAME,
+			       to_char(sv.BIRTHDAY, 'yyyy-mm-dd') BIRTHDAY,
+			       sv.VIRTUAL_ID,
+			       sv.CREATED_USER,
+			       sv.UPDATED_DATE,
+			       sv.EMPLOY_CODE||sv.CNAME as "cname",
+			       sv.VALID_IND,
+			       sv.CREATED_DATE,
+			       sv.SALESMAN_CODE,
+			       sv.CERTIRY_NO,
+			       to_char(sv.ENTER_DATE, 'yyyy-mm-dd') ENTER_DATE,
+			       to_char(sv.END_DATE, 'yyyy-mm-dd') END_DATE,
+			       sv.VIRTUAL_SALESMAN_CODE,
+			       sv.EMPLOY_CODE,
+			       decode(sv.salesman_type,'0','销售助理','1','远程出单点出单人员','2','独立考核的非HR人员','') as "salesmanType",
+			       ss.employ_code||ss.salesman_cname as "salesmanCname"
+			  from SALESMAN_VIRTUAL sv
+			  left join salesman ss on sv.salesman_code = ss.salesman_code
+			 WHERE sv.VALID_IND = '1' 
+			<include refid="Base_Where_Sql_Multi_Table"/>
+			<!--order by sv.UPDATED_DATE desc-->
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>	
+	<!-- 单独条件分页查询语句 (查的是历史修改记录)-->
+	<select id="queryListHistory" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		
+			select 
+			       sv.SALEMHISTORY_ID as historyId,
+			       sv.DEPT_CODE,
+			       sv.UPDATED_USER,
+			       sv.ENAME,
+			       to_char(sv.BIRTHDAY, 'yyyy-mm-dd') BIRTHDAY,
+			       sv.VIRTUAL_ID,
+			       sv.CREATED_USER,
+			       sv.UPDATED_DATE,
+			       sv.EMPLOY_CODE||sv.CNAME as "cname",
+			       sv.VALID_IND,
+			       sv.CREATED_DATE,
+			       sv.SALESMAN_CODE,
+			       sv.CERTIRY_NO,
+			       to_char(sv.ENTER_DATE, 'yyyy-mm-dd') ENTER_DATE,
+			       to_char(sv.END_DATE, 'yyyy-mm-dd') END_DATE,
+			       sv.VIRTUAL_SALESMAN_CODE,
+			       sv.EMPLOY_CODE,
+			       decode(sv.salesman_type,'0','销售助理','1','远程出单点出单人员','2','独立考核的非HR人员','') as "salesmanType",
+			       ss.employ_code||ss.salesman_cname as "salesmanCname"
+			  from SALESMAN_VIRTUAL_HISTORY sv
+			  left join salesman ss on sv.salesman_code = ss.salesman_code
+			 WHERE sv.VALID_IND = '1' and sv.VIRTUAL_ID=#{virtualId,jdbcType=VARCHAR}
+			 
+			<include refid="Base_Where_Sql_Multi_Table"/>
+			order by sv.UPDATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+    insert into SALESMAN_VIRTUAL (
+		   VIRTUAL_ID,
+		   DEPT_CODE,
+		   CNAME,
+		   VALID_IND,
+		   CERTIRY_NO,
+		   VIRTUAL_SALESMAN_CODE,
+		   ENAME,
+		   EMPLOY_CODE,
+		   BIRTHDAY,
+		   CREATED_USER,
+		   CREATED_DATE,
+		   UPDATED_USER,
+		   UPDATED_DATE,
+		   SALESMAN_TYPE
+    )
+	values (
+		#{virtualId,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{cname,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{certiryNo,jdbcType=VARCHAR},
+ 		#{virtualSalesmanCode,jdbcType=VARCHAR},
+ 		#{ename,jdbcType=VARCHAR},
+ 		#{employCode,jdbcType=VARCHAR},
+ 		to_date(#{birthday},'yyyy-mm-dd'),
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		sysdate,
+		#{updatedUser,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{salesmanType,jdbcType=CHAR}
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into SALESMAN_VIRTUAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SALESMAN_VIRTUAL
+    where VIRTUAL_ID = #{virtualId,jdbcType=VARCHAR}
+	</delete>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update SALESMAN_VIRTUAL
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CNAME = #{cname,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			VIRTUAL_SALESMAN_CODE = #{virtualSalesmanCode,jdbcType=VARCHAR},
+  			EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+  			CERTIRY_NO = #{certiryNo,jdbcType=VARCHAR},
+  			BIRTHDAY = to_date(#{birthday,jdbcType=DATE},'yyyy-mm-dd'),
+  			UPDATED_DATE = sysdate,
+			SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR}
+  		where VIRTUAL_ID = #{virtualId,jdbcType=VARCHAR}
+	</update>
+	
+	 <!--  修改非HR人员信息 -->
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+	update SALESMAN_VIRTUAL
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="cname != null and cname != ''">
+		CNAME = #{cname,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="virtualSalesmanCode != null and virtualSalesmanCode != ''">
+		VIRTUAL_SALESMAN_CODE = #{virtualSalesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="ename != null and ename != ''">
+		ENAME = #{ename,jdbcType=VARCHAR}
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="certiryNo != null and certiryNo != ''">
+		CERTIRY_NO = #{certiryNo,jdbcType=VARCHAR},
+	</if>
+    <!-- 入职时间 -->
+  	<if test="enterDate != null and enterDate != ''">
+		ENTER_DATE = to_date(#{enterDate,jdbcType=DATE},'yyyy-mm-dd'),
+	</if>
+	<!-- 离职日期 -->
+  	<if test="endDate != null and endDate != ''">
+		END_DATE = to_date(#{enterDate,jdbcType=DATE},'yyyy-mm-dd'),
+	</if>
+	<!-- 出生日期 -->
+  	<if test="birthday != null and birthday != ''">
+		BIRTHDAY = to_date(#{birthday,jdbcType=DATE},'yyyy-mm-dd'),
+	</if>
+	<!-- 人员类别-->
+  	<if test="salesmanType != null and salesmanType != ''">
+		SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR}
+	</if>
+  	</set>
+	where VIRTUAL_ID = #{virtualId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+		update SALESMAN_VIRTUAL
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			BIRTHDAY = to_date(#{birthday},'yyyy-mm-dd'),
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			CNAME = #{cname,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			CERTIRY_NO = #{certiryNo,jdbcType=VARCHAR},
+  			ENTER_DATE = to_date(#{enterDate},'yyyy-mm-dd'),
+  			VIRTUAL_SALESMAN_CODE = #{virtualSalesmanCode,jdbcType=VARCHAR},
+  			ENAME = #{ename,jdbcType=VARCHAR},
+  			EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+  			END_DATE = #{endDate,jdbcType=VARCHAR},
+  			SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR}
+  		where VIRTUAL_ID = #{virtualId,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="updaVritualHistory" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+    insert into SALESMAN_VIRTUAL_HISTORY ( <include refid="virtualhistory_sql" /> )
+		select 
+		#{historyId,jdbcType=VARCHAR},
+		VIRTUAL_ID,
+		SALESMAN_CODE,
+		DEPT_CODE,
+		VIRTUAL_SALESMAN_CODE,
+		CNAME,
+		ENAME,
+		ENTER_DATE,
+		VALID_IND,
+		CREATED_USER,
+		CREATED_DATE,
+		#{updatedUser,jdbcType=VARCHAR},
+		sysDate,
+		EMPLOY_CODE,
+		END_DATE,
+		CERTIRY_NO,
+		BIRTHDAY,
+		SALESMAN_TYPE
+		from SALESMAN_VIRTUAL SV
+		where SV.VIRTUAL_ID = #{virtualId,jdbcType=VARCHAR}
+		and SV.valid_ind = '1'
+	</insert>
+
+	 <!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from SALESMAN_VIRTUAL
+	where VIRTUAL_ID = #{virtualId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" resultType="long">
+	select count(1)
+	from SALESMAN_VIRTUAL <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from SALESMAN_VIRTUAL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from SALESMAN_VIRTUAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from SALESMAN_VIRTUAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from SALESMAN_VIRTUAL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from SALESMAN_VIRTUAL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 查询非HR人员是否存在 -->
+	<select id="queryCertiryNoCount" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" resultType="long">
+			SELECT count(1)
+		  from SALESMAN_VIRTUAL sv
+		  	where sv.valid_ind = '1'
+		<if test="certiryNo != null and certiryNo != '' ">
+		      and sv.CERTIRY_NO = #{certiryNo}
+		 </if>
+	</select>
+	
+	<!-- 校验人员工号是否存在 -->
+	<select id="queryEmployCode" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" resultType="long">
+			SELECT count(1)
+		  from SALESMAN_VIRTUAL sv
+		  	where sv.valid_ind = '1'
+		  	  and sv.salesman_type in('0','2')
+		<if test="employCode != null and employCode != '' ">
+		      and sv.employ_code = #{employCode}
+		 </if>
+	</select>
+	
+	<select id="querySalesmanType" parameterType="String"  resultType="String">
+			SELECT sv.salesman_type
+		  from SALESMAN_VIRTUAL sv
+		  	where sv.valid_ind = '1'
+		  	 and sv.salesman_type in('0','2')
+		<if test="_parameter != null and _parameter != '' ">
+		      and sv.employ_code = #{_parameter}
+		 </if>
+	</select>
+	
+	<select id="queryEmployCodeHR" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" resultType="long">
+			SELECT count(1)
+		  from SALESMAN sv
+		  	where sv.valid_ind = '1'
+		<if test="employCode != null and employCode != '' ">
+		      and sv.employ_code = #{employCode}
+		 </if>
+	</select>
+	
+	<!-- 判断时间段是否交叉或包含 -->
+	<select id="queryDateTime" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" resultType="long">
+			select count(1) from (
+			    select * from salesman_virtual t 
+			     where t.employ_code = #{employCode}
+			        and  exists(
+			               select 1 from dual where to_date(#{enterDate},'yyyy-mm-dd') &gt;= t.enter_date and (to_date(#{enterDate},'yyyy-mm-dd') &lt;=t.end_date 
+			               or t.end_date is null)
+			               )
+			               
+			        
+			      union
+			     select * from salesman_virtual t 
+			       where t.employ_code = #{employCode}
+			       and  ( exists(
+			               select 1 from dual where t.enter_date between to_date(#{enterDate},'yyyy-mm-dd') and to_date(#{endDate},'yyyy-mm-dd')
+			               )
+			        or exists(
+			               select 1 from dual where t.end_date between to_date(#{enterDate},'yyyy-mm-dd') and to_date(#{endDate},'yyyy-mm-dd')
+			               ) )
+			) 
+	</select >
+	<!-- 判断历史记录时间段是否交叉或包含 -->
+	<select id="queryDateTimeHistory" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" resultType="long">
+		select count(1) from (
+			    select * from salesman_virtual_history t 
+			     where t.employ_code = #{employCode}
+			     and t.salesman_code!=#{salesmanCode}
+			     and t.valid_ind='1'
+			        and  exists(
+			               select 1 from dual where to_date(#{enterDate},'yyyy-mm-dd') &gt;= t.enter_date and (to_date(#{enterDate},'yyyy-mm-dd') &lt;=t.end_date 
+			               or t.end_date is null)
+			               )
+			      union
+			     select * from salesman_virtual_history t 
+			       where t.employ_code = #{employCode}
+			       and t.salesman_code!=#{salesmanCode}
+			       and t.valid_ind='1'
+			       and  ( exists(
+			               select 1 from dual where t.enter_date between to_date(#{enterDate},'yyyy-mm-dd') and to_date(#{endDate},'yyyy-mm-dd')
+			               )
+			        or exists(
+			               select 1 from dual where t.end_date between to_date(#{enterDate},'yyyy-mm-dd') and to_date(#{endDate},'yyyy-mm-dd')
+			               ) )
+			) 
+	</select>
+	
+	<!--根据主键删除非HR人员信息-->
+	<update id="deleteById" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+		update SALESMAN_VIRTUAL sv
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where sv.VIRTUAL_ID = #{virtualId}
+	</update>
+	
+	<!--根据本门编码查询HR人员(人员工号和名称)-->
+	<select id="queryDeptVirSalesman" parameterType="map" resultMap="BaseResultMap">
+    select t1.EMPLOY_CODE as "employCode",
+           t1.CNAME as "salesmanCname"
+      from SALESMAN_VIRTUAL t1
+    where t1.dept_code like #{deptCode} || '%'
+      and t1.valid_ind = '1'
+      and t1.SALESMAN_TYPE = '1'
+      order by t1.CNAME
+	</select>
+	
+	<!--新增非HR人员时，将HR人员表中的人失效-->
+	<update id="updateHrSalesman" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+		 update salesman t set 
+		   t.valid_ind = '0', 
+		   t.updated_user = #{updatedUser,jdbcType=VARCHAR}, 
+		   t.updated_date = sysdate
+		 where t.valid_ind = '1'
+		   and t.employ_code = #{employCode,jdbcType=VARCHAR}
+	</update>
+	<!--HR人员异动后非HR人员对应的部门需要更改 -->
+	<update id="updateInfoBySalesCode" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual">
+		update salesman_virtual sv set 
+		sv.dept_code=#{deptCode,jdbcType=VARCHAR}
+		where sv.salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+		and sv.valid_ind='1'
+		</update>
+		<select id="queryVirtualbySalseCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+			select <include refid="Base_Column_List"/>
+			from salesman_virtual sv
+			where sv.salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+			</select>
+	
+	<select id="selectSalesmanVirtualRecord" parameterType="map" resultMap="BaseResultMap">
+		select
+			t.pk_id as "pkId",
+		    t.dept_code as "deptCode", 
+		    t.employ_code as "employCode", 
+		    t.employ_name as "employName",  
+		    t.salesman_code as "salesCode",
+		    t1.salesman_cname as "salesName",
+		    to_char(t.bgn_date, 'yyyy-mm-dd') as "bgnDate", 
+		    to_char(t.end_date, 'yyyy-mm-dd') as "endDate"
+  		from salesman_virtual_record t
+  		 left join salesman t1 on t.salesman_code = t1.salesman_code
+  		where 1=1
+  			and t.valid_ind = '1'
+     	    and t.employ_code = #{employCode,jdbcType=VARCHAR}
+     	    order by t.end_date desc
+	</select>
+	
+	<select id="existsSalesmanVirtualRecord" parameterType="map" resultType="long">
+		select count(1) from salesman_virtual_record t where 1=1 and t.valid_ind = '1' and t.pk_id = #{pkId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="insertSalesmanVirtualRecord" parameterType="map" >
+		 insert into salesman_virtual_record t
+  			(
+		      t.pk_id,       
+		      t.dept_code,   
+		      t.employ_code, 
+		      t.employ_name,
+		      t.salesman_code,
+		      t.bgn_date,    
+		      t.end_date,    
+		      t.valid_ind,   
+		      t.created_user,
+		      t.created_date,
+		      t.updated_user,
+		      t.updated_date)
+		   values(
+		   	  sys_guid(),
+		   	  #{deptCode,jdbcType=VARCHAR},
+		   	  #{employCode,jdbcType=VARCHAR},
+		   	  #{employName,jdbcType=VARCHAR},
+		   	  #{salesCode,jdbcType=VARCHAR},
+		   	  to_date(#{bgnDate,jdbcType=DATE},'yyyy/mm/dd'),
+		   	  to_date(#{endDate,jdbcType=DATE},'yyyy/mm/dd'),
+		   	  '1',
+		   	  #{updatedUser,jdbcType=VARCHAR},
+		   	  sysdate,
+		   	  #{updatedUser,jdbcType=VARCHAR},
+		   	  sysdate     
+		   )
+	</select>
+	
+	<insert id="updateSalesmanVirtualRecord" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+		 update salesman_virtual_record t
+		 	set 
+		  t.salesman_code = #{salesCode,jdbcType=VARCHAR},
+		  t.bgn_date = to_date(#{bgnDate,jdbcType=DATE},'yyyy/mm/dd'),
+		  t.end_date = to_date(#{endDate,jdbcType=DATE},'yyyy/mm/dd')
+		where 1=1 and t.pk_id = #{pkId,jdbcType=VARCHAR}
+	</insert>
+	<select id="queryMaxEndDate" parameterType = "java.lang.String" resultType="java.lang.String">
+	 	select max(t.end_date) 
+	 	 from salesman_virtual_record t where 1=1 
+	 	 and t.valid_ind = '1' 
+	 	 and t.employ_code = #{employCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="validateDate" parameterType="map" resultType="long">
+		select count(1) from salesman_virtual_record t 
+	       where t.employ_code = #{employCode,jdbcType=VARCHAR}
+	       and  ( exists( 
+	               select 1 from dual where (select max(t1.end_date) from salesman_virtual_record t1 
+	                where 1=1 and t1.valid_ind = '1' 
+	                <if test="pkId != null and pkId !=''">
+	                	and t1.pk_id != #{pkId,jdbcType=VARCHAR}
+	                </if>
+	               ) &gt;= to_date(#{bgnDate},'yyyy-mm-dd'))
+	             )
+	</select>
+	
+	<select id="querySalesmanName" parameterType="java.lang.String" resultType="java.lang.String">
+		 select t.salesman_cname from salesman t where t.valid_ind='1' and t.salesman_code=#{salesCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryVirtualName" parameterType="java.lang.String" resultType="java.lang.String">
+		 select max(t.c_emp_cnm) from t_emp_cde t where t.c_emp_cde=#{employCode,jdbcType=VARCHAR}
+	</select>
+</mapper>

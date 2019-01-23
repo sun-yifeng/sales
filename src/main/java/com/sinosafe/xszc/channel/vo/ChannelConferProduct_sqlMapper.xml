@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelConferProduct" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="CONFER_PRODUCT_ID" property="conferProductId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="COMMISSION_RATE" property="commissionRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="ENDORSE_RATE" property="endorseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRODUCT_CODE" property="productCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONFER_CODE" property="conferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFER_ID" property="conferId" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="EXTEND_CONFER_CODE" property="extendConferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="COMM_RATE" property="commRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelConferProduct">
+		<id column="CONFER_PRODUCT_ID" property="conferProductId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="COMMISSION_RATE" property="commissionRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="ENDORSE_RATE" property="endorseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRODUCT_CODE" property="productCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONFER_CODE" property="conferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFER_ID" property="conferId" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="EXTEND_CONFER_CODE" property="extendConferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="COMM_RATE" property="commRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		CREATED_DATE,
+		COMMISSION_RATE,
+		CONFER_PRODUCT_ID,
+		ENDORSE_RATE,
+		CREATED_USER,
+		PRODUCT_CODE,
+		UPDATED_DATE,
+		CONFER_CODE,
+		CONFER_ID,
+		EXTEND_CONFER_CODE,
+		COMM_RATE
+	</sql>
+	
+	<sql id="Base_Column_List_S" >
+		UPDATED_USER,
+		VALID_IND,
+		CREATED_DATE,
+		COMMISSION_RATE * 100  as "commissionRate",
+		CONFER_PRODUCT_ID,
+		ENDORSE_RATE * 100 ENDORSE_RATE,
+		CREATED_USER,
+		PRODUCT_CODE,
+		UPDATED_DATE,
+		CONFER_CODE,
+		CONFER_ID,
+		EXTEND_CONFER_CODE,
+		COMM_RATE * 100  as "commRate"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		COMMISSION_RATE as "commissionRate",
+		CONFER_PRODUCT_ID as "conferProductId",
+		ENDORSE_RATE as "endorseRate",
+		CREATED_USER as "createdUser",
+		PRODUCT_CODE as "productCode",
+		UPDATED_DATE as "updatedDate",
+		CONFER_CODE as "conferCode",
+		CONFER_ID as "conferId",
+		EXTEND_CONFER_CODE as "extendConferCode",
+		COMM_RATE as "commRate"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{commissionRate,jdbcType=DOUBLE} / 100,
+ 		#{conferProductId,jdbcType=VARCHAR},
+ 		#{endorseRate,jdbcType=DOUBLE} / 100,
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{productCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{conferCode,jdbcType=VARCHAR},
+ 		#{conferId,jdbcType=VARCHAR},
+ 		#{extendConferCode,jdbcType=VARCHAR},
+ 		#{commRate,jdbcType=DOUBLE} / 100
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+			and VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="commissionRate != null and commissionRate != ''">
+			and COMMISSION_RATE = #{commissionRate,jdbcType=DOUBLE}
+		</if>
+		<if test="conferProductId != null and conferProductId != ''">
+			and CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+		</if>
+		<if test="endorseRate != null and endorseRate != ''">
+			and ENDORSE_RATE = #{endorseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="productCode != null and productCode != ''">
+			and PRODUCT_CODE = #{productCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+			and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		<if test="conferId != null and conferId != ''">
+			and CONFER_ID = #{conferId,jdbcType=VARCHAR}
+		</if>
+		<if test="extendConferCode != null and extendConferCode != ''">
+			and EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	
+	<sql id="Base_Where_Sql2">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+			and VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="commissionRate != null and commissionRate != ''">
+			and COMMISSION_RATE = #{commissionRate,jdbcType=DOUBLE}
+		</if>
+		<if test="conferProductId != null and conferProductId != ''">
+			and CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+		</if>
+		<if test="endorseRate != null and endorseRate != ''">
+			and ENDORSE_RATE = #{endorseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="productCode != null and productCode != ''">
+			and PRODUCT_CODE = #{productCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="conferCode != null and conferCode != ''">
+			and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		</if>
+		<if test="conferId != null and conferId != ''">
+			and CONFER_ID = #{conferId,jdbcType=VARCHAR}
+		</if>
+		<if test="extendConferCode != null and extendConferCode != ''">
+			and EXTEND_CONFER_CODE = #{extendConferCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConferProduct" >
+    insert into CHANNEL_CONFER_PRODUCT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_CONFER_PRODUCT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_CONFER_PRODUCT
+    where CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_CONFER_PRODUCT
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_CONFER_PRODUCT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="commissionRate != null and commissionRate != ''">
+		COMMISSION_RATE = #{commissionRate,jdbcType=DOUBLE},
+	</if>
+   	<if test="endorseRate != null and endorseRate != ''">
+		ENDORSE_RATE = #{endorseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="productCode != null and productCode != ''">
+		PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="conferCode != null and conferCode != ''">
+		CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_CONFER_PRODUCT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			COMMISSION_RATE = #{commissionRate,jdbcType=DOUBLE},
+   			ENDORSE_RATE = #{endorseRate,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+  		where CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConferProduct" >
+	update CHANNEL_CONFER_PRODUCT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+		COMM_RATE = #{commRate,jdbcType=DOUBLE} / 100,
+		ENDORSE_RATE = #{endorseRate,jdbcType=DOUBLE} / 100,
+		COMMISSION_RATE = #{commissionRate,jdbcType=DOUBLE} / 100,
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="productCode != null and productCode != ''">
+		PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	</set>
+	where CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConferProduct" >
+		update CHANNEL_CONFER_PRODUCT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			COMMISSION_RATE = #{commissionRate,jdbcType=DOUBLE},
+   			ENDORSE_RATE = #{endorseRate,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+  		where CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deleteById" parameterType="map" >
+		update CHANNEL_CONFER_PRODUCT
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where CONFER_PRODUCT_ID in (
+			<foreach item="item" index="index" collection="pkIds" separator=",">
+				#{item}
+			</foreach>
+		)
+	</update>
+	
+	<update id="deleteByParentId" parameterType="map" >
+		update CHANNEL_CONFER_PRODUCT
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		and VALID_IND = 1
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_CONFER_PRODUCT
+	where CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_CONFER_PRODUCT
+	where CONFER_PRODUCT_ID = #{conferProductId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_CONFER_PRODUCT <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelConferProduct" resultType="long">
+	select count(1)
+	from CHANNEL_CONFER_PRODUCT <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List_S"/>,
+		C_PROD_NO as "productName",C_KIND_NO as "productType"
+		from CHANNEL_CONFER_PRODUCT ccp
+		left join T_PRD_PROD tpp
+		on ccp.PRODUCT_CODE = tpp.C_PROD_NO
+		<include refid="Base_Where_Sql"/>
+		order by ccp.PRODUCT_CODE asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryListsPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List_S"/>,
+		C_CNM_ABR as "productName",tpk.C_NME_CN as "productType"
+		from CHANNEL_CONFER_PRODUCT ccp
+		left join T_PRD_PROD tpp
+		on ccp.PRODUCT_CODE = tpp.C_PROD_NO
+		left join T_PRD_KIND tpk
+		on tpp.C_KIND_NO = tpk.C_KIND_NO
+		<include refid="Base_Where_Sql"/>
+		order by ccp.PRODUCT_CODE asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryIdList" parameterType="java.lang.String" resultMap="BaseResultVo">
+		select * from 
+			CHANNEL_CONFER_PRODUCT 
+			where VALID_IND = 1 
+			and CONFER_CODE = #{conferCode}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_CONFER_PRODUCT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryCopyProd" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List_S"/>,
+		C_PROD_NO as "productName",C_KIND_NO as "productType"
+		from CHANNEL_CONFER_PRODUCT ccp
+		left join T_PRD_PROD tpp
+		on ccp.PRODUCT_CODE = tpp.C_PROD_NO
+		<include refid="Base_Where_Sql2"/>
+		order by ccp.PRODUCT_CODE asc
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_CONFER_PRODUCT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_CONFER_PRODUCT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_CONFER_PRODUCT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountByWhere" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_CONFER_PRODUCT 
+	where VALID_IND = 1
+		and CONFER_PRODUCT_ID != #{conferProductId,jdbcType=VARCHAR}
+		and PRODUCT_CODE = #{productCode,jdbcType=VARCHAR}
+		and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="updateNoTaxRate" parameterType="map" >
+		update CHANNEL_CONFER_PRODUCT
+		<set>
+		<if test="paymentTax == 1 ">
+			COMMISSION_RATE = COMM_RATE
+		</if>
+	  	<if test="paymentTax == 2 ">
+			COMMISSION_RATE = COMM_RATE*1.06
+		</if>
+	  	</set>
+		where CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="queryRateByProduct" parameterType="String" resultType="map">
+		select t.rate_limit as "rateLimit",t.free_tax as "freeTax" from CHANNEL_CONFER_RATE t where t.valid_ind = '1' and t.prod_code=#{productCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryCountByProduct" parameterType="String" resultType="long">
+		select count(1) from CHANNEL_CONFER_RATE t where t.valid_ind = '1' and t.prod_code=#{productCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryProductName" parameterType="String" resultType="map">
+		select t.c_nme_cn as "productName" from t_prd_prod t where t.c_prod_no=#{productCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryProductByConferId" parameterType="map" resultType="String">
+		select t.commission_rate*100
+		  from channel_confer_product t
+		 where t.valid_ind = '1'
+		   and t.confer_id = #{conferId,jdbcType=VARCHAR}
+		   and t.product_code = #{productCode,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

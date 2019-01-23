@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.review.vo.NewYearReward">
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="REWARD_DATE" property="rewardDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REWARD_NAME" property="rewardName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_NUM" property="employNum" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REWARD" property="reward" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.review.vo.NewYearReward">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="REWARD_DATE" property="rewardDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REWARD_NAME" property="rewardName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_NUM" property="employNum" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REWARD" property="reward" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+	    t1.PK_ID,
+	    t1.REWARD_DATE,
+		t1.DEPT_CODE,
+		t1.REWARD_NAME,
+		t1.EMPLOY_NUM,
+		t1.VALID_IND,
+		t1.REWARD,
+		t1.CREATED_USER,
+		t1.CREATED_DATE,
+        t1.UPDATED_USER,
+        t1.UPDATED_DATE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		t1.PK_ID as "pkId",
+		t1.REWARD_DATE as "rewardDate",
+		t1.DEPT_CODE as "deptCode",
+		t1.REWARD_NAME as "rewardName",
+		t1.EMPLOY_NUM as "employNum",
+		t1.VALID_IND as "validInd",
+		t1.REWARD as "reward",
+		t1.CREATED_USER as "createdUser",
+		to_char(CREATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "createdDate",
+		t1.UPDATED_USER as "updatedUser",
+		to_char(UPDATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "updatedDate"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{pkId,jdbcType=VARCHAR},
+		#{rewardDate,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{rewardName,jdbcType=VARCHAR},
+ 		#{employNum,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{reward,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		to_date(#{createdDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss')
+ 	</sql>
+	
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from NEW_YEAR_REWARD t 
+	where t.valid_ind='1' 
+	and t.reward_date=#{rewardDate,jdbcType=VARCHAR}
+	and t.employ_num=#{employNum,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="updateByPrimaryKey"  parameterType="com.sinosafe.xszc.review.vo.NewYearReward" >
+	update NEW_YEAR_REWARD
+	<set>
+	<if test="rewardDate!= null and rewardDate != ''">
+		REWARD_DATE = #{rewardDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="rewardName != null and rewardName != ''">
+		REWARD_NAME = #{rewardName,jdbcType=VARCHAR},
+	</if>
+  	<if test="employNum != null and employNum != ''">
+		EMPLOY_NUM = #{employNum,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="reward != null and reward != ''">
+		REWARD = #{reward,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=DATE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = to_date(#{createdDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss')
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.review.vo.NewYearReward" >
+	    insert into NEW_YEAR_REWARD t1 (
+			<include refid="Base_Column_List" />
+	    )
+		values (
+			<include refid="Insert_Base_values" />
+	    )
+	</insert>
+	
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+			select a.*,rownum rn from (
+			select 
+			t1.PK_ID,
+		    t1.REWARD_DATE,
+			t2.dept_simple_name as "simpleName",
+			t1.REWARD_NAME,
+			t1.EMPLOY_NUM,
+			t1.VALID_IND,
+			t1.REWARD,
+			t1.CREATED_USER,
+			to_char(t1.CREATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "createdDate",
+	        t1.UPDATED_USER,
+	        t1.UPDATED_DATE
+			from NEW_YEAR_REWARD t1
+			left join department t2 on t1.dept_code=t2.dept_code 
+			where t1.valid_ind='1'
+			<if test="rewardDate != null and rewardDate != ''">
+			and t1.REWARD_DATE = #{rewardDate,jdbcType=VARCHAR}
+			</if>
+			<if test="deptCode != null and deptCode != ''">
+			and t1.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+			</if>
+			<if test="rewardName != null and rewardName != ''">
+			and t1.REWARD_NAME like trim(#{rewardName,jdbcType=VARCHAR}) || '%'
+			</if>
+			) a where rownum &lt;= #{endpoint} 
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryDeptListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+			select a.*,rownum rn from (
+			select 
+			t1.PK_ID,
+		    t1.REWARD_DATE,
+			t2.dept_simple_name as "simpleName",
+			t1.REWARD_NAME,
+			t1.EMPLOY_NUM,
+			t1.VALID_IND,
+			t1.REWARD,
+			t1.CREATED_USER,
+			to_char(t1.CREATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "createdDate",
+	        t1.UPDATED_USER,
+	        t1.UPDATED_DATE
+			from NEW_YEAR_REWARD t1
+			left join department t2 on t1.dept_code=t2.dept_code 
+			where t1.valid_ind='1'
+			and t1.dept_code = #{curDeptCode,jdbcType=VARCHAR}
+			<if test="rewardDate != null and rewardDate != ''">
+			and t1.REWARD_DATE = #{rewardDate,jdbcType=VARCHAR}
+			</if>
+			<if test="rewardName != null and rewardName != ''">
+			and t1.REWARD_NAME like trim(#{rewardName,jdbcType=VARCHAR}) || '%'
+			</if>
+			) a where rownum &lt;= #{endpoint} 
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryAllEmployAndSalary" parameterType="map" resultMap="BaseResultMap">
+			select 
+			count(1) as "count",sum(t1.reward) as "reward"
+			from NEW_YEAR_REWARD t1
+			where t1.valid_ind='1'
+			<if test="rewardDate != null and rewardDate != ''">
+			and t1.REWARD_DATE = #{rewardDate,jdbcType=VARCHAR}
+			</if>
+			<if test="deptCode != null and deptCode != ''">
+			and t1.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+			</if>
+			<if test="rewardName != null and rewardName != ''">
+			and t1.REWARD_NAME like trim(#{rewardName,jdbcType=VARCHAR}) || '%'
+			</if>
+	</select>
+	
+</mapper>

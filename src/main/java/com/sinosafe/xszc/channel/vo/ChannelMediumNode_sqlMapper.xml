@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelMediumNode" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="NODE_CODE" property="nodeCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMOTE" property="remote" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="TARGET_PREMIUM" property="targetPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_PARTNER_TYPE" property="channelPartnerType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ADDRESS" property="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ACCOUNT" property="account" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PHONE" property="phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NODE_NAME" property="nodeName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VPN_NO" property="vpnNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MEDIUM_CNAME" property="mediumCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MAINTEN_CODE" property="maintenCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CNAME" property="deptCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GET_FLAG" property="getFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CLOSE_FLAG" property="closeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CLOSE_DATE" property="closeDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelMediumNode">
+		<id column="NODE_CODE" property="nodeCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMOTE" property="remote" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="TARGET_PREMIUM" property="targetPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_PARTNER_TYPE" property="channelPartnerType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ADDRESS" property="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ACCOUNT" property="account" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PHONE" property="phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NODE_NAME" property="nodeName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VPN_NO" property="vpnNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GET_FLAG" property="getFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CLOSE_FLAG" property="closeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CLOSE_DATE" property="closeDate" jdbcType="DATE" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		REMOTE,
+		TARGET_PREMIUM,
+		NAME,
+		CHANNEL_PARTNER_TYPE,
+		CREATED_USER,
+		CHANNEL_CODE,
+		ADDRESS,
+		DEPT_CODE,
+		NODE_CODE,
+		UPDATED_DATE,
+		ACCOUNT,
+		CONTACT,
+		PHONE,
+		VALID_IND,
+		CREATED_DATE,
+		MOBILE,
+		EMAIL,
+		NODE_NAME,
+		VPN_NO,
+		GET_FLAG,
+		CLOSE_FLAG,
+		CLOSE_DATE
+	</sql>
+	
+	<sql id="Base_Column_List_UpdateOrQuery" >
+		mn.UPDATED_USER,
+		REMOTE,
+		TARGET_PREMIUM,
+		NAME,
+		CHANNEL_PARTNER_TYPE,
+		mn.CREATED_USER,
+		mn.CHANNEL_CODE,
+		ADDRESS,
+		mn.DEPT_CODE,
+		NODE_CODE,
+		mn.UPDATED_DATE,
+		ACCOUNT,
+		CONTACT,
+		PHONE,
+		mn.VALID_IND,
+		mn.CREATED_DATE,
+		MOBILE,
+		EMAIL,
+		NODE_NAME,
+		VPN_NO,
+		CLOSE_FLAG,
+		CLOSE_DATE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		REMOTE as "remote",
+		TARGET_PREMIUM as "targetPremium",
+		NAME as "name",
+		CHANNEL_PARTNER_TYPE as "channelPartnerType",
+		CREATED_USER as "createdUser",
+		CHANNEL_CODE as "channelCode",
+		ADDRESS as "address",
+		DEPT_CODE as "deptCode",
+		NODE_CODE as "nodeCode",
+		UPDATED_DATE as "updatedDate",
+		ACCOUNT as "account",
+		CONTACT as "contact",
+		PHONE as "phone",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		MOBILE as "mobile",
+		EMAIL as "email",
+		NODE_NAME as "nodeName",
+		VPN_NO as "vpnNo",
+		CLOSE_FLAG as "closeFlag",
+		CLOSE_DATE as "closeDate"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{remote,jdbcType=CHAR},
+ 		#{targetPremium,jdbcType=DOUBLE},
+ 		#{name,jdbcType=VARCHAR},
+ 		#{channelPartnerType,jdbcType=CHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{address,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{nodeCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{account,jdbcType=VARCHAR},
+ 		#{contact,jdbcType=VARCHAR},
+ 		#{phone,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{mobile,jdbcType=VARCHAR},
+ 		#{email,jdbcType=VARCHAR},
+ 		#{nodeName,jdbcType=VARCHAR},
+ 		#{vpnNo,jdbcType=VARCHAR},
+ 		#{getFlag,jdbcType=CHAR},
+ 		#{closeFlag,jdbcType=CHAR},
+ 		#{closeDate,jdbcType=DATE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="remote != null and remote != ''">
+			and REMOTE = #{remote,jdbcType=CHAR}
+		</if>
+		<if test="targetPremium != null and targetPremium != ''">
+			and TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="name != null and name != ''">
+			and NAME = #{name,jdbcType=VARCHAR}
+		</if>
+		<if test="channelPartnerType != null and channelPartnerType != ''">
+			and CHANNEL_PARTNER_TYPE = #{channelPartnerType,jdbcType=CHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="address != null and address != ''">
+			and ADDRESS = #{address,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="nodeCode != null and nodeCode != ''">
+			and NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="account != null and account != ''">
+			and ACCOUNT = #{account,jdbcType=VARCHAR}
+		</if>
+		<if test="contact != null and contact != ''">
+			and CONTACT = #{contact,jdbcType=VARCHAR}
+		</if>
+		<if test="phone != null and phone != ''">
+			and PHONE = #{phone,jdbcType=VARCHAR}
+		</if>
+			and VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="mobile != null and mobile != ''">
+			and MOBILE = #{mobile,jdbcType=VARCHAR}
+		</if>
+		<if test="email != null and email != ''">
+			and EMAIL = #{email,jdbcType=VARCHAR}
+		</if>
+		<if test="nodeName != null and nodeName != ''">
+			and NODE_NAME = #{nodeName,jdbcType=VARCHAR}
+		</if>
+		<if test="vpnNo != null and vpnNo != ''">
+			and VPN_NO = #{vpnNo,jdbcType=VARCHAR}
+		</if>
+		<if test="closeFlag != null and closeFlag != ''">
+			and CLOSE_FLAG = #{closeFlag,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="Base_Where_Sql_l">
+		<where>
+		<if test="deptCode !=null and deptCode != ''">
+			and mn.DEPT_CODE in (select t.dept_code from department t where t.inter_code like f_get_inter_dept(#{deptCode,jdbcType=VARCHAR}) || '%')
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and mn.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="mediumCname != null and mediumCname != ''">
+			and pb.MEDIUM_CNAME like '%' || trim(#{mediumCname,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="businessLine != null and businessLine != ''">
+			and cm.BUSINESS_LINE = #{businessLine,jdbcType=CHAR}
+		</if>
+		<if test="nodeCode != null and nodeCode != ''">
+			and mn.NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+		</if>
+		<if test="nodeName != null and nodeName != ''">
+			and NODE_NAME like '%' ||trim(#{nodeName,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="closeFlag != null and closeFlag != ''">
+			and CLOSE_FLAG = #{closeFlag,jdbcType=VARCHAR}
+		</if>
+		and mn.VALID_IND = 1
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNode" >
+    insert into CHANNEL_MEDIUM_NODE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_MEDIUM_NODE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_MEDIUM_NODE
+    where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_MEDIUM_NODE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_MEDIUM_NODE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="remote != null and remote != ''">
+		REMOTE = #{remote,jdbcType=CHAR},
+	</if>
+  	<if test="targetPremium != null and targetPremium != ''">
+		TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="name != null and name != ''">
+		NAME = #{name,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelPartnerType != null and channelPartnerType != ''">
+		CHANNEL_PARTNER_TYPE = #{channelPartnerType,jdbcType=CHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="address != null and address != ''">
+		ADDRESS = #{address,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="account != null and account != ''">
+		ACCOUNT = #{account,jdbcType=VARCHAR},
+	</if>
+  	<if test="contact != null and contact != ''">
+		CONTACT = #{contact,jdbcType=VARCHAR},
+	</if>
+  	<if test="phone != null and phone != ''">
+		PHONE = #{phone,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="mobile != null and mobile != ''">
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="nodeName != null and nodeName != ''">
+		NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+	</if>
+  	<if test="vpnNo != null and vpnNo != ''">
+		VPN_NO = #{vpnNo,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_MEDIUM_NODE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			REMOTE = #{remote,jdbcType=CHAR},
+  			TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+  			NAME = #{name,jdbcType=VARCHAR},
+  			CHANNEL_PARTNER_TYPE = #{channelPartnerType,jdbcType=CHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			ADDRESS = #{address,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+   			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			ACCOUNT = #{account,jdbcType=VARCHAR},
+  			CONTACT = #{contact,jdbcType=VARCHAR},
+  			PHONE = #{phone,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			MOBILE = #{mobile,jdbcType=VARCHAR},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+  			VPN_NO = #{vpnNo,jdbcType=VARCHAR}
+  		where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNode" >
+	update CHANNEL_MEDIUM_NODE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="remote != null and remote != ''">
+		REMOTE = #{remote,jdbcType=CHAR},
+	</if>
+  	<if test="targetPremium != null and targetPremium != ''">
+		TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="name != null and name != ''">
+		NAME = #{name,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelPartnerType != null and channelPartnerType != ''">
+		CHANNEL_PARTNER_TYPE = #{channelPartnerType,jdbcType=CHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="address != null and address != ''">
+		ADDRESS = #{address,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = sysdate,
+	</if>
+  	<if test="account != null and account != ''">
+		ACCOUNT = #{account,jdbcType=VARCHAR},
+	</if>
+  	<if test="contact != null and contact != ''">
+		CONTACT = #{contact,jdbcType=VARCHAR},
+	</if>
+  	<if test="phone != null and phone != ''">
+		PHONE = #{phone,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="mobile != null and mobile != ''">
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="nodeName != null and nodeName != ''">
+		NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+	</if>
+  	<if test="vpnNo != null and vpnNo != ''">
+		VPN_NO = #{vpnNo,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNode" >
+		update CHANNEL_MEDIUM_NODE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			REMOTE = #{remote,jdbcType=CHAR},
+  			TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+  			NAME = #{name,jdbcType=VARCHAR},
+  			CHANNEL_PARTNER_TYPE = #{channelPartnerType,jdbcType=CHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			ADDRESS = #{address,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+   			UPDATED_DATE = sysdate,
+  			ACCOUNT = #{account,jdbcType=VARCHAR},
+  			CONTACT = #{contact,jdbcType=VARCHAR},
+  			PHONE = #{phone,jdbcType=VARCHAR},
+  			MOBILE = #{mobile,jdbcType=VARCHAR},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			NODE_NAME = #{nodeName,jdbcType=VARCHAR},
+  			VPN_NO = #{vpnNo,jdbcType=VARCHAR}
+  		where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_NODE
+	where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_NODE
+	where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_NODE mn 
+	left join CHANNEL_MEDIUM_DETAIL pb on mn.channel_code = pb.channel_code 
+	left join CHANNEL_MAIN cm on cm.channel_code = mn.channel_code
+	left join BUSINESS_LINE bl on cm.business_line = bl.LINE_CODE and bl.VALID_IND = 1
+	<include refid="Base_Where_Sql_l" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNode" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_NODE 
+	where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR} 
+	and VALID_IND = 1
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select *
+	  from (select a.*, rownum rn
+	          from (select pb.CHANNEL_CODE,
+	                       pb.MEDIUM_CNAME,
+	                       mn.NODE_CODE,
+	                       NODE_NAME,
+	                       TARGET_PREMIUM,
+	                       ADDRESS,
+	                       mn.DEPT_CODE,
+	                       bl.LINE_NAME BUSINESS_LINE,
+	                       decode(REMOTE, '1', '是', '0', '否', '') REMOTE,
+	                       NAME,
+	                       ACCOUNT,
+	                       mn.CONTACT,
+	                       mn.UPDATED_DATE,
+	                       to_char(mn.CLOSE_DATE,'yyyy-mm-dd') CLOSE_DATE,
+	                       mn.CLOSE_FLAG,
+	                       MOBILE,
+	                       EMAIL,
+	                       wm_concat(SALESMAN_CNAME) SALESMAN_CNAME
+	                  from CHANNEL_MEDIUM_DETAIL pb
+	                  left join CHANNEL_MAIN cm on cm.channel_code = pb.channel_code
+	                  left join BUSINESS_LINE bl on cm.business_line = bl.LINE_CODE and bl.VALID_IND = 1
+	                  left join (select cm.mainten_code, c.*
+	                              from CHANNEL_MEDIUM_NODE c
+	                              left join (select *
+	                                          from CHANNEL_MEDIUM_MAINTAIN
+	                                         where VALID_IND = 1) cm
+	                                on c.node_code = cm.node_code) mn
+	                    on pb.CHANNEL_CODE = mn.CHANNEL_CODE
+	                  left join (select * from SALESMAN where VALID_IND = 1) s
+	                    on s.SALESMAN_CODE = mn.mainten_code
+		<include refid="Base_Where_Sql_l"/> 
+		and pb.VALID_IND = 1 
+		group by pb.CHANNEL_CODE,
+                          MEDIUM_CNAME,
+                          mn.NODE_CODE,
+                          NODE_NAME,
+                          TARGET_PREMIUM,
+                          ADDRESS,
+                          REMOTE,
+                          NAME,
+                          ACCOUNT,
+                          mn.CONTACT,
+                          MOBILE,
+                          EMAIL,
+                          mn.DEPT_CODE,
+                          bl.LINE_NAME,
+                          mn.UPDATED_DATE,
+                          mn.CLOSE_FLAG,
+                          mn.CLOSE_DATE
+                 order by mn.UPDATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryListsPage" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List_UpdateOrQuery" />,
+		MEDIUM_CNAME,mn.DEPT_CODE || '-' || dept_simple_name DEPT_CNAME
+		from CHANNEL_MEDIUM_NODE mn 
+		left join CHANNEL_MEDIUM_DETAIL pb 
+		on pb.CHANNEL_CODE = mn.CHANNEL_CODE and pb.VALID_IND = 1 
+		left join DEPARTMENT dept 
+		on mn.DEPT_CODE = dept.DEPT_CODE and dept.VALID_IND = 1 
+		<include refid="Base_Where_Sql_l"/>
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_NODE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_NODE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_NODE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_MEDIUM_NODE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_MEDIUM_NODE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!--删除远程出单点 -->
+	<update id="deleteById" parameterType="map" >
+		update CHANNEL_MEDIUM_NODE
+		set 
+		VALID_IND = 0,
+		GET_FLAG = 0, --核心取数标识（1表示取数）
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updaGetFlagByChannelCode" parameterType="map" >
+		update CHANNEL_MEDIUM_NODE 
+		set GET_FLAG = 1,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR} 
+		where NODE_CODE =
+		  (select t1.NODE_CODE
+		  from CHANNEL_MEDIUM_NODE t1
+		  where not exists (select 1
+		          from CHANNEL_MEDIUM_NODE t2
+		          where t1.CHANNEL_CODE = t2.CHANNEL_CODE
+		           and t1.CREATED_DATE > t2.CREATED_DATE
+		           and t2.VALID_IND = 1)
+		           and t1.VALID_IND = 1
+		           and t1.channel_code = #{channelCode,jdbcType=VARCHAR})
+	</update>
+	
+	<!--关停远程出单点 -->
+	<update id="closeChannelMediumNode" parameterType="map" >
+		update CHANNEL_MEDIUM_NODE
+		set
+		CLOSE_FLAG = '1',
+		CLOSE_DATE = sysdate,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+	</update>
+	
+	<!--修改出单点的经办机构 -->
+	<update id="updateDeptCodeByChannelCode" parameterType="com.sinosafe.xszc.channel.vo.ChannelMain" >
+		update CHANNEL_MEDIUM_NODE
+		set 
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate
+  		where 1=1
+	  		and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	 		and VALID_IND = '1'
+	 		and DEPT_CODE != #{deptCode,jdbcType=VARCHAR}
+	</update>
+</mapper>

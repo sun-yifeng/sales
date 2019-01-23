@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.upload.vo.Upload" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="UPLOAD_ID" property="uploadId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PATH" property="path" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MAIN_ID" property="mainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONTENT" property="content" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="MODULE" property="module" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.upload.vo.Upload">
+		<id column="UPLOAD_ID" property="uploadId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PATH" property="path" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MAIN_ID" property="mainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONTENT" property="content" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="MODULE" property="module" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		UPLOAD_ID,
+		NAME,
+		CREATED_USER,
+		PATH,
+		DEPT_CODE,
+		UPDATED_DATE,
+		MAIN_ID,
+		VALID_IND,
+		CREATED_DATE,
+		CONTENT,
+		MODULE
+	</sql>
+	
+	
+	<sql id="Base_Column_List2" >
+		UPDATED_USER,
+		UPLOAD_ID,
+		NAME,
+		CREATED_USER,
+		DEPT_CODE,
+		UPDATED_DATE,
+		MAIN_ID,
+		VALID_IND,
+		CREATED_DATE,
+		MODULE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		UPLOAD_ID as "uploadId",
+		NAME as "name",
+		CREATED_USER as "createdUser",
+		PATH as "path",
+		DEPT_CODE as "deptCode",
+		UPDATED_DATE as "updatedDate",
+		MAIN_ID as "mainId",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		CONTENT as "content",
+		MODULE as "module"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{uploadId,jdbcType=VARCHAR},
+ 		#{name,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{path,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{mainId,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{content,jdbcType=CLOB},
+ 		#{module,jdbcType=CHAR}
+ 	</sql>
+ 	
+ 	
+	<sql id="Insert_Base_values2">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{uploadId,jdbcType=VARCHAR},
+ 		#{name,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{mainId,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{module,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="uploadId != null and uploadId != ''">
+			and UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+		</if>
+		<if test="name != null and name != ''">
+			and NAME = #{name,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="path != null and path != ''">
+			and PATH = #{path,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="mainId != null and mainId != ''">
+			and MAIN_ID = #{mainId,jdbcType=VARCHAR}
+		</if>
+			and VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="content != null and content != ''">
+			and CONTENT = #{content,jdbcType=CLOB}
+		</if>
+		<if test="module != null and module != ''">
+			and MODULE = #{module,jdbcType=CHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.upload.vo.Upload" >
+    insert into UPLOAD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into UPLOAD (
+		<include refid="Base_Column_List2" />
+    )
+	values (
+		<include refid="Insert_Base_values2" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from UPLOAD
+    where UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from UPLOAD
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update UPLOAD
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="name != null and name != ''">
+		NAME = #{name,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="path != null and path != ''">
+		PATH = #{path,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="mainId != null and mainId != ''">
+		MAIN_ID = #{mainId,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="content != null and content != ''">
+		CONTENT = #{content,jdbcType=CLOB},
+	</if>
+  	<if test="module != null and module != ''">
+		MODULE = #{module,jdbcType=CHAR}
+	</if>
+  	</set>
+	where UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update UPLOAD
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			NAME = #{name,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			PATH = #{path,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			MAIN_ID = #{mainId,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CONTENT = #{content,jdbcType=CLOB},
+  			MODULE = #{module,jdbcType=CHAR}
+  		where UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.upload.vo.Upload" >
+	update UPLOAD
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="name != null and name != ''">
+		NAME = #{name,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="path != null and path != ''">
+		PATH = #{path,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="mainId != null and mainId != ''">
+		MAIN_ID = #{mainId,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="content != null and content != ''">
+		CONTENT = #{content,jdbcType=CLOB},
+	</if>
+  	<if test="module != null and module != ''">
+		MODULE = #{module,jdbcType=CHAR}
+	</if>
+  	</set>
+	where UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.upload.vo.Upload" >
+		update UPLOAD
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			NAME = #{name,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			PATH = #{path,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			MAIN_ID = #{mainId,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CONTENT = #{content,jdbcType=CLOB},
+  			MODULE = #{module,jdbcType=CHAR}
+  		where UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from UPLOAD
+	where UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from UPLOAD
+	where UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from UPLOAD <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.upload.vo.Upload" resultType="long">
+	select count(1)
+	from UPLOAD <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from UPLOAD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from UPLOAD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from UPLOAD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from UPLOAD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from UPLOAD
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from UPLOAD <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<update id="deleteById" parameterType="map" >
+		update UPLOAD
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where MAIN_ID = #{conferCode,jdbcType=VARCHAR} 
+	</update>
+	
+	<update id="updateByMainId" parameterType="com.sinosafe.xszc.upload.vo.Upload" >
+	update UPLOAD
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="name != null and name != ''">
+		NAME = #{name,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="path != null and path != ''">
+		PATH = #{path,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="mainId != null and mainId != ''">
+		MAIN_ID = #{mainId,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="content != null and content != ''">
+		CONTENT = #{content,jdbcType=CLOB},
+	</if>
+  	<if test="module != null and module != ''">
+		MODULE = #{module,jdbcType=CHAR}
+	</if>
+  	</set>
+	where MAIN_ID = #{mainId,jdbcType=VARCHAR}
+	</update>
+</mapper>

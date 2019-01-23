@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.plan.vo.SalePlanChannel" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="CHANNEL_PLAN_ID" property="channelPlanId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TARGET_PREMIUM" property="targetPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="CONTENT" property="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DESC" property="desc" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_RISK_TYPE" property="channelRiskType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALE_PLAN_ID" property="salePlanId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.plan.vo.SalePlanChannel">
+		<id column="CHANNEL_PLAN_ID" property="channelPlanId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TARGET_PREMIUM" property="targetPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="CONTENT" property="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DESC" property="desc" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_RISK_TYPE" property="channelRiskType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALE_PLAN_ID" property="salePlanId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_DATE,
+		TARGET_PREMIUM,
+		CHANNEL_PLAN_ID,
+		CONTENT,
+		CREATED_USER,
+		"DESC",
+		CHANNEL_CODE,
+		CHANNEL_RISK_TYPE,
+		UPDATED_DATE,
+		SALE_PLAN_ID
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_DATE as "createdDate",
+		TARGET_PREMIUM as "targetPremium",
+		CHANNEL_PLAN_ID as "channelPlanId",
+		CONTENT as "content",
+		CREATED_USER as "createdUser",
+		DESC as "desc",
+		CHANNEL_CODE as "channelCode",
+		CHANNEL_RISK_TYPE as "channelRiskType",
+		UPDATED_DATE as "updatedDate",
+		SALE_PLAN_ID as "salePlanId"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+		sysdate,
+ 		#{targetPremium,jdbcType=DOUBLE},
+ 		#{channelPlanId,jdbcType=VARCHAR},
+ 		#{content,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{desc,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{channelRiskType,jdbcType=CHAR},
+ 		sysdate,
+ 		#{salePlanId,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser!=''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate!=''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="targetPremium != null and targetPremium!=''">
+			and TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="channelPlanId != null">
+			and CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+		</if>
+		<if test="content != null and content!=''">
+			and CONTENT = #{content,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser!=''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="desc != null and desc !=''">
+			and DESC = #{desc,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode!=''">
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="channelRiskType != null and channelRiskType!=''">
+			and CHANNEL_RISK_TYPE = #{channelRiskType,jdbcType=CHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate!='' ">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="salePlanId != null">
+			and SALE_PLAN_ID = #{salePlanId,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.plan.vo.SalePlanChannel" >
+    insert into SALE_PLAN_CHANNEL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into SALE_PLAN_CHANNEL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SALE_PLAN_CHANNEL
+    where CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from SALE_PLAN_CHANNEL
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update SALE_PLAN_CHANNEL
+	<set>
+	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="targetPremium != null">
+		TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+	</if>
+   	<if test="content != null">
+		CONTENT = #{content,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="desc != null">
+		DESC = #{desc,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelRiskType != null">
+		CHANNEL_RISK_TYPE = #{channelRiskType,jdbcType=CHAR},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="salePlanId != null">
+		SALE_PLAN_ID = #{salePlanId,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update SALE_PLAN_CHANNEL
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+   			CONTENT = #{content,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DESC = #{desc,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			CHANNEL_RISK_TYPE = #{channelRiskType,jdbcType=CHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			SALE_PLAN_ID = #{salePlanId,jdbcType=VARCHAR}
+  		where CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.plan.vo.SalePlanChannel" >
+	update SALE_PLAN_CHANNEL
+	<set>
+	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="targetPremium != null">
+		TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+	</if>
+   	<if test="content != null">
+		CONTENT = #{content,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="desc != null">
+		DESC = #{desc,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelRiskType != null">
+		CHANNEL_RISK_TYPE = #{channelRiskType,jdbcType=CHAR},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="salePlanId != null">
+		SALE_PLAN_ID = #{salePlanId,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.plan.vo.SalePlanChannel" >
+		update SALE_PLAN_CHANNEL
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			TARGET_PREMIUM = #{targetPremium,jdbcType=DOUBLE},
+   			CONTENT = #{content,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DESC = #{desc,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			CHANNEL_RISK_TYPE = #{channelRiskType,jdbcType=CHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			SALE_PLAN_ID = #{salePlanId,jdbcType=VARCHAR}
+  		where CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from SALE_PLAN_CHANNEL
+	where CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from SALE_PLAN_CHANNEL
+	where CHANNEL_PLAN_ID = #{channelPlanId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from SALE_PLAN_CHANNEL <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.plan.vo.SalePlanChannel" resultType="long">
+	select count(1)
+	from SALE_PLAN_CHANNEL <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.* from (
+		select 
+		<include refid="Base_Column_List"/>
+		from SALE_PLAN_CHANNEL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rownum &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from SALE_PLAN_CHANNEL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from SALE_PLAN_CHANNEL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from SALE_PLAN_CHANNEL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from SALE_PLAN_CHANNEL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from SALE_PLAN_CHANNEL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from SALE_PLAN_CHANNEL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageVo" parameterType="map" resultMap="BaseResultVo">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from SALE_PLAN_CHANNEL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from SALE_PLAN_CHANNEL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from SALE_PLAN_CHANNEL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+</mapper>

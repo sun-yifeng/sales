@@ -1,0 +1,24 @@
+declare
+  v_count number := 0;
+begin
+  for c_sales in (select t.salesman_code salecode, t.dimission_date dimissdate
+                    from salesman t
+                   where t.valid_ind = '1'
+                     and t.process_status = '2') loop
+    if (c_sales.dimissdate < sysdate) then
+      for c_virtuals in (select t1.employ_code employcode, t1.end_date
+                           from salesman_virtual_record t1
+                          where t1.salesman_code = c_sales.salecode
+                            and t1.valid_ind = '1') loop
+        if (c_virtuals.end_date > c_sales.dimissdate) then
+          update salesman_virtual_record t2
+             set t2.end_date = c_sales.dimissdate, t2.updated_user = 'lucifer', t2.updated_date = sysdate
+           where t2.salesman_code = c_sales.salecode
+             and t2.employ_code = c_virtuals.employcode;
+              v_count := v_count + 1;
+        end if;
+      end loop;
+    end if;
+  end loop;
+  dbms_output.put_line(v_count);
+end;

@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.review.vo.ReviewRank" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="RANK_ID" property="rankId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_NO" property="signNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RECOMMEND_RANK" property="recommendRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NAME" property="salesmanName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_RANK" property="confirmRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="RANK_SCORE" property="rankScore" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REVIEW_RESULT" property="reviewResult" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_STATUS" property="confirmStatus" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="PREM_RATE" property="premRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CUS_REVIEW_RESULT" property="cusReviewResult" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CUS_RECOMMEND_RANK" property="cusRecommendRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CUS_CONFIRM_RANK" property="cusConfirmRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.review.vo.ReviewRank">
+		<id column="RANK_ID" property="rankId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_NO" property="signNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RECOMMEND_RANK" property="recommendRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="recommendRankName" property="recommendRankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NAME" property="salesmanName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_RANK" property="confirmRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="RANK_SCORE" property="rankScore" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REVIEW_RESULT" property="reviewResult" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_STATUS" property="confirmStatus" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="PREM_RATE" property="premRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CUS_REVIEW_RESULT" property="cusReviewResult" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CUS_RECOMMEND_RANK" property="cusRecommendRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CUS_CONFIRM_RANK" property="cusConfirmRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		t1.CREATED_USER,
+		t1.UPDATED_DATE,
+		t1.DEPT_CODE_FOUR,
+		t1.VALID_IND,
+		t1.SIGN_NO,
+		t1.CREATED_DATE,
+		t1.SALESMAN_CODE,
+		t1.GROUP_NAME,
+		t1.DEPT_CODE_TWO,
+		t1.RECOMMEND_RANK,
+		t1.SALESMAN_CODE||t1.SALESMAN_NAME "SALESMAN_NAME",
+		t1.CALC_MONTH,
+		t1.UPDATED_USER,
+		t1.DEPT_CODE_THREE||t1.DEPT_NAME_THREE "DEPT_NAME_THREE",
+		T1.DEPT_CODE_TWO||t1.DEPT_NAME_TWO "DEPT_NAME_TWO",
+		t1.DEPT_CODE_THREE,
+		t1.RANK_ID as "rankId",
+		t1.DEPT_CODE_FOUR||t1.DEPT_NAME_FOUR "DEPT_NAME_FOUR",
+		t1.GROUP_CODE,
+		t1.RANK_CODE,
+		t1.RANK_NAME as "rankName",
+		nvl(t2.RANK_NAME,'---') as "recommendRankName",
+		t1.CONFIRM_RANK as "confirmRank",
+		to_char(t1.CONFIRM_DATE, 'yyyy-mm-dd hh24:mi:ss') as "confirmDate",
+		t1.CONFIRM_USER,
+		t4.user_cname  as "confirmName",
+		decode(upper(t1.REVIEW_RESULT),
+               'S',
+              '升级',
+              'J',
+              '降级',
+              'T',
+              '淘汰',
+              'W',
+              '维持',
+              null,
+              '---') as "reviewResult",
+		decode(t1.CONFIRM_STATUS,0,'待确认',1,'待分司人员确认',2,'待分司渠道确认',3,'待总司确认',9,'已确认','') as "confirmStatus",
+		to_char(t1.PREM_RATE*100, 'fm9999999999999990.00') || '%' as "premRate",
+		to_char(t1.RANK_SCORE, 'fm9999999999999990.00') as "rankScore",
+		decode(t1.LINE_CODE,'925004','电话直销', '925005','网销业务','925006','渠道重客','925007','其他业务','925008','信用保证险','925009','创新','其他') as "LINE_CODE",
+        t2.AUDIT_FLAG as "auditFlag",
+        decode(upper(t1.CUS_REVIEW_RESULT),
+              'S',
+              '升级',
+              'J',
+              '降级',
+              'T',
+              '淘汰',
+              'W',
+              '维持',
+              null,
+              '---') as "cusReviewResult",
+        t1.cus_recommend_rank as "cusRecommendRank",
+        t1.cus_confirm_rank as "cusConfirmRank"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		t1.CONFIRM_USER as "confirmUser",
+		t1.CREATED_USER as "createdUser",
+		t1.UPDATED_DATE as "updatedDate",
+		t1.DEPT_CODE_FOUR as "deptCodeFour",
+		t1.VALID_IND as "validInd",
+		t1.SIGN_NO as "signNo",
+		t1.CREATED_DATE as "createdDate",
+		t1.SALESMAN_CODE as "salesmanCode",
+		t1.GROUP_NAME as "groupName",
+		t1.DEPT_CODE_TWO as "deptCodeTwo",
+		t1.RECOMMEND_RANK as "recommendRank",
+		t1.SALESMAN_NAME as "salesmanName",
+		t1.CONFIRM_RANK as "confirmRank",
+		t1.CALC_MONTH as "calcMonth",
+		t1.RANK_SCORE as "rankScore",
+		t1.CONFIRM_DATE as "confirmDate",
+		t1.UPDATED_USER as "updatedUser",
+		t1.DEPT_NAME_THREE as "deptNameThree",
+		t1.DEPT_NAME_TWO as "deptNameTwo",
+		t1.DEPT_CODE_THREE as "deptCodeThree",
+		t1.REVIEW_RESULT as "reviewResult",
+		t1.CONFIRM_STATUS as "confirmStatus",
+		t1.RANK_ID as "rankId",
+		t1.PREM_RATE as "premRate",
+		t1.DEPT_NAME_FOUR as "deptNameFour",
+		t1.RANK_NAME as "rankName",
+		t1.RANK_CODE as "rankCode",
+		t1.GROUP_CODE as "groupCode",
+		t2.RANK_NAME as "recommendRankName"，
+		t1.cus_review_result as "cusReviewResult",
+        t1.cus_recommend_rank as "cusRecommendRank"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{confirmUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=VARCHAR},
+ 		#{deptCodeFour,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{signNo,jdbcType=VARCHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{groupName,jdbcType=VARCHAR},
+ 		#{deptCodeTwo,jdbcType=VARCHAR},
+ 		#{recommendRank,jdbcType=VARCHAR},
+ 		#{salesmanName,jdbcType=VARCHAR},
+ 		#{confirmRank,jdbcType=VARCHAR},
+ 		#{calcMonth,jdbcType=INTEGER},
+ 		#{rankScore,jdbcType=DOUBLE},
+ 		#{confirmDate,jdbcType=DATE},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{deptNameThree,jdbcType=VARCHAR},
+ 		#{deptNameTwo,jdbcType=VARCHAR},
+ 		#{deptCodeThree,jdbcType=VARCHAR},
+ 		#{reviewResult,jdbcType=VARCHAR},
+ 		#{confirmStatus,jdbcType=CHAR},
+ 		#{rankId,jdbcType=VARCHAR},
+ 		#{premRate,jdbcType=DOUBLE},
+ 		#{deptNameFour,jdbcType=VARCHAR},
+ 		#{rankName,jdbcType=VARCHAR},
+ 		#{rankCode,jdbcType=VARCHAR},
+ 		#{groupCode,jdbcType=VARCHAR}，
+ 		#{cusReviewResult,jdbcType=VARCHAR},
+ 		#{cusRecommendRank,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="confirmUser != null and confirmUser != ''">
+			and t1.CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and t1.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and t1.UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeFour != null and deptCodeFour != ''">
+			and t1.DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and t1.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="signNo != null and signNo != ''">
+			and t1.SIGN_NO = #{signNo,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and t1.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="deptCodeTwo != null and deptCodeTwo != ''">
+			and t1.DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="recommendRank != null and recommendRank != ''">
+			and t1.RECOMMEND_RANK = #{recommendRank,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmRank != null and confirmRank != ''">
+			and t1.CONFIRM_RANK = #{confirmRank,jdbcType=VARCHAR}
+		</if>
+		<if test="calcMonth != null and calcMonth != ''">
+			and t1.CALC_MONTH = #{calcMonth,jdbcType=INTEGER}
+		</if>
+		<if test="rankScore != null and rankScore != ''">
+			and t1.RANK_SCORE = #{rankScore,jdbcType=DOUBLE}
+		</if>
+		<if test="confirmDate != null and confirmDate != ''">
+			and t1.CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and t1.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameThree != null and deptNameThree != ''">
+			and t1.DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameTwo != null and deptNameTwo != ''">
+			and t1.DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeThree != null and deptCodeThree != ''">
+			and t1.DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR}
+		</if>
+		<if test="reviewResult != null and reviewResult != ''">
+			and t1.REVIEW_RESULT = #{reviewResult,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmStatus != null and confirmStatus != ''">
+			and t1.CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR}
+		</if>
+		<if test="rankId != null and rankId != ''">
+			and t1.RANK_ID = #{rankId,jdbcType=VARCHAR}
+		</if>
+		<if test="premRate != null and premRate != ''">
+			and t1.PREM_RATE = #{premRate,jdbcType=DOUBLE}
+		</if>
+		<if test="deptNameFour != null and deptNameFour != ''">
+			and t1.DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR}
+		</if>
+		<if test="rankName != null and rankName != ''">
+			and t1.RANK_NAME = #{rankName,jdbcType=VARCHAR}
+		</if>
+		<if test="rankCode != null and rankCode != ''">
+			and t1.RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and t1.GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<!-- 模糊查询条件 -->
+		<if test="groupName != null and groupName != ''">
+			and t1.GROUP_NAME like trim(#{groupName,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="salesmanName != null and salesmanName != ''">
+			and t1.SALESMAN_NAME like trim(#{salesmanName,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and t1.SALESMAN_CODE like trim(#{salesmanCode,jdbcType=VARCHAR}) || '%'
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REVIEW_RANK t1 <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+			select 
+			           t1.CREATED_USER,
+                       t1.UPDATED_DATE,
+                       t1.DEPT_CODE_FOUR,
+                       t1.VALID_IND,
+                       t1.SIGN_NO,
+                       t1.CREATED_DATE,
+                       t1.SALESMAN_CODE ,
+                       t1.GROUP_NAME,
+                       t1.DEPT_CODE_TWO,
+                       t1.RECOMMEND_RANK,
+                       t1.SALESMAN_CODE || t1.SALESMAN_NAME "SALESMAN_NAME",
+                       t1.CALC_MONTH,
+                       t1.UPDATED_USER,
+                       t1.DEPT_CODE_THREE || t1.DEPT_NAME_THREE "DEPT_NAME_THREE",
+                       T1.DEPT_CODE_TWO || t1.DEPT_NAME_TWO "DEPT_NAME_TWO",
+                       t1.DEPT_CODE_THREE,
+                       t1.RANK_ID as "rankId",
+                       t1.DEPT_CODE_FOUR || t1.DEPT_NAME_FOUR "DEPT_NAME_FOUR",
+                       t1.GROUP_CODE,
+                       t1.RANK_CODE,
+                       t1.RANK_NAME as "rankName",
+                       nvl(t2.RANK_NAME, '---') as "recommendRankName",
+                       nvl(t5.rank_name,'---') as "confirmRankName",
+                       to_char(t1.CONFIRM_DATE, 'yyyy-mm-dd hh24:mi:ss') as "confirmDate",
+                       t1.CONFIRM_USER,
+                       t4.user_cname as "confirmName",
+                       decode(upper(t1.REVIEW_RESULT), 'S', '升级', 'J', '降级', 'T', '淘汰', 'W', '维持', null, '---') as "reviewResult",
+                       decode(t1.CONFIRM_STATUS,
+                              0,
+                              '待确认',
+                              1,
+                              '待分司人员确认',
+                              2,
+                              '待分司渠道确认',
+                              3,
+                              '待总司确认',
+                              9,
+                              '已确认',
+                              '') as "confirmStatus",
+                       to_char(t1.PREM_RATE * 100, 'fm9999999999999990.00') || '%' as "premRate",
+                       to_char(t1.RANK_SCORE, 'fm9999999999999990.00') as "rankScore",
+                       decode(t1.LINE_CODE,
+                              '925004',
+                              '电话直销',
+                              '925005',
+                              '网销业务',
+                              '925006',
+                              '渠道重客',
+                              '925007',
+                              '其他业务',
+                              '925008',
+                              '信用保证险',
+                              '925009',
+                              '创新',
+                              '其他') as "LINE_CODE",
+                       t2.AUDIT_FLAG as "auditFlag",
+                       decode(upper(trim(t1.CUS_REVIEW_RESULT)), 'S', '升级', 'J', '降级', 'T', '淘汰', 'W', '维持', null, '---') as "cusReviewResult",
+                       nvl(t6.rank_name,'---') as "cusRecommendRankName",
+                       nvl(t7.rank_name,'---')  as "cusConfirmRankName",
+                      t1.confirm_rank as "confirmRank",
+		              t1.cus_confirm_rank as "cusConfirmRank",
+		              t1.cus_recommend_rank as "cusRecommendRank",
+		              t3.salesman_cname as "name",
+		              t3.salesman_code as "salesman"
+			  from REVIEW_RANK t1 
+			  left join t_law_rank_def t2 on t1.recommend_rank = t2.rank_code 
+			  left join t_law_rank_def t5 on t1.confirm_rank = t5.rank_code
+              left join t_law_rank_def t6 on t1.cus_recommend_rank = t6.rank_code
+              left join t_law_rank_def t7 on t1.cus_confirm_rank = t7.rank_code
+			  left join um_user t4 on t1.confirm_user = t4.user_code
+			  left join salesman t3 on t1.SALESMAN_CODE= t3.SALESMAN_CODE
+			<include refid="Base_Where_Sql"/>
+			and t1.DEPT_CODE_FOUR like '${curDeptCode}%'
+			) a where rownum &lt;= #{endpoint} 
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryListPageCount" parameterType="map" resultType="long">
+		select 
+		count(1)
+		from REVIEW_RANK t1 
+			  left join t_law_rank_def t2 on t1.recommend_rank = t2.rank_code
+			  left join um_user t4 on t1.confirm_user = t4.user_code
+			  left join salesman t3 on t1.SALESMAN_CODE= t3.SALESMAN_CODE
+			<include refid="Base_Where_Sql"/>
+			and t1.DEPT_CODE_FOUR like '${curDeptCode}%'
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+			    select t1.CREATED_USER,
+		            t1.UPDATED_DATE,
+		          t1.DEPT_CODE_FOUR,
+		          t1.VALID_IND,
+		          t1.SIGN_NO,
+		          t1.CREATED_DATE,
+		          t1.SALESMAN_CODE,
+		          t1.GROUP_NAME,
+		          t1.DEPT_CODE_TWO,
+		          t1.RECOMMEND_RANK,
+		          t1.SALESMAN_CODE||t1.SALESMAN_NAME "SALESMAN_NAME",
+		          t1.CALC_MONTH,
+		          t1.UPDATED_USER,
+		          t1.DEPT_CODE_THREE||t1.DEPT_NAME_THREE "DEPT_NAME_THREE",
+		          T1.DEPT_CODE_TWO||t1.DEPT_NAME_TWO "DEPT_NAME_TWO",
+		          t1.DEPT_CODE_THREE,
+		          t1.RANK_ID as "rankId",
+		          t1.DEPT_CODE_FOUR||t1.DEPT_NAME_FOUR "DEPT_NAME_FOUR",
+		          t1.GROUP_CODE,
+		          t1.RANK_CODE,
+		          t1.RANK_NAME as "rankName",
+		          nvl(t2.RANK_NAME,'---') as "recommendRankName",
+		          t7.rank_name as "confirmRankName",
+		          to_char(t1.CONFIRM_DATE, 'yyyy-mm-dd hh24:mi:ss') as "confirmDate",
+		          t1.CONFIRM_USER,
+		          t4.user_cname  as "confirmName",
+		          decode(upper(t1.REVIEW_RESULT),
+		                     'S',
+		                    '升级',
+		                    'J',
+		                    '降级',
+		                    'T',
+		                    '淘汰',
+		                    'W',
+		                    '维持',
+		                    null,
+		                    '---') as "reviewResult",
+		          decode(t1.CONFIRM_STATUS,0,'待确认',1,'待分司人员确认',2,'待分司渠道确认',3,'待总司确认',9,'已确认','') as "confirmStatus",
+		          to_char(t1.PREM_RATE*100, 'fm9999999999999990.00') || '%' as "premRate",
+		          to_char(t1.RANK_SCORE, 'fm9999999999999990.00') as "rankScore",
+		          decode(t1.LINE_CODE,'925004','电话直销','925005','网销业务','925006','渠道重客','925007','其他业务','925008','信用保证险','925009','创新','其他') as "LINE_CODE",
+		              t2.AUDIT_FLAG as "auditFlag",
+		              decode(upper(trim(t1.CUS_REVIEW_RESULT)),
+		                    'S',
+		                    '升级',
+		                    'J',
+		                    '降级',
+		                    'T',
+		                    '淘汰',
+		                    'W',
+		                    '维持',
+		                    null,
+		                    '---') as "cusReviewResult",
+		              case t1.cus_recommend_rank
+		              when 'T' then '淘汰'
+		              else nvl(t5.rank_name,'---') end as "cusRecommendRankName",
+		              t1.confirm_rank as "confirmRank",
+		              t1.cus_confirm_rank as "cusConfirmRank",
+		              t1.cus_recommend_rank as "cusRecommendRank"
+		    from REVIEW_RANK t1 
+		      left join t_law_rank_def t2 on t1.recommend_rank = t2.rank_code
+		      left join t_law_rank_def t5 on t1.cus_recommend_rank = t5.rank_code
+		          left join t_law_rank_def t7 on t1.confirm_rank = t7.rank_code
+		      left join um_user t4 on t1.confirm_user = t4.user_code
+		where t1.RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRank" >
+    insert into REVIEW_RANK (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REVIEW_RANK (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from REVIEW_RANK
+    where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REVIEW_RANK
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REVIEW_RANK
+	<set>
+	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="signNo != null and signNo != ''">
+		SIGN_NO = #{signNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="recommendRank != null and recommendRank != ''">
+		RECOMMEND_RANK = #{recommendRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanName != null and salesmanName != ''">
+		SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmRank != null and confirmRank != ''">
+		CONFIRM_RANK = #{confirmRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="rankScore != null and rankScore != ''">
+		RANK_SCORE = #{rankScore,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="reviewResult != null and reviewResult != ''">
+		REVIEW_RESULT = #{reviewResult,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+   	<if test="premRate != null and premRate != ''">
+		PREM_RATE = #{premRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</update>
+	
+	<!--确认职级-->
+	<update id="confirmRankByPrimaryKey" parameterType="map" >
+	update REVIEW_RANK
+	<set>
+	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR}
+	</if>
+  	</set>
+	where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</update>
+	
+	<!--确认职级-->
+	<update id="confirmRankByPrimaryKeyElse" parameterType="map" >
+	update REVIEW_RANK
+	<set>
+	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+	
+  	<if test="confirmRank != null and confirmRank != ''">
+		CONFIRM_RANK = #{confirmRank,jdbcType=CHAR}
+	</if>
+	
+  	<if test="cusConfirmRank != null and cusConfirmRank != ''">
+		,CUS_CONFIRM_RANK = #{cusConfirmRank,jdbcType=CHAR}
+	</if>
+  	</set>
+	where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</update>
+	
+	<!--确认职级时同步修改销售人员对应的职级-->
+	<update id="updateSalesmanRankCode" parameterType="map" >
+	   update salesman set SALE_RANK=#{rankCode,jdbcType=VARCHAR} 
+	   <if test="cusConfirmRank != null and cusConfirmRank != ''">
+		,SALE_RANK_TWO = #{cusConfirmRank,jdbcType=VARCHAR}
+	   </if>
+	    where salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REVIEW_RANK
+		set 
+			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			SIGN_NO = #{signNo,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			RECOMMEND_RANK = #{recommendRank,jdbcType=VARCHAR},
+  			SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+  			CONFIRM_RANK = #{confirmRank,jdbcType=VARCHAR},
+  			CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+  			RANK_SCORE = #{rankScore,jdbcType=DOUBLE},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			REVIEW_RESULT = #{reviewResult,jdbcType=VARCHAR},
+  			CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+   			PREM_RATE = #{premRate,jdbcType=DOUBLE},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRank" >
+	update REVIEW_RANK
+	<set>
+	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="signNo != null and signNo != ''">
+		SIGN_NO = #{signNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="recommendRank != null and recommendRank != ''">
+		RECOMMEND_RANK = #{recommendRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanName != null and salesmanName != ''">
+		SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmRank != null and confirmRank != ''">
+		CONFIRM_RANK = #{confirmRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="rankScore != null and rankScore != ''">
+		RANK_SCORE = #{rankScore,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="reviewResult != null and reviewResult != ''">
+		REVIEW_RESULT = #{reviewResult,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+   	<if test="premRate != null and premRate != ''">
+		PREM_RATE = #{premRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRank" >
+		update REVIEW_RANK
+		set 
+			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=VARCHAR},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			SIGN_NO = #{signNo,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			RECOMMEND_RANK = #{recommendRank,jdbcType=VARCHAR},
+  			SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+  			CONFIRM_RANK = #{confirmRank,jdbcType=VARCHAR},
+  			CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+  			RANK_SCORE = #{rankScore,jdbcType=DOUBLE},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			REVIEW_RESULT = #{reviewResult,jdbcType=VARCHAR},
+  			CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+   			PREM_RATE = #{premRate,jdbcType=DOUBLE},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REVIEW_RANK
+	where RANK_ID = #{rankId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRank" resultType="long">
+	select count(1)
+	from REVIEW_RANK <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_RANK
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_RANK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_RANK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+			select * from (
+				select a.*,rownum rn from (
+					select 
+					<include refid="Base_Column_List"/>
+					from REVIEW_RANK 
+					<include refid="Base_Where_Sql"/>
+				) a where rownum &lt;= #{endpoint}
+			) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REVIEW_RANK <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+    <!-- 确认职级 -->
+	<update id="updateConfirmRankByPK" parameterType="map" >
+		update review_rank t
+		   set t.confirm_rank   = #{confirmRank,jdbcType=VARCHAR},
+		       t.cus_confirm_rank   = #{cusConfirmRank,jdbcType=VARCHAR},
+		       t.SIGN_NO   = #{signNo,jdbcType=VARCHAR},
+		       t.confirm_status = '9',
+		       t.confirm_user   = #{confirmUser,jdbcType=VARCHAR},
+		       t.confirm_date   = sysdate
+		 where t.rank_id = #{rankId,jdbcType=VARCHAR}		
+	</update>
+	
+	<!-- 查询对应的总公司的职级-->
+	<select id="findRankAuditFlag" parameterType="map" resultType="int">
+		select t.audit_flag as "auditFlag"
+	      from t_law_rank_def t
+	     where t.rank_code = #{rankCode,jdbcType=VARCHAR}
+	       and t.valid_ind = '1'   
+	</select>	
+	
+	<!-- 查询该销售人员在考核职级表中数据的数量-->
+	<select id="queryReviewRank" parameterType="String" resultType="long">
+		select count(1) from review_rank t where t.salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+	</select>	
+	
+	<!--有2条数据时的确认职级-->
+	<update id="confirmRankBySalesmanCode" parameterType="map" >
+	update REVIEW_RANK
+	<set>
+	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	
+  	<if test="confirmRank != null and confirmRank != ''">
+		CONFIRM_RANK = #{confirmRank,jdbcType=VARCHAR},
+	</if>
+  	
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+  	</set>
+	where salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 查询月度固定工资来比较2个职级的大小-->
+	<select id="queryMonthSalaryByCode" parameterType="map" resultType="long">
+		select t.base_salary from t_law_rank_def t where t.valid_ind='1' 
+		and t.item_status='1'
+		and t.rank_code = #{confirmCode,jdbcType=VARCHAR}
+		and t.dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>	
+	
+	<!-- 查询月度固定工资来比较2个职级的大小-->
+	<select id="queryMonthSalaryByName" parameterType="map" resultType="long">
+		select t.base_salary from t_law_rank_def t where  t.valid_ind='1'
+		and t.item_status='1'
+		and  t.rank_name = #{recommendName,jdbcType=VARCHAR}
+		and t.dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>	
+	
+	<select id="queryRankName" parameterType="String" resultType="String">
+		 select t.rank_name from t_law_rank_def t where t.rank_code=#{rankCode,jdbcType=VARCHAR}
+	</select>	
+	
+	<select id="queryComAndCusRank" parameterType="String" resultType="map">
+		 select t.confirm_rank as "comRank", t.cus_confirm_rank as "cusRank" from review_rank t where t.rank_id = #{rankId,jdbcType=VARCHAR}
+	</select>
+		
+	<select id="queryDataByRankId" parameterType="String" resultMap="BaseResultVo">
+	     select 
+	        t1.SALESMAN_CODE,
+			t1.RECOMMEND_RANK,
+			t1.REVIEW_RESULT,
+			t1.RANK_CODE,
+			nvl(t1.cus_review_result,'---') as "cus_review_result",
+	        t1.cus_recommend_rank,
+	        t1.rank_id
+	        from review_rank t1
+	        where t1.rank_id = #{rankId,jdbcType=VARCHAR}
+		 <!-- select * from review_rank t where t.rank_id = #{rankId,jdbcType=VARCHAR} -->
+	</select>
+	<!-- 恢复销售人员职级 -->
+	<update id="recoverRank" parameterType="map">
+		merge into salesman t1 
+		    using t_law_salesman t2
+		    on(t1.salesman_code = t2.salesman_code)
+		    when matched then
+		      update set t1.sale_rank = t2.rank_code,t1.sale_rank_two = t2.sale_rank_two
+		      where t1.salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+	        and t2.calc_month = #{calcMonth,jdbcType=VARCHAR}
+	</update>	
+	<update id="updateRankStatus" parameterType="map">
+		update review_rank t set t.confirm_status = '0' where t.calc_month = #{calcMonth,jdbcType=VARCHAR} and t.salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+</mapper>

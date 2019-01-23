@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportDaySaleTrace" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="SIGN_THIS_DAY" property="signThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="REPORT_DAY" property="reportDay" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="SIGN_LAST_YEAR" property="signLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="POLICY_INCREASE_RATE" property="policyIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TERM_INCREASE_RATE" property="termIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_YEAR" property="signThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_MONTH" property="incomeThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURE_TYPE" property="insureType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INCOME_THIS_YEAR" property="incomeThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_DAY" property="incomeThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_LAST_YEAR" property="incomeLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PREMIUM_PLAN_RATE" property="premiumPlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="YEAR_INCREASE_RATE" property="yearIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BIZ_LINE" property="bizLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SCHEDULE_PLAN_RATE" property="schedulePlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_MONTH" property="signThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM_PLAN" property="premiumPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportDaySaleTrace">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="SIGN_THIS_DAY" property="signThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="REPORT_DAY" property="reportDay" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="SIGN_LAST_YEAR" property="signLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="POLICY_INCREASE_RATE" property="policyIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TERM_INCREASE_RATE" property="termIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_YEAR" property="signThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_MONTH" property="incomeThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURE_TYPE" property="insureType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INCOME_THIS_YEAR" property="incomeThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_DAY" property="incomeThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_LAST_YEAR" property="incomeLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PREMIUM_PLAN_RATE" property="premiumPlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="YEAR_INCREASE_RATE" property="yearIncreaseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BIZ_LINE" property="bizLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SCHEDULE_PLAN_RATE" property="schedulePlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_MONTH" property="signThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM_PLAN" property="premiumPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		PK_ID,
+		REPORT_DAY,
+		DEPT_CODE_THREE,
+		DEPT_NAME_THREE,
+		DEPT_CODE_FOUR,
+		DEPT_NAME_FOUR,
+		BIZ_LINE,
+		INSURE_TYPE,
+		DEPT_CODE_TWO,
+		DEPT_NAME_TWO,
+		to_char(INCOME_THIS_DAY, 'fm99999999999990.00') as "incomeThisDay",
+		to_char(INCOME_THIS_MONTH, 'fm99999999999990.00') as "incomeThisMonth",
+		to_char(INCOME_THIS_YEAR, 'fm99999999999990.00') as "incomeThisYear",
+		to_char(INCOME_LAST_YEAR, 'fm99999999999990.00') as "incomeLastYear",
+		to_char(SIGN_THIS_DAY, 'fm99999999999990.00') as "signThisDay",
+		to_char(SIGN_THIS_MONTH, 'fm99999999999990.00') as "signThisMonth",
+		to_char(SIGN_THIS_YEAR, 'fm99999999999990.00') as "signThisYear",
+		to_char(SIGN_LAST_YEAR, 'fm99999999999990.00') as "signLastYear",
+		to_char(PREMIUM_PLAN, 'fm99999999999990.00') as "premiumPlan",
+		to_char(PREMIUM_PLAN_RATE*100, 'fm99999999999990.00') || '%' as "premiumPlanRate",
+		to_char(YEAR_INCREASE_RATE*100, 'fm99999999999990.00') || '%' as "yearIncreaseRate",
+		to_char(SCHEDULE_PLAN_RATE*100, 'fm99999999999990.00') || '%' as "schedulePlanRate",
+		to_char(POLICY_INCREASE_RATE*100, 'fm99999999999990.00') || '%' as "policyIncreaseRate",
+		to_char(TERM_INCREASE_RATE, 'fm99999999999990.00') as "termIncreaseRate",
+		CREATE_USER,
+		UPDATE_DATE,
+		CREATE_DATE,
+		UPDATE_USER
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		PK_ID as "pkId",
+		REPORT_DAY as "reportDay",
+		INSURE_TYPE as "insureType",
+		BIZ_LINE as "bizLine",
+		DEPT_CODE_TWO as "deptCodeTwo",
+		DEPT_NAME_TWO as "deptNameTwo",
+		DEPT_CODE_FOUR as "deptCodeFour",
+		DEPT_NAME_FOUR as "deptNameFour",
+		DEPT_NAME_THREE as "deptNameThree",
+		DEPT_CODE_THREE as "deptCodeThree",
+		INCOME_THIS_DAY as "incomeThisDay",
+		INCOME_THIS_MONTH as "incomeThisMonth",
+		INCOME_THIS_YEAR as "incomeThisYear",
+		INCOME_LAST_YEAR as "incomeLastYear",
+		SIGN_THIS_DAY as "signThisDay",
+		SIGN_THIS_MONTH as "signThisMonth",
+		SIGN_THIS_YEAR as "signThisYear",
+		SIGN_LAST_YEAR as "signLastYear",
+		PREMIUM_PLAN as "premiumPlan",
+		PREMIUM_PLAN_RATE as "premiumPlanRate",
+		YEAR_INCREASE_RATE as "yearIncreaseRate",
+		SCHEDULE_PLAN_RATE as "schedulePlanRate",
+		POLICY_INCREASE_RATE as "policyIncreaseRate",
+		TERM_INCREASE_RATE as "termIncreaseRate",
+		CREATE_USER as "createUser",
+		UPDATE_DATE as "updateDate",
+		CREATE_DATE as "createDate",
+		UPDATE_USER as "updateUser"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{signThisDay,jdbcType=DOUBLE},
+ 		#{reportDay,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=VARCHAR},
+ 		#{signLastYear,jdbcType=DOUBLE},
+ 		#{updateDate,jdbcType=DATE},
+ 		#{policyIncreaseRate,jdbcType=DOUBLE},
+ 		#{termIncreaseRate,jdbcType=DOUBLE},
+ 		#{deptCodeFour,jdbcType=VARCHAR},
+ 		#{signThisYear,jdbcType=DOUBLE},
+ 		#{incomeThisMonth,jdbcType=DOUBLE},
+ 		#{createUser,jdbcType=VARCHAR},
+ 		#{insureType,jdbcType=VARCHAR},
+ 		#{deptCodeTwo,jdbcType=VARCHAR},
+ 		#{incomeThisYear,jdbcType=DOUBLE},
+ 		#{incomeThisDay,jdbcType=DOUBLE},
+ 		#{incomeLastYear,jdbcType=DOUBLE},
+ 		#{premiumPlanRate,jdbcType=DOUBLE},
+ 		#{yearIncreaseRate,jdbcType=DOUBLE},
+ 		#{bizLine,jdbcType=VARCHAR},
+ 		#{schedulePlanRate,jdbcType=DOUBLE},
+ 		#{deptNameThree,jdbcType=VARCHAR},
+ 		#{deptNameTwo,jdbcType=VARCHAR},
+ 		#{signThisMonth,jdbcType=DOUBLE},
+ 		#{deptCodeThree,jdbcType=VARCHAR},
+ 		#{premiumPlan,jdbcType=DOUBLE},
+ 		#{deptNameFour,jdbcType=VARCHAR},
+ 		#{createDate,jdbcType=DATE},
+ 		#{updateUser,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="signThisDay != null and signThisDay != ''">
+			and SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=VARCHAR}
+		</if>
+		<if test="signLastYear != null and signLastYear != ''">
+			and SIGN_LAST_YEAR = #{signLastYear,jdbcType=DOUBLE}
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			and UPDATE_DATE = #{updateDate,jdbcType=DATE}
+		</if>
+		<if test="policyIncreaseRate != null and policyIncreaseRate != ''">
+			and POLICY_INCREASE_RATE = #{policyIncreaseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="termIncreaseRate != null and termIncreaseRate != ''">
+			and TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="signThisYear != null and signThisYear != ''">
+			and SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE}
+		</if>
+		<if test="incomeThisMonth != null and incomeThisMonth != ''">
+			and INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and CREATE_USER = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="incomeThisYear != null and incomeThisYear != ''">
+			and INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE}
+		</if>
+		<if test="incomeThisDay != null and incomeThisDay != ''">
+			and INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE}
+		</if>
+		<if test="incomeLastYear != null and incomeLastYear != ''">
+			and INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE}
+		</if>
+		<if test="premiumPlanRate != null and premiumPlanRate != ''">
+			and PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE}
+		</if>
+		<if test="yearIncreaseRate != null and yearIncreaseRate != ''">
+			and YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="schedulePlanRate != null and schedulePlanRate != ''">
+			and SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE}
+		</if>
+		<if test="signThisMonth != null and signThisMonth != ''">
+			and SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="premiumPlan != null and premiumPlan != ''">
+			and PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE}
+		</if>
+		<if test="createDate != null and createDate != ''">
+			and CREATE_DATE = #{createDate,jdbcType=DATE}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameTwo != null and deptNameTwo != ''">
+			and DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeTwo != null and deptCodeTwo != ''">
+			and DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeThree != null and deptCodeThree != ''">
+			and DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameThree != null and deptNameThree != ''">
+			and DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeFour != null and deptCodeFour != ''">
+			and DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameFour != null and deptNameFour != ''">
+			and DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR}
+		</if>
+		<choose>
+		   <when test="deptName != null and deptName !='' ">
+		      and DEPT_CODE_THREE like f_get_inter_dept(#{deptName,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <when test="parentDept != null and parentDept !='' ">
+		      and DEPT_CODE_TWO like f_get_inter_dept(#{parentDept,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <otherwise></otherwise>
+		</choose>
+		<if test="bizLine != null and bizLine != ''">
+			and BIZ_LINE like #{bizLine,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="insureType != null and insureType != ''">
+			and INSURE_TYPE = #{insureType,jdbcType=VARCHAR}
+		</if>
+		<if test="reportDay != null and reportDay != ''">
+			and REPORT_DAY = #{reportDay,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportDaySaleTrace" >
+    insert into REPORT_DAY_SALE_TRACE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_DAY_SALE_TRACE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from REPORT_DAY_SALE_TRACE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_DAY_SALE_TRACE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_DAY_SALE_TRACE
+	<set>
+	<if test="signThisDay != null and signThisDay != ''">
+		SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="reportDay != null and reportDay != ''">
+		REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+	</if>
+   	<if test="signLastYear != null and signLastYear != ''">
+		SIGN_LAST_YEAR = #{signLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="policyIncreaseRate != null and policyIncreaseRate != ''">
+		POLICY_INCREASE_RATE = #{policyIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="termIncreaseRate != null and termIncreaseRate != ''">
+		TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisYear != null and signThisYear != ''">
+		SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisMonth != null and incomeThisMonth != ''">
+		INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="insureType != null and insureType != ''">
+		INSURE_TYPE = #{insureType,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="incomeThisYear != null and incomeThisYear != ''">
+		INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisDay != null and incomeThisDay != ''">
+		INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeLastYear != null and incomeLastYear != ''">
+		INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="premiumPlanRate != null and premiumPlanRate != ''">
+		PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="yearIncreaseRate != null and yearIncreaseRate != ''">
+		YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="bizLine != null and bizLine != ''">
+		BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+	</if>
+  	<if test="schedulePlanRate != null and schedulePlanRate != ''">
+		SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisMonth != null and signThisMonth != ''">
+		SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="premiumPlan != null and premiumPlan != ''">
+		PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_DAY_SALE_TRACE
+		set 
+			SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+  			REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+   			SIGN_LAST_YEAR = #{signLastYear,jdbcType=DOUBLE},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			POLICY_INCREASE_RATE = #{policyIncreaseRate,jdbcType=DOUBLE},
+  			TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+  			INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			INSURE_TYPE = #{insureType,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+  			INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+  			INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+  			PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+  			YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+  			BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+  			SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportDaySaleTrace" >
+	update REPORT_DAY_SALE_TRACE
+	<set>
+	<if test="signThisDay != null and signThisDay != ''">
+		SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="reportDay != null and reportDay != ''">
+		REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+	</if>
+   	<if test="signLastYear != null and signLastYear != ''">
+		SIGN_LAST_YEAR = #{signLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="policyIncreaseRate != null and policyIncreaseRate != ''">
+		POLICY_INCREASE_RATE = #{policyIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="termIncreaseRate != null and termIncreaseRate != ''">
+		TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisYear != null and signThisYear != ''">
+		SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisMonth != null and incomeThisMonth != ''">
+		INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="insureType != null and insureType != ''">
+		INSURE_TYPE = #{insureType,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="incomeThisYear != null and incomeThisYear != ''">
+		INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisDay != null and incomeThisDay != ''">
+		INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeLastYear != null and incomeLastYear != ''">
+		INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="premiumPlanRate != null and premiumPlanRate != ''">
+		PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="yearIncreaseRate != null and yearIncreaseRate != ''">
+		YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="bizLine != null and bizLine != ''">
+		BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+	</if>
+  	<if test="schedulePlanRate != null and schedulePlanRate != ''">
+		SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisMonth != null and signThisMonth != ''">
+		SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="premiumPlan != null and premiumPlan != ''">
+		PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportDaySaleTrace" >
+		update REPORT_DAY_SALE_TRACE
+		set 
+			SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+  			REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+   			SIGN_LAST_YEAR = #{signLastYear,jdbcType=DOUBLE},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			POLICY_INCREASE_RATE = #{policyIncreaseRate,jdbcType=DOUBLE},
+  			TERM_INCREASE_RATE = #{termIncreaseRate,jdbcType=DOUBLE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+  			INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			INSURE_TYPE = #{insureType,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+  			INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+  			INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+  			PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE},
+  			YEAR_INCREASE_RATE = #{yearIncreaseRate,jdbcType=DOUBLE},
+  			BIZ_LINE = #{bizLine,jdbcType=VARCHAR},
+  			SCHEDULE_PLAN_RATE = #{schedulePlanRate,jdbcType=DOUBLE},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			PREMIUM_PLAN = #{premiumPlan,jdbcType=DOUBLE},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REPORT_DAY_SALE_TRACE
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REPORT_DAY_SALE_TRACE
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_DAY_SALE_TRACE <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportDaySaleTrace" resultType="long">
+	select count(1)
+	from REPORT_DAY_SALE_TRACE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+		order by PK_ID asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_SALE_TRACE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_DAY_SALE_TRACE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_DAY_SALE_TRACE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

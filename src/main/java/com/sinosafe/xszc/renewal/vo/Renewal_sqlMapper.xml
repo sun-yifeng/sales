@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.renewal.vo.Renewal" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="RENEWAL_ID" property="renewalId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="ALARM_PHONE" property="alarmPhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_COUNT" property="claimCount" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="LOSS_FLAG" property="lossFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_POLICY_NO" property="renewalPolicyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENGINE_NUMBER" property="engineNumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VIN" property="vin" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="POLICY_HOLDER_PHONE" property="policyHolderPhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="INSURA_CODE" property="insuraCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ALARM_NAME" property="alarmName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RECOGNIZEE_NAME" property="recognizeeName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FRIST_REGET_DATE" property="fristRegetDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SAFE_END_DATE" property="safeEndDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_GROUP_CODE" property="renewalGroupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AUTOMATIC_FLAG" property="automaticFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RECOGNIZEE_PHONE" property="recognizeePhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL_SALE_FLAG" property="telSaleFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NO" property="salesmanNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ASSIGN_LEVEL" property="assignLevel" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_DATE" property="renewalDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RENEWAL_SALESMAN_CODE" property="renewalSalesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRO_DEPT" property="proDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LOSS_RATIO" property="lossRatio" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTHS_RENEWAL" property="monthsRenewal" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AGENT_NAME" property="agentName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SAFE_BEGIN_DATE" property="safeBeginDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="BUSI_DEPT" property="busiDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM" property="premium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CUST_TYPE" property="custType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POLICY_NO" property="policyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BRND" property="brnd" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POLICY_HOLDER_NAME" property="policyHolderName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_BUSI_DEPT" property="renewalBusiDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENT_CODE" property="agentCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VEHICLE_CODE" property="vehicleCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURA_NAME" property="insuraName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.renewal.vo.Renewal">
+		<id column="RENEWAL_ID" property="renewalId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="ALARM_PHONE" property="alarmPhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_COUNT" property="claimCount" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="LOSS_FLAG" property="lossFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_POLICY_NO" property="renewalPolicyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENGINE_NUMBER" property="engineNumber" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VIN" property="vin" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="POLICY_HOLDER_PHONE" property="policyHolderPhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="INSURA_CODE" property="insuraCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ALARM_NAME" property="alarmName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RECOGNIZEE_NAME" property="recognizeeName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FRIST_REGET_DATE" property="fristRegetDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SAFE_END_DATE" property="safeEndDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_GROUP_CODE" property="renewalGroupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AUTOMATIC_FLAG" property="automaticFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RECOGNIZEE_PHONE" property="recognizeePhone" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL_SALE_FLAG" property="telSaleFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NO" property="salesmanNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ASSIGN_LEVEL" property="assignLevel" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_DATE" property="renewalDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RENEWAL_SALESMAN_CODE" property="renewalSalesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRO_DEPT" property="proDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LOSS_RATIO" property="lossRatio" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTHS_RENEWAL" property="monthsRenewal" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AGENT_NAME" property="agentName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SAFE_BEGIN_DATE" property="safeBeginDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="BUSI_DEPT" property="busiDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM" property="premium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CUST_TYPE" property="custType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POLICY_NO" property="policyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BRND" property="brnd" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POLICY_HOLDER_NAME" property="policyHolderName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RENEWAL_BUSI_DEPT" property="renewalBusiDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENT_CODE" property="agentCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VEHICLE_CODE" property="vehicleCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURA_NAME" property="insuraName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		ALARM_PHONE,
+		CLAIM_COUNT,
+		LOSS_FLAG,
+		RENEWAL_POLICY_NO,
+		ENGINE_NUMBER,
+		VIN,
+		UPDATE_DATE,
+		POLICY_HOLDER_PHONE,
+		RENEWAL_ID,
+		INSURA_CODE,
+		ALARM_NAME,
+		VALID_IND,
+		RECOGNIZEE_NAME,
+		FRIST_REGET_DATE,
+		SAFE_END_DATE,
+		CREATE_USER,
+		RENEWAL_GROUP_CODE,
+		AUTOMATIC_FLAG,
+		RECOGNIZEE_PHONE,
+		TEL_SALE_FLAG,
+		SALESMAN_NO,
+		ASSIGN_LEVEL,
+		RENEWAL_DATE,
+		RENEWAL_SALESMAN_CODE,
+		PRO_DEPT,
+		LOSS_RATIO,
+		MONTHS_RENEWAL,
+		AGENT_NAME,
+		SAFE_BEGIN_DATE,
+		BUSI_DEPT,
+		PREMIUM,
+		CUST_TYPE,
+		POLICY_NO,
+		BRND,
+		POLICY_HOLDER_NAME,
+		RENEWAL_BUSI_DEPT,
+		CREATE_DATE,
+		UPDATE_USER,
+		AGENT_CODE,
+		VEHICLE_CODE
+	</sql>
+	
+    <!-- 查询的列 -->
+	<sql id="Base_Column_List_Use" >
+		t.ALARM_PHONE,
+		t.CLAIM_COUNT,
+		t.LOSS_FLAG,
+		t.RENEWAL_POLICY_NO,
+		t.ENGINE_NUMBER,
+		t.VIN,
+		t.UPDATE_DATE,
+		t.POLICY_HOLDER_PHONE,
+		t.RENEWAL_ID,
+		t.ALARM_NAME,
+		t.VALID_IND,
+		t.RECOGNIZEE_NAME,
+		t.FRIST_REGET_DATE,
+		to_char(t.SAFE_END_DATE,'yyyy-mm-dd') SAFE_END_DATE,
+		t.CREATE_USER,
+		t.RENEWAL_GROUP_CODE,
+		t.AUTOMATIC_FLAG,
+		t.RECOGNIZEE_PHONE,
+		t.TEL_SALE_FLAG,
+		t.SALESMAN_NO,
+		decode(t.ASSIGN_LEVEL,'0','未下发','1','分公司','2','支公司','3','团队经理','4','客户经理', '5', '已认领' ) ASSIGN_LEVEL,
+		t.ASSIGN_LEVEL "assignLevleCode",
+		t.RENEWAL_DATE,
+		t.RENEWAL_SALESMAN_CODE,
+		t.LOSS_RATIO,
+		t.MONTHS_RENEWAL,
+		t.AGENT_NAME,
+		to_char(t.SAFE_BEGIN_DATE,'yyyy-mm-dd') SAFE_BEGIN_DATE,
+		t.PREMIUM,
+		t.CUST_TYPE,
+		t.POLICY_NO,
+		t.BRND,
+		t.POLICY_HOLDER_NAME,
+		t.CREATE_DATE,
+		t.UPDATE_USER,
+		t.AGENT_CODE,
+		t.VEHICLE_CODE,
+		t.DEPT_NAME_TWO,
+		t.DEPT_NAME_THREE,
+		t.DEPT_NAME_FOUR,
+		t.INSURA_NAME,	
+		t.DEPT_CODE_THREE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		ALARM_PHONE as "alarmPhone",
+		CLAIM_COUNT as "claimCount",
+		LOSS_FLAG as "lossFlag",
+		RENEWAL_POLICY_NO as "renewalPolicyNo",
+		ENGINE_NUMBER as "engineNumber",
+		VIN as "vin",
+		UPDATE_DATE as "updateDate",
+		POLICY_HOLDER_PHONE as "policyHolderPhone",
+		RENEWAL_ID as "renewalId",
+		INSURA_CODE as "insuraCode",
+		ALARM_NAME as "alarmName",
+		VALID_IND as "validInd",
+		RECOGNIZEE_NAME as "recognizeeName",
+		FRIST_REGET_DATE as "fristRegetDate",
+		SAFE_END_DATE as "safeEndDate",
+		CREATE_USER as "createUser",
+		RENEWAL_GROUP_CODE as "renewalGroupCode",
+		AUTOMATIC_FLAG as "automaticFlag",
+		RECOGNIZEE_PHONE as "recognizeePhone",
+		TEL_SALE_FLAG as "telSaleFlag",
+		SALESMAN_NO as "salesmanNo",
+		ASSIGN_LEVEL as "assignLevel",
+		RENEWAL_DATE as "renewalDate",
+		RENEWAL_SALESMAN_CODE as "renewalSalesmanCode",
+		PRO_DEPT as "proDept",
+		LOSS_RATIO as "lossRatio",
+		MONTHS_RENEWAL as "monthsRenewal",
+		AGENT_NAME as "agentName",
+		SAFE_BEGIN_DATE as "safeBeginDate",
+		BUSI_DEPT as "busiDept",
+		PREMIUM as "premium",
+		CUST_TYPE as "custType",
+		POLICY_NO as "policyNo",
+		BRND as "brnd",
+		POLICY_HOLDER_NAME as "policyHolderName",
+		RENEWAL_BUSI_DEPT as "renewalBusiDept",
+		CREATE_DATE as "createDate",
+		UPDATE_USER as "updateUser",
+		AGENT_CODE as "agentCode",
+		VEHICLE_CODE as "vehicleCode",
+		DEPT_NAME_TWO as "deptNameTwo",
+		DEPT_NAME_THREE as "deptNameThree",
+		DEPT_NAME_FOUR as "deptNameFour",
+		INSURA_NAME as "insuraName",
+		DEPT_CODE_THREE as "deptCodeThree"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{alarmPhone,jdbcType=VARCHAR},
+ 		#{claimCount,jdbcType=INTEGER},
+ 		#{lossFlag,jdbcType=CHAR},
+ 		#{renewalPolicyNo,jdbcType=VARCHAR},
+ 		#{engineNumber,jdbcType=VARCHAR},
+ 		#{vin,jdbcType=VARCHAR},
+ 		#{updateDate,jdbcType=DATE},
+ 		#{policyHolderPhone,jdbcType=VARCHAR},
+ 		#{renewalId,jdbcType=VARCHAR},
+ 		#{insuraCode,jdbcType=VARCHAR},
+ 		#{alarmName,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{recognizeeName,jdbcType=VARCHAR},
+ 		#{fristRegetDate,jdbcType=VARCHAR},
+ 		#{safeEndDate,jdbcType=DATE},
+ 		#{createUser,jdbcType=VARCHAR},
+ 		#{renewalGroupCode,jdbcType=VARCHAR},
+ 		#{automaticFlag,jdbcType=CHAR},
+ 		#{recognizeePhone,jdbcType=VARCHAR},
+ 		#{telSaleFlag,jdbcType=CHAR},
+ 		#{salesmanNo,jdbcType=VARCHAR},
+ 		#{assignLevel,jdbcType=CHAR},
+ 		#{renewalDate,jdbcType=DATE},
+ 		#{renewalSalesmanCode,jdbcType=VARCHAR},
+ 		#{proDept,jdbcType=VARCHAR},
+ 		#{lossRatio,jdbcType=DOUBLE},
+ 		#{monthsRenewal,jdbcType=DATE},
+ 		#{agentName,jdbcType=VARCHAR},
+ 		#{safeBeginDate,jdbcType=DATE},
+ 		#{busiDept,jdbcType=VARCHAR},
+ 		#{premium,jdbcType=DOUBLE},
+ 		#{custType,jdbcType=VARCHAR},
+ 		#{policyNo,jdbcType=VARCHAR},
+ 		#{brnd,jdbcType=VARCHAR},
+ 		#{policyHolderName,jdbcType=VARCHAR},
+ 		#{renewalBusiDept,jdbcType=VARCHAR},
+ 		#{createDate,jdbcType=DATE},
+ 		#{updateUser,jdbcType=VARCHAR},
+ 		#{agentCode,jdbcType=VARCHAR},
+ 		#{vehicleCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+    <!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql_Use">
+		<where>
+		<if test="alarmPhone != null and alarmPhone != ''">
+			and ALARM_PHONE = #{alarmPhone,jdbcType=VARCHAR}
+		</if>
+		<if test="claimCount != null and claimCount != ''">
+			and CLAIM_COUNT = #{claimCount,jdbcType=INTEGER}
+		</if>
+		<if test="lossFlag != null and lossFlag != ''">
+			and LOSS_FLAG = #{lossFlag,jdbcType=CHAR}
+		</if>
+		<if test="renewalPolicyNo != null and renewalPolicyNo != ''">
+			and RENEWAL_POLICY_NO = #{renewalPolicyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="engineNumber != null and engineNumber != ''">
+			and ENGINE_NUMBER = #{engineNumber,jdbcType=VARCHAR}
+		</if>
+		<if test="vin != null and vin != ''">
+			and VIN = #{vin,jdbcType=VARCHAR}
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			and UPDATE_DATE = #{updateDate,jdbcType=DATE}
+		</if>
+		<if test="policyHolderPhone != null and policyHolderPhone != ''">
+			and POLICY_HOLDER_PHONE = #{policyHolderPhone,jdbcType=VARCHAR}
+		</if>
+		<if test="renewalId != null and renewalId != ''">
+			and RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+		</if>
+		<if test="insuraCode != null and insuraCode != ''">
+			and INSURA_CODE = #{insuraCode,jdbcType=VARCHAR}
+		</if>
+		<if test="alarmName != null and alarmName != ''">
+			and ALARM_NAME = #{alarmName,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="recognizeeName != null and recognizeeName != ''">
+			and RECOGNIZEE_NAME = #{recognizeeName,jdbcType=VARCHAR}
+		</if>
+		<if test="fristRegetDate != null and fristRegetDate != ''">
+			and FRIST_REGET_DATE = #{fristRegetDate,jdbcType=VARCHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and CREATE_USER = #{createUser,jdbcType=VARCHAR}
+		</if>
+<!-- 		<if test="renewalGroupCode != null and renewalGroupCode != ''">   -->
+<!-- 			and exists ( -->
+<!-- 		       select 1  -->
+<!-- 		         from salesman sa -->
+<!-- 		        where t.renewal_group_code = sa.group_code -->
+<!-- 		          and sa.salesman_code = #{renewalGroupCode,jdbcType=VARCHAR} -->
+<!-- 		       )  -->
+<!-- 		</if> -->
+		<if test="automaticFlag != null and automaticFlag != ''">
+			and AUTOMATIC_FLAG = #{automaticFlag,jdbcType=CHAR}
+		</if>
+		<if test="recognizeePhone != null and recognizeePhone != ''">
+			and RECOGNIZEE_PHONE = #{recognizeePhone,jdbcType=VARCHAR}
+		</if>
+		<if test="telSaleFlag != null and telSaleFlag != ''">
+			and TEL_SALE_FLAG = #{telSaleFlag,jdbcType=CHAR}
+		</if>
+		<if test="salesmanNo != null and salesmanNo != ''">
+			and SALESMAN_NO = #{salesmanNo,jdbcType=VARCHAR}
+		</if>
+		<if test="renewalDate != null and renewalDate != ''">
+			and RENEWAL_DATE = #{renewalDate,jdbcType=DATE}
+		</if>
+		<if test="renewalSalesmanCode != null and renewalSalesmanCode != ''">
+			and RENEWAL_SALESMAN_CODE = #{renewalSalesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lossRatio != null and lossRatio != ''">
+			and LOSS_RATIO = #{lossRatio,jdbcType=DOUBLE}
+		</if>
+		<if test="monthsRenewal != null and monthsRenewal != ''">
+			and MONTHS_RENEWAL = #{monthsRenewal,jdbcType=DATE}
+		</if>
+		<if test="agentName != null and agentName != ''">
+			and AGENT_NAME = #{agentName,jdbcType=VARCHAR}
+		</if>
+<!-- 		<if test="busiDept != null and busiDept != ''"> -->
+<!-- 			and BUSI_DEPT = #{busiDept,jdbcType=VARCHAR} -->
+<!-- 		</if> -->
+		<if test="premium != null and premium != ''">
+			and PREMIUM = #{premium,jdbcType=DOUBLE}
+		</if>
+		<if test="custType != null and custType != ''">
+			and CUST_TYPE = #{custType,jdbcType=VARCHAR}
+		</if>
+		<if test="policyNo != null and policyNo != ''">
+			and POLICY_NO = #{policyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="brnd != null and brnd != ''">
+			and BRND = #{brnd,jdbcType=VARCHAR}
+		</if>
+		<if test="policyHolderName != null and policyHolderName != ''">
+			and POLICY_HOLDER_NAME = #{policyHolderName,jdbcType=VARCHAR}
+		</if>
+		<if test="renewalBusiDept != null and renewalBusiDept != ''">
+			and RENEWAL_BUSI_DEPT = #{renewalBusiDept,jdbcType=VARCHAR}
+		</if>
+		<if test="createDate != null and createDate != ''">
+			and CREATE_DATE = #{createDate,jdbcType=DATE}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		<if test="agentCode != null and agentCode != ''">
+			and AGENT_CODE = #{agentCode,jdbcType=VARCHAR}
+		</if>
+		<if test="vehicleCode != null and vehicleCode != ''">
+			and VEHICLE_CODE = #{vehicleCode,jdbcType=VARCHAR}
+		</if>
+        <!-- 查询条件 开始 -->
+		<if test="beginDate != null and beginDate != ''">
+			and SAFE_END_DATE &gt;= to_date(#{beginDate},'yyyy-mm-dd')
+		</if>
+		<if test="endDate != null and endDate != ''">
+			and SAFE_END_DATE &lt; to_date(#{endDate},'yyyy-mm-dd') + 1
+		</if>
+		<if test="assignLevel != null and assignLevel != ''">
+			and ASSIGN_LEVEL = #{assignLevel,jdbcType=VARCHAR}
+		</if>
+		<choose>
+			<when test="deptCodeThree != null and deptCodeThree != ''">
+				and DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR}
+			</when>
+			<when test="proDept != null and proDept != ''">
+				and PRO_DEPT = #{proDept,jdbcType=VARCHAR}
+			</when>
+			<otherwise>
+			    and 1=1
+			</otherwise>
+		</choose>
+		<!-- 查询条件 结束 -->
+		</where>
+	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="alarmPhone != null and alarmPhone != ''">
+			and ALARM_PHONE = #{alarmPhone,jdbcType=VARCHAR}
+		</if>
+		<if test="claimCount != null and claimCount != ''">
+			and CLAIM_COUNT = #{claimCount,jdbcType=INTEGER}
+		</if>
+		<if test="lossFlag != null and lossFlag != ''">
+			and LOSS_FLAG = #{lossFlag,jdbcType=CHAR}
+		</if>
+		<if test="renewalPolicyNo != null and renewalPolicyNo != ''">
+			and RENEWAL_POLICY_NO = #{renewalPolicyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="engineNumber != null and engineNumber != ''">
+			and ENGINE_NUMBER = #{engineNumber,jdbcType=VARCHAR}
+		</if>
+		<if test="vin != null and vin != ''">
+			and VIN = #{vin,jdbcType=VARCHAR}
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			and UPDATE_DATE = #{updateDate,jdbcType=DATE}
+		</if>
+		<if test="policyHolderPhone != null and policyHolderPhone != ''">
+			and POLICY_HOLDER_PHONE = #{policyHolderPhone,jdbcType=VARCHAR}
+		</if>
+		<if test="renewalId != null and renewalId != ''">
+			and RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+		</if>
+		<if test="insuraCode != null and insuraCode != ''">
+			and INSURA_CODE = #{insuraCode,jdbcType=VARCHAR}
+		</if>
+		<if test="alarmName != null and alarmName != ''">
+			and ALARM_NAME = #{alarmName,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="recognizeeName != null and recognizeeName != ''">
+			and RECOGNIZEE_NAME = #{recognizeeName,jdbcType=VARCHAR}
+		</if>
+		<if test="fristRegetDate != null and fristRegetDate != ''">
+			and FRIST_REGET_DATE = #{fristRegetDate,jdbcType=VARCHAR}
+		</if>
+		<if test="safeEndDate != null and safeEndDate != ''">
+			and SAFE_END_DATE = #{safeEndDate,jdbcType=DATE}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and CREATE_USER = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="renewalGroupCode != null and renewalGroupCode != ''">
+			and RENEWAL_GROUP_CODE = #{renewalGroupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="automaticFlag != null and automaticFlag != ''">
+			and AUTOMATIC_FLAG = #{automaticFlag,jdbcType=CHAR}
+		</if>
+		<if test="recognizeePhone != null and recognizeePhone != ''">
+			and RECOGNIZEE_PHONE = #{recognizeePhone,jdbcType=VARCHAR}
+		</if>
+		<if test="telSaleFlag != null and telSaleFlag != ''">
+			and TEL_SALE_FLAG = #{telSaleFlag,jdbcType=CHAR}
+		</if>
+		<if test="salesmanNo != null and salesmanNo != ''">
+			and SALESMAN_NO = #{salesmanNo,jdbcType=VARCHAR}
+		</if>
+		<if test="assignLevel != null and assignLevel != ''">
+			and ASSIGN_LEVEL = #{assignLevel,jdbcType=CHAR}
+		</if>
+		<if test="renewalDate != null and renewalDate != ''">
+			and RENEWAL_DATE = #{renewalDate,jdbcType=DATE}
+		</if>
+		<if test="renewalSalesmanCode != null and renewalSalesmanCode != ''">
+			and RENEWAL_SALESMAN_CODE = #{renewalSalesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="proDept != null and proDept != ''">
+			and PRO_DEPT = #{proDept,jdbcType=VARCHAR}
+		</if>
+		<if test="lossRatio != null and lossRatio != ''">
+			and LOSS_RATIO = #{lossRatio,jdbcType=DOUBLE}
+		</if>
+		<if test="monthsRenewal != null and monthsRenewal != ''">
+			and MONTHS_RENEWAL = #{monthsRenewal,jdbcType=DATE}
+		</if>
+		<if test="agentName != null and agentName != ''">
+			and AGENT_NAME = #{agentName,jdbcType=VARCHAR}
+		</if>
+		<if test="safeBeginDate != null and safeBeginDate != ''">
+			and SAFE_BEGIN_DATE = #{safeBeginDate,jdbcType=DATE}
+		</if>
+		<if test="busiDept != null and busiDept != ''">
+			and BUSI_DEPT = #{busiDept,jdbcType=VARCHAR}
+		</if>
+		<if test="premium != null and premium != ''">
+			and PREMIUM = #{premium,jdbcType=DOUBLE}
+		</if>
+		<if test="custType != null and custType != ''">
+			and CUST_TYPE = #{custType,jdbcType=VARCHAR}
+		</if>
+		<if test="policyNo != null and policyNo != ''">
+			and POLICY_NO = #{policyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="brnd != null and brnd != ''">
+			and BRND = #{brnd,jdbcType=VARCHAR}
+		</if>
+		<if test="policyHolderName != null and policyHolderName != ''">
+			and POLICY_HOLDER_NAME = #{policyHolderName,jdbcType=VARCHAR}
+		</if>
+		<if test="renewalBusiDept != null and renewalBusiDept != ''">
+			and RENEWAL_BUSI_DEPT = #{renewalBusiDept,jdbcType=VARCHAR}
+		</if>
+		<if test="createDate != null and createDate != ''">
+			and CREATE_DATE = #{createDate,jdbcType=DATE}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		<if test="agentCode != null and agentCode != ''">
+			and AGENT_CODE = #{agentCode,jdbcType=VARCHAR}
+		</if>
+		<if test="vehicleCode != null and vehicleCode != ''">
+			and VEHICLE_CODE = #{vehicleCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+		
+
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.renewal.vo.Renewal" >
+    insert into RENEWAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into RENEWAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RENEWAL
+    where RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from RENEWAL
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update RENEWAL
+	<set>
+	<if test="alarmPhone != null and alarmPhone != ''">
+		ALARM_PHONE = #{alarmPhone,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimCount != null and claimCount != ''">
+		CLAIM_COUNT = #{claimCount,jdbcType=INTEGER},
+	</if>
+  	<if test="lossFlag != null and lossFlag != ''">
+		LOSS_FLAG = #{lossFlag,jdbcType=CHAR},
+	</if>
+  	<if test="renewalPolicyNo != null and renewalPolicyNo != ''">
+		RENEWAL_POLICY_NO = #{renewalPolicyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="engineNumber != null and engineNumber != ''">
+		ENGINE_NUMBER = #{engineNumber,jdbcType=VARCHAR},
+	</if>
+  	<if test="vin != null and vin != ''">
+		VIN = #{vin,jdbcType=VARCHAR},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="policyHolderPhone != null and policyHolderPhone != ''">
+		POLICY_HOLDER_PHONE = #{policyHolderPhone,jdbcType=VARCHAR},
+	</if>
+   	<if test="insuraCode != null and insuraCode != ''">
+		INSURA_CODE = #{insuraCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="alarmName != null and alarmName != ''">
+		ALARM_NAME = #{alarmName,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="recognizeeName != null and recognizeeName != ''">
+		RECOGNIZEE_NAME = #{recognizeeName,jdbcType=VARCHAR},
+	</if>
+  	<if test="fristRegetDate != null and fristRegetDate != ''">
+		FRIST_REGET_DATE = #{fristRegetDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="safeEndDate != null and safeEndDate != ''">
+		SAFE_END_DATE = #{safeEndDate,jdbcType=DATE},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="renewalGroupCode != null and renewalGroupCode != ''">
+		RENEWAL_GROUP_CODE = #{renewalGroupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="automaticFlag != null and automaticFlag != ''">
+		AUTOMATIC_FLAG = #{automaticFlag,jdbcType=CHAR},
+	</if>
+  	<if test="recognizeePhone != null and recognizeePhone != ''">
+		RECOGNIZEE_PHONE = #{recognizeePhone,jdbcType=VARCHAR},
+	</if>
+  	<if test="telSaleFlag != null and telSaleFlag != ''">
+		TEL_SALE_FLAG = #{telSaleFlag,jdbcType=CHAR},
+	</if>
+  	<if test="salesmanNo != null and salesmanNo != ''">
+		SALESMAN_NO = #{salesmanNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="assignLevel != null and assignLevel != ''">
+		ASSIGN_LEVEL = #{assignLevel,jdbcType=CHAR},
+	</if>
+  	<if test="renewalDate != null and renewalDate != ''">
+		RENEWAL_DATE = #{renewalDate,jdbcType=DATE},
+	</if>
+  	<if test="renewalSalesmanCode != null and renewalSalesmanCode != ''">
+		RENEWAL_SALESMAN_CODE = #{renewalSalesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="proDept != null and proDept != ''">
+		PRO_DEPT = #{proDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="lossRatio != null and lossRatio != ''">
+		LOSS_RATIO = #{lossRatio,jdbcType=DOUBLE},
+	</if>
+  	<if test="monthsRenewal != null and monthsRenewal != ''">
+		MONTHS_RENEWAL = #{monthsRenewal,jdbcType=DATE},
+	</if>
+  	<if test="agentName != null and agentName != ''">
+		AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+	</if>
+  	<if test="safeBeginDate != null and safeBeginDate != ''">
+		SAFE_BEGIN_DATE = #{safeBeginDate,jdbcType=DATE},
+	</if>
+  	<if test="busiDept != null and busiDept != ''">
+		BUSI_DEPT = #{busiDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="premium != null and premium != ''">
+		PREMIUM = #{premium,jdbcType=DOUBLE},
+	</if>
+  	<if test="custType != null and custType != ''">
+		CUST_TYPE = #{custType,jdbcType=VARCHAR},
+	</if>
+  	<if test="policyNo != null and policyNo != ''">
+		POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="brnd != null and brnd != ''">
+		BRND = #{brnd,jdbcType=VARCHAR},
+	</if>
+  	<if test="policyHolderName != null and policyHolderName != ''">
+		POLICY_HOLDER_NAME = #{policyHolderName,jdbcType=VARCHAR},
+	</if>
+  	<if test="renewalBusiDept != null and renewalBusiDept != ''">
+		RENEWAL_BUSI_DEPT = #{renewalBusiDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="agentCode != null and agentCode != ''">
+		AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="vehicleCode != null and vehicleCode != ''">
+		VEHICLE_CODE = #{vehicleCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update RENEWAL
+		set 
+			ALARM_PHONE = #{alarmPhone,jdbcType=VARCHAR},
+  			CLAIM_COUNT = #{claimCount,jdbcType=INTEGER},
+  			LOSS_FLAG = #{lossFlag,jdbcType=CHAR},
+  			RENEWAL_POLICY_NO = #{renewalPolicyNo,jdbcType=VARCHAR},
+  			ENGINE_NUMBER = #{engineNumber,jdbcType=VARCHAR},
+  			VIN = #{vin,jdbcType=VARCHAR},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			POLICY_HOLDER_PHONE = #{policyHolderPhone,jdbcType=VARCHAR},
+   			INSURA_CODE = #{insuraCode,jdbcType=VARCHAR},
+  			ALARM_NAME = #{alarmName,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			RECOGNIZEE_NAME = #{recognizeeName,jdbcType=VARCHAR},
+  			FRIST_REGET_DATE = #{fristRegetDate,jdbcType=VARCHAR},
+  			SAFE_END_DATE = #{safeEndDate,jdbcType=DATE},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			RENEWAL_GROUP_CODE = #{renewalGroupCode,jdbcType=VARCHAR},
+  			AUTOMATIC_FLAG = #{automaticFlag,jdbcType=CHAR},
+  			RECOGNIZEE_PHONE = #{recognizeePhone,jdbcType=VARCHAR},
+  			TEL_SALE_FLAG = #{telSaleFlag,jdbcType=CHAR},
+  			SALESMAN_NO = #{salesmanNo,jdbcType=VARCHAR},
+  			ASSIGN_LEVEL = #{assignLevel,jdbcType=CHAR},
+  			RENEWAL_DATE = #{renewalDate,jdbcType=DATE},
+  			RENEWAL_SALESMAN_CODE = #{renewalSalesmanCode,jdbcType=VARCHAR},
+  			PRO_DEPT = #{proDept,jdbcType=VARCHAR},
+  			LOSS_RATIO = #{lossRatio,jdbcType=DOUBLE},
+  			MONTHS_RENEWAL = #{monthsRenewal,jdbcType=DATE},
+  			AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+  			SAFE_BEGIN_DATE = #{safeBeginDate,jdbcType=DATE},
+  			BUSI_DEPT = #{busiDept,jdbcType=VARCHAR},
+  			PREMIUM = #{premium,jdbcType=DOUBLE},
+  			CUST_TYPE = #{custType,jdbcType=VARCHAR},
+  			POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+  			BRND = #{brnd,jdbcType=VARCHAR},
+  			POLICY_HOLDER_NAME = #{policyHolderName,jdbcType=VARCHAR},
+  			RENEWAL_BUSI_DEPT = #{renewalBusiDept,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+  			AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+  			VEHICLE_CODE = #{vehicleCode,jdbcType=VARCHAR}
+  		where RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.renewal.vo.Renewal" >
+	update RENEWAL
+	<set>
+	<if test="alarmPhone != null and alarmPhone != ''">
+		ALARM_PHONE = #{alarmPhone,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimCount != null and claimCount != ''">
+		CLAIM_COUNT = #{claimCount,jdbcType=INTEGER},
+	</if>
+  	<if test="lossFlag != null and lossFlag != ''">
+		LOSS_FLAG = #{lossFlag,jdbcType=CHAR},
+	</if>
+  	<if test="renewalPolicyNo != null and renewalPolicyNo != ''">
+		RENEWAL_POLICY_NO = #{renewalPolicyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="engineNumber != null and engineNumber != ''">
+		ENGINE_NUMBER = #{engineNumber,jdbcType=VARCHAR},
+	</if>
+  	<if test="vin != null and vin != ''">
+		VIN = #{vin,jdbcType=VARCHAR},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="policyHolderPhone != null and policyHolderPhone != ''">
+		POLICY_HOLDER_PHONE = #{policyHolderPhone,jdbcType=VARCHAR},
+	</if>
+   	<if test="insuraCode != null and insuraCode != ''">
+		INSURA_CODE = #{insuraCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="alarmName != null and alarmName != ''">
+		ALARM_NAME = #{alarmName,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="recognizeeName != null and recognizeeName != ''">
+		RECOGNIZEE_NAME = #{recognizeeName,jdbcType=VARCHAR},
+	</if>
+  	<if test="fristRegetDate != null and fristRegetDate != ''">
+		FRIST_REGET_DATE = #{fristRegetDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="safeEndDate != null and safeEndDate != ''">
+		SAFE_END_DATE = #{safeEndDate,jdbcType=DATE},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="renewalGroupCode != null and renewalGroupCode != ''">
+		RENEWAL_GROUP_CODE = #{renewalGroupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="automaticFlag != null and automaticFlag != ''">
+		AUTOMATIC_FLAG = #{automaticFlag,jdbcType=CHAR},
+	</if>
+  	<if test="recognizeePhone != null and recognizeePhone != ''">
+		RECOGNIZEE_PHONE = #{recognizeePhone,jdbcType=VARCHAR},
+	</if>
+  	<if test="telSaleFlag != null and telSaleFlag != ''">
+		TEL_SALE_FLAG = #{telSaleFlag,jdbcType=CHAR},
+	</if>
+  	<if test="salesmanNo != null and salesmanNo != ''">
+		SALESMAN_NO = #{salesmanNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="assignLevel != null and assignLevel != ''">
+		ASSIGN_LEVEL = #{assignLevel,jdbcType=CHAR},
+	</if>
+  	<if test="renewalDate != null and renewalDate != ''">
+		RENEWAL_DATE = #{renewalDate,jdbcType=DATE},
+	</if>
+  	<if test="renewalSalesmanCode != null and renewalSalesmanCode != ''">
+		RENEWAL_SALESMAN_CODE = #{renewalSalesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="proDept != null and proDept != ''">
+		PRO_DEPT = #{proDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="lossRatio != null and lossRatio != ''">
+		LOSS_RATIO = #{lossRatio,jdbcType=DOUBLE},
+	</if>
+  	<if test="monthsRenewal != null and monthsRenewal != ''">
+		MONTHS_RENEWAL = #{monthsRenewal,jdbcType=DATE},
+	</if>
+  	<if test="agentName != null and agentName != ''">
+		AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+	</if>
+  	<if test="safeBeginDate != null and safeBeginDate != ''">
+		SAFE_BEGIN_DATE = #{safeBeginDate,jdbcType=DATE},
+	</if>
+  	<if test="busiDept != null and busiDept != ''">
+		BUSI_DEPT = #{busiDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="premium != null and premium != ''">
+		PREMIUM = #{premium,jdbcType=DOUBLE},
+	</if>
+  	<if test="custType != null and custType != ''">
+		CUST_TYPE = #{custType,jdbcType=VARCHAR},
+	</if>
+  	<if test="policyNo != null and policyNo != ''">
+		POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="brnd != null and brnd != ''">
+		BRND = #{brnd,jdbcType=VARCHAR},
+	</if>
+  	<if test="policyHolderName != null and policyHolderName != ''">
+		POLICY_HOLDER_NAME = #{policyHolderName,jdbcType=VARCHAR},
+	</if>
+  	<if test="renewalBusiDept != null and renewalBusiDept != ''">
+		RENEWAL_BUSI_DEPT = #{renewalBusiDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="agentCode != null and agentCode != ''">
+		AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="vehicleCode != null and vehicleCode != ''">
+		VEHICLE_CODE = #{vehicleCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.renewal.vo.Renewal" >
+		update RENEWAL
+		set 
+			ALARM_PHONE = #{alarmPhone,jdbcType=VARCHAR},
+  			CLAIM_COUNT = #{claimCount,jdbcType=INTEGER},
+  			LOSS_FLAG = #{lossFlag,jdbcType=CHAR},
+  			RENEWAL_POLICY_NO = #{renewalPolicyNo,jdbcType=VARCHAR},
+  			ENGINE_NUMBER = #{engineNumber,jdbcType=VARCHAR},
+  			VIN = #{vin,jdbcType=VARCHAR},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			POLICY_HOLDER_PHONE = #{policyHolderPhone,jdbcType=VARCHAR},
+   			INSURA_CODE = #{insuraCode,jdbcType=VARCHAR},
+  			ALARM_NAME = #{alarmName,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			RECOGNIZEE_NAME = #{recognizeeName,jdbcType=VARCHAR},
+  			FRIST_REGET_DATE = #{fristRegetDate,jdbcType=VARCHAR},
+  			SAFE_END_DATE = #{safeEndDate,jdbcType=DATE},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			RENEWAL_GROUP_CODE = #{renewalGroupCode,jdbcType=VARCHAR},
+  			AUTOMATIC_FLAG = #{automaticFlag,jdbcType=CHAR},
+  			RECOGNIZEE_PHONE = #{recognizeePhone,jdbcType=VARCHAR},
+  			TEL_SALE_FLAG = #{telSaleFlag,jdbcType=CHAR},
+  			SALESMAN_NO = #{salesmanNo,jdbcType=VARCHAR},
+  			ASSIGN_LEVEL = #{assignLevel,jdbcType=CHAR},
+  			RENEWAL_DATE = #{renewalDate,jdbcType=DATE},
+  			RENEWAL_SALESMAN_CODE = #{renewalSalesmanCode,jdbcType=VARCHAR},
+  			PRO_DEPT = #{proDept,jdbcType=VARCHAR},
+  			LOSS_RATIO = #{lossRatio,jdbcType=DOUBLE},
+  			MONTHS_RENEWAL = #{monthsRenewal,jdbcType=DATE},
+  			AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+  			SAFE_BEGIN_DATE = #{safeBeginDate,jdbcType=DATE},
+  			BUSI_DEPT = #{busiDept,jdbcType=VARCHAR},
+  			PREMIUM = #{premium,jdbcType=DOUBLE},
+  			CUST_TYPE = #{custType,jdbcType=VARCHAR},
+  			POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+  			BRND = #{brnd,jdbcType=VARCHAR},
+  			POLICY_HOLDER_NAME = #{policyHolderName,jdbcType=VARCHAR},
+  			RENEWAL_BUSI_DEPT = #{renewalBusiDept,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+  			AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+  			VEHICLE_CODE = #{vehicleCode,jdbcType=VARCHAR}
+  		where RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from RENEWAL
+	where RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List_Use" />
+	from RENEWAL t
+	where RENEWAL_ID = #{renewalId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	  from RENEWAL t
+	<include refid="Base_Where_Sql_Use" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.renewal.vo.Renewal" resultType="long">
+	select count(1)
+	from RENEWAL <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List_Use"/>
+		  from RENEWAL t 
+		<include refid="Base_Where_Sql_Use"/>
+		order by SAFE_END_DATE asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from RENEWAL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from RENEWAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from RENEWAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from RENEWAL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from RENEWAL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

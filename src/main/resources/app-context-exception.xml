@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 若MQ本身出现问题，请注释掉MQ服务的文件引用，然后去掉exceptionPlugin的expMQService属性注入 -->
+	<!-- MQ服务 -->
+	<import resource="app-context-mq.xml" />
+	<!-- 异常插件 -->
+	<bean id="exceptionPlugin" class="com.hf.framework.web.plugin.impl.ExceptionPlugin">
+		<property name="expMQService" ref="expMQService"></property>
+	</bean>
+</beans>

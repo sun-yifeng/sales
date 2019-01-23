@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TLawRate" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="RATE" property="rate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="RATE_TYPE" property="rateType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RATE_CODE" property="rateCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="RATE_NAME" property="rateName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_USER_CODE" property="processUserCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_DEPT_CODE" property="processDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TLawRate">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="RATE" property="rate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="RATE_TYPE" property="rateType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RATE_CODE" property="rateCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="RATE_NAME" property="rateName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_USER_CODE" property="processUserCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_DEPT_CODE" property="processDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		CREATED_DATE,
+		RATE,
+		PK_ID,
+		RATE_TYPE,
+		CREATED_USER,
+		VERSION_ID,
+		REMARK,
+		RATE_CODE,
+		UPDATED_DATE,
+		RATE_NAME,
+		PROCESS_USER_CODE,
+		PROCESS_DEPT_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		to_char(CREATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "createdDate",
+		RATE as "rate",
+		PK_ID as "pkId",
+		RATE_TYPE as "rateType",
+		CREATED_USER as "createdUser",
+		VERSION_ID as "versionId",
+		REMARK as "remark",
+		RATE_CODE as "rateCode",
+		to_char(UPDATED_DATE,'yyyy-MM-dd HH24:mi:ss') as "updatedDate",
+		RATE_NAME as "rateName",
+		PROCESS_USER_CODE as "processUserCode",
+		PROCESS_DEPT_CODE as "processDeptCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		to_date(#{createdDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		trunc(#{rate,jdbcType=DOUBLE},2),
+ 		#{pkId,jdbcType=VARCHAR},
+ 		#{rateType,jdbcType=CHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{versionId,jdbcType=VARCHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		#{rateCode,jdbcType=VARCHAR},
+ 		to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{rateName,jdbcType=VARCHAR},
+ 		#{processUserCode,jdbcType=VARCHAR},
+ 		#{processDeptCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="rate != null and rate != ''">
+			and RATE = #{rate,jdbcType=DOUBLE}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=VARCHAR}
+		</if>
+		<if test="rateType != null and rateType != ''">
+			and RATE_TYPE = #{rateType,jdbcType=CHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="rateCode != null and rateCode != ''">
+			and RATE_CODE = #{rateCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="rateName != null and rateName != ''">
+			and rate_name LIKE CONCAT(CONCAT('%', #{rateName}),'%')
+		</if>
+		<if test="processUserCode != null and processUserCode != ''">
+			and PROCESS_USER_CODE= #{processUserCode,jdbcType=VARCHAR}
+		</if>
+		<if test="processDeptCode != null and processDeptCode != ''">
+			and PROCESS_DEPT_CODE= #{processDeptCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TLawRate" >
+	update T_LAW_RATE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = to_date(#{createdDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+	</if>
+  	<if test="rate != null and rate != ''">
+		RATE = trunc(#{rate,jdbcType=DOUBLE},2),
+	</if>
+   	<if test="rateType != null and rateType != ''">
+		RATE_TYPE = #{rateType,jdbcType=CHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		VERSION_ID = #{versionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="rateCode != null and rateCode != ''">
+		RATE_CODE = #{rateCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = to_date(#{updatedDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+	</if>
+  	<if test="rateName != null and rateName != ''">
+		RATE_NAME = #{rateName,jdbcType=VARCHAR},
+	</if>
+	<if test="processUserCode != null and processUserCode != ''">
+		PROCESS_USER_CODE= #{processUserCode,jdbcType=VARCHAR},
+	</if>
+	<if test="processDeptCode != null and processDeptCode != ''">
+		PROCESS_DEPT_CODE= #{processDeptCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TLawRate" >
+    insert into T_LAW_RATE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_LAW_RATE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<update id="updateLawRateById" parameterType="map" >
+	update T_LAW_RATE
+	  set RATE_1 = to_number(#{rate,jdbcType=VARCHAR})
+	where PK_ID  = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_RATE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!--查询渠道信息-->
+	<select id="queryRateChannelByCode" parameterType="java.lang.String" resultType="map">
+		select channel_code, process_dept_code as "processDeptCode", process_user_code as "processUserCode"
+		  from channel_medium_detail
+		 where channel_code = #{channelCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 查询总数 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_RATE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 分页查询 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_RATE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+    <!-- 查询调整系数类型 -->
+	<select id="queryRateType" parameterType="java.lang.String" resultType="map">
+	    select t.type_code as "value", t.type_name as "text"
+	      from t_law_rate_type t
+	     where t.valid_ind = '1'
+	     order by t.type_code
+	</select>
+	
+	<!-- 查询险种类型-->
+	<select id="querySafeType" parameterType="map" resultType="map">
+	     select t2.c_prod_no as "safeCode", t2.c_nme_cn as "safeName", nvl(t1.rate,1) as "safeRate"
+		   from t_law_rate t1
+		   left join T_PRD_PROD t2
+		     on t1.rate_code = t2.c_prod_no
+		  where 1 = 1
+		    and t1.valid_ind = '1'
+		    and t1.version_id = #{versionId,jdbcType=VARCHAR}
+		    and t1.rate_code is not null
+            and t2.c_prod_no is not null
+		 order by t2.c_prod_no
+	</select>
+	
+	<!-- 查询渠道用于调整系数-->
+	<select id="queryRateChannel" parameterType="map" resultType="map">
+	    select t11.channel_code as "channelCode",
+	       t11.dept_code as "deptCode",
+	       t12.MEDIUM_CNAME as "channelName",
+	       nvl(t13.rate, 1) as "channelRate"
+			  from channel_main t11
+			  left join channel_medium_detail t12
+			    on t11.channel_code = t12.channel_code
+			   and t12.valid_ind = '1'
+			  left join t_law_rate t13
+			    on t11.channel_code = t13.rate_code
+			   and t13.valid_ind = '1'
+			 where t11.valid_ind = '1'
+		   and t11.DEPT_CODE like '${deptCode}%'
+	</select>
+	
+	<!-- 查询列名称 -->
+	<select id="queryRateCol" parameterType="map" resultType="map">
+	    select t.col_name as "header",
+	           replace(t.col_value, '_', '') as "name",
+	           t.col_width as "width"
+	      from t_law_rate_col t
+	     where 1=1
+	     <choose>
+	     	<when test="rateType == null or rateType == ''">
+	     		and t.type_code = '0'
+	     	</when>
+	     	<otherwise>
+	     		and t.type_code = #{rateType,jdbcType=VARCHAR}
+	     	</otherwise>
+	     </choose>
+	       and t.valid_ind = '1'
+	       order by t.pk_id
+	</select>
+	
+	<!-- 返回基本法标准保费的系数。只显示一页，只返回需要显示的字段，减轻浏览器的压力,系数不可能大于1w行-->
+	<select id="queryRateList" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+			select t.pk_id as "pkId", 
+				   t.rate_code as "rateCode", 
+				   t.rate_name as "rateName", 
+				   to_char(t.rate,'fm99999999999990.00') as "rate"
+			  from T_LAW_RATE t
+			 where 1 = 1
+			   and t.valid_ind = '1'
+			   and t.version_id = #{versionId,jdbcType=VARCHAR}
+			   and t.rate_type = #{rateType,jdbcType=VARCHAR}
+			 order by t.rate_code		
+		) a where rownum &lt;= 10000
+	) where rn &gt;= 1
+	</select>
+	
+    <!-- 取出区域系数（只取有销售人员的三级机构） -->
+    <select id="queryAreaRateList" parameterType="map" resultMap="BaseResultMap">
+		select t3.dept_code as "deptCode", 
+		       t3.dept_cname as "deptCname", 
+		       to_char(t3.area_rate,'fm99999999999990.00') as "areaRate"
+		  from (select t2.dept_code, t2.dept_cname, t2.area_rate
+		          from t_law_define t1, department t2
+		         where 1 = 1
+		           and t1.dept_code = substr(t2.dept_code, 0, 2)
+		           and length(t2.dept_code) = 4
+		           and t1.version_id = #{versionId,jdbcType=VARCHAR}
+		       ) t3
+		 where exists (select 1
+		          from salesman t4
+		         where substr(t4.dept_code, 0, 4) = t3.dept_code
+		           and t4.valid_ind = '1'
+		           and t4.salesman_flag = '1')
+    </select>   	
+    
+    <select id="queryProductName" parameterType="String" resultType="String">
+		<![CDATA[ select t.c_nme_cn as "name" from t_prd_prod t where t.t_bgn_tm < sysdate-1 and nvl(t.t_end_tm,sysdate) >= sysdate  and t.c_prod_no = #{productCode,jdbcType=VARCHAR} ]]>
+    </select>    	
+</mapper>

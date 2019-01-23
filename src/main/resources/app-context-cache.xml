@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="   
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   
+            http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<description>缓存配置</description>
+  
+    <!-- Spring3.2的缓存配置
+    <cache:annotation-driven />       
+	    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">  
+	        <property name="caches">  
+	            <set>  
+	                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="default" />  
+	                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="data" />  
+	            </set>  
+	        </property>  
+	    </bean>
+	    
+	    <bean id="dataDao" class="com.hf.framework.service.cache.DataDAOImpl" /> 
+	 --> 
+	  
+	 <!-- HF框架的缓存配置-->
+	 <bean id="cacheManager" class="com.hf.framework.service.cache.CacheManager" />
+	 
+	 <bean id="cacheService" class="com.hf.framework.service.cache.CacheServiceImpl">
+	   <property name="cacheManager" ref="cacheManager"/>
+	   <property name="baseDao" ref="baseDao"/>
+	 </bean>
+	 
+</beans>  

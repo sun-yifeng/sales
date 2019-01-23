@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.autoTask.AutoTask" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="TASK_ID" property="taskId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DISPATCH_RESULT_DESCRIPTION" property="dispatchResultDescription" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DISPATCH_TIME" property="dispatchTime" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PRAM3" property="pram3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRAM2" property="pram2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DISPATCH_RESULT" property="dispatchResult" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRAM1" property="pram1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_NAME" property="taskName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DISPATCH_CYCLE" property="dispatchCycle" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DISPATCH_TARGET" property="dispatchTarget" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SYSDATE" property="sysdate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.autoTask.AutoTask">
+		<id column="TASK_ID" property="taskId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DISPATCH_RESULT_DESCRIPTION" property="dispatchResultDescription" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DISPATCH_TIME" property="dispatchTime" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PRAM3" property="pram3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRAM2" property="pram2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DISPATCH_RESULT" property="dispatchResult" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PRAM1" property="pram1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_NAME" property="taskName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DISPATCH_CYCLE" property="dispatchCycle" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DISPATCH_TARGET" property="dispatchTarget" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_USER,
+		TASK_ID,
+		UPDATED_DATE,
+		DISPATCH_TIME,
+		PRAM3,
+		PRAM2,
+		VALID_IND,
+		CREATED_DATE,
+		PRAM1,
+		TASK_NAME,
+		DISPATCH_CYCLE,
+		DISPATCH_TARGET,
+		sysdate
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_USER as "createdUser",
+		DISPATCH_RESULT_DESCRIPTION as "dispatchResultDescription",
+		TASK_ID as "taskId",
+		UPDATED_DATE as "updatedDate",
+		DISPATCH_TIME as "dispatchTime",
+		PRAM3 as "pram3",
+		PRAM2 as "pram2",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		DISPATCH_RESULT as "dispatchResult",
+		PRAM1 as "pram1",
+		TASK_NAME as "taskName",
+		DISPATCH_CYCLE as "dispatchCycle",
+		DISPATCH_TARGET as "dispatchTarget"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{dispatchResultDescription,jdbcType=VARCHAR},
+ 		#{taskId,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{dispatchTime,jdbcType=DATE},
+ 		#{pram3,jdbcType=VARCHAR},
+ 		#{pram2,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{dispatchResult,jdbcType=VARCHAR},
+ 		#{pram1,jdbcType=VARCHAR},
+ 		#{taskName,jdbcType=VARCHAR},
+ 		#{dispatchCycle,jdbcType=VARCHAR},
+ 		#{dispatchTarget,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="dispatchResultDescription != null and dispatchResultDescription != ''">
+			and DISPATCH_RESULT_DESCRIPTION = #{dispatchResultDescription,jdbcType=VARCHAR}
+		</if>
+		<if test="taskId != null and taskId != ''">
+			and TASK_ID = #{taskId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="dispatchTime != null and dispatchTime != ''">
+			and DISPATCH_TIME = #{dispatchTime,jdbcType=DATE}
+		</if>
+		<if test="pram3 != null and pram3 != ''">
+			and PRAM3 = #{pram3,jdbcType=VARCHAR}
+		</if>
+		<if test="pram2 != null and pram2 != ''">
+			and PRAM2 = #{pram2,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="dispatchResult != null and dispatchResult != ''">
+			and DISPATCH_RESULT = #{dispatchResult,jdbcType=VARCHAR}
+		</if>
+		<if test="pram1 != null and pram1 != ''">
+			and PRAM1 = #{pram1,jdbcType=VARCHAR}
+		</if>
+		<if test="taskName != null and taskName != ''">
+			and TASK_NAME = #{taskName,jdbcType=VARCHAR}
+		</if>
+		<if test="dispatchCycle != null and dispatchCycle != ''">
+			and DISPATCH_CYCLE = #{dispatchCycle,jdbcType=VARCHAR}
+		</if>
+		<if test="dispatchTarget != null and dispatchTarget != ''">
+			and DISPATCH_TARGET = #{dispatchTarget,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.autoTask.AutoTask" >
+    insert into AUTO_TASK (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into AUTO_TASK (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AUTO_TASK
+    where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from AUTO_TASK
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update AUTO_TASK
+	<set>
+	UPDATED_USER = 'xszcSys',
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="dispatchResultDescription != null and dispatchResultDescription != ''">
+		DISPATCH_RESULT_DESCRIPTION = #{dispatchResultDescription,jdbcType=VARCHAR},
+	</if>
+	UPDATED_DATE = sysdate,
+  	<if test="dispatchTime != null and dispatchTime != ''">
+		DISPATCH_TIME = to_date(#{dispatchTime},'yyyy-mm-dd hh24:mi:ss'),
+	</if>
+  	<if test="pram3 != null and pram3 != ''">
+		PRAM3 = #{pram3,jdbcType=VARCHAR},
+	</if>
+  	<if test="pram2 != null and pram2 != ''">
+		PRAM2 = #{pram2,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="dispatchResult != null and dispatchResult != ''">
+		DISPATCH_RESULT = #{dispatchResult,jdbcType=VARCHAR},
+	</if>
+  	<if test="pram1 != null and pram1 != ''">
+		PRAM1 = #{pram1,jdbcType=VARCHAR},
+	</if>
+  	<if test="taskName != null and taskName != ''">
+		TASK_NAME = #{taskName,jdbcType=VARCHAR},
+	</if>
+  	<if test="dispatchCycle != null and dispatchCycle != ''">
+		DISPATCH_CYCLE = #{dispatchCycle,jdbcType=VARCHAR},
+	</if>
+  	<if test="dispatchTarget != null and dispatchTarget != ''">
+		DISPATCH_TARGET = #{dispatchTarget,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update AUTO_TASK
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DISPATCH_RESULT_DESCRIPTION = #{dispatchResultDescription,jdbcType=VARCHAR},
+   			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DISPATCH_TIME = #{dispatchTime,jdbcType=DATE},
+  			PRAM3 = #{pram3,jdbcType=VARCHAR},
+  			PRAM2 = #{pram2,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			DISPATCH_RESULT = #{dispatchResult,jdbcType=VARCHAR},
+  			PRAM1 = #{pram1,jdbcType=VARCHAR},
+  			TASK_NAME = #{taskName,jdbcType=VARCHAR},
+  			DISPATCH_CYCLE = #{dispatchCycle,jdbcType=VARCHAR},
+  			DISPATCH_TARGET = #{dispatchTarget,jdbcType=VARCHAR}
+  		where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.autoTask.AutoTask" >
+	update AUTO_TASK
+	<set>
+		UPDATED_USER = 'autoTask',
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="dispatchResultDescription != null and dispatchResultDescription != ''">
+		DISPATCH_RESULT_DESCRIPTION = #{dispatchResultDescription,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="dispatchTime != null and dispatchTime != ''">
+		DISPATCH_TIME = #{dispatchTime,jdbcType=DATE},
+	</if>
+  	<if test="pram3 != null and pram3 != ''">
+		PRAM3 = #{pram3,jdbcType=VARCHAR},
+	</if>
+  	<if test="pram2 != null and pram2 != ''">
+		PRAM2 = #{pram2,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="dispatchResult != null and dispatchResult != ''">
+		DISPATCH_RESULT = #{dispatchResult,jdbcType=VARCHAR},
+	</if>
+  	<if test="pram1 != null and pram1 != ''">
+		PRAM1 = #{pram1,jdbcType=VARCHAR},
+	</if>
+  	<if test="taskName != null and taskName != ''">
+		TASK_NAME = #{taskName,jdbcType=VARCHAR},
+	</if>
+  	<if test="dispatchCycle != null and dispatchCycle != ''">
+		DISPATCH_CYCLE = #{dispatchCycle,jdbcType=VARCHAR},
+	</if>
+  	<if test="dispatchTarget != null and dispatchTarget != ''">
+		DISPATCH_TARGET = #{dispatchTarget,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</update>
+	
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from AUTO_TASK
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from AUTO_TASK
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from AUTO_TASK <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.autoTask.AutoTask" resultType="long">
+	select count(1)
+	from AUTO_TASK <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from AUTO_TASK
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from AUTO_TASK
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from AUTO_TASK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from AUTO_TASK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from AUTO_TASK
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from AUTO_TASK <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+	<select id="queryInfo" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from AUTO_TASK
+		<![CDATA[
+		where dispatch_time < sysdate
+		and valid_ind = '1'
+		order by task_id 
+		]]>
+	</select>
+	
+	<!-- 调用任务对应的存过 -->
+	<select id="callTask" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL ${dispatchTarget} (
+	      #{pram1,mode=IN,jdbcType=VARCHAR},
+	      #{pram2,mode=OUT,jdbcType=VARCHAR},
+	      #{pram3,mode=OUT,jdbcType=VARCHAR}
+	      )}
+	   ]]>
+	 </select>
+	
+</mapper>

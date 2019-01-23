@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportTotalAgentInfo" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="AGENT_COUNT" property="agentCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+  		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK" property="bank" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="SIGN_PREMIUM_CLASS_A" property="signPremiumClassA" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_B" property="signPremiumClassB" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_C" property="signPremiumClassC" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_D" property="signPremiumClassD" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_E" property="signPremiumClassE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_F" property="signPremiumClassF" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_G" property="signPremiumClassG" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_H" property="signPremiumClassH" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_I" property="signPremiumClassI" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MEDIUM_INVALID_COUNT" property="mediumInvalidCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="LOAN" property="loan" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="SIGN_PREMIUM_CLASS_J" property="signPremiumClassJ" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CAR" property="car" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MEDIUM_ADD_TOYEAR" property="mediumAddToyear" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="PROFESSION" property="profession" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="NET" property="net" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MEDIUM_VALID_COUNT" property="mediumValidCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="AGENT_ADD_COUNT" property="agentAddCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="AGENT_INVALID_COUNT" property="agentInvalidCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOT_BANK" property="notBank" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="POST" property="post" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="REPORT_DATE" property="reportDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BROKER" property="broker" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="OTHER" property="other" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportTotalAgentInfo">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="AGENT_COUNT" property="agentCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+  		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK" property="bank" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="SIGN_PREMIUM_CLASS_A" property="signPremiumClassA" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_B" property="signPremiumClassB" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_C" property="signPremiumClassC" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_D" property="signPremiumClassD" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_E" property="signPremiumClassE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_F" property="signPremiumClassF" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_G" property="signPremiumClassG" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_H" property="signPremiumClassH" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SIGN_PREMIUM_CLASS_I" property="signPremiumClassI" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MEDIUM_INVALID_COUNT" property="mediumInvalidCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="LOAN" property="loan" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="SIGN_PREMIUM_CLASS_J" property="signPremiumClassJ" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CAR" property="car" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MEDIUM_ADD_TOYEAR" property="mediumAddToyear" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="PROFESSION" property="profession" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="NET" property="net" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MEDIUM_VALID_COUNT" property="mediumValidCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="AGENT_ADD_COUNT" property="agentAddCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="AGENT_INVALID_COUNT" property="agentInvalidCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOT_BANK" property="notBank" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="POST" property="post" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="REPORT_DATE" property="reportDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BROKER" property="broker" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		AGENT_COUNT,
+		PK_ID,
+		PARENT_DEPT,
+		DEPT_NAME,
+		BANK,
+		SIGN_PREMIUM_CLASS_A,
+		SIGN_PREMIUM_CLASS_B,
+		SIGN_PREMIUM_CLASS_C,
+		SIGN_PREMIUM_CLASS_D,
+		SIGN_PREMIUM_CLASS_E,
+		SIGN_PREMIUM_CLASS_F,
+		SIGN_PREMIUM_CLASS_G,
+		SIGN_PREMIUM_CLASS_H,
+		SIGN_PREMIUM_CLASS_I,
+		MEDIUM_INVALID_COUNT,
+		LOAN,
+		SIGN_PREMIUM_CLASS_J,
+		CAR,
+		MEDIUM_ADD_TOYEAR,
+		PROFESSION,
+		NET,
+		MEDIUM_VALID_COUNT,
+		AGENT_ADD_COUNT,
+		AGENT_INVALID_COUNT,
+		DEPT_CODE,
+		NOT_BANK,
+		POST,
+		REPORT_DATE,
+		BROKER
+	</sql>
+	
+	<sql id="Use_Base_Column_List" >
+		sum(AGENT_COUNT) AGENT_COUNT,
+		max(t.pk_id) pk_id,
+		PARENT_DEPT,
+		DEPT_NAME,
+		sum(BANK) BANK,
+		sum(SIGN_PREMIUM_CLASS_A) SIGN_PREMIUM_CLASS_A,
+		sum(SIGN_PREMIUM_CLASS_B) SIGN_PREMIUM_CLASS_B,
+		sum(SIGN_PREMIUM_CLASS_C) SIGN_PREMIUM_CLASS_C,
+		sum(SIGN_PREMIUM_CLASS_D) SIGN_PREMIUM_CLASS_D,
+		sum(SIGN_PREMIUM_CLASS_E) SIGN_PREMIUM_CLASS_E,
+		sum(SIGN_PREMIUM_CLASS_F) SIGN_PREMIUM_CLASS_F,
+		sum(SIGN_PREMIUM_CLASS_G) SIGN_PREMIUM_CLASS_G,
+		sum(SIGN_PREMIUM_CLASS_H) SIGN_PREMIUM_CLASS_H,
+		sum(SIGN_PREMIUM_CLASS_I) SIGN_PREMIUM_CLASS_I,
+		sum(MEDIUM_INVALID_COUNT) MEDIUM_INVALID_COUNT,
+		sum(LOAN) LOAN,
+		sum(SIGN_PREMIUM_CLASS_J) SIGN_PREMIUM_CLASS_J,
+		sum(CAR) CAR,
+		sum(MEDIUM_ADD_TOYEAR) MEDIUM_ADD_TOYEAR,
+		sum(PROFESSION) PROFESSION,
+		sum(NET) NET,
+		sum(MEDIUM_VALID_COUNT) MEDIUM_VALID_COUNT,
+		sum(AGENT_ADD_COUNT) AGENT_ADD_COUNT,
+		sum(AGENT_INVALID_COUNT) AGENT_INVALID_COUNT,
+		DEPT_CODE,
+		sum(NOT_BANK) NOT_BANK,
+		sum(POST) POST,
+		sum(BROKER) BROKER,
+		sum(OTHER) OTHER
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		AGENT_COUNT as "agentCount",
+		PK_ID as "pkId",
+		PARENT_DEPT as "parentDept",
+		DEPT_NAME as "deptName",
+		BANK as "bank",
+		SIGN_PREMIUM_CLASS_A as "signPremiumClassA",
+		SIGN_PREMIUM_CLASS_B as "signPremiumClassB",
+		SIGN_PREMIUM_CLASS_C as "signPremiumClassC",
+		SIGN_PREMIUM_CLASS_D as "signPremiumClassD",
+		SIGN_PREMIUM_CLASS_E as "signPremiumClassE",
+		SIGN_PREMIUM_CLASS_F as "signPremiumClassF",
+		SIGN_PREMIUM_CLASS_G as "signPremiumClassG",
+		SIGN_PREMIUM_CLASS_H as "signPremiumClassH",
+		SIGN_PREMIUM_CLASS_I as "signPremiumClassI",
+		MEDIUM_INVALID_COUNT as "mediumInvalidCount",
+		LOAN as "loan",
+		SIGN_PREMIUM_CLASS_J as "signPremiumClassJ",
+		CAR as "car",
+		MEDIUM_ADD_TOYEAR as "mediumAddToyear",
+		PROFESSION as "profession",
+		NET as "net",
+		MEDIUM_VALID_COUNT as "mediumValidCount",
+		AGENT_ADD_COUNT as "agentAddCount",
+		AGENT_INVALID_COUNT as "agentInvalidCount",
+		DEPT_CODE as "deptCode",
+		NOT_BANK as "notBank",
+		POST as "post",
+		REPORT_DATE as "reportDate",
+		BROKER as "broker"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{agentCount,jdbcType=INTEGER},
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{parentDept,jdbcType=VARCHAR},
+ 		#{deptName,jdbcType=VARCHAR},
+ 		#{bank,jdbcType=INTEGER},
+ 		#{signPremiumClassA,jdbcType=DOUBLE},
+ 		#{signPremiumClassB,jdbcType=DOUBLE},
+ 		#{signPremiumClassC,jdbcType=DOUBLE},
+ 		#{signPremiumClassD,jdbcType=DOUBLE},
+ 		#{signPremiumClassE,jdbcType=DOUBLE},
+ 		#{signPremiumClassF,jdbcType=DOUBLE},
+ 		#{signPremiumClassG,jdbcType=DOUBLE},
+ 		#{signPremiumClassH,jdbcType=DOUBLE},
+ 		#{signPremiumClassI,jdbcType=DOUBLE},
+ 		#{mediumInvalidCount,jdbcType=INTEGER},
+ 		#{loan,jdbcType=INTEGER},
+ 		#{signPremiumClassJ,jdbcType=DOUBLE},
+ 		#{car,jdbcType=INTEGER},
+ 		#{mediumAddToyear,jdbcType=INTEGER},
+ 		#{profession,jdbcType=INTEGER},
+ 		#{net,jdbcType=INTEGER},
+ 		#{mediumValidCount,jdbcType=INTEGER},
+ 		#{agentAddCount,jdbcType=INTEGER},
+ 		#{agentInvalidCount,jdbcType=INTEGER},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{notBank,jdbcType=INTEGER},
+ 		#{post,jdbcType=INTEGER},
+ 		#{reportDate,jdbcType=VARCHAR},
+ 		#{broker,jdbcType=INTEGER}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="agentCount != null and agentCount != ''">
+			and AGENT_COUNT = #{agentCount,jdbcType=INTEGER}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="parentDept != null and parentDept != ''">
+			and PARENT_DEPT = #{parentDept,jdbcType=VARCHAR}
+		</if>
+		<if test="deptName != null and deptName != ''">
+			and DEPT_NAME = #{deptName,jdbcType=VARCHAR}
+		</if>
+		<if test="bank != null and bank != ''">
+			and BANK = #{bank,jdbcType=INTEGER}
+		</if>
+		<if test="signPremiumClassA != null and signPremiumClassA != ''">
+			and SIGN_PREMIUM_CLASS_A = #{signPremiumClassA,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassB != null and signPremiumClassB != ''">
+			and SIGN_PREMIUM_CLASS_B = #{signPremiumClassB,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassC != null and signPremiumClassC != ''">
+			and SIGN_PREMIUM_CLASS_C = #{signPremiumClassC,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassD != null and signPremiumClassD != ''">
+			and SIGN_PREMIUM_CLASS_D = #{signPremiumClassD,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassE != null and signPremiumClassE != ''">
+			and SIGN_PREMIUM_CLASS_E = #{signPremiumClassE,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassF != null and signPremiumClassF != ''">
+			and SIGN_PREMIUM_CLASS_F = #{signPremiumClassF,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassG != null and signPremiumClassG != ''">
+			and SIGN_PREMIUM_CLASS_G = #{signPremiumClassG,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassH != null and signPremiumClassH != ''">
+			and SIGN_PREMIUM_CLASS_H = #{signPremiumClassH,jdbcType=DOUBLE}
+		</if>
+		<if test="signPremiumClassI != null and signPremiumClassI != ''">
+			and SIGN_PREMIUM_CLASS_I = #{signPremiumClassI,jdbcType=DOUBLE}
+		</if>
+		<if test="mediumInvalidCount != null and mediumInvalidCount != ''">
+			and MEDIUM_INVALID_COUNT = #{mediumInvalidCount,jdbcType=INTEGER}
+		</if>
+		<if test="loan != null and loan != ''">
+			and LOAN = #{loan,jdbcType=INTEGER}
+		</if>
+		<if test="signPremiumClassJ != null and signPremiumClassJ != ''">
+			and SIGN_PREMIUM_CLASS_J = #{signPremiumClassJ,jdbcType=DOUBLE}
+		</if>
+		<if test="car != null and car != ''">
+			and CAR = #{car,jdbcType=INTEGER}
+		</if>
+		<if test="mediumAddToyear != null and mediumAddToyear != ''">
+			and MEDIUM_ADD_TOYEAR = #{mediumAddToyear,jdbcType=INTEGER}
+		</if>
+		<if test="profession != null and profession != ''">
+			and PROFESSION = #{profession,jdbcType=INTEGER}
+		</if>
+		<if test="net != null and net != ''">
+			and NET = #{net,jdbcType=INTEGER}
+		</if>
+		<if test="mediumValidCount != null and mediumValidCount != ''">
+			and MEDIUM_VALID_COUNT = #{mediumValidCount,jdbcType=INTEGER}
+		</if>
+		<if test="agentAddCount != null and agentAddCount != ''">
+			and AGENT_ADD_COUNT = #{agentAddCount,jdbcType=INTEGER}
+		</if>
+		<if test="agentInvalidCount != null and agentInvalidCount != ''">
+			and AGENT_INVALID_COUNT = #{agentInvalidCount,jdbcType=INTEGER}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="notBank != null and notBank != ''">
+			and NOT_BANK = #{notBank,jdbcType=INTEGER}
+		</if>
+		<if test="post != null and post != ''">
+			and POST = #{post,jdbcType=INTEGER}
+		</if>
+		<if test="reportDate != null and reportDate != ''">
+			and REPORT_DATE = #{reportDate,jdbcType=VARCHAR}
+		</if>
+		<if test="broker != null and broker != ''">
+			and BROKER = #{broker,jdbcType=INTEGER}
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="Use_Base_Where_Sql">
+		<where>
+		<choose>
+		   <when test="deptCode != null and deptCode !='' ">
+		      and DEPT_CODE like f_get_inter_dept(#{deptCode,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <when test="parentDept != null and parentDept !='' ">
+		      and PARENT_DEPT like f_get_inter_dept(#{parentDept,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <otherwise></otherwise>
+		</choose>
+		<if test="deptName != null and deptName != ''">
+			and DEPT_NAME = #{deptName,jdbcType=VARCHAR}
+		</if>
+		<if test="reportMonth != null and reportMonth != ''">
+			and to_date(substr(REPORT_DATE,1,7),'yyyy-mm') = to_date(#{reportMonth,jdbcType=VARCHAR},'yyyymm')
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalAgentInfo" >
+    insert into REPORT_TOTAL_AGENT_INFO (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_TOTAL_AGENT_INFO (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from REPORT_TOTAL_AGENT_INFO
+    where PK_ID = #{pkId,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_TOTAL_AGENT_INFO
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_TOTAL_AGENT_INFO
+	<set>
+	<if test="agentCount != null and agentCount != ''">
+		AGENT_COUNT = #{agentCount,jdbcType=INTEGER},
+	</if>
+   	<if test="parentDept != null and parentDept != ''">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptName != null and deptName != ''">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="bank != null and bank != ''">
+		BANK = #{bank,jdbcType=INTEGER},
+	</if>
+  	<if test="signPremiumClassA != null and signPremiumClassA != ''">
+		SIGN_PREMIUM_CLASS_A = #{signPremiumClassA,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassB != null and signPremiumClassB != ''">
+		SIGN_PREMIUM_CLASS_B = #{signPremiumClassB,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassC != null and signPremiumClassC != ''">
+		SIGN_PREMIUM_CLASS_C = #{signPremiumClassC,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassD != null and signPremiumClassD != ''">
+		SIGN_PREMIUM_CLASS_D = #{signPremiumClassD,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassE != null and signPremiumClassE != ''">
+		SIGN_PREMIUM_CLASS_E = #{signPremiumClassE,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassF != null and signPremiumClassF != ''">
+		SIGN_PREMIUM_CLASS_F = #{signPremiumClassF,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassG != null and signPremiumClassG != ''">
+		SIGN_PREMIUM_CLASS_G = #{signPremiumClassG,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassH != null and signPremiumClassH != ''">
+		SIGN_PREMIUM_CLASS_H = #{signPremiumClassH,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassI != null and signPremiumClassI != ''">
+		SIGN_PREMIUM_CLASS_I = #{signPremiumClassI,jdbcType=DOUBLE},
+	</if>
+  	<if test="mediumInvalidCount != null and mediumInvalidCount != ''">
+		MEDIUM_INVALID_COUNT = #{mediumInvalidCount,jdbcType=INTEGER},
+	</if>
+  	<if test="loan != null and loan != ''">
+		LOAN = #{loan,jdbcType=INTEGER},
+	</if>
+  	<if test="signPremiumClassJ != null and signPremiumClassJ != ''">
+		SIGN_PREMIUM_CLASS_J = #{signPremiumClassJ,jdbcType=DOUBLE},
+	</if>
+  	<if test="car != null and car != ''">
+		CAR = #{car,jdbcType=INTEGER},
+	</if>
+  	<if test="mediumAddToyear != null and mediumAddToyear != ''">
+		MEDIUM_ADD_TOYEAR = #{mediumAddToyear,jdbcType=INTEGER},
+	</if>
+  	<if test="profession != null and profession != ''">
+		PROFESSION = #{profession,jdbcType=INTEGER},
+	</if>
+  	<if test="net != null and net != ''">
+		NET = #{net,jdbcType=INTEGER},
+	</if>
+  	<if test="mediumValidCount != null and mediumValidCount != ''">
+		MEDIUM_VALID_COUNT = #{mediumValidCount,jdbcType=INTEGER},
+	</if>
+  	<if test="agentAddCount != null and agentAddCount != ''">
+		AGENT_ADD_COUNT = #{agentAddCount,jdbcType=INTEGER},
+	</if>
+  	<if test="agentInvalidCount != null and agentInvalidCount != ''">
+		AGENT_INVALID_COUNT = #{agentInvalidCount,jdbcType=INTEGER},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="notBank != null and notBank != ''">
+		NOT_BANK = #{notBank,jdbcType=INTEGER},
+	</if>
+  	<if test="post != null and post != ''">
+		POST = #{post,jdbcType=INTEGER},
+	</if>
+  	<if test="reportDate != null and reportDate != ''">
+		REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="broker != null and broker != ''">
+		BROKER = #{broker,jdbcType=INTEGER}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_TOTAL_AGENT_INFO
+		set 
+			AGENT_COUNT = #{agentCount,jdbcType=INTEGER},
+   			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			BANK = #{bank,jdbcType=INTEGER},
+  			SIGN_PREMIUM_CLASS_A = #{signPremiumClassA,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_B = #{signPremiumClassB,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_C = #{signPremiumClassC,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_D = #{signPremiumClassD,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_E = #{signPremiumClassE,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_F = #{signPremiumClassF,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_G = #{signPremiumClassG,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_H = #{signPremiumClassH,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_I = #{signPremiumClassI,jdbcType=DOUBLE},
+  			MEDIUM_INVALID_COUNT = #{mediumInvalidCount,jdbcType=INTEGER},
+  			LOAN = #{loan,jdbcType=INTEGER},
+  			SIGN_PREMIUM_CLASS_J = #{signPremiumClassJ,jdbcType=DOUBLE},
+  			CAR = #{car,jdbcType=INTEGER},
+  			MEDIUM_ADD_TOYEAR = #{mediumAddToyear,jdbcType=INTEGER},
+  			PROFESSION = #{profession,jdbcType=INTEGER},
+  			NET = #{net,jdbcType=INTEGER},
+  			MEDIUM_VALID_COUNT = #{mediumValidCount,jdbcType=INTEGER},
+  			AGENT_ADD_COUNT = #{agentAddCount,jdbcType=INTEGER},
+  			AGENT_INVALID_COUNT = #{agentInvalidCount,jdbcType=INTEGER},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			NOT_BANK = #{notBank,jdbcType=INTEGER},
+  			POST = #{post,jdbcType=INTEGER},
+  			REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+  			BROKER = #{broker,jdbcType=INTEGER}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalAgentInfo" >
+	update REPORT_TOTAL_AGENT_INFO
+	<set>
+	<if test="agentCount != null and agentCount != ''">
+		AGENT_COUNT = #{agentCount,jdbcType=INTEGER},
+	</if>
+   	<if test="parentDept != null and parentDept != ''">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptName != null and deptName != ''">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="bank != null and bank != ''">
+		BANK = #{bank,jdbcType=INTEGER},
+	</if>
+  	<if test="signPremiumClassA != null and signPremiumClassA != ''">
+		SIGN_PREMIUM_CLASS_A = #{signPremiumClassA,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassB != null and signPremiumClassB != ''">
+		SIGN_PREMIUM_CLASS_B = #{signPremiumClassB,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassC != null and signPremiumClassC != ''">
+		SIGN_PREMIUM_CLASS_C = #{signPremiumClassC,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassD != null and signPremiumClassD != ''">
+		SIGN_PREMIUM_CLASS_D = #{signPremiumClassD,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassE != null and signPremiumClassE != ''">
+		SIGN_PREMIUM_CLASS_E = #{signPremiumClassE,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassF != null and signPremiumClassF != ''">
+		SIGN_PREMIUM_CLASS_F = #{signPremiumClassF,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassG != null and signPremiumClassG != ''">
+		SIGN_PREMIUM_CLASS_G = #{signPremiumClassG,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassH != null and signPremiumClassH != ''">
+		SIGN_PREMIUM_CLASS_H = #{signPremiumClassH,jdbcType=DOUBLE},
+	</if>
+  	<if test="signPremiumClassI != null and signPremiumClassI != ''">
+		SIGN_PREMIUM_CLASS_I = #{signPremiumClassI,jdbcType=DOUBLE},
+	</if>
+  	<if test="mediumInvalidCount != null and mediumInvalidCount != ''">
+		MEDIUM_INVALID_COUNT = #{mediumInvalidCount,jdbcType=INTEGER},
+	</if>
+  	<if test="loan != null and loan != ''">
+		LOAN = #{loan,jdbcType=INTEGER},
+	</if>
+  	<if test="signPremiumClassJ != null and signPremiumClassJ != ''">
+		SIGN_PREMIUM_CLASS_J = #{signPremiumClassJ,jdbcType=DOUBLE},
+	</if>
+  	<if test="car != null and car != ''">
+		CAR = #{car,jdbcType=INTEGER},
+	</if>
+  	<if test="mediumAddToyear != null and mediumAddToyear != ''">
+		MEDIUM_ADD_TOYEAR = #{mediumAddToyear,jdbcType=INTEGER},
+	</if>
+  	<if test="profession != null and profession != ''">
+		PROFESSION = #{profession,jdbcType=INTEGER},
+	</if>
+  	<if test="net != null and net != ''">
+		NET = #{net,jdbcType=INTEGER},
+	</if>
+  	<if test="mediumValidCount != null and mediumValidCount != ''">
+		MEDIUM_VALID_COUNT = #{mediumValidCount,jdbcType=INTEGER},
+	</if>
+  	<if test="agentAddCount != null and agentAddCount != ''">
+		AGENT_ADD_COUNT = #{agentAddCount,jdbcType=INTEGER},
+	</if>
+  	<if test="agentInvalidCount != null and agentInvalidCount != ''">
+		AGENT_INVALID_COUNT = #{agentInvalidCount,jdbcType=INTEGER},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="notBank != null and notBank != ''">
+		NOT_BANK = #{notBank,jdbcType=INTEGER},
+	</if>
+  	<if test="post != null and post != ''">
+		POST = #{post,jdbcType=INTEGER},
+	</if>
+  	<if test="reportDate != null and reportDate != ''">
+		REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="broker != null and broker != ''">
+		BROKER = #{broker,jdbcType=INTEGER}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalAgentInfo" >
+		update REPORT_TOTAL_AGENT_INFO
+		set 
+			AGENT_COUNT = #{agentCount,jdbcType=INTEGER},
+   			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			BANK = #{bank,jdbcType=INTEGER},
+  			SIGN_PREMIUM_CLASS_A = #{signPremiumClassA,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_B = #{signPremiumClassB,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_C = #{signPremiumClassC,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_D = #{signPremiumClassD,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_E = #{signPremiumClassE,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_F = #{signPremiumClassF,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_G = #{signPremiumClassG,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_H = #{signPremiumClassH,jdbcType=DOUBLE},
+  			SIGN_PREMIUM_CLASS_I = #{signPremiumClassI,jdbcType=DOUBLE},
+  			MEDIUM_INVALID_COUNT = #{mediumInvalidCount,jdbcType=INTEGER},
+  			LOAN = #{loan,jdbcType=INTEGER},
+  			SIGN_PREMIUM_CLASS_J = #{signPremiumClassJ,jdbcType=DOUBLE},
+  			CAR = #{car,jdbcType=INTEGER},
+  			MEDIUM_ADD_TOYEAR = #{mediumAddToyear,jdbcType=INTEGER},
+  			PROFESSION = #{profession,jdbcType=INTEGER},
+  			NET = #{net,jdbcType=INTEGER},
+  			MEDIUM_VALID_COUNT = #{mediumValidCount,jdbcType=INTEGER},
+  			AGENT_ADD_COUNT = #{agentAddCount,jdbcType=INTEGER},
+  			AGENT_INVALID_COUNT = #{agentInvalidCount,jdbcType=INTEGER},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			NOT_BANK = #{notBank,jdbcType=INTEGER},
+  			POST = #{post,jdbcType=INTEGER},
+  			REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+  			BROKER = #{broker,jdbcType=INTEGER}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_TOTAL_AGENT_INFO
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_TOTAL_AGENT_INFO
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_TOTAL_AGENT_INFO <include refid="Use_Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalAgentInfo" resultType="long">
+	select count(1)
+	from REPORT_TOTAL_AGENT_INFO <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<!--<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_TOTAL_AGENT_INFO
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>-->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select alls.*,(select rt.agent_count from REPORT_TOTAL_AGENT_INFO rt where rt.pk_id = alls.pk_id)  from (
+		select 
+		<include refid="Use_Base_Column_List"/>
+		from REPORT_TOTAL_AGENT_INFO t
+		<include refid="Use_Base_Where_Sql"/>
+		group by PARENT_DEPT,DEPT_CODE,DEPT_NAME ) alls
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_TOTAL_AGENT_INFO
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_TOTAL_AGENT_INFO
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_TOTAL_AGENT_INFO
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_TOTAL_AGENT_INFO
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_TOTAL_AGENT_INFO <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

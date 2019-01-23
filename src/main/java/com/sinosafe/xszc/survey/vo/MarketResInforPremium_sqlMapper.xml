@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.survey.vo.MarketResInforPremium" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SAME_INDUS_PREMIUM_ID" property="sameIndusPremiumId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="PROPERTY_INSUR" property="propertyInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMPNAY_TYPE" property="compnayType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMPULSORY_INSUR" property="compulsoryInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSERT_MONTH" property="insertMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURANCE_COMPANY" property="insuranceCompany" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MAIN_ID" property="mainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LIFE_INSUR" property="lifeInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSI_INSUR" property="busiInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.survey.vo.MarketResInforPremium">
+		<id column="SAME_INDUS_PREMIUM_ID" property="sameIndusPremiumId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="PROPERTY_INSUR" property="propertyInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMPNAY_TYPE" property="compnayType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMPULSORY_INSUR" property="compulsoryInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSERT_MONTH" property="insertMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURANCE_COMPANY" property="insuranceCompany" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MAIN_ID" property="mainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LIFE_INSUR" property="lifeInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSI_INSUR" property="busiInsur" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		PROPERTY_INSUR,
+		COMPNAY_TYPE,
+		COMPULSORY_INSUR,
+		UPDATE_DATE,
+		SAME_INDUS_PREMIUM_ID,
+		DEPT_CODE,
+		INSERT_MONTH,
+		INSURANCE_COMPANY,
+		MAIN_ID,
+		LIFE_INSUR,
+		VALID_IND,
+		CREATE_USER,
+		BUSI_INSUR,
+		CREATE_DATE,
+		UPDATE_USER
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		PROPERTY_INSUR as "propertyInsur",
+		COMPNAY_TYPE as "compnayType",
+		COMPULSORY_INSUR as "compulsoryInsur",
+		UPDATE_DATE as "updateDate",
+		SAME_INDUS_PREMIUM_ID as "sameIndusPremiumId",
+		DEPT_CODE as "deptCode",
+		INSERT_MONTH as "insertMonth",
+		INSURANCE_COMPANY as "insuranceCompany",
+		MAIN_ID as "mainId",
+		LIFE_INSUR as "lifeInsur",
+		VALID_IND as "validInd",
+		CREATE_USER as "createUser",
+		BUSI_INSUR as "busiInsur",
+		CREATE_DATE as "createDate",
+		UPDATE_USER as "updateUser"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{propertyInsur,jdbcType=VARCHAR},
+ 		#{compnayType,jdbcType=VARCHAR},
+ 		#{compulsoryInsur,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{sameIndusPremiumId,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{insertMonth,jdbcType=VARCHAR},
+ 		#{insuranceCompany,jdbcType=VARCHAR},
+ 		#{mainId,jdbcType=VARCHAR},
+ 		#{lifeInsur,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createUser,jdbcType=VARCHAR},
+ 		#{busiInsur,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{updateUser,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="propertyInsur != null and propertyInsur != ''">
+			and PROPERTY_INSUR = #{propertyInsur,jdbcType=VARCHAR}
+		</if>
+		<if test="compnayType != null and compnayType != ''">
+			and COMPNAY_TYPE = #{compnayType,jdbcType=VARCHAR}
+		</if>
+		<if test="compulsoryInsur != null and compulsoryInsur != ''">
+			and COMPULSORY_INSUR = #{compulsoryInsur,jdbcType=VARCHAR}
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			and UPDATE_DATE = #{updateDate,jdbcType=DATE}
+		</if>
+		<if test="sameIndusPremiumId != null and sameIndusPremiumId != ''">
+			and SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="insertMonth != null and insertMonth != ''">
+			and INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="insuranceCompany != null and insuranceCompany != ''">
+			and INSURANCE_COMPANY = #{insuranceCompany,jdbcType=VARCHAR}
+		</if>
+		<if test="mainId != null and mainId != ''">
+			and MAIN_ID = #{mainId,jdbcType=VARCHAR}
+		</if>
+		<if test="lifeInsur != null and lifeInsur != ''">
+			and LIFE_INSUR = #{lifeInsur,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and CREATE_USER = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="busiInsur != null and busiInsur != ''">
+			and BUSI_INSUR = #{busiInsur,jdbcType=VARCHAR}
+		</if>
+		<if test="createDate != null and createDate != ''">
+			and CREATE_DATE = #{createDate,jdbcType=DATE}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforPremium" >
+    insert into MARKET_RES_INFOR_PREMIUM (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into MARKET_RES_INFOR_PREMIUM (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MARKET_RES_INFOR_PREMIUM
+    where SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from MARKET_RES_INFOR_PREMIUM
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update MARKET_RES_INFOR_PREMIUM
+	<set>
+	<if test="propertyInsur != null and propertyInsur != ''">
+		PROPERTY_INSUR = #{propertyInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="compnayType != null and compnayType != ''">
+		COMPNAY_TYPE = #{compnayType,jdbcType=VARCHAR},
+	</if>
+  	<if test="compulsoryInsur != null and compulsoryInsur != ''">
+		COMPULSORY_INSUR = #{compulsoryInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+   	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="insertMonth != null and insertMonth != ''">
+		INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="insuranceCompany != null and insuranceCompany != ''">
+		INSURANCE_COMPANY = #{insuranceCompany,jdbcType=VARCHAR},
+	</if>
+  	<if test="mainId != null and mainId != ''">
+		MAIN_ID = #{mainId,jdbcType=VARCHAR},
+	</if>
+  	<if test="lifeInsur != null and lifeInsur != ''">
+		LIFE_INSUR = #{lifeInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="busiInsur != null and busiInsur != ''">
+		BUSI_INSUR = #{busiInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update MARKET_RES_INFOR_PREMIUM
+		set 
+			PROPERTY_INSUR = #{propertyInsur,jdbcType=VARCHAR},
+  			COMPNAY_TYPE = #{compnayType,jdbcType=VARCHAR},
+  			COMPULSORY_INSUR = #{compulsoryInsur,jdbcType=VARCHAR},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+   			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+  			INSURANCE_COMPANY = #{insuranceCompany,jdbcType=VARCHAR},
+  			MAIN_ID = #{mainId,jdbcType=VARCHAR},
+  			LIFE_INSUR = #{lifeInsur,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			BUSI_INSUR = #{busiInsur,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+  		where SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforPremium" >
+	update MARKET_RES_INFOR_PREMIUM
+	<set>
+	<if test="propertyInsur != null and propertyInsur != ''">
+		PROPERTY_INSUR = #{propertyInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="compnayType != null and compnayType != ''">
+		COMPNAY_TYPE = #{compnayType,jdbcType=VARCHAR},
+	</if>
+  	<if test="compulsoryInsur != null and compulsoryInsur != ''">
+		COMPULSORY_INSUR = #{compulsoryInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+   	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="insertMonth != null and insertMonth != ''">
+		INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="insuranceCompany != null and insuranceCompany != ''">
+		INSURANCE_COMPANY = #{insuranceCompany,jdbcType=VARCHAR},
+	</if>
+  	<if test="mainId != null and mainId != ''">
+		MAIN_ID = #{mainId,jdbcType=VARCHAR},
+	</if>
+  	<if test="lifeInsur != null and lifeInsur != ''">
+		LIFE_INSUR = #{lifeInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="busiInsur != null and busiInsur != ''">
+		BUSI_INSUR = #{busiInsur,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforPremium" >
+		update MARKET_RES_INFOR_PREMIUM
+		set 
+			PROPERTY_INSUR = #{propertyInsur,jdbcType=VARCHAR},
+  			COMPNAY_TYPE = #{compnayType,jdbcType=VARCHAR},
+  			COMPULSORY_INSUR = #{compulsoryInsur,jdbcType=VARCHAR},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+   			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+  			INSURANCE_COMPANY = #{insuranceCompany,jdbcType=VARCHAR},
+  			MAIN_ID = #{mainId,jdbcType=VARCHAR},
+  			LIFE_INSUR = #{lifeInsur,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			BUSI_INSUR = #{busiInsur,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+  		where SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deleteByPkId"  parameterType="java.lang.String">
+	    update MARKET_RES_INFOR_PREMIUM set VALID_IND = '0'
+	     where MAIN_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from MARKET_RES_INFOR_PREMIUM
+	where SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from MARKET_RES_INFOR_PREMIUM
+	where main_id = #{pkId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from MARKET_RES_INFOR_PREMIUM <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforPremium" resultType="long">
+	select count(1)
+	from MARKET_RES_INFOR_PREMIUM <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_PREMIUM
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_PREMIUM
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_PREMIUM
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_PREMIUM
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from MARKET_RES_INFOR_PREMIUM
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from MARKET_RES_INFOR_PREMIUM <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

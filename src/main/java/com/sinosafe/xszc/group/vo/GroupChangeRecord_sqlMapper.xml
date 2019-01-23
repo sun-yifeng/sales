@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.group.vo.GroupChangeRecord" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="RECORD_ID" property="recordId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_DATE" property="validDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANGE_DATE" property="changeDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_MEMBER_CODE" property="groupMemberCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.group.vo.GroupChangeRecord">
+		<id column="RECORD_ID" property="recordId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_DATE" property="validDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CHANGE_DATE" property="changeDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_MEMBER_CODE" property="groupMemberCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_USER,
+		DEPT_CODE,
+		REMARK,
+		UPDATED_DATE,
+		STATUS,
+		VALID_IND,
+		CREATED_DATE,
+		RECORD_ID,
+		SALESMAN_CODE,
+		VALID_DATE,
+		CHANGE_DATE,
+		GROUP_CODE,
+		GROUP_MEMBER_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_USER as "createdUser",
+		DEPT_CODE as "deptCode",
+		REMARK as "remark",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		RECORD_ID as "recordId",
+		SALESMAN_CODE as "salesmanCode",
+		VALID_DATE as "validDate",
+		CHANGE_DATE as "changeDate",
+		GROUP_CODE as "groupCode",
+		GROUP_MEMBER_CODE as "groupMemberCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{recordId,jdbcType=VARCHAR},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		to_date(#{validDate},'yyyy-mm-dd'),
+ 		sysdate,
+ 		#{groupCode,jdbcType=VARCHAR},
+ 		#{groupMemberCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="recordId != null and recordId != ''">
+			and RECORD_ID = #{recordId,jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="validDate != null and validDate != ''">
+			and VALID_DATE = #{validDate,jdbcType=DATE}
+		</if>
+		<if test="changeDate != null and changeDate != ''">
+			and CHANGE_DATE = #{changeDate,jdbcType=DATE}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupMemberCode != null and groupMemberCode != ''">
+			and GROUP_MEMBER_CODE = #{groupMemberCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.group.vo.GroupChangeRecord" >
+    insert into GROUP_CHANGE_RECORD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into GROUP_CHANGE_RECORD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from GROUP_CHANGE_RECORD
+    where RECORD_ID = #{recordId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from GROUP_CHANGE_RECORD
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update GROUP_CHANGE_RECORD
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+   	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="validDate != null and validDate != ''">
+		VALID_DATE = #{validDate,jdbcType=DATE},
+	</if>
+  	<if test="changeDate != null and changeDate != ''">
+		CHANGE_DATE = #{changeDate,jdbcType=DATE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupMemberCode != null and groupMemberCode != ''">
+		GROUP_MEMBER_CODE = #{groupMemberCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where RECORD_ID = #{recordId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update GROUP_CHANGE_RECORD
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+   			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			VALID_DATE = #{validDate,jdbcType=DATE},
+  			CHANGE_DATE = #{changeDate,jdbcType=DATE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			GROUP_MEMBER_CODE = #{groupMemberCode,jdbcType=VARCHAR}
+  		where RECORD_ID = #{recordId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.group.vo.GroupChangeRecord" >
+	update GROUP_CHANGE_RECORD
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+   	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="validDate != null and validDate != ''">
+		VALID_DATE = #{validDate,jdbcType=DATE},
+	</if>
+  	<if test="changeDate != null and changeDate != ''">
+		CHANGE_DATE = #{changeDate,jdbcType=DATE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupMemberCode != null and groupMemberCode != ''">
+		GROUP_MEMBER_CODE = #{groupMemberCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where RECORD_ID = #{recordId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.group.vo.GroupChangeRecord" >
+		update GROUP_CHANGE_RECORD
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+   			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			VALID_DATE = #{validDate,jdbcType=DATE},
+  			CHANGE_DATE = #{changeDate,jdbcType=DATE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			GROUP_MEMBER_CODE = #{groupMemberCode,jdbcType=VARCHAR}
+  		where RECORD_ID = #{recordId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from GROUP_CHANGE_RECORD
+	where RECORD_ID = #{recordId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from GROUP_CHANGE_RECORD
+	where RECORD_ID = #{recordId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from GROUP_CHANGE_RECORD <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.group.vo.GroupChangeRecord" resultType="long">
+	select count(1)
+	from GROUP_CHANGE_RECORD <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_CHANGE_RECORD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_CHANGE_RECORD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_CHANGE_RECORD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_CHANGE_RECORD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from GROUP_CHANGE_RECORD
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from GROUP_CHANGE_RECORD <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 更新人员异动表中，原有的对应的异动信息 -->
+	<update id="updateGroupChangeRecord" parameterType="com.sinosafe.xszc.group.vo.GroupChangeRecord" >
+			update group_change_record gcr set gcr.valid_ind = '0'
+			where exists (
+			      select 1 from salesman ss 
+			       where ss.valid_ind = '1' 
+			         and ss.salesman_code = gcr.salesman_code
+			         and ss.salesman_code = #{salesmanCode}
+			      )
+			  and gcr.valid_ind = '1'
+	</update>
+	
+	<!-- 团队成员代码生成-->
+	<select id="queryCounts" parameterType="com.sinosafe.xszc.group.vo.GroupChangeRecord" resultType="long">
+	     SELECT max(substr(gcr.group_member_code, -4)) + 1
+	       from group_change_record gcr
+	      where gcr.group_member_code like '${groupCode}%'
+	</select>
+	
+</mapper>

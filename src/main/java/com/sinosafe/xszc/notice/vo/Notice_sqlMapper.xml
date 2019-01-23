@@ -1,0 +1,1401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.notice.vo.Notice" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="NOTIC_ID" property="noticId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PERIOD_VALUE" property="periodValue" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PUBLISHER" property="publisher" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PERIOD" property="period" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_DAY" property="feedbackDay" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="PUBLISH_DEPT_CODE" property="publishDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PUBLISH_RULE" property="publishRule" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CONTENT" property="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TILTLE" property="tiltle" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOTIC_GROUP_ID" property="noticGroupId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="businessLineName" property="businessLineName" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.notice.vo.Notice">
+		<id column="NOTIC_ID" property="noticId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PERIOD_VALUE" property="periodValue" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PUBLISHER" property="publisher" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PERIOD" property="period" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_DAY" property="feedbackDay" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PUBLISH_DEPT_CODE" property="publishDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PUBLISH_RULE" property="publishRule" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONTENT" property="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TILTLE" property="tiltle" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOTIC_GROUP_ID" property="noticGroupId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		PERIOD_VALUE,
+		CREATED_USER,
+		DEPT_CODE,
+		PUBLISHER,
+		PERIOD,
+		UPDATED_DATE,
+		STATUS,
+		PUBLISH_DATE,
+		FEEDBACK_DAY,
+		VALID_IND,
+		CREATED_DATE,
+		PUBLISH_DEPT_CODE,
+		PUBLISH_RULE,
+		CONTENT,
+		TILTLE,
+		NOTIC_ID,
+		NOTIC_GROUP_ID
+	</sql>
+	
+	<sql id="Base_Column_List_S" >
+	   n.UPDATED_USER,
+       PERIOD_VALUE,
+       n.CREATED_USER,
+       n.DEPT_CODE,
+       PUBLISHER,
+       PERIOD,
+       n.UPDATED_DATE,
+       n.STATUS,
+       to_char(n.PUBLISH_DATE,'yyyy-mm-dd') as "PUBLISH_DATE",
+       FEEDBACK_DAY,
+       n.VALID_IND,
+       n.CREATED_DATE,
+       PUBLISH_DEPT_CODE,
+       PUBLISH_RULE,
+       CONTENT,
+       TILTLE,
+       n.NOTIC_ID,
+	   NOTIC_GROUP_ID,
+	   n.RELATION_TYPE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		PERIOD_VALUE as "periodValue",
+		CREATED_USER as "createdUser",
+		DEPT_CODE as "deptCode",
+		PUBLISHER as "publisher",
+		PERIOD as "period",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		PUBLISH_DATE as "publishDate",
+		FEEDBACK_DAY as "feedbackDay",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		PUBLISH_DEPT_CODE as "publishDeptCode",
+		PUBLISH_RULE as "publishRule",
+		CONTENT as "content",
+		TILTLE as "tiltle",
+		NOTIC_ID as "noticId"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{periodValue,jdbcType=INTEGER},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{publisher,jdbcType=VARCHAR},
+ 		#{period,jdbcType=CHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{status,jdbcType=CHAR},
+ 		trunc(#{publishDate,jdbcType=DATE}),
+ 		#{feedbackDay,jdbcType=INTEGER},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{publishDeptCode,jdbcType=VARCHAR},
+ 		#{publishRule,jdbcType=CHAR},
+ 		#{content,jdbcType=VARCHAR},
+ 		#{tiltle,jdbcType=VARCHAR},
+ 		#{noticId,jdbcType=VARCHAR},
+ 		#{noticGroupId,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+			<include refid="Base_noWhere_Sql" />
+		</where>
+	</sql>
+	
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_noWhere_Sql">
+		
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="periodValue != null and periodValue != ''">
+			and PERIOD_VALUE = #{periodValue,jdbcType=INTEGER}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publisher != null and publisher != ''">
+			and PUBLISHER like #{publisher,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="period != null and period != ''">
+			and PERIOD = #{period,jdbcType=CHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="feedbackDay != null and feedbackDay != ''">
+			and FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="publishDeptCode != null and publishDeptCode != ''">
+			and PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publishRule != null and publishRule != ''">
+			and PUBLISH_RULE = #{publishRule,jdbcType=CHAR}
+		</if>
+		<if test="content != null and content != ''">
+			and CONTENT = #{content,jdbcType=VARCHAR}
+		</if>
+		<if test="tiltle != null and tiltle != ''">
+			and TILTLE like #{tiltle,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+
+	</sql>
+	
+	<sql id="Base_noWhere_Sql_S">
+		<if test="periodValue != null and periodValue != ''">
+			and PERIOD_VALUE = #{periodValue,jdbcType=INTEGER}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and nr.dept_code = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publisher != null and publisher != ''">
+			and PUBLISHER like #{publisher,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="period != null and period != ''">
+			and PERIOD = #{period,jdbcType=CHAR}
+		</if>
+		<if test="status != null and status != ''">
+			and nr.STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and n.PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="feedbackDay != null and feedbackDay != ''">
+			and FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER}
+		</if>
+		<if test="publishDeptCode != null and publishDeptCode != ''">
+			and PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publishRule != null and publishRule != ''">
+			and PUBLISH_RULE = #{publishRule,jdbcType=CHAR}
+		</if>
+		<if test="content != null and content != ''">
+			and CONTENT = #{content,jdbcType=VARCHAR}
+		</if>
+		<if test="tiltle != null and tiltle != ''">
+			and TILTLE like '%' || #{tiltle,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and n.NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+
+	</sql>
+	
+	<sql id="Base_noWhere_Sql_Sl">
+		<if test="periodValue != null and periodValue != ''">
+			and PERIOD_VALUE = #{periodValue,jdbcType=INTEGER}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and dept_code = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publisher != null and publisher != ''">
+			and PUBLISHER like #{publisher,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="period != null and period != ''">
+			and PERIOD = #{period,jdbcType=CHAR}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and n.PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="feedbackDay != null and feedbackDay != ''">
+			and FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER}
+		</if>
+		<if test="publishDeptCode != null and publishDeptCode != ''">
+			and PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publishRule != null and publishRule != ''">
+			and PUBLISH_RULE = #{publishRule,jdbcType=CHAR}
+		</if>
+		<if test="content != null and content != ''">
+			and CONTENT = #{content,jdbcType=VARCHAR}
+		</if>
+		<if test="tiltle != null and tiltle != ''">
+			and TILTLE like '%' || #{tiltle,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and n.NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+		<if test="noticGroupId != null and noticGroupId != ''">
+			and n.NOTIC_GROUP_ID = #{noticGroupId,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_noWhere_Sql_widh_T">
+		
+		<if test="updatedUser != null and updatedUser != ''">
+			and t.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="periodValue != null and periodValue != ''">
+			and t.PERIOD_VALUE = #{periodValue,jdbcType=INTEGER}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and t.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and t.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publisher != null and publisher != ''">
+			and t.PUBLISHER like #{publisher,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="period != null and period != ''">
+			and t.PERIOD = #{period,jdbcType=CHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and t.UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and t.STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and t.PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="feedbackDay != null and feedbackDay != ''">
+			and t.FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and t.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and t.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="publishDeptCode != null and publishDeptCode != ''">
+			and t.PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publishRule != null and publishRule != ''">
+			and t.PUBLISH_RULE = #{publishRule,jdbcType=CHAR}
+		</if>
+		<if test="content != null and content != ''">
+			and t.CONTENT = #{content,jdbcType=VARCHAR}
+		</if>
+		<if test="tiltle != null and tiltle != ''">
+			and t.TILTLE like #{tiltle,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and t.NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.notice.vo.Notice" >
+    insert into NOTICE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into NOTICE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from NOTICE
+    where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</delete>
+	
+	<!-- 
+		<delete id="deleteByDataKey" parameterType="long">
+	    delete from NOTICE
+	    where PK_SERIAL = #{data}
+		</delete>
+	 -->
+	 
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update NOTICE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="periodValue != null and periodValue != ''">
+		PERIOD_VALUE = #{periodValue,jdbcType=INTEGER},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="publisher != null and publisher != ''">
+		PUBLISHER = #{publisher,jdbcType=VARCHAR},
+	</if>
+  	<if test="period != null and period != ''">
+		PERIOD = #{period,jdbcType=CHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = sysdate,
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<!--<if test="publishDate != null and publishDate != ''">
+		PUBLISH_DATE = trunc(sysdate),
+	</if>-->
+  	<if test="feedbackDay != null and feedbackDay != ''">
+		FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="publishDeptCode != null and publishDeptCode != ''">
+		PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="publishRule != null and publishRule != ''">
+		PUBLISH_RULE = #{publishRule,jdbcType=CHAR},
+	</if>
+  	<if test="content != null and content != ''">
+		CONTENT = #{content,jdbcType=VARCHAR},
+	</if>
+  	<if test="tiltle != null and tiltle != ''">
+		TILTLE = #{tiltle,jdbcType=VARCHAR},
+	</if>
+		PUBLISH_DATE = trunc(sysdate)
+   	</set>
+	where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update NOTICE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			PERIOD_VALUE = #{periodValue,jdbcType=INTEGER},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			PUBLISHER = #{publisher,jdbcType=VARCHAR},
+  			PERIOD = #{period,jdbcType=CHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+  			FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR},
+  			PUBLISH_RULE = #{publishRule,jdbcType=CHAR},
+  			CONTENT = #{content,jdbcType=VARCHAR},
+  			TILTLE = #{tiltle,jdbcType=VARCHAR},
+   		where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateNotice" parameterType="map" >
+		update NOTICE
+		set 
+			<if test="publishDate!=null and publishDate!='' ">
+				publish_date = to_date(#{publishDate},'yyyy-mm-dd'),
+			</if>
+			<if test="publishRule!=null and publishRule!='' ">
+				publish_rule = #{publishRule,jdbcType=CHAR},
+			</if>
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			CONTENT = #{content,jdbcType=VARCHAR},
+  			TILTLE = #{tiltle,jdbcType=VARCHAR},
+  			status = #{status,jdbcType=VARCHAR}
+   		where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.notice.vo.Notice" >
+	update NOTICE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="periodValue != null and periodValue != ''">
+		PERIOD_VALUE = #{periodValue,jdbcType=INTEGER},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="publisher != null and publisher != ''">
+		PUBLISHER = #{publisher,jdbcType=VARCHAR},
+	</if>
+  	<if test="period != null and period != ''">
+		PERIOD = #{period,jdbcType=CHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="publishDate != null and publishDate != ''">
+		PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+	</if>
+  	<if test="feedbackDay != null and feedbackDay != ''">
+		FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="publishDeptCode != null and publishDeptCode != ''">
+		PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="publishRule != null and publishRule != ''">
+		PUBLISH_RULE = #{publishRule,jdbcType=CHAR},
+	</if>
+  	<if test="content != null and content != ''">
+		CONTENT = #{content,jdbcType=VARCHAR},
+	</if>
+  	<if test="tiltle != null and tiltle != ''">
+		TILTLE = #{tiltle,jdbcType=VARCHAR},
+	</if>
+   	</set>
+	where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.notice.vo.Notice" >
+		update NOTICE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			PERIOD_VALUE = #{periodValue,jdbcType=INTEGER},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			PUBLISHER = #{publisher,jdbcType=VARCHAR},
+  			PERIOD = #{period,jdbcType=CHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+  			FEEDBACK_DAY = #{feedbackDay,jdbcType=INTEGER},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR},
+  			PUBLISH_RULE = #{publishRule,jdbcType=CHAR},
+  			CONTENT = #{content,jdbcType=VARCHAR},
+  			TILTLE = #{tiltle,jdbcType=VARCHAR},
+   		where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from NOTICE
+	where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from NOTICE
+	where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from NOTICE <include refid="Base_Where_Sql" />
+	</select>
+	
+	
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.notice.vo.Notice" resultType="long">
+	select count(1)
+	from NOTICE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!--  select * from NOTICE t where publisher = 'ex_maguang@virtual.com.cn' or (t.notic_id in
+ 	(select nd.notic_id  from NOTICE_RECEIVE_DEPT nd where nd.dept_code = '0105' ))
+ 	加上这个条件,发的人可以看到,收的人的部门是这个的可以看到.
+	-->
+	
+	<!-- 条件查询总数据量 -->
+	<select id="ONCE_queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from NOTICE n where <!--(publisher = #{publisher} or (notic_id in
+ 	(select nd.notic_id  from NOTICE_RECEIVE_DEPT nd where nd.dept_code = #{dept_code} )) and status in (1,2)
+	)and -->
+	 VALID_IND = '1' 
+	 and PERIOD is null  
+	 <include refid="Base_noWhere_Sql" />
+	 and exists(
+		select 1 
+		from notice_feedback nf 
+		where nf.valid_ind = '1' 
+		  and nf.notice_id = n.notic_id
+	)
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="PERIOD_queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from NOTICE n where 
+	<!--(publisher = #{publisher} or (notic_id in
+ 	(select nd.notic_id  from NOTICE_RECEIVE_DEPT nd where nd.dept_code = #{dept_code} )) and status in (1,2)
+	)and--> VALID_IND = '1' 
+	and PERIOD is not null 
+	<include refid="Base_noWhere_Sql" />
+	and exists(
+		select 1 
+		from notice_feedback nf 
+		where nf.valid_ind = '1' 
+		  and nf.notice_id = n.notic_id
+		<!--  and 
+		  <foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+			  nf.business_line = #{nrlValue,jdbcType=VARCHAR}
+		  </foreach>  -->
+	)
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="ONCE_queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List_S"/>
+		<!--(
+			select wm_concat(distinct bl.line_name) 
+			from notice_feedback nf,business_line bl 
+			where nf.business_line = bl.line_code
+			  and nf.valid_ind = '1'
+			  and bl.valid_ind = '1'
+			  and nf.notice_id = n.notic_id
+  		) "businessLineName" -->
+		from NOTICE n
+		where
+		<!-- where
+		(publisher = #{publisher} or (notic_id in
+	 	(select nd.notic_id  from NOTICE_RECEIVE_DEPT nd where nd.dept_code = #{dept_code} )) and status in (1,2)
+		)-->
+		n.VALID_IND = '1' 
+		and PERIOD is null  
+		<include refid="Base_noWhere_Sql_Sl" />
+		and exists(
+			select 1 
+			from notice_feedback nf 
+			where nf.valid_ind = '1' 
+			  and nf.notice_id = n.notic_id
+			 <!-- and 
+			  <foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+				  nf.business_line = #{nrlValue,jdbcType=VARCHAR}
+			  </foreach>  -->
+		)
+		order by CREATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="PERIOD_queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+			<include refid="Base_Column_List_S"/>,
+			to_char(nm.NEXT_PUBLISH_DATE,'yyyy-mm-dd') as "periodNext"
+		<!-- 	(
+				select wm_concat(distinct bl.line_name) 
+				from notice_feedback nf,business_line bl 
+				where nf.business_line = bl.line_code
+				  and nf.valid_ind = '1'
+				  and bl.valid_ind = '1'
+				  and nf.notice_id = n.notic_id
+	  		) "businessLineName"  -->
+		from NOTICE n
+		left join NOTICE_MISSION nm
+		on n.NOTIC_ID = nm.NOTIC_ID and nm.VALID_IND = '1'
+		where
+		<!--(publisher = #{publisher} or (notic_id in
+	 	(select nd.notic_id  from NOTICE_RECEIVE_DEPT nd where nd.dept_code = #{dept_code} )) and status in (1,2)
+		)-->
+		n.VALID_IND = '1' 
+		and PERIOD is not null  
+		<include refid="Base_noWhere_Sql_Sl" />
+		and exists(
+			select 1 
+			from notice_feedback nf 
+			where nf.valid_ind = '1' 
+			  and nf.notice_id = n.notic_id
+		<!--	  and 
+			  <foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+				  nf.business_line = #{nrlValue,jdbcType=VARCHAR}
+			  </foreach>   -->
+		)
+		order by n.CREATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+			UPDATED_USER,
+			PERIOD_VALUE,
+			CREATED_USER,
+			DEPT_CODE,
+			PUBLISHER,
+			PERIOD,
+			UPDATED_DATE,
+			STATUS,
+			to_char(PUBLISH_DATE,'yyyy-mm-dd') PUBLISH_DATE,
+			FEEDBACK_DAY,
+			VALID_IND,
+			CREATED_DATE,
+			PUBLISH_DEPT_CODE,
+			PUBLISH_RULE,
+			CONTENT,
+			TILTLE,
+			NOTIC_ID,
+			NOTIC_GROUP_ID,
+			RELATION_TYPE,
+			CREATED_USER_ROLE AS "createdUserRole",
+			FEEDBACK_TYPE as "feedbackType"
+		from NOTICE
+			<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 定期公告查询页面的接收结构数据获取 -->
+	<select id="receiveDeptCname" parameterType="map" resultMap="BaseResultVo">
+		select 
+		t.dept_code
+		from NOTICE_RECEIVE_DEPT t
+		where 1=1
+		and t.notice_id=#{noticeId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from NOTICE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from NOTICE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 用于反馈的页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="query_notic_for_feedback" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List_S"/>
+				from NOTICE n
+				  left join notice_receive_dept nr 
+				  on nr.notic_id = n.notic_id and nr.valid_ind = '1'
+				where 1=1 
+				and  n.valid_ind = '1'
+				<!--and (n.publish_rule is null  
+			          or 
+			          (n.publish_rule is not null and  (n.publish_date - sysdate ) &lt; n.feedback_day          
+			          and (n.NOTIC_ID  not in  
+					          (select t.notice_id from NOTICE_FEEDBACK t 
+					          where t.feedback_user = #{currentUser} )         
+			          	   )
+			          )
+			         )-->
+				<include refid="Base_noWhere_Sql_S"/>
+				order by UPDATED_DATE desc
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count"  from NOTICE n 
+			left join notice_receive_dept nr 
+			on nr.notic_id = n.notic_id and nr.valid_ind = '1'
+		where 1=1 and n.valid_ind = '1' <!--and 
+				(n.publish_rule is null  
+		          or 
+		          (n.publish_rule is not null and  (n.publish_date - sysdate ) &lt; n.feedback_day          
+		          and (n.NOTIC_ID  not in  
+				          (select t.notice_id from NOTICE_FEEDBACK t 
+				          where t.feedback_user = #{currentUser} )         
+		          	   )
+		          )
+		          )-->
+				<include refid="Base_noWhere_Sql_S"/>
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 用于反馈的页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="query_notic_for_deal" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select  nk.feedback_id, nk.created_date nkcreate_date, nk.UPDATED_DATE nkupdated_date, t.* 
+        		 from NOTICE t , NOTICE_FEEDBACK nk
+        			 where   nk.notice_id = t. notic_id and nk.processor is  null								
+				<include refid="Base_noWhere_Sql_widh_T"/>
+				order by nk.UPDATED_DATE desc
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" 
+		 from NOTICE t , NOTICE_FEEDBACK nk
+        	where   nk.notice_id = t. notic_id and nk.processor is  null				
+				<include refid="Base_noWhere_Sql_widh_T"/>
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 用于查询公告接受人的备用角色 -->
+	<select id="queryBackUserUp" parameterType="map" resultType="java.lang.String">
+	    select t.backup_user_role
+          from notice_role t
+         where t.send_user_role = #{sendUserRole,jdbcType=VARCHAR}
+           and t.recieve_user_role = #{receiveUserRole,jdbcType=VARCHAR}
+           and t.valid_ind = 1
+	</select>
+	
+	<select id="queryRoleAuthority" parameterType="map" resultType="long">
+	    select count(1)
+          from notice_role t
+         where t.send_user_role = #{sendUserRole,jdbcType=VARCHAR}
+           and t.recieve_user_role = #{receiveUserRole,jdbcType=VARCHAR}
+           and t.valid_ind = 1
+	</select>
+	
+	<select id="queryByNoticeId" parameterType="java.lang.String" resultType="java.lang.String">
+	    select t.feedback_type
+          from notice t
+         where t.notic_id = #{noticId,jdbcType=VARCHAR}
+           and t.valid_ind = 1
+	</select>
+	
+	<update id="updateStatus" parameterType="map" >
+	update NOTICE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+   	</set>
+	where NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="insertTimingNotice" parameterType="map" >
+	  insert into notice(
+	    notic_id,
+		dept_code,
+		tiltle,
+		content,
+		status,
+		publish_dept_code,
+		publisher,
+		period,
+		period_value,
+		feedback_day,
+		publish_rule,
+		valid_ind,
+		created_user,
+		created_date,
+		updated_user,
+		updated_date,
+		publish_date,
+		notic_group_id,
+		relation_type,
+		created_user_role,
+		feedback_type
+	  )values(
+	    #{noticId,jdbcType=VARCHAR},
+		#{deptCode,jdbcType=VARCHAR},
+		#{tiltle,jdbcType=VARCHAR},
+		#{content,jdbcType=VARCHAR},
+		#{status,jdbcType=CHAR},
+		#{publishDeptCode,jdbcType=VARCHAR},
+		#{publisher,jdbcType=VARCHAR},
+		#{period,jdbcType=CHAR},
+		#{periodValue,jdbcType=INTEGER},
+		#{feedbackDay,jdbcType=INTEGER},
+		#{publishRule,jdbcType=CHAR},
+		#{validInd,jdbcType=CHAR},
+		#{createdUser,jdbcType=VARCHAR},
+		sysdate,
+		#{updatedUser,jdbcType=VARCHAR},
+		sysdate,
+		#{publishDate,jdbcType=DATE},
+		sys_guid(),
+		#{relationType,jdbcType=CHAR},
+		#{createdUserRole,jdbcType=VARCHAR},
+		#{feedbackType,jdbcType=CHAR}
+	  )
+	</insert>
+	
+	<insert id="insertTimingNoticeMission" parameterType="map">
+	  insert into notice_mission (
+		mission_id,
+		notic_id,
+		publish_date,
+		next_publish_date,
+		valid_ind,
+		created_user,
+		created_date,
+		updated_user,
+		updated_date
+	  )values(
+		#{missionId,jdbcType=VARCHAR},
+		#{noticId,jdbcType=VARCHAR},
+		#{publishDate,jdbcType=DATE},
+		<if test="months != null and months != '' ">
+		  add_months(trunc(#{publishDate}),#{months}),
+	    </if>
+ 	    <if test="days != null and days != '' ">
+		  trunc(#{publishDate}) + #{days},
+	    </if>
+	    <if test="months==null and days==null">
+	      null,
+	    </if>
+		<!-- #{nextPublishDate,jdbcType=DATE}, -->
+		#{validInd,jdbcType=CHAR},
+		#{createdUser,jdbcType=VARCHAR},
+		sysdate,
+		#{updatedUser,jdbcType=VARCHAR},
+		sysdate
+	  )
+	</insert>
+	
+	<insert id="insertTimingFeedback" parameterType="java.util.HashMap">
+		insert into NOTICE_FEEDBACK (
+    		UPDATED_USER,
+			FEEDBACK_USER,
+			CREATED_USER,
+			FEEDBACK_CONTENT,
+			UPDATED_DATE,
+			STATUS,
+			PROCESSOR,
+			VALID_IND,
+			CREATED_DATE,
+			PROCESS_CONTENT,
+			NOTICE_ID,
+			FEEDBACK_DATE,
+			PROCESS_DATE,
+			FEEDBACK_ID,
+			DEPT_CODE,
+			ROLE_CODE
+	    )values (
+			#{updatedUser,jdbcType=VARCHAR},
+	 		#{feedbackUser,jdbcType=VARCHAR},
+	 		#{createdUser,jdbcType=VARCHAR},
+	 		#{feedbackContent,jdbcType=VARCHAR},
+	 		sysdate,
+	 		#{status,jdbcType=CHAR},
+	 		#{processor,jdbcType=VARCHAR},
+	 		#{validInd,jdbcType=CHAR},
+	 		sysdate,
+	 		#{processContent,jdbcType=VARCHAR},
+	 		#{noticeId,jdbcType=VARCHAR},
+	 		#{feedbackDate,jdbcType=DATE},
+	 		#{processDate,jdbcType=DATE},
+	 		#{feedbackId,jdbcType=VARCHAR},
+	 		#{deptCode,jdbcType=VARCHAR},
+	 		#{roleCode,jdbcType=VARCHAR}
+	    )
+	</insert>
+	
+	<insert id="insertTimingUpload" parameterType="java.util.HashMap" >
+	    insert into UPLOAD (
+			UPDATED_USER,
+			UPLOAD_ID,
+			NAME,
+			CREATED_USER,
+			PATH,
+			DEPT_CODE,
+			UPDATED_DATE,
+			MAIN_ID,
+			VALID_IND,
+			CREATED_DATE,
+			CONTENT,
+			MODULE,
+			ROLE_CODE,
+			BATCH_NUMBER
+	    )
+		values (
+			#{updatedUser,jdbcType=VARCHAR},
+	 		sys_guid(),
+	 		#{name,jdbcType=VARCHAR},
+	 		#{createdUser,jdbcType=VARCHAR},
+	 		#{path,jdbcType=VARCHAR},
+	 		#{deptCode,jdbcType=VARCHAR},
+	 		sysdate,
+	 		#{mainId,jdbcType=VARCHAR},
+	 		#{validInd,jdbcType=CHAR},
+	 		sysdate,
+	 		#{content,jdbcType=CLOB},
+	 		#{module,jdbcType=CHAR},
+	 		#{roleCode,jdbcType=VARCHAR},
+	 		<if test="batchNumber!='' and batchNumber!=null" >
+		 		#{batchNumber,jdbcType=VARCHAR}
+	 		</if>
+	 		<if test="batchNumber=='' or batchNumber==null" >
+		 		sys_guid()
+	 		</if>
+	    )
+	</insert>
+	
+	<insert id="insertTimingReceiveDept" parameterType="java.util.HashMap">
+		insert into NOTICE_RECEIVE_DEPT (
+			UPDATED_USER,
+			VALID_IND,
+			CREATED_DATE,
+			RECEIVER_ID,
+			CREATED_USER,
+			DEPT_CODE,
+			NOTIC_ID,
+			UPDATED_DATE,
+			STATUS,
+			ROLE_CODE
+	    )
+		values (
+			#{updatedUser,jdbcType=VARCHAR},
+	 		#{validInd,jdbcType=CHAR},
+	 		sysdate,
+	 		#{receiverId,jdbcType=VARCHAR},
+	 		#{createdUser,jdbcType=VARCHAR},
+	 		#{deptCode,jdbcType=VARCHAR},
+	 		#{noticId,jdbcType=VARCHAR},
+	 		sysdate,
+	 		#{status,jdbcType=CHAR},
+	 		#{roleCode,jdbcType=VARCHAR}
+	    )
+	</insert>
+	
+	<insert id="insertData" parameterType="map" >
+    insert into NOTICE ( <include refid="Base_Column_List" /> )
+		select UPDATED_USER,
+			PERIOD_VALUE,
+			CREATED_USER,
+			DEPT_CODE,
+			PUBLISHER,
+			PERIOD,
+			sysdate,
+			'1',
+			trunc(sysdate),
+			FEEDBACK_DAY,
+			VALID_IND,
+			sysdate,
+			PUBLISH_DEPT_CODE,
+			PUBLISH_RULE,
+			CONTENT,
+			TILTLE,
+			#{noticId,jdbcType=VARCHAR},
+			NOTIC_GROUP_ID
+			from NOTICE n
+		where n.NOTIC_ID = #{oldNoticId,jdbcType=VARCHAR}
+		and n.valid_ind = '1'
+	</insert>
+	
+	<insert id="copyToTimingNotice" parameterType="java.util.HashMap">
+		insert into notice(
+			notic_id,
+			dept_code,
+			tiltle,
+			content,
+			status,
+			publish_dept_code,
+			publisher,
+			period,
+			period_value,
+			feedback_day,
+			publish_rule,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date,
+			publish_date,
+			notic_group_id,
+			relation_type,
+			created_user_role,
+			feedback_type
+		) 
+		select 
+			#{newNoticId,jdbcType=VARCHAR},
+			dept_code,
+			tiltle,
+			content,
+			#{status,jdbcType=VARCHAR},
+			publish_dept_code,
+			publisher,
+			period,
+			period_value,
+			feedback_day,
+			publish_rule,
+			valid_ind,
+			created_user,
+			sysdate,
+			'system',
+			sysdate,
+			#{publishDate,jdbcType=DATE},
+			notic_group_id,
+			relation_type,
+			created_user_role,
+			feedback_type
+		from notice n
+		where n.notic_id = #{oldNoticId,jdbcType=VARCHAR}
+		  and n.valid_ind = '1'
+	</insert>
+	
+	<insert id="copyToTimingNoticeMission" parameterType="java.util.HashMap">
+		insert into notice_mission(
+			mission_id,
+			notic_id,
+			publish_date,
+			next_publish_date,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date
+		)
+		select 
+			#{newMissionId,jdbcType=VARCHAR},
+			#{newNoticId,jdbcType=VARCHAR},
+			#{publishDate,jdbcType=DATE},
+			<if test="nextPublishDate != null and nextPublishDate != '' ">
+			  <if test="months != null and months != ''">
+				 add_months(trunc(sysdate) , #{months}),
+			  </if>
+		 	  <if test="days != null and days != ''">
+				 trunc(sysdate) + #{days},
+			  </if>
+			  <if test=" months==null and days==null ">
+			    null,
+			  </if>
+			</if>
+			<!-- next_publish_date,-->
+			valid_ind,
+			created_user,
+			sysdate,
+			'system',
+			sysdate
+		from notice_mission nm
+		where nm.notic_id = #{oldNoticId,jdbcType=VARCHAR}
+		  and nm.valid_ind = '1'
+	</insert>
+	
+	<insert id="copyToTimingNoticeFeedback" parameterType="java.util.HashMap">
+		insert into notice_feedback(
+			feedback_id,
+			notice_id,
+			status,
+			feedback_content,
+			feedback_user,
+			feedback_date,
+			process_content,
+			processor,
+			process_date,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date,
+			dept_code，
+			role_code
+		)
+		select 
+			sys_guid(),
+			#{newNoticId,jdbcType=VARCHAR},
+			#{status,jdbcType=VARCHAR},
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			valid_ind,
+			created_user,
+			sysdate,
+			'system',
+			sysdate,
+			dept_code,
+			role_code
+		from notice_feedback nf
+		where nf.notice_id = #{oldNoticId,jdbcType=VARCHAR}
+		  and nf.valid_ind = '1'
+	</insert>
+	
+	<insert id="copyToTimingNoticeReceiveDept" parameterType="java.util.HashMap">
+		insert into notice_receive_dept(
+			receiver_id,
+			notic_id,
+			dept_code,
+			status,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date,
+			role_code
+		)
+		select 
+			sys_guid(),
+			#{newNoticId,jdbcType=VARCHAR},
+			dept_code,
+			#{status,jdbcType=VARCHAR},
+			valid_ind,
+			created_user,
+			sysdate,
+			'system',
+			sysdate,
+			role_code
+		from notice_receive_dept nrd
+		where nrd.notic_id =  #{oldNoticId,jdbcType=VARCHAR}
+		  and nrd.valid_ind = '1'
+	</insert>
+	
+	<insert id="copyToTimingUpload" parameterType="java.util.HashMap">
+		insert into upload(
+			upload_id,
+			module,
+			main_id,
+			name,
+			content,
+			path,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date,
+			dept_code,
+			batch_number,
+			role_code
+		)
+		select 
+			sys_guid(),
+			module,
+			#{newNoticId,jdbcType=VARCHAR},
+			name,
+			content,
+			path,
+			valid_ind,
+			created_user,
+			sysdate,
+			'system',
+			sysdate,
+			dept_code,
+			role_code,
+			(  case 
+			     when u.module = '08' then u.batch_number
+	             else ''||sys_guid() 
+	           end  ) batch_number
+		from upload u
+		where u.main_id =  #{oldNoticId,jdbcType=VARCHAR}
+		  and u.valid_ind = '1'				
+	</insert>
+	
+	<update id="updateNoticeStatusById" parameterType="java.util.HashMap">
+		update 
+			notice n 
+		set 
+			n.status = #{status,jdbcType=VARCHAR},
+			n.UPDATED_DATE = sysdate,
+			n.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where n.notic_id = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateNoticeFeedbackStatusById" parameterType="java.util.HashMap">
+		update 
+			notice_feedback nf 
+		set 
+			nf.status = #{status,jdbcType=VARCHAR},
+			nf.UPDATED_DATE = sysdate,
+			nf.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where nf.notice_id = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="queryTimingUploadMajor" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	  select
+	    upload_id 		as "uploadId",
+	    module 			as "module",
+	    main_id 		as "mainId",
+	    name 			as "name",
+	    content 		as "content",
+	    path 			as "path",
+	    valid_ind 		as "validInd",
+	    created_user 	as "createdUser",
+	    created_date 	as "createdDate",
+	    updated_user 	as "updatedUser",
+	    updated_date 	as "updatedDate",
+	    dept_code 		as "deptCode",
+	    batch_number	as "batchNumber"
+	  from upload u
+	  where u.valid_ind = '1'
+	    and u.main_id = #{mainId,jdbcType=VARCHAR}
+	    and u.module = #{module,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryTimingUploadFeedback" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	  select
+	    upload_id 		as "uploadId",
+	    module 			as "module",
+	    main_id 		as "mainId",
+	    name 			as "name",
+	    content 		as "content",
+	    path 			as "path",
+	    valid_ind 		as "validInd",
+	    created_user 	as "createdUser",
+	    created_date 	as "createdDate",
+	    updated_user 	as "updatedUser",
+	    updated_date 	as "updatedDate",
+	    dept_code 		as "deptCode",
+	    batch_number	as "batchNumber"
+	  from upload u
+	  where u.valid_ind = '1'
+	    and u.main_id = #{mainId,jdbcType=VARCHAR}
+	    and u.module = #{module,jdbcType=VARCHAR}
+	    and ( u.dept_code ) = 
+	    	(select nf.dept_code
+	    	   from notice_feedback nf 
+	    	  where nf.feedback_id = #{feedbackId,jdbcType=VARCHAR} )
+	</select>
+	
+	<select id="getBusinessLineInfo" resultType="java.util.HashMap">
+		select 
+		  bl.line_code "value",
+		  bl.line_name "text"
+		from business_line bl 
+		where bl.line_code in 
+			  <foreach collection="list" index="index" item="sblValue" open="(" separator="," close=")">  
+			      #{sblValue,jdbcType=VARCHAR}
+		      </foreach> 
+		  and bl.valid_ind = '1'
+	</select>
+	
+	<select id="queryBusinessline" resultType="java.util.HashMap">
+		select 
+			bl.line_code "value",
+			bl.line_name "text"
+	    from business_line bl 
+	    where bl.valid_ind = '1'
+	      and 
+		  <foreach collection="list" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+			  <if test="nrlValue == '925007'">
+		      	 bl.line_code in ( '925007','925006','925003','925008' )
+			  </if>
+			  <if test="nrlValue != '925007'">
+		      	 bl.line_code = #{nrlValue,jdbcType=VARCHAR}
+			  </if>
+	      </foreach>
+	</select>
+	
+</mapper>

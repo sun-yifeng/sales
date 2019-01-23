@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelAgentDetailHistory" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="HISTORY_ID" property="historyId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="QUALIFICATION_NO" property="qualificationNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_NO" property="businessNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_VALID_DATE" property="businessValidDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_NAME" property="channelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHILD_DEPT_LOOK" property="childDeptLook" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CERTIFY_NO" property="certifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="BUSINESS_EXPIRE_DATE" property="businessExpireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="LICENSE_NO" property="licenseNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEX" property="sex" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_EXPIRE_DATE" property="licenseExpireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EDUCATIOIN" property="educatioin" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CERTIFY_TYPE" property="certifyType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_VALID_DATE" property="licenseValidDate" jdbcType="DATE" javaType="java.lang.String" />
+  		<result column="ADDERSS" property="adderss" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POST_CODE" property="postCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DUTY" property="duty" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTRACT_NO" property="contractNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TITLE" property="title" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="ADDERSS" property="adderss" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POST_CODE" property="postCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DUTY" property="duty" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTRACT_NO" property="contractNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TITLE" property="title" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BANK_NODE" property="bankNode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_ACCOUNT" property="bankAccount" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CATEGORY" property="category" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_CONTENT" property="mistakeContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_PROVINCE" property="bankProvince" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_RECEIVE" property="bankReceive" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="FINANCE_FLAG" property="financeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROPERTY" property="property" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OFFICE_ADDRESS" property="officeAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FEATURE" property="channelFeature" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BANK_CITY" property="bankCity" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_FLAG" property="mistakeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FLAG" property="channelFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_RATE" property="channelRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="dept_simple_name" property="deptCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_FLAG" property="approveFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_CODE" property="approveCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_TYPE" property="channelType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CATEGORY" property="channelCategory" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="QUALIFICATION_VALID_DATE" property="qualificationValidDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="QUALIFICATION_EXPIRE_DATE" property="qualificationExpireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelAgentDetailHistory">
+		<id column="HISTORY_ID" property="historyId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="QUALIFICATION_NO" property="qualificationNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_NO" property="businessNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_VALID_DATE" property="businessValidDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_NAME" property="channelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHILD_DEPT_LOOK" property="childDeptLook" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CERTIFY_NO" property="certifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="BUSINESS_EXPIRE_DATE" property="businessExpireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="LICENSE_NO" property="licenseNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEX" property="sex" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_EXPIRE_DATE" property="licenseExpireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EDUCATIOIN" property="educatioin" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CERTIFY_TYPE" property="certifyType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_VALID_DATE" property="licenseValidDate" jdbcType="DATE" javaType="java.lang.String" />
+  		<result column="ADDERSS" property="adderss" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POST_CODE" property="postCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DUTY" property="duty" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTRACT_NO" property="contractNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TITLE" property="title" jdbcType="CHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		QUALIFICATION_NO,
+		CREATED_USER,
+		BUSINESS_NO,
+		BUSINESS_VALID_DATE,
+		UPDATED_DATE,
+		STATUS,
+		CHANNEL_NAME,
+		CHILD_DEPT_LOOK,
+		CERTIFY_NO,
+		VALID_IND,
+		CREATED_DATE,
+		BUSINESS_EXPIRE_DATE,
+		LICENSE_NO,
+		TEL,
+		SEX,
+		LICENSE_EXPIRE_DATE,
+		EMAIL,
+		EDUCATIOIN,
+		FAX,
+		UPDATED_USER,
+		BIRTHDAY,
+		CERTIFY_TYPE,
+		CHANNEL_CODE,
+		LICENSE_VALID_DATE,
+		HISTORY_ID,
+		ADDERSS,
+		MOBILE,
+		POST_CODE,
+		DUTY,
+		CONTRACT_NO,
+		TITLE,
+		QUALIFICATION_VALID_DATE,
+		QUALIFICATION_EXPIRE_DATE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		QUALIFICATION_NO as "qualificationNo",
+		CREATED_USER as "createdUser",
+		BUSINESS_NO as "businessNo",
+		BUSINESS_VALID_DATE as "businessValidDate",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		CHANNEL_NAME as "channelName",
+		CHILD_DEPT_LOOK as "childDeptLook",
+		CERTIFY_NO as "certifyNo",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		BUSINESS_EXPIRE_DATE as "businessExpireDate",
+		LICENSE_NO as "licenseNo",
+		TEL as "tel",
+		SEX as "sex",
+		LICENSE_EXPIRE_DATE as "licenseExpireDate",
+		EMAIL as "email",
+		EDUCATIOIN as "educatioin",
+		FAX as "fax",
+		UPDATED_USER as "updatedUser",
+		BIRTHDAY as "birthday",
+		CERTIFY_TYPE as "certifyType",
+		CHANNEL_CODE as "channelCode",
+		LICENSE_VALID_DATE as "licenseValidDate",
+		HISTORY_ID as "historyId",
+		ADDERSS as "adderss",
+		MOBILE as "mobile",
+		POST_CODE as "postCode",
+		DUTY as "duty",
+		CONTRACT_NO as "contractNo",
+		TITLE as "title"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{qualificationNo,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{businessNo,jdbcType=VARCHAR},
+ 		to_date(#{businessValidDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{channelName,jdbcType=VARCHAR},
+ 		#{childDeptLook,jdbcType=CHAR},
+ 		#{certifyNo,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		to_date(#{businessExpireDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{licenseNo,jdbcType=VARCHAR},
+ 		#{tel,jdbcType=VARCHAR},
+ 		#{sex,jdbcType=CHAR},
+ 		to_date(#{licenseExpireDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{email,jdbcType=VARCHAR},
+ 		#{educatioin,jdbcType=CHAR},
+ 		#{fax,jdbcType=VARCHAR},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		to_date(#{birthday,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{certifyType,jdbcType=CHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		to_date(#{licenseValidDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{historyId,jdbcType=VARCHAR},
+ 		#{adderss,jdbcType=VARCHAR},
+ 		#{mobile,jdbcType=VARCHAR},
+ 		#{postCode,jdbcType=VARCHAR},
+ 		#{duty,jdbcType=VARCHAR},
+ 		#{contractNo,jdbcType=VARCHAR},
+ 		#{title,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="qualificationNo != null and qualificationNo != ''">
+			and QUALIFICATION_NO = #{qualificationNo,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="businessNo != null and businessNo != ''">
+			and BUSINESS_NO = #{businessNo,jdbcType=VARCHAR}
+		</if>
+		<if test="businessValidDate != null and businessValidDate != ''">
+			and BUSINESS_VALID_DATE = #{businessValidDate,jdbcType=DATE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="channelName != null and channelName != ''">
+			and CHANNEL_NAME = #{channelName,jdbcType=VARCHAR}
+		</if>
+		<if test="childDeptLook != null and childDeptLook != ''">
+			and CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR}
+		</if>
+		<if test="certifyNo != null and certifyNo != ''">
+			and CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="businessExpireDate != null and businessExpireDate != ''">
+			and BUSINESS_EXPIRE_DATE = #{businessExpireDate,jdbcType=DATE}
+		</if>
+		<if test="licenseNo != null and licenseNo != ''">
+			and LICENSE_NO = #{licenseNo,jdbcType=VARCHAR}
+		</if>
+		<if test="tel != null and tel != ''">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="sex != null and sex != ''">
+			and SEX = #{sex,jdbcType=CHAR}
+		</if>
+		<if test="licenseExpireDate != null and licenseExpireDate != ''">
+			and LICENSE_EXPIRE_DATE = #{licenseExpireDate,jdbcType=DATE}
+		</if>
+		<if test="email != null and email != ''">
+			and EMAIL = #{email,jdbcType=VARCHAR}
+		</if>
+		<if test="educatioin != null and educatioin != ''">
+			and EDUCATIOIN = #{educatioin,jdbcType=CHAR}
+		</if>
+		<if test="fax != null and fax != ''">
+			and FAX = #{fax,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="birthday != null and birthday != ''">
+			and BIRTHDAY = #{birthday,jdbcType=DATE}
+		</if>
+		<if test="certifyType != null and certifyType != ''">
+			and CERTIFY_TYPE = #{certifyType,jdbcType=CHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and cad.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="licenseValidDate != null and licenseValidDate != ''">
+			and LICENSE_VALID_DATE = #{licenseValidDate,jdbcType=DATE}
+		</if>
+		<if test="historyId != null and historyId != ''">
+			and HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+		</if>
+		<if test="adderss != null and adderss != ''">
+			and ADDERSS = #{adderss,jdbcType=VARCHAR}
+		</if>
+		<if test="mobile != null and mobile != ''">
+			and MOBILE = #{mobile,jdbcType=VARCHAR}
+		</if>
+		<if test="postCode != null and postCode != ''">
+			and POST_CODE = #{postCode,jdbcType=VARCHAR}
+		</if>
+		<if test="duty != null and duty != ''">
+			and DUTY = #{duty,jdbcType=VARCHAR}
+		</if>
+		<if test="contractNo != null and contractNo != ''">
+			and CONTRACT_NO = #{contractNo,jdbcType=VARCHAR}
+		</if>
+		<if test="title != null and title != ''">
+			and TITLE = #{title,jdbcType=CHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelAgentDetailHistory" >
+    insert into CHANNEL_AGENT_DETAIL_HISTORY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_AGENT_DETAIL_HISTORY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_AGENT_DETAIL_HISTORY
+    where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_AGENT_DETAIL_HISTORY
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_AGENT_DETAIL_HISTORY
+	<set>
+	<if test="qualificationNo != null and qualificationNo != ''">
+		QUALIFICATION_NO = #{qualificationNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessNo != null and businessNo != ''">
+		BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessValidDate != null and businessValidDate != ''">
+		BUSINESS_VALID_DATE = #{businessValidDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="channelName != null and channelName != ''">
+		CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+	</if>
+  	<if test="childDeptLook != null and childDeptLook != ''">
+		CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+	</if>
+  	<if test="certifyNo != null and certifyNo != ''">
+		CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="businessExpireDate != null and businessExpireDate != ''">
+		BUSINESS_EXPIRE_DATE = #{businessExpireDate,jdbcType=DATE},
+	</if>
+  	<if test="licenseNo != null and licenseNo != ''">
+		LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="sex != null and sex != ''">
+		SEX = #{sex,jdbcType=CHAR},
+	</if>
+  	<if test="licenseExpireDate != null and licenseExpireDate != ''">
+		LICENSE_EXPIRE_DATE = #{licenseExpireDate,jdbcType=DATE},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="educatioin != null and educatioin != ''">
+		EDUCATIOIN = #{educatioin,jdbcType=CHAR},
+	</if>
+  	<if test="fax != null and fax != ''">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="birthday != null and birthday != ''">
+		BIRTHDAY = #{birthday,jdbcType=DATE},
+	</if>
+  	<if test="certifyType != null and certifyType != ''">
+		CERTIFY_TYPE = #{certifyType,jdbcType=CHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseValidDate != null and licenseValidDate != ''">
+		LICENSE_VALID_DATE = #{licenseValidDate,jdbcType=DATE},
+	</if>
+   	<if test="adderss != null and adderss != ''">
+		ADDERSS = #{adderss,jdbcType=VARCHAR},
+	</if>
+  	<if test="mobile != null and mobile != ''">
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+	</if>
+  	<if test="postCode != null and postCode != ''">
+		POST_CODE = #{postCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="duty != null and duty != ''">
+		DUTY = #{duty,jdbcType=VARCHAR},
+	</if>
+  	<if test="contractNo != null and contractNo != ''">
+		CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="title != null and title != ''">
+		TITLE = #{title,jdbcType=CHAR}
+	</if>
+  	</set>
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_AGENT_DETAIL_HISTORY
+		set 
+			QUALIFICATION_NO = #{qualificationNo,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+  			BUSINESS_VALID_DATE = #{businessValidDate,jdbcType=DATE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+  			CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+  			CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			BUSINESS_EXPIRE_DATE = #{businessExpireDate,jdbcType=DATE},
+  			LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			SEX = #{sex,jdbcType=CHAR},
+  			LICENSE_EXPIRE_DATE = #{licenseExpireDate,jdbcType=DATE},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			EDUCATIOIN = #{educatioin,jdbcType=CHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			BIRTHDAY = #{birthday,jdbcType=DATE},
+  			CERTIFY_TYPE = #{certifyType,jdbcType=CHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			LICENSE_VALID_DATE = #{licenseValidDate,jdbcType=DATE},
+   			ADDERSS = #{adderss,jdbcType=VARCHAR},
+  			MOBILE = #{mobile,jdbcType=VARCHAR},
+  			POST_CODE = #{postCode,jdbcType=VARCHAR},
+  			DUTY = #{duty,jdbcType=VARCHAR},
+  			CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+  			TITLE = #{title,jdbcType=CHAR}
+  		where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelAgentDetailHistory" >
+	update CHANNEL_AGENT_DETAIL_HISTORY
+	<set>
+	<if test="qualificationNo != null and qualificationNo != ''">
+		QUALIFICATION_NO = #{qualificationNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessNo != null and businessNo != ''">
+		BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessValidDate != null and businessValidDate != ''">
+		BUSINESS_VALID_DATE = #{businessValidDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="channelName != null and channelName != ''">
+		CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+	</if>
+  	<if test="childDeptLook != null and childDeptLook != ''">
+		CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+	</if>
+  	<if test="certifyNo != null and certifyNo != ''">
+		CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="businessExpireDate != null and businessExpireDate != ''">
+		BUSINESS_EXPIRE_DATE = #{businessExpireDate,jdbcType=DATE},
+	</if>
+  	<if test="licenseNo != null and licenseNo != ''">
+		LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="sex != null and sex != ''">
+		SEX = #{sex,jdbcType=CHAR},
+	</if>
+  	<if test="licenseExpireDate != null and licenseExpireDate != ''">
+		LICENSE_EXPIRE_DATE = #{licenseExpireDate,jdbcType=DATE},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="educatioin != null and educatioin != ''">
+		EDUCATIOIN = #{educatioin,jdbcType=CHAR},
+	</if>
+  	<if test="fax != null and fax != ''">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="birthday != null and birthday != ''">
+		BIRTHDAY = #{birthday,jdbcType=DATE},
+	</if>
+  	<if test="certifyType != null and certifyType != ''">
+		CERTIFY_TYPE = #{certifyType,jdbcType=CHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseValidDate != null and licenseValidDate != ''">
+		LICENSE_VALID_DATE = #{licenseValidDate,jdbcType=DATE},
+	</if>
+   	<if test="adderss != null and adderss != ''">
+		ADDERSS = #{adderss,jdbcType=VARCHAR},
+	</if>
+  	<if test="mobile != null and mobile != ''">
+		MOBILE = #{mobile,jdbcType=VARCHAR},
+	</if>
+  	<if test="postCode != null and postCode != ''">
+		POST_CODE = #{postCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="duty != null and duty != ''">
+		DUTY = #{duty,jdbcType=VARCHAR},
+	</if>
+  	<if test="contractNo != null and contractNo != ''">
+		CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="title != null and title != ''">
+		TITLE = #{title,jdbcType=CHAR}
+	</if>
+  	</set>
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelAgentDetailHistory" >
+		update CHANNEL_AGENT_DETAIL_HISTORY
+		set 
+			QUALIFICATION_NO = #{qualificationNo,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+  			BUSINESS_VALID_DATE = #{businessValidDate,jdbcType=DATE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+  			CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+  			CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			BUSINESS_EXPIRE_DATE = #{businessExpireDate,jdbcType=DATE},
+  			LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			SEX = #{sex,jdbcType=CHAR},
+  			LICENSE_EXPIRE_DATE = #{licenseExpireDate,jdbcType=DATE},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			EDUCATIOIN = #{educatioin,jdbcType=CHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			BIRTHDAY = #{birthday,jdbcType=DATE},
+  			CERTIFY_TYPE = #{certifyType,jdbcType=CHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			LICENSE_VALID_DATE = #{licenseValidDate,jdbcType=DATE},
+   			ADDERSS = #{adderss,jdbcType=VARCHAR},
+  			MOBILE = #{mobile,jdbcType=VARCHAR},
+  			POST_CODE = #{postCode,jdbcType=VARCHAR},
+  			DUTY = #{duty,jdbcType=VARCHAR},
+  			CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+  			TITLE = #{title,jdbcType=CHAR}
+  		where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_AGENT_DETAIL_HISTORY
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_AGENT_DETAIL_HISTORY
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_AGENT_DETAIL_HISTORY cad 
+	left join CHANNEL_MAIN_HISTORY pb 
+		on pb.HISTORY_ID = cad.HISTORY_ID 
+		<include refid="Base_Where_Sql" />
+			<if test="deptCode != null and deptCode != ''">
+				and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+			</if>
+		and pb.VALID_IND = 1
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelAgentDetailHistory" resultType="long">
+	select count(1)
+	from CHANNEL_AGENT_DETAIL_HISTORY <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select pb.HISTORY_ID,pb.DEPT_CODE,dept_simple_name,
+		       cad.CHANNEL_CODE,CHANNEL_NAME,
+		       cg.CATEGORY_NAME CATEGORY,
+		       decode(pb.APPROVE_FLAG, '1', '已审核', '0', '未审核', '已审核') APPROVE_FLAG,
+		       pb.updated_user APPROVE_CODE,
+		       decode(CHANNEL_FLAG, '0', '代理机构', '1', '个人代理', '') CHANNEL_FLAG,
+		       MOBILE,cad.TEL,cad.LICENSE_NO,cad.BUSINESS_NO,
+		       decode(cad.SEX, '106001', '男', '106002', '女', '106003', '不清楚', '106009', '未知', '') SEX,
+		       et.EDUCATIOIN_NAME EDUCATIOIN,DUTY,
+		       tt.TITLE_NAME TITLE,
+		       ct.CERTIFY_TYPE_NAME CERTIFY_TYPE,
+		       cad.CERTIFY_NO,BANK_NAME,BANK_ACCOUNT,
+		       BANK_NODE,
+		       decode(pb.STATUS, '1', '有效', '') STATUS,
+		       cad.UPDATED_DATE
+		from CHANNEL_MAIN_HISTORY pb 
+		  left join CHANNEL_AGENT_DETAIL_HISTORY cad 
+		on pb.History_Id = cad.History_Id 
+		  left join (select * from CATEGORY where VALID_IND = 1) cg
+		on pb.CATEGORY = cg.CATEGORY_CODE 
+		  left join DEPARTMENT dept
+		on pb.DEPT_CODE = dept.DEPT_CODE and dept.VALID_IND = 1 
+		  left join (select * from CERTIFY_TYPE where VALID_IND = 1) ct 
+		on cad.CERTIFY_TYPE = ct.CERTIFY_TYPE_CODE
+		  left join (select * from EDUCATIOIN where VALID_IND = 1) et
+		on cad.EDUCATIOIN = et.EDUCATIOIN_CODE
+		  left join (select * from TITLE where VALID_IND = 1) tt
+		on cad.TITLE = tt.TITLE_CODE
+		  left join salesman sa 
+		on pb.APPROVE_CODE = sa.employ_code
+		<include refid="Base_Where_Sql"/>
+			<if test="deptCode != null and deptCode != ''">
+				and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+			</if>
+		and pb.VALID_IND = 1 
+		group by pb.HISTORY_ID,
+			   pb.DEPT_CODE,dept_simple_name,
+		       cad.CHANNEL_CODE,CHANNEL_NAME,
+		       cg.CATEGORY_NAME,CHANNEL_FLAG,
+		       MOBILE,cad.TEL,cad.LICENSE_NO,cad.BUSINESS_NO,
+		       cad.SEX,et.EDUCATIOIN_NAME,DUTY,tt.TITLE_NAME,
+		       ct.CERTIFY_TYPE_NAME,
+		       cad.CERTIFY_NO,BANK_NAME,BANK_ACCOUNT,
+		       BANK_NODE,
+		       pb.APPROVE_FLAG,
+		       pb.updated_user,
+		       pb.STATUS,
+		       cad.UPDATED_DATE
+		order by cad.UPDATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryListsPage" parameterType="map" resultMap="BaseResultMap">
+		select QUALIFICATION_NO,BUSINESS_NO,
+		to_char(BUSINESS_VALID_DATE,'yyyy-mm-dd') as "BUSINESS_VALID_DATE",
+		cad.STATUS,CHANNEL_NAME,CERTIFY_NO,
+		to_char(BUSINESS_EXPIRE_DATE,'yyyy-mm-dd') as "BUSINESS_EXPIRE_DATE",
+		cad.LICENSE_NO,cad.TEL,SEX,
+		to_char(LICENSE_EXPIRE_DATE,'yyyy-mm-dd') as "LICENSE_EXPIRE_DATE",
+		EMAIL,EDUCATIOIN,cad.FAX,
+		to_char(BIRTHDAY,'yyyy-mm-dd') as "BIRTHDAY",
+		CERTIFY_TYPE,cad.CHANNEL_CODE,
+		to_char(LICENSE_VALID_DATE,'yyyy-mm-dd') as "LICENSE_VALID_DATE",
+		ADDERSS,MOBILE,cad.POST_CODE,DUTY,
+		CONTRACT_NO,TITLE,CHILD_DEPT_LOOK,
+		BANK_NODE,BANK_ACCOUNT,REMARK,CHANNEL_CATEGORY,MISTAKE_CONTENT,BANK_PROVINCE,
+		BANK_RECEIVE,FINANCE_FLAG,CHANNEL_TYPE,pb.DEPT_CODE,OFFICE_ADDRESS,BANK_NAME,
+		CONTACT,BUSINESS_LINE,CHANNEL_FEATURE,BANK_CITY,MISTAKE_FLAG,
+		CHANNEL_FLAG,CHANNEL_RATE,pb.DEPT_CODE || '-' || dept_simple_name dept_simple_name,
+		to_char(QUALIFICATION_VALID_DATE,'yyyy-mm-dd') as "QUALIFICATION_VALID_DATE",
+		to_char(QUALIFICATION_EXPIRE_DATE,'yyyy-mm-dd') as "QUALIFICATION_EXPIRE_DATE"
+		from CHANNEL_AGENT_DETAIL_HISTORY cad left join CHANNEL_MAIN_HISTORY pb 
+			on pb.History_Id = cad.History_Id 
+		left join DEPARTMENT dept
+		    on pb.DEPT_CODE = dept.DEPT_CODE
+		where cad.HISTORY_ID = #{historyId}
+		and pb.VALID_IND = 1 and cad.VALID_IND = 1 and dept.VALID_IND = 1
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_AGENT_DETAIL_HISTORY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_AGENT_DETAIL_HISTORY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_AGENT_DETAIL_HISTORY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_AGENT_DETAIL_HISTORY
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_AGENT_DETAIL_HISTORY <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<insert id="insertData" parameterType="map" >
+    insert into CHANNEL_AGENT_DETAIL_HISTORY ( <include refid="Base_Column_List" /> )
+		select QUALIFICATION_NO,
+			#{updatedUser,jdbcType=VARCHAR},
+			BUSINESS_NO,
+			BUSINESS_VALID_DATE,
+			sysdate,
+			STATUS,
+			CHANNEL_NAME,
+			CHILD_DEPT_LOOK,
+			CERTIFY_NO,
+			VALID_IND,
+			sysdate,
+			BUSINESS_EXPIRE_DATE,
+			LICENSE_NO,
+			TEL,
+			SEX,
+			LICENSE_EXPIRE_DATE,
+			EMAIL,
+			EDUCATIOIN,
+			FAX,
+			#{updatedUser,jdbcType=VARCHAR},
+			BIRTHDAY,
+			CERTIFY_TYPE,
+			CHANNEL_CODE,
+			LICENSE_VALID_DATE,
+			#{historyId,jdbcType=VARCHAR},
+			ADDERSS,
+			MOBILE,
+			POST_CODE,
+			DUTY,
+			CONTRACT_NO,
+			TITLE,
+			QUALIFICATION_VALID_DATE,
+			QUALIFICATION_EXPIRE_DATE
+			from channel_agent_detail cmd
+		where cmd.channel_code = #{channelCode,jdbcType=VARCHAR}
+		and cmd.valid_ind = '1'
+	</insert>
+</mapper>

@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelMediumDetail" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="CHANNEL_CODE" property="channelCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="SIGN_DATE" property="signDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CHANNEL_EXTEND_CODE" property="channelExtendCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALE_POLICY_ADDRESS" property="salePolicyAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHILD_DEPT_LOOK" property="childDeptLook" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="WEBSITE" property="website" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CHANNEL_OUTER_CODE" property="channelOuterCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LEGAL" property="legal" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_DATE" property="validDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="MEDIUM_ENAME" property="mediumEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROFESSION" property="profession" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="LICENCE" property="licence" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EXPIRE_DATE" property="expireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CHANNEL_LEVEL" property="channelLevel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALE_POLICY_NAME" property="salePolicyName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIMPLE_NAME" property="simpleName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REGISTER_ADDRESS" property="registerAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNTRY" property="country" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="PARTER_LEVEL" property="parterLevel" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MEDIUM_CNAME" property="mediumCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_POLICY_FLAG" property="financePolicyFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="INNER_CODE" property="innerCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SUPPORT_FLAG" property="supportFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_DEPT_CODE" property="processDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_CHANNEL_CODE" property="parentChannelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENT_CODE" property="agentCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_USER_CODE" property="processUserCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MSG_CAR" property="msgCar" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MSG_CUSTOMER" property="msgCustomer" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BANK_NODE" property="bankNode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_ACCOUNT" property="bankAccount" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CATEGORY" property="category" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_CONTENT" property="mistakeContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_PROVINCE" property="bankProvince" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_RECEIVE" property="bankReceive" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="FINANCE_FLAG" property="financeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROPERTY" property="property" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OFFICE_ADDRESS" property="officeAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FEATURE" property="channelFeature" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BANK_CITY" property="bankCity" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_FLAG" property="mistakeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FLAG" property="channelFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_RATE" property="channelRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="dept_simple_name" property="deptCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_TYPE" property="channelType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_OWN_TYPE" property="channelOwnType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CATEGORY" property="channelCategory" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_PROPERTY" property="channelProperty" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_FLAG" property="approveFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_CODE" property="approveCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_AGENTORG_CDE" property="cAgentorgCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_UKEY_CDE" property="cUkeyCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHEAT_CODE" property="cheatCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelMediumDetail">
+		<id column="CHANNEL_CODE" property="channelCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="SIGN_DATE" property="signDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CHANNEL_EXTEND_CODE" property="channelExtendCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALE_POLICY_ADDRESS" property="salePolicyAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHILD_DEPT_LOOK" property="childDeptLook" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="WEBSITE" property="website" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CHANNEL_OUTER_CODE" property="channelOuterCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LEGAL" property="legal" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_DATE" property="validDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="MEDIUM_ENAME" property="mediumEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROFESSION" property="profession" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="LICENCE" property="licence" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EXPIRE_DATE" property="expireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CHANNEL_LEVEL" property="channelLevel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALE_POLICY_NAME" property="salePolicyName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIMPLE_NAME" property="simpleName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REGISTER_ADDRESS" property="registerAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNTRY" property="country" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="PARTER_LEVEL" property="parterLevel" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MEDIUM_CNAME" property="mediumCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_POLICY_FLAG" property="financePolicyFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="INNER_CODE" property="innerCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SUPPORT_FLAG" property="supportFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_DEPT_CODE" property="processDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_CHANNEL_CODE" property="parentChannelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENT_CODE" property="agentCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_USER_CODE" property="processUserCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_AGENTORG_CDE" property="cAgentorgCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_UKEY_CDE" property="cUkeyCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHEAT_CODE" property="cheatCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		SIGN_DATE,
+		CHANNEL_EXTEND_CODE,
+		CREATED_USER,
+		AREA_CODE,
+		SALE_POLICY_ADDRESS,
+		UPDATED_DATE,
+		STATUS,
+		CHILD_DEPT_LOOK,
+		WEBSITE,
+		VALID_IND,
+		CREATED_DATE,
+		CHANNEL_OUTER_CODE,
+		LEGAL,
+		VALID_DATE,
+		MEDIUM_ENAME,
+		PROFESSION,
+		LICENCE,
+		UPDATED_USER,
+		EXPIRE_DATE,
+		CHANNEL_LEVEL,
+		CITY_CODE,
+		SALE_POLICY_NAME,
+		SIMPLE_NAME,
+		REGISTER_ADDRESS,
+		COUNTRY,
+		CHANNEL_CODE,
+		PARTER_LEVEL,
+		MEDIUM_CNAME,
+		FINANCE_POLICY_FLAG,
+		INNER_CODE,
+		SUPPORT_FLAG,
+		PROCESS_DEPT_CODE,
+		PARENT_CHANNEL_CODE,
+		AGENT_CODE,
+		PROCESS_USER_CODE,
+		C_AGENTORG_CDE,
+		C_UKEY_CDE,
+		CHEAT_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		SIGN_DATE as "signDate",
+		CHANNEL_EXTEND_CODE as "channelExtendCode",
+		CREATED_USER as "createdUser",
+		AREA_CODE as "areaCode",
+		SALE_POLICY_ADDRESS as "salePolicyAddress",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		CHILD_DEPT_LOOK as "childDeptLook",
+		WEBSITE as "website",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		CHANNEL_OUTER_CODE as "channelOuterCode",
+		LEGAL as "legal",
+		VALID_DATE as "validDate",
+		MEDIUM_ENAME as "mediumEname",
+		PROFESSION as "profession",
+		LICENCE as "licence",
+		UPDATED_USER as "updatedUser",
+		EXPIRE_DATE as "expireDate",
+		CHANNEL_LEVEL as "channelLevel",
+		CITY_CODE as "cityCode",
+		SALE_POLICY_NAME as "salePolicyName",
+		SIMPLE_NAME as "simpleName",
+		REGISTER_ADDRESS as "registerAddress",
+		COUNTRY as "country",
+		CHANNEL_CODE as "channelCode",
+		PARTER_LEVEL as "parterLevel",
+		MEDIUM_CNAME as "mediumCname",
+		FINANCE_POLICY_FLAG as "financePolicyFlag",
+		INNER_CODE as "innerCode",
+		SUPPORT_FLAG as "supportFlag",
+		PROCESS_DEPT_CODE as "processDeptCode",
+		PARENT_CHANNEL_CODE as "parentChannelCode",
+		AGENT_CODE as "agentCode",
+		PROCESS_USER_CODE as "processUserCode",
+		CHEAT_CODE as "cheatCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{channelExtendCode,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{areaCode,jdbcType=VARCHAR},
+ 		#{salePolicyAddress,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{childDeptLook,jdbcType=CHAR},
+ 		#{website,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{channelOuterCode,jdbcType=VARCHAR},
+ 		#{legal,jdbcType=VARCHAR},
+ 		to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{mediumEname,jdbcType=VARCHAR},
+ 		#{profession,jdbcType=CHAR},
+ 		#{licence,jdbcType=VARCHAR},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{channelLevel,jdbcType=VARCHAR},
+ 		#{cityCode,jdbcType=VARCHAR},
+ 		#{salePolicyName,jdbcType=VARCHAR},
+ 		#{simpleName,jdbcType=VARCHAR},
+ 		#{registerAddress,jdbcType=VARCHAR},
+ 		#{country,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{parterLevel,jdbcType=CHAR},
+ 		#{mediumCname,jdbcType=VARCHAR},
+ 		#{financePolicyFlag,jdbcType=CHAR},
+ 		#{innerCode,jdbcType=VARCHAR},
+ 		#{supportFlag,jdbcType=CHAR},
+ 		#{processDeptCode,jdbcType=VARCHAR},
+ 		#{parentChannelCode,jdbcType=VARCHAR},
+ 		#{agentCode,jdbcType=VARCHAR},
+ 		#{processUserCode,jdbcType=VARCHAR},
+ 		#{cAgentorgCde,jdbcType=VARCHAR},
+ 		#{cUkeyCde,jdbcType=VARCHAR},
+ 		#{cheatCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+			1 = 1
+		<if test="signDate != null and signDate != ''">
+			and SIGN_DATE = #{signDate,jdbcType=DATE}
+		</if>
+		<if test="channelExtendCode != null and channelExtendCode != ''">
+			and CHANNEL_EXTEND_CODE = #{channelExtendCode,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="areaCode != null and areaCode != ''">
+			and AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+		</if>
+		<if test="salePolicyAddress != null and salePolicyAddress != ''">
+			and SALE_POLICY_ADDRESS = #{salePolicyAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="childDeptLook != null and childDeptLook != ''">
+			and CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR}
+		</if>
+		<if test="website != null and website != ''">
+			and WEBSITE = #{website,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="channelOuterCode != null and channelOuterCode != ''">
+			and CHANNEL_OUTER_CODE = #{channelOuterCode,jdbcType=VARCHAR}
+		</if>
+		<if test="legal != null and legal != ''">
+			and LEGAL = #{legal,jdbcType=VARCHAR}
+		</if>
+		<if test="validDate != null and validDate != ''">
+			and VALID_DATE = #{validDate,jdbcType=DATE}
+		</if>
+		<if test="mediumEname != null and mediumEname != ''">
+			and MEDIUM_ENAME = #{mediumEname,jdbcType=VARCHAR}
+		</if>
+		<if test="profession != null and profession != ''">
+			and PROFESSION = #{profession,jdbcType=CHAR}
+		</if>
+		<if test="licence != null and licence != ''">
+			and LICENCE = #{licence,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="expireDate != null and expireDate != ''">
+			and EXPIRE_DATE = #{expireDate,jdbcType=DATE}
+		</if>
+		<if test="channelLevel != null and channelLevel != ''">
+			and CHANNEL_LEVEL = #{channelLevel,jdbcType=VARCHAR}
+		</if>
+		<if test="cityCode != null and cityCode != ''">
+			and CITY_CODE = #{cityCode,jdbcType=VARCHAR}
+		</if>
+		<if test="salePolicyName != null and salePolicyName != ''">
+			and SALE_POLICY_NAME = #{salePolicyName,jdbcType=VARCHAR}
+		</if>
+		<if test="simpleName != null and simpleName != ''">
+			and SIMPLE_NAME = #{simpleName,jdbcType=VARCHAR}
+		</if>
+		<if test="registerAddress != null and registerAddress != ''">
+			and REGISTER_ADDRESS = #{registerAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="country != null and country != ''">
+			and COUNTRY = #{country,jdbcType=VARCHAR}
+		</if>
+		<if test="parterLevel != null and parterLevel != ''">
+			and PARTER_LEVEL = #{parterLevel,jdbcType=CHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="mediumCname != null and mediumCname != ''">
+			and MEDIUM_CNAME = #{mediumCname,jdbcType=VARCHAR}
+		</if>
+		<if test="financePolicyFlag != null and financePolicyFlag != ''">
+			and FINANCE_POLICY_FLAG = #{financePolicyFlag,jdbcType=CHAR}
+		</if>
+		<if test="innerCode != null and innerCode != ''">
+			and INNER_CODE = #{innerCode,jdbcType=VARCHAR}
+		</if>
+		<if test="supportFlag != null and supportFlag != ''">
+			and SUPPORT_FLAG = #{supportFlag,jdbcType=CHAR}
+		</if>
+		<if test="processDeptCode != null and processDeptCode != ''">
+			and PROCESS_DEPT_CODE = #{processDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="parentChannelCode != null and parentChannelCode != ''">
+			and PARENT_CHANNEL_CODE = #{parentChannelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="agentCode != null and agentCode != ''">
+			and AGENT_CODE = #{agentCode,jdbcType=VARCHAR}
+		</if>
+		<if test="processUserCode != null and processUserCode != ''">
+			and PROCESS_USER_CODE = #{processUserCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="Base_Where_Sql_1">
+		<where>
+			1 = 1
+			and pb.channel_flag = '0'
+		<if test="signDate != null and signDate != ''">
+			and SIGN_DATE = #{signDate,jdbcType=DATE}
+		</if>
+		<if test="channelExtendCode != null and channelExtendCode != ''">
+			and CHANNEL_EXTEND_CODE = #{channelExtendCode,jdbcType=VARCHAR}
+		</if>
+		<if test="areaCode != null and areaCode != ''">
+			and AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+		</if>
+		<if test="salePolicyAddress != null and salePolicyAddress != ''">
+			and SALE_POLICY_ADDRESS = #{salePolicyAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="childDeptLook != null and childDeptLook != ''">
+			and CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR}
+		</if>
+		<if test="website != null and website != ''">
+			and WEBSITE = #{website,jdbcType=VARCHAR}
+		</if>
+		<if test="channelOuterCode != null and channelOuterCode != ''">
+			and CHANNEL_OUTER_CODE = #{channelOuterCode,jdbcType=VARCHAR}
+		</if>
+		<if test="legal != null and legal != ''">
+			and LEGAL = #{legal,jdbcType=VARCHAR}
+		</if>
+		<if test="validDate != null and validDate != ''">
+			and VALID_DATE = #{validDate,jdbcType=DATE}
+		</if>
+		<if test="mediumEname != null and mediumEname != ''">
+			and MEDIUM_ENAME = #{mediumEname,jdbcType=VARCHAR}
+		</if>
+		<if test="profession != null and profession != ''">
+			and PROFESSION = #{profession,jdbcType=CHAR}
+		</if>
+		<if test="licence != null and licence != ''">
+			and LICENCE = #{licence,jdbcType=VARCHAR}
+		</if>
+		<if test="expireDate != null and expireDate != ''">
+			and EXPIRE_DATE = #{expireDate,jdbcType=DATE}
+		</if>
+		<if test="channelLevel != null and channelLevel != ''">
+			and CHANNEL_LEVEL = #{channelLevel,jdbcType=VARCHAR}
+		</if>
+		<if test="cityCode != null and cityCode != ''">
+			and CITY_CODE = #{cityCode,jdbcType=VARCHAR}
+		</if>
+		<if test="salePolicyName != null and salePolicyName != ''">
+			and SALE_POLICY_NAME = #{salePolicyName,jdbcType=VARCHAR}
+		</if>
+		<if test="simpleName != null and simpleName != ''">
+			and SIMPLE_NAME = #{simpleName,jdbcType=VARCHAR}
+		</if>
+		<if test="registerAddress != null and registerAddress != ''">
+			and REGISTER_ADDRESS = #{registerAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="country != null and country != ''">
+			and COUNTRY = #{country,jdbcType=VARCHAR}
+		</if>
+		<if test="parterLevel != null and parterLevel != ''">
+			and PARTER_LEVEL = #{parterLevel,jdbcType=CHAR}
+		</if>
+		<if test="financePolicyFlag != null and financePolicyFlag != ''">
+			and FINANCE_POLICY_FLAG = #{financePolicyFlag,jdbcType=CHAR}
+		</if>
+		<if test="innerCode != null and innerCode != ''">
+			and INNER_CODE = #{innerCode,jdbcType=VARCHAR}
+		</if>
+		<if test="supportFlag != null and supportFlag != ''">
+			and SUPPORT_FLAG = #{supportFlag,jdbcType=CHAR}
+		</if>
+		<if test="processDeptCode != null and processDeptCode != ''">
+			and PROCESS_DEPT_CODE = #{processDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="parentChannelCode != null and parentChannelCode != ''">
+			and PARENT_CHANNEL_CODE = #{parentChannelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="agentCode != null and agentCode != ''">
+			and AGENT_CODE = #{agentCode,jdbcType=VARCHAR}
+		</if>
+		<if test="processUserCode != null and processUserCode != ''">
+			and PROCESS_USER_CODE = #{processUserCode,jdbcType=VARCHAR}
+		</if>
+		<!--中介机构主表字段-->
+		<if test="deptCode != null and deptCode != ''">
+			and pb.DEPT_CODE in (select t.dept_code from department t where t.inter_code like f_get_inter_dept(#{deptCode,jdbcType=VARCHAR}) || '%')
+		</if>
+		<if test="property != null and property != ''">
+			and PROPERTY = #{property,jdbcType=CHAR}
+		</if>
+		<if test="category != null and category != ''">
+			and CATEGORY = #{category,jdbcType=CHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and cm.CHANNEL_CODE = trim(#{channelCode,jdbcType=VARCHAR})
+		</if>
+		<if test="mediumCname != null and mediumCname != ''">
+			and MEDIUM_CNAME like '%' || trim(#{mediumCname,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="businessLine != null and businessLine != ''">
+			and pb.BUSINESS_LINE = #{businessLine,jdbcType=CHAR}
+		</if>
+		<if test="certifyValid != null and certifyValid != ''">
+			<if test="certifyValid == 0">
+			<![CDATA[
+				and cm.EXPIRE_DATE >= trunc(sysdate)
+			]]>
+			</if>
+			<if test="certifyValid == 1">
+			<![CDATA[
+				and cm.EXPIRE_DATE < trunc(sysdate)
+			]]>
+			</if>
+		</if>
+		<if test="isDelete!=1"><!-- 已删除 -->
+			and pb.VALID_IND = 1 
+			and cm.VALID_IND = 1
+		</if>
+		<if test=" certificateType != null and certificateType != '' ">
+			<if test=" certificateType == 1 ">
+			<![CDATA[
+				and cm.expire_date is not null 
+				and trunc(cm.expire_date) >= trunc(to_date(#{queryValidDate},'yyyy-mm-dd'))
+				and trunc(cm.expire_date) <= trunc(to_date(#{queryInvalidDate},'yyyy-mm-dd'))
+		 	]]>
+			</if>
+		 	<if test=" certificateType == 2 ">
+		 	<![CDATA[
+		 	    and (
+		          select
+		            case 
+		              when 
+		                max(clcr.expire_date) is not null 
+		                and trunc(max(clcr.expire_date)) >= trunc(to_date(#{queryValidDate},'yyyy-mm-dd'))
+		                and trunc(max(clcr.expire_date)) <= trunc(to_date(#{queryInvalidDate},'yyyy-mm-dd'))
+		              then '1'
+		              else '0'
+		            end 
+		          from CHANNEL_CONFER clcr
+		          where clcr.CHANNEL_CODE = cm.channel_code
+		            and clcr.VALID_IND = '1'
+		        ) = '1'
+		 	]]>
+		 	</if>
+		 </if>
+		 <!-- 状态 -->
+		 <if test="queryStatus!=null and queryStatus!=''">
+		 	<if test="queryStatus==1"><!-- 正在代理 -->
+		 	<![CDATA[
+		 	  and ( cm.expire_date is null or trunc(cm.expire_date) > trunc(sysdate) )
+              and (
+                select
+                  case 
+                    when max(clcr.expire_date) is null or max(clcr.expire_date) > sysdate then '1'
+                    else '0'
+                  end 
+                from CHANNEL_CONFER clcr
+                where clcr.CHANNEL_CODE = cm.channel_code
+                  and clcr.VALID_IND = '1'
+              ) = '1'
+			]]>
+		 	</if>
+		 	<if test="queryStatus==2"><!-- 资质过期 -->
+		 	<![CDATA[
+		 	  and cm.expire_date is not null
+			  and trunc(cm.expire_date) < trunc(sysdate)
+			]]>
+		 	</if>
+		 	<if test="queryStatus==3"><!-- 协议过期 -->
+		 	<![CDATA[
+		 	   and (
+		          select
+		            case 
+		              when max(clcr.expire_date) is not null and max(clcr.expire_date) < sysdate then '1'
+		              else '0'
+		            end 
+		          from CHANNEL_CONFER clcr
+		          where clcr.CHANNEL_CODE = cm.channel_code
+		            and clcr.VALID_IND = '1'
+		       ) = '1'
+		    ]]>
+		 	</if>
+		 	<if test="queryStatus==4"><!-- 资质7日内过期 -->
+		 	<![CDATA[
+		 	  and cm.expire_date is not null 
+		 	  and trunc(cm.expire_date-7) <= trunc(sysdate) 
+		 	  and trunc(cm.expire_date) > trunc(sysdate) 
+			]]>
+		 	</if>
+		 	<if test="queryStatus==5"><!-- 协议7日内过期 -->
+		 	<![CDATA[
+		 	  and (
+		        select
+		          case 
+		            when max(clcr.expire_date) is not null and trunc(max(clcr.expire_date)) > trunc(sysdate) and trunc(max(clcr.expire_date)-7) <= trunc(sysdate) then '1'
+		            else '0'
+		          end 
+		        from CHANNEL_CONFER clcr
+		        where clcr.CHANNEL_CODE = pb.channel_code
+		          and clcr.VALID_IND = '1'
+		      ) = '1'
+		    ]]>
+		 	</if>
+		 	</if>
+		</where>
+	</sql>
+	
+	<sql id="Base_Where_Sql_ParentChannel">
+		<where>
+			1 = 1
+		<if test="channelCode != null and channelCode != ''">
+			and cm.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="mediumCname != null and mediumCname != ''">
+			and MEDIUM_CNAME like '%' || #{mediumCname,jdbcType=VARCHAR} || '%'
+		</if>
+		<!--中介机构主表字段-->
+		<if test="deptCode != null and deptCode != ''">
+			and pb.DEPT_CODE in (
+			<foreach item="item" index="index" collection="deptCode" separator=",">
+				#{item}
+			</foreach> )
+		</if>
+		<if test="deptCode == null or deptCode == ''">
+			and pb.DEPT_CODE = ''
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumDetail" >
+    insert into CHANNEL_MEDIUM_DETAIL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_MEDIUM_DETAIL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_MEDIUM_DETAIL
+    where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_MEDIUM_DETAIL
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_MEDIUM_DETAIL
+	<set>
+	<if test="signDate != null and signDate != ''">
+		SIGN_DATE = #{signDate,jdbcType=DATE},
+	</if>
+  	<if test="channelExtendCode != null and channelExtendCode != ''">
+		CHANNEL_EXTEND_CODE = #{channelExtendCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="areaCode != null and areaCode != ''">
+		AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="salePolicyAddress != null and salePolicyAddress != ''">
+		SALE_POLICY_ADDRESS = #{salePolicyAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="childDeptLook != null and childDeptLook != ''">
+		CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+	</if>
+  	<if test="website != null and website != ''">
+		WEBSITE = #{website,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="channelOuterCode != null and channelOuterCode != ''">
+		CHANNEL_OUTER_CODE = #{channelOuterCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="legal != null and legal != ''">
+		LEGAL = #{legal,jdbcType=VARCHAR},
+	</if>
+  	<if test="validDate != null and validDate != ''">
+		VALID_DATE = #{validDate,jdbcType=DATE},
+	</if>
+  	<if test="mediumEname != null and mediumEname != ''">
+		MEDIUM_ENAME = #{mediumEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="profession != null and profession != ''">
+		PROFESSION = #{profession,jdbcType=CHAR},
+	</if>
+  	<if test="licence != null and licence != ''">
+		LICENCE = #{licence,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="expireDate != null and expireDate != ''">
+		EXPIRE_DATE = #{expireDate,jdbcType=DATE},
+	</if>
+  	<if test="channelLevel != null and channelLevel != ''">
+		CHANNEL_LEVEL = #{channelLevel,jdbcType=VARCHAR},
+	</if>
+  	<if test="cityCode != null and cityCode != ''">
+		CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="salePolicyName != null and salePolicyName != ''">
+		SALE_POLICY_NAME = #{salePolicyName,jdbcType=VARCHAR},
+	</if>
+  	<if test="simpleName != null and simpleName != ''">
+		SIMPLE_NAME = #{simpleName,jdbcType=VARCHAR},
+	</if>
+  	<if test="registerAddress != null and registerAddress != ''">
+		REGISTER_ADDRESS = #{registerAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="country != null and country != ''">
+		COUNTRY = #{country,jdbcType=VARCHAR},
+	</if>
+   	<if test="parterLevel != null and parterLevel != ''">
+		PARTER_LEVEL = #{parterLevel,jdbcType=CHAR},
+	</if>
+  	<if test="mediumCname != null and mediumCname != ''">
+		MEDIUM_CNAME = #{mediumCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="financePolicyFlag != null and financePolicyFlag != ''">
+		FINANCE_POLICY_FLAG = #{financePolicyFlag,jdbcType=CHAR},
+	</if>
+  	<if test="innerCode != null and innerCode != ''">
+		INNER_CODE = #{innerCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="supportFlag != null and supportFlag != ''">
+		SUPPORT_FLAG = #{supportFlag,jdbcType=CHAR},
+	</if>
+  	<if test="processDeptCode != null and processDeptCode != ''">
+		PROCESS_DEPT_CODE = #{processDeptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="parentChannelCode != null and parentChannelCode != ''">
+		PARENT_CHANNEL_CODE = #{parentChannelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="agentCode != null and agentCode != ''">
+		AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="processUserCode != null and processUserCode != ''">
+		PROCESS_USER_CODE = #{processUserCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_MEDIUM_DETAIL
+		set 
+			SIGN_DATE = #{signDate,jdbcType=DATE},
+  			CHANNEL_EXTEND_CODE = #{channelExtendCode,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+  			SALE_POLICY_ADDRESS = #{salePolicyAddress,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+  			WEBSITE = #{website,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CHANNEL_OUTER_CODE = #{channelOuterCode,jdbcType=VARCHAR},
+  			LEGAL = #{legal,jdbcType=VARCHAR},
+  			VALID_DATE = #{validDate,jdbcType=DATE},
+  			MEDIUM_ENAME = #{mediumEname,jdbcType=VARCHAR},
+  			PROFESSION = #{profession,jdbcType=CHAR},
+  			LICENCE = #{licence,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			EXPIRE_DATE = #{expireDate,jdbcType=DATE},
+  			CHANNEL_LEVEL = #{channelLevel,jdbcType=VARCHAR},
+  			CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+  			SALE_POLICY_NAME = #{salePolicyName,jdbcType=VARCHAR},
+  			SIMPLE_NAME = #{simpleName,jdbcType=VARCHAR},
+  			REGISTER_ADDRESS = #{registerAddress,jdbcType=VARCHAR},
+  			COUNTRY = #{country,jdbcType=VARCHAR},
+   			PARTER_LEVEL = #{parterLevel,jdbcType=CHAR},
+  			MEDIUM_CNAME = #{mediumCname,jdbcType=VARCHAR},
+  			FINANCE_POLICY_FLAG = #{financePolicyFlag,jdbcType=CHAR},
+  			INNER_CODE = #{innerCode,jdbcType=VARCHAR},
+  			SUPPORT_FLAG = #{supportFlag,jdbcType=CHAR},
+  			PROCESS_DEPT_CODE = #{processDeptCode,jdbcType=VARCHAR},
+  			PARENT_CHANNEL_CODE = #{parentChannelCode,jdbcType=VARCHAR},
+  			AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+  			PROCESS_USER_CODE = #{processUserCode,jdbcType=VARCHAR}
+  		where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumDetail" >
+	update CHANNEL_MEDIUM_DETAIL
+	<set>
+	<if test="signDate != null and signDate != ''">
+		SIGN_DATE = to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd'),
+	</if>
+  	<if test="channelExtendCode != null and channelExtendCode != ''">
+		CHANNEL_EXTEND_CODE = #{channelExtendCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="areaCode != null and areaCode != ''">
+		AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="salePolicyAddress != null and salePolicyAddress != ''">
+		SALE_POLICY_ADDRESS = #{salePolicyAddress,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="childDeptLook != null and childDeptLook != ''">
+		CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+	</if>
+  	<if test="website != null and website != ''">
+		WEBSITE = #{website,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="channelOuterCode != null and channelOuterCode != ''">
+		CHANNEL_OUTER_CODE = #{channelOuterCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="legal != null and legal != ''">
+		LEGAL = #{legal,jdbcType=VARCHAR},
+	</if>
+  	<if test="validDate != null and validDate != ''">
+		VALID_DATE = to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd'),
+	</if>
+  	<if test="mediumEname != null and mediumEname != ''">
+		MEDIUM_ENAME = #{mediumEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="profession != null and profession != ''">
+		PROFESSION = #{profession,jdbcType=CHAR},
+	</if>
+  	<if test="licence != null and licence != ''">
+		LICENCE = #{licence,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="expireDate != null and expireDate != ''">
+		EXPIRE_DATE = to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd'),
+	</if>
+  	<if test="channelLevel != null and channelLevel != ''">
+		CHANNEL_LEVEL = #{channelLevel,jdbcType=VARCHAR},
+	</if>
+  	<if test="cityCode != null and cityCode != ''">
+		CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="salePolicyName != null and salePolicyName != ''">
+		SALE_POLICY_NAME = #{salePolicyName,jdbcType=VARCHAR},
+	</if>
+  	<if test="simpleName != null and simpleName != ''">
+		SIMPLE_NAME = #{simpleName,jdbcType=VARCHAR},
+	</if>
+  	<if test="registerAddress != null and registerAddress != ''">
+		REGISTER_ADDRESS = #{registerAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="country != null and country != ''">
+		COUNTRY = #{country,jdbcType=VARCHAR},
+	</if>
+   	<if test="parterLevel != null and parterLevel != ''">
+		PARTER_LEVEL = #{parterLevel,jdbcType=CHAR},
+	</if>
+  	<if test="mediumCname != null and mediumCname != ''">
+		MEDIUM_CNAME = #{mediumCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="financePolicyFlag != null and financePolicyFlag != ''">
+		FINANCE_POLICY_FLAG = #{financePolicyFlag,jdbcType=CHAR},
+	</if>
+  	<if test="innerCode != null and innerCode != ''">
+		INNER_CODE = #{innerCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="supportFlag != null and supportFlag != ''">
+		SUPPORT_FLAG = #{supportFlag,jdbcType=CHAR},
+	</if>
+  	<if test="processDeptCode != null and processDeptCode != ''">
+		PROCESS_DEPT_CODE = #{processDeptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="parentChannelCode != null and parentChannelCode != ''">
+		PARENT_CHANNEL_CODE = #{parentChannelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="agentCode != null and agentCode != ''">
+		AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="processUserCode != null and processUserCode != ''">
+		PROCESS_USER_CODE = #{processUserCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumDetail" >
+		update CHANNEL_MEDIUM_DETAIL
+		set 
+			<!--SIGN_DATE = to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd'),-->
+  			EXPIRE_DATE = to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd'),
+  			<!-- VALID_DATE = to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd'), -->
+			
+  			CHANNEL_EXTEND_CODE = #{channelExtendCode,jdbcType=VARCHAR},
+  			AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+  			SALE_POLICY_ADDRESS = #{salePolicyAddress,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR},
+  			WEBSITE = #{website,jdbcType=VARCHAR},
+  			CHANNEL_OUTER_CODE = #{channelOuterCode,jdbcType=VARCHAR},
+  			LEGAL = #{legal,jdbcType=VARCHAR},
+  			MEDIUM_ENAME = #{mediumEname,jdbcType=VARCHAR},
+  			PROFESSION = #{profession,jdbcType=CHAR},
+  			LICENCE = #{licence,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CHANNEL_LEVEL = #{channelLevel,jdbcType=VARCHAR},
+  			CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+  			SALE_POLICY_NAME = #{salePolicyName,jdbcType=VARCHAR},
+  			SIMPLE_NAME = #{simpleName,jdbcType=VARCHAR},
+  			REGISTER_ADDRESS = #{registerAddress,jdbcType=VARCHAR},
+  			COUNTRY = #{country,jdbcType=VARCHAR},
+   			PARTER_LEVEL = #{parterLevel,jdbcType=CHAR},
+  			MEDIUM_CNAME = #{mediumCname,jdbcType=VARCHAR},
+  			FINANCE_POLICY_FLAG = #{financePolicyFlag,jdbcType=CHAR},
+  			INNER_CODE = #{innerCode,jdbcType=VARCHAR},
+  			SUPPORT_FLAG = #{supportFlag,jdbcType=CHAR},
+  			PROCESS_DEPT_CODE = #{processDeptCode,jdbcType=VARCHAR},
+  			PARENT_CHANNEL_CODE = #{parentChannelCode,jdbcType=VARCHAR},
+  			AGENT_CODE = #{agentCode,jdbcType=VARCHAR},
+  			PROCESS_USER_CODE = #{processUserCode,jdbcType=VARCHAR},
+  			C_AGENTORG_CDE = #{cAgentorgCde,jdbcType=VARCHAR},
+  			C_UKEY_CDE = #{cUkeyCde,jdbcType=VARCHAR},
+  			CHEAT_CODE = #{cheatCode,jdbcType=VARCHAR}
+  		where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_DETAIL
+	where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_DETAIL
+	where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+		select 
+		  count(1)
+		from CHANNEL_MEDIUM_DETAIL cm
+		  left join CHANNEL_MAIN pb on pb.CHANNEL_CODE = cm.CHANNEL_CODE
+		  left join salesman sa on pb.APPROVE_CODE = sa.employ_code
+		  left join DEPARTMENT dept on pb.DEPT_CODE = dept.DEPT_CODE 
+		  left join  channel_medium_contact fb on pb.CHANNEL_CODE = fb.CHANNEL_CODE and fb.get_flag = 1 and fb.VALID_IND = 1
+		  left join BUSINESS_LINE bl on pb.BUSINESS_LINE = bl.LINE_CODE and bl.VALID_IND = 1
+		  left join CATEGORY cg on pb.CATEGORY = cg.CATEGORY_CODE and cg.VALID_IND = 1
+		  left join DEPARTMENT deptp on cm.PROCESS_DEPT_CODE = deptp.DEPT_CODE 
+		  <include refid="Base_Where_Sql_1" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumDetail" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_DETAIL cm left join CHANNEL_MAIN pb 
+		on pb.CHANNEL_CODE = cm.CHANNEL_CODE 
+		<include refid="Base_Where_Sql" />
+		and pb.VALID_IND = 1 and cm.VALID_IND = 1
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select pb.DEPT_CODE,
+		       dept.dept_simple_name,
+		       pb.CHANNEL_CODE,
+		       MEDIUM_CNAME,
+		       deptp.dept_simple_name PROCESS_DEPT_CODE,
+		       decode(pb.APPROVE_FLAG, '1', '已审核', '0', '未审核', '已审核') APPROVE_FLAG,
+		       sa.salesman_cname APPROVE_CODE,
+		       decode(pb.valid_ind, '1', '否', '是') STATUS,
+		       cg.CATEGORY_NAME CATEGORY,
+		       bl.LINE_NAME BUSINESS_LINE,
+		       decode(MSG_CAR, '1', '是', '0', '否', '') MSG_CAR,
+		       decode(MSG_CUSTOMER, '1', '是', '0', '否', '') MSG_CUSTOMER,
+		       cm.UPDATED_DATE,
+		       decode(PARTER_LEVEL, '1', '分对分', '0', '总对总', '') PARTER_LEVEL,
+		       <![CDATA[
+				(
+		           case 
+			         when
+			           (
+			                select
+			                  case 
+			                    when max(clcr.expire_date) is not null and max(clcr.expire_date) < sysdate then '1'
+			                    else '0'
+			                  end 
+			                from CHANNEL_CONFER clcr
+			                where clcr.CHANNEL_CODE = cm.channel_code
+			                  and clcr.VALID_IND = '1'
+			             ) = '1'
+			            and cm.expire_date is not null and trunc(cm.expire_date) < trunc(sysdate) 
+			         then '资质和协议过期'
+			         when cm.expire_date is not null and trunc(cm.expire_date) < trunc(sysdate) 
+			         then '资质过期'
+			         when
+			           (
+			                select
+			                  case 
+			                    when max(clcr.expire_date) is not null and max(clcr.expire_date) < sysdate then '1'
+			                    else '0'
+			                  end 
+			                from CHANNEL_CONFER clcr
+			                where clcr.CHANNEL_CODE = cm.channel_code
+			                  and clcr.VALID_IND = '1'
+			             ) = '1'
+			         then '协议过期'
+			         when ( cm.expire_date is null or trunc(cm.expire_date) > trunc(sysdate) )
+			             and (
+			                select
+			                  case 
+			                    when max(clcr.expire_date) is null or max(clcr.expire_date) > sysdate then '1'
+			                    else '0'
+			                  end 
+			                from CHANNEL_CONFER clcr
+			                where clcr.CHANNEL_CODE = cm.channel_code
+			                  and clcr.VALID_IND = '1'
+			             ) = '1'
+			           then '正在代理'
+			            else '---'
+			           end
+			         ) "newStatus"
+		       ]]>
+		  from CHANNEL_MEDIUM_DETAIL cm
+			  left join CHANNEL_MAIN pb on pb.CHANNEL_CODE = cm.CHANNEL_CODE
+			  left join salesman sa on pb.APPROVE_CODE = sa.employ_code
+			  left join DEPARTMENT dept on pb.DEPT_CODE = dept.DEPT_CODE <!--and dept.VALID_IND = 1-->
+			  left join  channel_medium_contact fb on pb.CHANNEL_CODE = fb.CHANNEL_CODE and fb.get_flag = 1 and fb.VALID_IND = 1
+			  left join BUSINESS_LINE bl on pb.BUSINESS_LINE = bl.LINE_CODE and bl.VALID_IND = 1
+			  left join CATEGORY cg on pb.CATEGORY = cg.CATEGORY_CODE and cg.VALID_IND = 1
+			  left join DEPARTMENT deptp on cm.PROCESS_DEPT_CODE = deptp.DEPT_CODE <!--and deptp.VALID_IND = 1-->
+		      <include refid = "Base_Where_Sql_1" />
+		  order by cm.UPDATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 中介渠道详细信息,关联核心员工表（取经办人） -->
+	<select id="queryListsPage" parameterType="map" resultMap="BaseResultMap">
+		select to_char(cm.SIGN_DATE, 'yyyy-mm-dd') as "SIGN_DATE",
+		       cm.CHANNEL_EXTEND_CODE,
+		       cm.STATUS,
+		       cm.CHILD_DEPT_LOOK,
+		       cm.WEBSITE,
+		       cm.CHANNEL_OUTER_CODE,
+		       cm.LEGAL,
+		       to_char(cm.VALID_DATE, 'yyyy-mm-dd') as "VALID_DATE",
+		       cm.MEDIUM_ENAME,
+		       cm.PROFESSION,
+		       cm.LICENCE,
+		       to_char(cm.EXPIRE_DATE, 'yyyy-mm-dd') as "EXPIRE_DATE",
+		       cm.CHANNEL_LEVEL,
+		       cm.CITY_CODE,
+		       cm.SALE_POLICY_NAME,
+		       cm.SIMPLE_NAME,
+		       cm.REGISTER_ADDRESS,
+		       cm.COUNTRY,
+		       cm.CHANNEL_CODE,
+		       cm.PARTER_LEVEL,
+		       cm.MEDIUM_CNAME,
+		       cm.FINANCE_POLICY_FLAG,
+		       cm.INNER_CODE,
+		       cm.SUPPORT_FLAG,
+		       cm.PROCESS_DEPT_CODE || '-' || deptp.dept_simple_name PROCESS_DEPT_CODE,
+		       cm.AGENT_CODE,
+		       sa.c_emp_cnm || '(' || cm.PROCESS_USER_CODE || ')' PROCESS_USER_CODE,
+		       BANK_NODE,
+		       BANK_ACCOUNT,
+		       pb.REMARK,
+		       CHANNEL_CATEGORY,
+		       MISTAKE_CONTENT,
+		       pb.TEL,
+		       BANK_PROVINCE,
+		       BANK_RECEIVE,
+		       FINANCE_FLAG,
+		       CHANNEL_PROPERTY,
+		       pb.DEPT_CODE,
+		       OFFICE_ADDRESS,
+		       BANK_NAME,
+		       CONTACT,
+		       pb.BUSINESS_LINE,
+		       CHANNEL_FEATURE,
+		       BANK_CITY,
+		       MISTAKE_FLAG,
+		       CHANNEL_TYPE,
+		       CHANNEL_OWN_TYPE,
+		       CHANNEL_FLAG,
+		       CHANNEL_RATE,
+		       pb.DEPT_CODE || '-' || dept.dept_simple_name dept_simple_name,
+		       cm.PARENT_CHANNEL_CODE || '-' || cn.MEDIUM_CNAME PARENT_CHANNEL_CODE,
+		       cm.C_AGENTORG_CDE,
+		       cm.C_UKEY_CDE,
+		       cm.CHEAT_CODE,
+		       pb.TAXPAYER as "taxpayerName",
+		       pb.TAXPAYER_NO as "taxpayerIdNum",
+		       pb.TAXPAYER_QUALIFICATION as "taxpayerQualify",
+		       pb.TAX_INVOICE as "invoiceType",
+		       pb.TAX_RATE as "taxRate"
+		  from CHANNEL_MEDIUM_DETAIL cm
+		  left join CHANNEL_MAIN pb
+		    on cm.CHANNEL_CODE = pb.CHANNEL_CODE
+		   and pb.VALID_IND = 1
+		  left join CHANNEL_MEDIUM_DETAIL cn
+		    on cm.PARENT_CHANNEL_CODE = cn.CHANNEL_CODE
+		   and cn.VALID_IND = 1
+		  left join DEPARTMENT dept
+		    on pb.DEPT_CODE = dept.DEPT_CODE
+		  left join DEPARTMENT deptp
+		    on cm.PROCESS_DEPT_CODE = deptp.DEPT_CODE
+		  left join t_emp_cde sa
+		    on cm.PROCESS_USER_CODE = sa.c_emp_cde
+		 where cm.CHANNEL_CODE = #{channelCode}
+		   and cm.VALID_IND = 1
+	</select>
+	
+	<select id="queryParentMediums" parameterType="map" resultMap="BaseResultMap">
+		select cmd.CHANNEL_CODE,cmd.MEDIUM_CNAME 
+		  from CHANNEL_MEDIUM_DETAIL cmd
+		left join CHANNEL_MAIN cm
+		  on cmd.CHANNEL_CODE = cm.CHANNEL_CODE
+		  where cm.DEPT_CODE like #{deptCode} || '%'
+		and cmd.VALID_IND = 1 and cm.VALID_IND = 1
+			union all
+		select cad.CHANNEL_CODE,cad.CHANNEL_NAME MEDIUM_CNAME
+		  from CHANNEL_AGENT_DETAIL cad
+		left join CHANNEL_MAIN cm
+		  on cad.CHANNEL_CODE = cm.CHANNEL_CODE
+		  where cm.DEPT_CODE like #{deptCode} || '%'
+		and cad.VALID_IND = 1 and cm.VALID_IND = 1
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_DETAIL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_DETAIL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_DETAIL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_MEDIUM_DETAIL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_MEDIUM_DETAIL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<update id="deleteById" parameterType="map" >
+		update CHANNEL_MEDIUM_DETAIL
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="queryCountForHistory" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_DETAIL cm left join CHANNEL_MAIN pb 
+		on pb.CHANNEL_CODE = cm.CHANNEL_CODE 
+		where pb.VALID_IND = 1 and cm.VALID_IND = 1
+			and SIGN_DATE = to_date(#{signDate,jdbcType=DATE},'yyyy/mm/dd')
+			<if test="channelExtendCode != null and channelExtendCode != ''">
+					and CHANNEL_EXTEND_CODE = #{channelExtendCode,jdbcType=VARCHAR}
+				</if>
+				<if test="channelExtendCode == null or channelExtendCode == ''">
+					and CHANNEL_EXTEND_CODE is null
+			</if>
+			<if test="areaCode != null and areaCode != ''">
+					and AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+				</if>
+				<if test="areaCode == null or areaCode == ''">
+					and AREA_CODE is null
+			</if>
+			<if test="salePolicyAddress != null and salePolicyAddress != ''">
+					and SALE_POLICY_ADDRESS = #{salePolicyAddress,jdbcType=VARCHAR}
+				</if>
+				<if test="salePolicyAddress == null or salePolicyAddress == ''">
+					and SALE_POLICY_ADDRESS is null
+			</if>
+			<if test="childDeptLook != null and childDeptLook != ''">
+					and CHILD_DEPT_LOOK = #{childDeptLook,jdbcType=CHAR}
+				</if>
+				<if test="childDeptLook == null or childDeptLook == ''">
+					and CHILD_DEPT_LOOK is null
+			</if>
+			<if test="website != null and website != ''">
+					and WEBSITE = #{website,jdbcType=VARCHAR}
+				</if>
+				<if test="website == null or website == ''">
+					and WEBSITE is null
+			</if>
+			<if test="channelOuterCode != null and channelOuterCode != ''">
+					and CHANNEL_OUTER_CODE = #{channelOuterCode,jdbcType=VARCHAR}
+				</if>
+				<if test="channelOuterCode == null or channelOuterCode == ''">
+					and CHANNEL_OUTER_CODE is null
+			</if>
+			<if test="legal != null and legal != ''">
+					and LEGAL = #{legal,jdbcType=VARCHAR}
+				</if>
+				<if test="legal == null or legal == ''">
+					and LEGAL is null
+			</if>
+			and VALID_DATE = to_date(#{validDate,jdbcType=DATE},'yyyy/mm/dd')
+			<if test="mediumEname != null and mediumEname != ''">
+					and MEDIUM_ENAME = #{mediumEname,jdbcType=VARCHAR}
+				</if>
+				<if test="mediumEname == null or mediumEname == ''">
+					and MEDIUM_ENAME is null
+			</if>
+			<if test="profession != null and profession != ''">
+					and PROFESSION = #{profession,jdbcType=CHAR}
+				</if>
+				<if test="profession == null or profession == ''">
+					and PROFESSION is null
+			</if>
+			and LICENCE = #{licence,jdbcType=VARCHAR}
+			and EXPIRE_DATE = to_date(#{expireDate,jdbcType=DATE},'yyyy/mm/dd')
+			<if test="channelLevel != null and channelLevel != ''">
+					and CHANNEL_LEVEL = #{channelLevel,jdbcType=VARCHAR}
+				</if>
+				<if test="channelLevel == null or channelLevel == ''">
+					and CHANNEL_LEVEL is null
+			</if>
+			<if test="cityCode != null and cityCode != ''">
+					and CITY_CODE = #{cityCode,jdbcType=VARCHAR}
+				</if>
+				<if test="cityCode == null or cityCode == ''">
+					and CITY_CODE is null
+			</if>
+			<if test="salePolicyName != null and salePolicyName != ''">
+					and SALE_POLICY_NAME = #{salePolicyName,jdbcType=VARCHAR}
+				</if>
+				<if test="salePolicyName == null or salePolicyName == ''">
+					and SALE_POLICY_NAME is null
+			</if>
+			<if test="registerAddress != null and registerAddress != ''">
+					and REGISTER_ADDRESS = #{registerAddress,jdbcType=VARCHAR}
+				</if>
+				<if test="registerAddress == null or registerAddress == ''">
+					and REGISTER_ADDRESS is null
+			</if>
+			<if test="country != null and country != ''">
+					and COUNTRY = #{country,jdbcType=VARCHAR}
+				</if>
+				<if test="country == null or country == ''">
+					and COUNTRY is null
+			</if>
+			and cm.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+			and PARTER_LEVEL = #{parterLevel,jdbcType=CHAR}
+			and MEDIUM_CNAME = #{mediumCname,jdbcType=VARCHAR}
+			<if test="financePolicyFlag != null and financePolicyFlag != ''">
+					and FINANCE_POLICY_FLAG = #{financePolicyFlag,jdbcType=CHAR}
+				</if>
+				<if test="financePolicyFlag == null or financePolicyFlag == ''">
+					and FINANCE_POLICY_FLAG is null
+			</if>
+			<if test="innerCode != null and innerCode != ''">
+					and INNER_CODE = #{innerCode,jdbcType=VARCHAR}
+				</if>
+				<if test="innerCode == null or innerCode == ''">
+					and INNER_CODE is null
+			</if>
+			and SUPPORT_FLAG = #{supportFlag,jdbcType=CHAR}
+			<if test="parentChannelCode != null and parentChannelCode != ''">
+					and PARENT_CHANNEL_CODE = #{parentChannelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="parentChannelCode == null or parentChannelCode == ''">
+					and PARENT_CHANNEL_CODE is null
+			</if>
+			<if test="agentCode != null and agentCode != ''">
+					and AGENT_CODE = #{agentCode,jdbcType=VARCHAR}
+				</if>
+				<if test="agentCode == null or agentCode == ''">
+					and AGENT_CODE is null
+			</if>
+			<!--and PROCESS_USER_CODE = #{processUserCode,jdbcType=VARCHAR}-->
+			<!--中介机构主表字段-->
+			and BANK_NODE = #{bankNode,jdbcType=VARCHAR}
+			and BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR}
+			<if test="remark != null and remark != ''">
+					and REMARK = #{remark,jdbcType=VARCHAR}
+				</if>
+				<if test="remark == null or remark == ''">
+					and REMARK is null
+			</if>
+			and CHANNEL_CATEGORY = #{channelCategory,jdbcType=CHAR}
+			<if test="mistakeContent != null and mistakeContent != ''">
+					and MISTAKE_CONTENT = #{mistakeContent,jdbcType=VARCHAR}
+				</if>
+				<if test="mistakeContent == null or mistakeContent == ''">
+					and MISTAKE_CONTENT is null
+			</if>
+			<if test="tel != null and tel != ''">
+					and TEL = #{tel,jdbcType=VARCHAR}
+				</if>
+				<if test="tel == null or tel == ''">
+					and TEL is null
+			</if>
+			and BANK_PROVINCE = #{bankProvince,jdbcType=VARCHAR}
+			and BANK_RECEIVE = #{bankReceive,jdbcType=VARCHAR}
+			<if test="financeFlag != null and financeFlag != ''">
+					and FINANCE_FLAG = #{financeFlag,jdbcType=CHAR}
+				</if>
+				<if test="financeFlag == null or financeFlag == ''">
+					and FINANCE_FLAG is null
+			</if>
+			<if test="channelProperty != null and channelProperty != ''">
+					and CHANNEL_PROPERTY = #{channelProperty,jdbcType=CHAR}
+				</if>
+				<if test="channelProperty == null or channelProperty == ''">
+					and CHANNEL_PROPERTY is null
+			</if>
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+			<if test="officeAddress != null and officeAddress != ''">
+					and OFFICE_ADDRESS = #{officeAddress,jdbcType=VARCHAR}
+				</if>
+				<if test="officeAddress == null or officeAddress == ''">
+					and OFFICE_ADDRESS is null
+			</if>
+			and BANK_NAME = #{bankName,jdbcType=VARCHAR}
+			<if test="contact != null and contact != ''">
+					and CONTACT = #{contact,jdbcType=VARCHAR}
+				</if>
+				<if test="contact == null or contact == ''">
+					and CONTACT is null
+			</if>
+			and BUSINESS_LINE = #{businessLine,jdbcType=CHAR}
+			<if test="channelFeature != null and channelFeature != ''">
+					and CHANNEL_FEATURE = #{channelFeature,jdbcType=CHAR}
+				</if>
+				<if test="channelFeature == null or channelFeature == ''">
+					and CHANNEL_FEATURE is null
+			</if>
+			and BANK_CITY = #{bankCity,jdbcType=VARCHAR}
+			and MISTAKE_FLAG = #{mistakeFlag,jdbcType=CHAR}
+			<if test="channelRate != null and channelRate != ''">
+					and CHANNEL_RATE = #{channelRate,jdbcType=DOUBLE}
+				</if>
+				<if test="channelRate == null or channelRate == ''">
+					and CHANNEL_RATE is null
+			</if>
+			<if test="channelType != null and channelType != ''">
+					and CHANNEL_TYPE = #{channelType,jdbcType=CHAR}
+				</if>
+				<if test="channelType == null or channelType == ''">
+					and CHANNEL_TYPE is null
+			</if>
+			<if test="channelOwnType != null and channelOwnType != ''">
+					and CHANNEL_OWN_TYPE = #{channelOwnType,jdbcType=CHAR}
+				</if>
+				<if test="channelOwnType == null or channelOwnType == ''">
+					and CHANNEL_OWN_TYPE is null
+			</if>
+	</select>
+	
+	<select id="queryAllParentDept" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select t.parent_dept_code,t.dept_code
+		  from department t 
+		  where length(t.dept_code) != 6
+		  start with t.dept_code = #{deptCode,jdbcType=VARCHAR}
+		connect by t.dept_code = prior t.parent_dept_code
+	</select>
+	
+	<select id="queryAllParentChannelCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_DETAIL cm left join CHANNEL_MAIN pb 
+		on pb.CHANNEL_CODE = cm.CHANNEL_CODE 
+		<include refid="Base_Where_Sql_ParentChannel" />
+		and pb.VALID_IND = 1 and cm.VALID_IND = 1
+	</select>
+	
+	<select id="queryAllParentChannel" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select * from 
+		(select '--' DEPT_CODE, '无' dept_simple_name, '--' CHANNEL_CODE, '无' MEDIUM_CNAME,
+           '无' PROCESS_DEPT_CODE, '--' STATUS, '' CATEGORY, '' BUSINESS_LINE, '' MSG_CAR,
+           '' MSG_CUSTOMER, sysdate UPDATED_DATE, '' PARTER_LEVEL from dual
+                 union all
+		select pb.DEPT_CODE,
+		       dept.dept_simple_name,
+		       pb.CHANNEL_CODE,
+		       MEDIUM_CNAME,
+		       deptp.dept_simple_name PROCESS_DEPT_CODE,
+		       decode(pb.STATUS, '1', '正在代理', '') STATUS,
+		       cg.CATEGORY_NAME CATEGORY,
+		       bl.LINE_NAME BUSINESS_LINE,
+		       decode(MSG_CAR, '1', '是', '0', '否', '') MSG_CAR,
+		       decode(MSG_CUSTOMER, '1', '是', '0', '否', '') MSG_CUSTOMER,
+		       cm.UPDATED_DATE,
+		       decode(PARTER_LEVEL, '195002', '隶属于分对分', '195001', '隶属于总对总', '--') PARTER_LEVEL
+		  from CHANNEL_MEDIUM_DETAIL cm
+		  left join CHANNEL_MAIN pb
+		    on pb.CHANNEL_CODE = cm.CHANNEL_CODE and pb.VALID_IND = 1
+		  left join DEPARTMENT dept
+		    on pb.DEPT_CODE = dept.DEPT_CODE and dept.VALID_IND = 1
+		  left join (select *
+		               from CHANNEL_MEDIUM_CONTACT t1
+		              where not exists
+		              (select 1
+		                       from CHANNEL_MEDIUM_CONTACT t2
+		                      where t1.CHANNEL_CODE = t2.CHANNEL_CODE
+		                        and t1.CREATED_DATE > t2.CREATED_DATE 
+		                        and t2.valid_ind =1)) fb
+		    on pb.CHANNEL_CODE = fb.CHANNEL_CODE and fb.VALID_IND = 1
+		  left join BUSINESS_LINE bl
+		    on pb.BUSINESS_LINE = bl.LINE_CODE and bl.VALID_IND = 1
+		  left join CATEGORY cg
+		    on pb.CATEGORY = cg.CATEGORY_CODE and cg.VALID_IND = 1
+		  left join DEPARTMENT deptp
+		    on cm.PROCESS_DEPT_CODE = deptp.DEPT_CODE and deptp.VALID_IND = 1
+		    <include refid = "Base_Where_Sql_ParentChannel" />
+		   and cm.VALID_IND = 1
+		 group by pb.DEPT_CODE,
+		          dept.dept_simple_name,
+		          pb.CHANNEL_CODE,
+		          MEDIUM_CNAME,
+		          deptp.dept_simple_name,
+		          pb.STATUS,
+		          cg.CATEGORY_NAME,
+		          bl.LINE_NAME,
+		          MSG_CAR,
+		          MSG_CUSTOMER,
+		       	  cm.UPDATED_DATE,
+		       	  PARTER_LEVEL)
+		  order by PARTER_LEVEL desc,DEPT_CODE asc,channel_code
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 生成渠道主键 -->
+	<select id="execProcedure" statementType="CALLABLE" parameterType="com.sinosafe.xszc.channel.vo.ChannelMain">
+		{ call get_agt_no(
+			    #{channelCode,jdbcType=VARCHAR,mode=INOUT},
+				#{deptCode,jdbcType=VARCHAR,mode=IN},
+				#{category,jdbcType=CHAR,mode=IN},
+				#{property,jdbcType=CHAR,mode=IN})}
+	</select>
+	
+	<select id="findChannelNameByCode2" parameterType="map" resultMap="BaseResultMap">
+		select *
+		from CHANNEL_MEDIUM_DETAIL
+		where CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryMediumInfoByDeptCode" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from(
+				select 
+				  pb.dept_code,
+				  decode(pb.STATUS, '1', '正在代理', '') STATUS,
+		          dept.dept_simple_name,
+		          cmd.channel_code,
+		          cmd.medium_cname
+	 		   from channel_main pb 
+					left join channel_medium_detail cmd on pb.channel_code = cmd.channel_code
+					left join channel_medium_node cmn on cmd.channel_code = cmn.channel_code and cmn.valid_ind = '1'
+		            left join department dept on dept.dept_code = pb.dept_code
+			  where pb.dept_code like #{deptCode,jdbcType=VARCHAR} || '%'  and pb.valid_ind = '1' and pb .channel_flag = '0'
+				<if test="channelCode != null and channelCode != ''">
+					and cmn.channel_code = #{channelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="mediumCname !=null and mediumCname != ''">
+					and cmd.medium_cname like '%' || trim(#{mediumCname,jdbcType=VARCHAR}) || '%'
+				</if>
+			  order by pb.dept_code
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryAllMediumInfoCount" parameterType="map" resultType="long">
+		select 
+		  count(1)
+ 		from channel_main pb 
+			left join channel_medium_detail cmd on pb.channel_code = cmd.channel_code
+			left join channel_medium_node cmn on cmd.channel_code = cmn.channel_code and cmn.valid_ind = '1'
+            left join department dept on dept.dept_code = pb.dept_code
+		 where pb.dept_code like #{deptCode,jdbcType=VARCHAR} || '%'  and pb.valid_ind = '1' and pb .channel_flag = '0'
+		<if test="channelCode != null and channelCode != ''">
+			and cmn.channel_code = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="mediumCname !=null and mediumCname != ''">
+			and cmd.medium_cname like '%' || trim(#{mediumCname,jdbcType=VARCHAR}) || '%'
+		</if>
+		
+	</select>
+	
+	<select id="queryChooseMedium" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from(
+			   select t1.channel_code as "channelCode",
+						       t2.medium_cname as "mediumCname",
+						       d.channel_name  as "agentCname",
+						       t1.approve_flag as "approve"
+						  from channel_main t1
+						  left join channel_medium_detail t2
+						    on t1.channel_code = t2.channel_code
+						   and t2.valid_ind = 1
+						   and t2.status = 1
+						  left join (select t3.channel_code              c_code,
+						                    t3.channel_name              channel_name,
+						                    t3.qualification_expire_date q_expire_date
+						               from channel_agent_detail t3
+						               left join (select c2.*
+						                           from (select c.*,
+						                                        max(c.expire_date) over(partition by c.channel_code) max_expire_date
+						                                   from channel_confer c) c2
+						                          where c2.max_expire_date = c2.expire_date
+						                            and trunc(c2.expire_date) >= trunc(sysdate)) t6
+						                 on t3.channel_code = t6.channel_code
+						                and t6.valid_ind = '1'
+						                and trunc(t6.max_expire_date) >= trunc(sysdate)
+						              where t3.qualification_expire_date is not null
+						                and t3.valid_ind = '1'
+						                and t3.status = '1'
+						                and trunc(t3.qualification_expire_date) >= trunc(sysdate)) d
+						    on d.c_code = t1.channel_code
+						  left join department t4
+						    on t1.dept_code = t4.dept_code
+						 where t1.valid_ind = 1
+						   and t4.valid_ind = 1
+						   and t1.channel_flag != 2
+			        <if test="threeDeptCode != null and threeDeptCode != ''">
+						and substr(t1.dept_code, 0, 4) = #{threeDeptCode,jdbcType=VARCHAR}
+					</if>
+					<if test="channelCode != null and channelCode != ''">
+						and t1.channel_code = #{channelCode,jdbcType=VARCHAR}
+					</if>
+					<if test="agentCname !=null and agentCname != ''">
+						and d.channel_name like '%' || trim(#{agentCname,jdbcType=VARCHAR}) || '%'
+					</if>
+					<if test="mediumCname !=null and mediumCname != ''">
+						and t2.medium_cname like '%' || trim(#{mediumCname,jdbcType=VARCHAR}) || '%'
+					</if>
+						and ((t2.medium_cname is not null and d.channel_name is null)
+							    or (t2.medium_cname is null and d.channel_name is not null))
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryChooseMediumThree" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from(
+					  select t1.channel_code as "channelCode",
+						       t2.medium_cname as "mediumCname",
+						       d.channel_name  as "agentCname",
+						       t1.approve_flag as "approve"
+						  from channel_main t1
+						  left join channel_medium_detail t2
+						    on t1.channel_code = t2.channel_code
+						   and t2.valid_ind = 1
+						   and t2.status = 1
+						  left join (select t3.channel_code              c_code,
+						                    t3.channel_name              channel_name,
+						                    t3.qualification_expire_date q_expire_date
+						               from channel_agent_detail t3
+						               left join (select c2.*
+						                           from (select c.*,
+						                                        max(c.expire_date) over(partition by c.channel_code) max_expire_date
+						                                   from channel_confer c) c2
+						                          where c2.max_expire_date = c2.expire_date
+						                            and trunc(c2.expire_date) >= trunc(sysdate)) t6
+						                 on t3.channel_code = t6.channel_code
+						                and t6.valid_ind = '1'
+						                and trunc(t6.max_expire_date) >= trunc(sysdate)
+						              where t3.qualification_expire_date is not null
+						                and t3.valid_ind = '1'
+						                and t3.status = '1'
+						                and trunc(t3.qualification_expire_date) >= trunc(sysdate)) d
+						    on d.c_code = t1.channel_code
+						  left join department t4
+						    on t1.dept_code = t4.dept_code
+						 where t1.valid_ind = 1
+						   and t4.valid_ind = 1
+						   and t1.channel_flag != 2
+				   <if test="threeDeptCode != null and threeDeptCode != ''">
+						and substr(t1.dept_code, 0, 4) = #{threeDeptCode,jdbcType=VARCHAR}
+					</if>
+					<if test="channelCode != null and channelCode != ''">
+						and t1.channel_code = #{channelCode,jdbcType=VARCHAR}
+					</if>
+					<if test="agentCname !=null and agentCname != ''">
+						and d.channel_name like '%' || trim(#{agentCname,jdbcType=VARCHAR}) || '%'
+					</if>
+					<if test="mediumCname !=null and mediumCname != ''">
+						and t2.medium_cname like '%' || trim(#{mediumCname,jdbcType=VARCHAR}) || '%'
+					</if>
+						  and ((t2.medium_cname is not null and d.channel_name is null)
+							    or (t2.medium_cname is null and d.channel_name is not null))
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryChooseMediumCount" parameterType="map" resultType="long">
+			select  count(1)
+						  from channel_main t1
+						  left join channel_medium_detail t2
+						    on t1.channel_code = t2.channel_code
+						   and t2.valid_ind = 1
+						   and t2.status = 1
+						  left join (select t3.channel_code              c_code,
+						                    t3.channel_name              channel_name,
+						                    t3.qualification_expire_date q_expire_date
+						               from channel_agent_detail t3
+						               left join (select c2.*
+						                           from (select c.*,
+						                                        max(c.expire_date) over(partition by c.channel_code) max_expire_date
+						                                   from channel_confer c) c2
+						                          where c2.max_expire_date = c2.expire_date
+						                            and trunc(c2.expire_date) >= trunc(sysdate)) t6
+						                 on t3.channel_code = t6.channel_code
+						                and t6.valid_ind = '1'
+						                and trunc(t6.max_expire_date) >= trunc(sysdate)
+						              where t3.qualification_expire_date is not null
+						                and t3.valid_ind = '1'
+						                and t3.status = '1'
+						                and trunc(t3.qualification_expire_date) >= trunc(sysdate)) d
+						    on d.c_code = t1.channel_code
+						  left join department t4
+						    on t1.dept_code = t4.dept_code
+						 where t1.valid_ind = 1
+						   and t4.valid_ind = 1
+						   and t1.channel_flag != 2
+			<if test="twoDeptCode != null and twoDeptCode != ''">
+				and t1.dept_code = #{twoDeptCode,jdbcType=VARCHAR}
+			</if>
+			<if test="channelCode != null and channelCode != ''">
+				and t1.channel_code = #{channelCode,jdbcType=VARCHAR}
+			</if>
+			<if test="bankName !=null and bankName != ''">
+				and t1.medium_cname like '%' || trim(#{bankName,jdbcType=VARCHAR}) || '%'
+			</if>
+			   and ((t2.medium_cname is not null and d.channel_name is null)
+							    or (t2.medium_cname is null and d.channel_name is not null))
+	</select>
+	
+	<select id="queryChooseMediumCountThree" parameterType="map" resultType="long">
+			  select  count(1)
+						  from channel_main t1
+						  left join channel_medium_detail t2
+						    on t1.channel_code = t2.channel_code
+						   and t2.valid_ind = 1
+						   and t2.status = 1
+						  left join (select t3.channel_code              c_code,
+						                    t3.channel_name              channel_name,
+						                    t3.qualification_expire_date q_expire_date
+						               from channel_agent_detail t3
+						               left join (select c2.*
+						                           from (select c.*,
+						                                        max(c.expire_date) over(partition by c.channel_code) max_expire_date
+						                                   from channel_confer c) c2
+						                          where c2.max_expire_date = c2.expire_date
+						                            and trunc(c2.expire_date) >= trunc(sysdate)) t6
+						                 on t3.channel_code = t6.channel_code
+						                and t6.valid_ind = '1'
+						                and trunc(t6.max_expire_date) >= trunc(sysdate)
+						              where t3.qualification_expire_date is not null
+						                and t3.valid_ind = '1'
+						                and t3.status = '1'
+						                and trunc(t3.qualification_expire_date) >= trunc(sysdate)) d
+						    on d.c_code = t1.channel_code
+						  left join department t4
+						    on t1.dept_code = t4.dept_code
+						 where t1.valid_ind = 1
+						   and t4.valid_ind = 1
+						   and t1.channel_flag != 2
+						   
+				   <if test="threeDeptCode != null and threeDeptCode != ''">
+						and substr(t1.dept_code, 0, 4) = #{threeDeptCode,jdbcType=VARCHAR}
+					</if>
+					<if test="channelCode != null and channelCode != ''">
+						and t1.channel_code = #{channelCode,jdbcType=VARCHAR}
+					</if>
+					<if test="agentCname !=null and agentCname != ''">
+						and d.channel_name like '%' || trim(#{agentCname,jdbcType=VARCHAR}) || '%'
+					</if>
+					<if test="mediumCname !=null and mediumCname != ''">
+						and t2.medium_cname like '%' || trim(#{mediumCname,jdbcType=VARCHAR}) || '%'
+					</if>
+						and ((t2.medium_cname is not null and d.channel_name is null)
+							    or (t2.medium_cname is null and d.channel_name is not null))
+	 </select>
+	
+</mapper>

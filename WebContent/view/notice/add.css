@@ -1,0 +1,117 @@
+<style type="text/css">
+html, body{ height:100%; margin:0px; padding:0px;}
+
+body{ 
+	font-size:12px;
+	margin:0; 
+	padding:0;
+	
+}
+
+.om-grid .gird-edit-btn{
+	width:190px;
+}
+
+.om-button {
+	font-size: 12px;
+}
+
+#nav_cont {
+	width: 580px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input {
+	border: 1px solid #A1B9DF;
+	vertical-align: middle;
+}
+
+input:focus {
+	border: 1px solid #3A76C2;
+}
+
+.input_slelct {
+	width: 81%;
+}
+
+.textarea_text {
+	border: 1px solid #A1B9DF;
+	height: 40px;
+	width: 445px;
+}
+
+table.grid_layout tr td {
+	font-weight: normal;
+	height: 15px;
+	padding: 5px 0;
+	vertical-align: middle;
+}
+ table.tabBase tr td{height: 35px}
+
+.color_red {
+	color: red;
+}
+
+.toolbar {
+	padding: 12px 0 5px;
+	text-align: center;
+}
+
+.birthplace,.address {
+	width: 445px;
+}
+
+.om-span-field input:focus {
+	border: none;
+}
+
+
+
+input.error,textarea.error {
+	border: 1px solid red;
+}
+
+.errorMsg {
+	border: 1px solid gray;
+	background-color: #FCEFE3;
+	display: none;
+	position: absolute;
+	margin-top: -18px;
+	margin-left: -2px;
+}
+.tds {
+    padding-left: 30px;
+}
+
+.tdsDate {
+    width:115px;
+}
+
+.deptDropListTree {
+	height: 250px;
+    width: 153px;
+	border: 1px solid #9AA3B9;
+	overflow: auto;
+	display: none;
+	position: absolute;
+	background: #FFF;
+	z-index: 4;
+}
+
+.processDeptDropListTree {
+	height: 250px;
+    width: 153px;
+	border: 1px solid #9AA3B9;
+	overflow: auto;
+	display: none;
+	position: absolute;
+	background: #FFF;
+	z-index: 4;
+}
+
+.fontClass{
+	font-size:12px;
+	font-family: 微软雅黑,宋体,Arial,Helvetica,sans-serif,simsun;
+}
+</style>

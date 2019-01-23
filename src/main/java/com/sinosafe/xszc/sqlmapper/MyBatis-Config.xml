@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<typeHandlers>
+	    <typeHandler jdbcType="CLOB" javaType="java.lang.String" handler="org.apache.ibatis.type.ClobTypeHandler" />
+    </typeHandlers>	
+	
+	<mappers>
+		<mapper resource="com/sinosafe/xszc/main/vo/Main_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/law/vo/UmDepartment_sqlMapper.xml"/>
+		
+		<!-- 组织架构 -->
+		<mapper resource="com/sinosafe/xszc/department/vo/Department_sqlMapper.xml"/>
+		
+	    <!-- 团队管理 -->
+		<mapper resource="com/sinosafe/xszc/group/vo/SalesmanEmploy_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/group/vo/GroupChangeRecord_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/group/vo/GroupLeaderRecord_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/group/vo/SalesmanVirtual_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/group/vo/Salesman_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/group/vo/GroupMain_sqlMapper.xml" />
+		
+        <!-- 基本法 -->
+		<mapper resource="com/sinosafe/xszc/law/vo/TCalcValue_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawOriginRate_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/law/vo/TRankValue_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/law/vo/LawDefine_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/law/vo/LawDefineDept_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/law/vo/TRankCalc_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TIndexFactor_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/LawFactor_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/LawTarget_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TIndexCalc_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TRankDef_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TRankFactor_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawLineRate_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawProductRate_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawCostRate_sqlMapper.xml"/>		
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawRate_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawFactorImpValue_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawRuleConfig_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/LawDefineManul_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/law/vo/LawDefineManulStep_sqlMapper.xml"/>
+		
+		<!-- 考核评分，职级，薪酬-->
+    	<mapper resource="com/sinosafe/xszc/review/vo/TMission_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/review/vo/TPersonInfoHistory_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/review/vo/ReviewScore_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/review/vo/ReviewRank_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/review/vo/ReviewSalary_sqlMapper.xml" />
+		<mapper resource="com/sinosafe/xszc/law/vo/TLawCalcProce_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/review/vo/ReviewRankHistory_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/review/vo/NewYearReward_sqlMapper.xml"/>
+		
+		<!-- 标保清单 -->
+		<mapper resource="com/sinosafe/xszc/review/vo/TLawFactorGotPrm_sqlMapper.xml" />
+		
+		<!-- 报表 -->
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportDayAgentChannel_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportDaySaleTrace_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportWeekSaleTrace_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportWeekAgentChannel_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportDuty_sqlMapper.xml"/> 
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportDayGroupManager_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportFoundationMedium_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportWeekGroupManager_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportMonthAgentInfo_sqlMapper.xml"/>
+		
+		<mapper resource="com/sinosafe/xszc/plan/vo/PlanChannelDetail_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/plan/vo/PlanMain_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/plan/vo/PlanDeptDetail_sqlMapper.xml"/>
+		
+		<!-- 新销售计划 -->
+		<mapper resource="com/sinosafe/xszc/planNew/vo/PlanMainNew_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/planNew/vo/PlanDetailNew_sqlMapper.xml"/>
+		
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportMothGroupManager_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportTotalAgentInfo_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportTotalGroupMenber_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportMonthGroupTotal_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportWeekGroupTotal_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportDayGroupTotal_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportDayRemotePolicy_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportWeekRemotePolicy_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportMonthRemotePolicy_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/report/vo/ReportCommon_sqlMapper.xml"/>
+
+        <!-- 公告 -->
+		<mapper resource="com/sinosafe/xszc/notice/vo/Notice_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/notice/vo/NoticeFeedback_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/notice/vo/NoticeReceiveDept_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/notice/vo/NoticeMission_sqlMapper.xml"/>
+		
+		<!-- 续保 -->
+		<mapper resource="com/sinosafe/xszc/renewal/vo/RenewalTmp_sqlMapper.xml"/>  
+	    <mapper resource="com/sinosafe/xszc/renewal/vo/RenewalAssignRecord_sqlMapper.xml"/>  
+    	<mapper resource="com/sinosafe/xszc/renewal/vo/Renewal_sqlMapper.xml"/>  
+    	<mapper resource="com/sinosafe/xszc/renewal/vo/Renewallevel_sqlMapper.xml"/>
+
+        <!-- 活动管理 -->
+		<mapper resource="com/sinosafe/xszc/activity/vo/ActivityFeedback_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/activity/vo/ActivityReceiveDept_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/activity/vo/Activity_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/activity/vo/ActivityExpand_sqlMapper.xml"/>
+		
+		<!-- 渠道管理 -->
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelWarning_sqlMapper.xml"/>
+	    <mapper resource="com/sinosafe/xszc/channel/vo/ChannelMain_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelMediumDetail_sqlMapper.xml"/>  
+    	<mapper resource="com/sinosafe/xszc/channel/vo/ChannelMediumContact_sqlMapper.xml"/>
+	    <mapper resource="com/sinosafe/xszc/channel/vo/ChannelMediumNode_sqlMapper.xml"/>  
+	    <mapper resource="com/sinosafe/xszc/channel/vo/ChannelMediumMaintain_sqlMapper.xml"/>   
+    	<mapper resource="com/sinosafe/xszc/channel/vo/ChannelConfer_sqlMapper.xml"/>
+    	<mapper resource="com/sinosafe/xszc/channel/vo/ChannelConferProduct_sqlMapper.xml"/>
+    	<mapper resource="com/sinosafe/xszc/channel/vo/ChannelAgentDetail_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelMediumDetailHistory_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelMainHistory_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelAgentDetailHistory_sqlMapper.xml"/>
+    	<mapper resource="com/sinosafe/xszc/channel/vo/ChannelConferProductHistory_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelConferHistory_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelMediumNodeAccount_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelMailWarning_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ConferTurnover_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelMailRecord_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/ChannelRecommenderDetail_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/channel/vo/MediumSalesman_sqlMapper.xml"/>
+    	
+    	<!--Common下拉框-->
+    	<mapper resource="com/sinosafe/xszc/common/vo/Bank_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/BankNode_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/Area_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/Province_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/City_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/Category_sqlMapper.xml"/>
+	    <mapper resource="com/sinosafe/xszc/common/vo/Profession_sqlMapper.xml"/>
+	    <mapper resource="com/sinosafe/xszc/common/vo/ChannelFeature_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/ChannelLevel_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/Country_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/Property_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/BusinessLine_sqlMapper.xml"/>
+        <mapper resource="com/sinosafe/xszc/common/vo/ChannelPartnerType_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/ConferType_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/CertifyType_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/TPrdKind_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/Educatioin_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/TPrdProd_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/Title_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/SalesmanType_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/SalesmanRank_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/National_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/SalesmanStatus_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/GroupRank_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/common/vo/FinancePolicyFlag_sqlMapper.xml"/>
+		
+		<!-- 上传下载 -->
+		<mapper resource="com/sinosafe/xszc/upload/vo/Upload_sqlMapper.xml"/>
+		
+		<!-- 市场调研 -->
+		<mapper resource="com/sinosafe/xszc/survey/vo/MarketResInforChannel_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/survey/vo/MarketResInforMain_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/survey/vo/MarketResInforPremium_sqlMapper.xml"/>
+		<mapper resource="com/sinosafe/xszc/survey/vo/MarketResInforLocal_sqlMapper.xml"/>
+    	<mapper resource="com/sinosafe/xszc/survey/vo/Survey_sqlMapper.xml"/>
+		
+		<!-- 自动任务 -->
+		<mapper resource="com/sinosafe/xszc/autoTask/AutoTask_sqlMapper.xml"/>
+		
+		<!-- 用户访问记录 -->
+		<mapper resource="com/sinosafe/xszc/main/vo/UserAccessRecord_sqlMapper.xml"/>
+		
+		<!-- 用户帮助信息 -->
+		<mapper resource="com/sinosafe/xszc/main/vo/UserHelpMsg_sqlMapper.xml"/>
+		
+		<!-- 用户角色查询 -->
+		<mapper resource="com/sinosafe/xszc/main/vo/UserRole_sqlMapper.xml"/>
+		
+		<!-- dubbo渠道管理接口 -->
+        <mapper resource="com/sinosafe/xszc/dubbo/channel/vo/ChannelMain_sqlMapper.xml"/>
+        <mapper resource="com/sinosafe/xszc/dubbo/salesman/vo/Salesman_sqlMapper.xml"/>
+        
+		<!-- 电商渠道管理 -->
+        <mapper resource="com/sinosafe/xszc/partner/vo/Enterprise_sqlMapper.xml"/>
+        <mapper resource="com/sinosafe/xszc/partner/vo/Individual_sqlMapper.xml"/>
+        <mapper resource="com/sinosafe/xszc/partner/vo/Confer_sqlMapper.xml"/>
+	
+        <!-- 查询所有需要被禁掉保存，修改，删除的区域 -->
+        <mapper resource="com/sinosafe/xszc/auth/vo/Auth_sqlMapper.xml"/>
+        
+	</mappers>
+
+	
+</configuration>

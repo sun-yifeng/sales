@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.LawDefineDept" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_UUID" property="pkUuid" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VERSION_CODE" property="versionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="BEGIN_DATE" property="beginDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="VALID_FLAG" property="isValid" jdbcType="CHAR" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.LawDefineDept">
+		<id column="PK_UUID" property="pkUuid" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VERSION_CODE" property="versionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="BEGIN_DATE" property="beginDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="VALID_FLAG" property="isValid" jdbcType="CHAR" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_DATE,
+		VERSION_CODE,
+		CREATED_USER,
+		END_DATE,
+		BEGIN_DATE,
+		DEPT_CODE,
+		UPDATED_DATE,
+		PK_UUID,
+		VALID_IND,
+		VALID_FLAG
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_DATE as "createdDate",
+		VERSION_CODE as "versionCode",
+		CREATED_USER as "createdUser",
+		END_DATE as "endDate",
+		BEGIN_DATE as "beginDate",
+		DEPT_CODE as "deptCode",
+		UPDATED_DATE as "updatedDate",
+		PK_UUID as "pkUuid",
+		VALID_FLAG as "isValid"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{versionCode,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		sysdate,
+ 		sysdate,
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{pkUuid,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{isValid,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and ld.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and ld.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="versionCode != null and versionCode != ''">
+			and ld.VERSION_CODE = #{versionCode,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and ld.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="endDate != null and endDate != ''">
+			and ld.END_DATE = #{endDate,jdbcType=DATE}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and ld.BEGIN_DATE = #{beginDate,jdbcType=DATE}
+		</if>
+		<if test="deptCode == '00'">
+			2=2
+		</if>
+		<if test="deptCode != null and deptCode != '' and deptCode != '00'">
+			and ld.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and ld.UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="pkUuid != null and pkUuid != ''">
+			and ld.PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+		</if>
+			and ld.VALID_IND = 1
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.LawDefineDept" >
+    insert into T_LAW_DEFINE_DEPT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_LAW_DEFINE_DEPT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_LAW_DEFINE_DEPT
+    where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_LAW_DEFINE_DEPT
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_LAW_DEFINE_DEPT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="versionCode != null and versionCode != ''">
+		VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="endDate != null and endDate != ''">
+		END_DATE = #{endDate,jdbcType=DATE},
+	</if>
+  	<if test="beginDate != null and beginDate != ''">
+		BEGIN_DATE = #{beginDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+   	</set>
+	where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_LAW_DEFINE_DEPT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			END_DATE = #{endDate,jdbcType=DATE},
+  			BEGIN_DATE = #{beginDate,jdbcType=DATE},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+   		where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.LawDefineDept" >
+	update T_LAW_DEFINE_DEPT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="versionCode != null and versionCode != ''">
+		VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="endDate != null and endDate != ''">
+		END_DATE = #{endDate,jdbcType=DATE},
+	</if>
+  	<if test="beginDate != null and beginDate != ''">
+		BEGIN_DATE = #{beginDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+   	</set>
+	where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.LawDefineDept" >
+		update T_LAW_DEFINE_DEPT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate
+   		where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_DEFINE_DEPT
+	where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_DEFINE_DEPT
+	where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_DEFINE_DEPT ld <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.LawDefineDept" resultType="long">
+	select count(1)
+	from T_LAW_DEFINE_DEPT <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select ld.PK_UUID,
+		ld.VERSION_CODE,tld.VERSION_CNAME as "versionName",
+		ld.VALID_FLAG as "isValid",
+		tld.FATHER_VERSION_CODE as "parentVersionCode",
+		to_char(tld.LAW_BGN_DATE,'yyyy-mm-dd')    as "validDate",
+        to_char(tld.LAW_END_DATE,'yyyy-mm-dd')  as "inValidDate",
+        tld.define_memo         as "defineMemo",
+		ld.DEPT_CODE,dept.dept_simple_name as "deptCname"
+		from T_LAW_DEFINE_DEPT ld
+		left join DEPARTMENT dept
+		    on ld.DEPT_CODE = dept.DEPT_CODE and dept.VALID_IND = 1
+		left join T_LAW_DEFINE tld 
+			on ld.VERSION_CODE = tld.VERSION_CODE
+		<include refid="Base_Where_Sql"/>
+		order by ld.UPDATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE_DEPT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE_DEPT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE_DEPT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_DEFINE_DEPT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_DEFINE_DEPT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 修改基本法 -->	
+	<select id="queryLawSpecifyByDept" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select ld.PK_UUID,
+		tld.VERSION_CODE,tld.VERSION_CNAME as "versionName",
+		to_char(tld.LAW_BGN_DATE,'yyyy-mm-dd')    as "validDate",
+        to_char(tld.LAW_END_DATE,'yyyy-mm-dd')  as "inValidDate",
+        tld.line_code as "lineCode",
+        ld.VALID_FLAG as "isValid",
+		ld.DEPT_CODE as "deptCode"
+		from 
+			T_LAW_DEFINE tld,
+			T_LAW_DEFINE_DEPT ld,
+			DEPARTMENT dept
+		where tld.VERSION_CODE = #{versionCode,jdbcType=VARCHAR}
+		and tld.VERSION_CODE=ld.VERSION_CODE
+		and tld.DEPT_CODE = ld.DEPT_CODE
+		and ld.DEPT_CODE = dept.DEPT_CODE
+	</select>
+	
+	<update id="deleteById" parameterType="map" >
+		update T_LAW_DEFINE_DEPT
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateLawSpecifyNotValid" parameterType="map">
+		update T_LAW_DEFINE_DEPT
+		set VALID_FLAG = '0',
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where VALID_FLAG = '1'
+		and VALID_IND = '1'
+		and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateLawSpecifyIsValid" parameterType="map">
+		update T_LAW_DEFINE_DEPT
+		set VALID_FLAG = '1',
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where VALID_IND = '1' 
+		and PK_UUID = #{pkUuid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateLawSpecify" parameterType="com.sinosafe.xszc.law.vo.LawDefineDept">
+		update T_LAW_DEFINE_DEPT
+		set VALID_FLAG = #{isValid,jdbcType=VARCHAR},
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where VERSION_CODE = #{versionCode,jdbcType=VARCHAR}
+	</update>
+	<update id="deleteByVersionCode" parameterType="map">
+		update T_LAW_DEFINE_DEPT
+		set VALID_IND = 0,
+		VALID_FLAG = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where VERSION_CODE = #{versionCode,jdbcType=VARCHAR}
+	</update>
+</mapper>

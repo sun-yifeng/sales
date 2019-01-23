@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelMediumNodeAccount" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="ACCOUNT_ID" property="accountId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK1" property="remark1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="REMARK2" property="remark2" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VPN_NO" property="vpnNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NODE_CODE" property="nodeCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ACCOUNT" property="account" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ISSUINGER_CODE" property="issuingerCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SET_DATE" property="setDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="IS_OWN_STAFF" property="isOwnStaff" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelMediumNodeAccount">
+		<id column="ACCOUNT_ID" property="accountId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK1" property="remark1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="REMARK2" property="remark2" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VPN_NO" property="vpnNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NODE_CODE" property="nodeCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="ACCOUNT" property="account" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ISSUINGER_CODE" property="issuingerCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SET_DATE" property="setDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="IS_OWN_STAFF" property="isOwnStaff" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		REMARK1,
+		CREATED_DATE,
+		REMARK2,
+		ACCOUNT_ID,
+		CREATED_USER,
+		VPN_NO,
+		NODE_CODE,
+		UPDATED_DATE,
+		ACCOUNT,
+		ISSUINGER_CODE,
+		SET_DATE,
+		IS_OWN_STAFF,
+		EMPLOY_CODE
+	</sql>
+	
+	<sql id="Base_Column_List_S" >
+		cm.UPDATED_USER,
+		cm.VALID_IND,
+		REMARK1,
+		cm.CREATED_DATE,
+		REMARK2,
+		ACCOUNT_ID,
+		cm.CREATED_USER,
+		VPN_NO,
+		NODE_CODE,
+		cm.UPDATED_DATE,
+		ACCOUNT,
+		to_char(SET_DATE,'yyyy-mm-dd') as "SET_DATE",
+		IS_OWN_STAFF,
+		cm.EMPLOY_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		REMARK1 as "remark1",
+		CREATED_DATE as "createdDate",
+		REMARK2 as "remark2",
+		ACCOUNT_ID as "accountId",
+		CREATED_USER as "createdUser",
+		VPN_NO as "vpnNo",
+		NODE_CODE as "nodeCode",
+		UPDATED_DATE as "updatedDate",
+		ACCOUNT as "account",
+		ISSUINGER_CODE as "issuingerCode",
+		SET_DATE as "setDate",
+		IS_OWN_STAFF as "isOwnStaff",
+		EMPLOY_CODE as "employCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{remark1,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{remark2,jdbcType=VARCHAR},
+ 		#{accountId,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{vpnNo,jdbcType=VARCHAR},
+ 		#{nodeCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{account,jdbcType=VARCHAR},
+ 		#{issuingerCode,jdbcType=VARCHAR},
+ 		to_date(#{setDate,jdbcType=DATE},'yyyy/mm/dd'),
+ 		#{isOwnStaff,jdbcType=CHAR},
+ 		#{employCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+			and cm.VALID_IND = 1
+		<if test="remark1 != null and remark1 != ''">
+			and REMARK1 = #{remark1,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="remark2 != null and remark2 != ''">
+			and REMARK2 = #{remark2,jdbcType=VARCHAR}
+		</if>
+		<if test="accountId != null and accountId != ''">
+			and ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="vpnNo != null and vpnNo != ''">
+			and VPN_NO = #{vpnNo,jdbcType=VARCHAR}
+		</if>
+			and NODE_CODE = #{nodeCode,jdbcType=VARCHAR}
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="account != null and account != ''">
+			and ACCOUNT = #{account,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNodeAccount" >
+    insert into CHANNEL_MEDIUM_NODE_ACCOUNT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_MEDIUM_NODE_ACCOUNT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_MEDIUM_NODE_ACCOUNT
+    where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_MEDIUM_NODE_ACCOUNT
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_MEDIUM_NODE_ACCOUNT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="remark1 != null and remark1 != ''">
+		REMARK1 = #{remark1,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="remark2 != null and remark2 != ''">
+		REMARK2 = #{remark2,jdbcType=VARCHAR},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="vpnNo != null and vpnNo != ''">
+		VPN_NO = #{vpnNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="nodeCode != null and nodeCode != ''">
+		NODE_CODE = #{nodeCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="account != null and account != ''">
+		ACCOUNT = #{account,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_MEDIUM_NODE_ACCOUNT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			REMARK1 = #{remark1,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			REMARK2 = #{remark2,jdbcType=VARCHAR},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			VPN_NO = #{vpnNo,jdbcType=VARCHAR},
+  			NODE_CODE = #{nodeCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			ACCOUNT = #{account,jdbcType=VARCHAR}
+  		where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNodeAccount" >
+	update CHANNEL_MEDIUM_NODE_ACCOUNT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="remark1 != null and remark1 != ''">
+		REMARK1 = #{remark1,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="remark2 != null and remark2 != ''">
+		REMARK2 = #{remark2,jdbcType=VARCHAR},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="vpnNo != null and vpnNo != ''">
+		VPN_NO = #{vpnNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="nodeCode != null and nodeCode != ''">
+		NODE_CODE = #{nodeCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="account != null and account != ''">
+		ACCOUNT = #{account,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNodeAccount" >
+		update CHANNEL_MEDIUM_NODE_ACCOUNT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			REMARK1 = #{remark1,jdbcType=VARCHAR},
+  			REMARK2 = #{remark2,jdbcType=VARCHAR},
+  			VPN_NO = #{vpnNo,jdbcType=VARCHAR},
+  			NODE_CODE = #{nodeCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			ACCOUNT = #{account,jdbcType=VARCHAR},
+	 		ISSUINGER_CODE = #{issuingerCode,jdbcType=VARCHAR},
+	 		SET_DATE = to_date(#{setDate,jdbcType=DATE},'yyyy/mm/dd'),
+	 		IS_OWN_STAFF = #{isOwnStaff,jdbcType=CHAR},
+	 		EMPLOY_CODE = #{employCode,jdbcType=VARCHAR}
+  		where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_NODE_ACCOUNT
+	where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MEDIUM_NODE_ACCOUNT
+	where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_NODE_ACCOUNT cm <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMediumNodeAccount" resultType="long">
+	select count(1)
+	from CHANNEL_MEDIUM_NODE_ACCOUNT <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.* from (
+		select 
+		<include refid="Base_Column_List_S"/>,
+       case 
+         when IS_OWN_STAFF = '1' then 
+          (select s.SALESMAN_CNAME from SALESMAN s
+          where cm.EMPLOY_CODE = s.EMPLOY_CODE and s.valid_ind = '1')
+         when IS_OWN_STAFF = '0' then 
+           (select sv.cname from SALESMAN_VIRTUAL sv
+          where cm.EMPLOY_CODE = sv.EMPLOY_CODE and sv.valid_ind = '1' and sv.SALESMAN_TYPE = '1')
+         end SALESMAN_CNAME
+		from CHANNEL_MEDIUM_NODE_ACCOUNT cm
+		<include refid="Base_Where_Sql"/>
+		order by CREATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rownum &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_NODE_ACCOUNT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_NODE_ACCOUNT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MEDIUM_NODE_ACCOUNT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_MEDIUM_NODE_ACCOUNT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_MEDIUM_NODE_ACCOUNT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<select id="queryIdList" parameterType="java.lang.String" resultMap="BaseResultVo">
+		select <include refid="Base_Column_List_S"/> from 
+			CHANNEL_MEDIUM_NODE_ACCOUNT cm
+			where cm.VALID_IND = 1 
+			and NODE_CODE = #{nodeCode}
+	</select>
+	
+	<update id="deleteAccount" parameterType="map" >
+		update CHANNEL_MEDIUM_NODE_ACCOUNT
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where ACCOUNT_ID in (
+			<foreach item="item" index="index" collection="pkIds" separator=",">
+				#{item}
+			</foreach>
+		)
+	</update>
+	
+	<select id="queryAllSalesmans" parameterType="map" resultMap="BaseResultMap">
+    select t1.EMPLOY_CODE, 
+           t1.salesman_cname as "cname"
+      from salesman t1
+    where t1.dept_code like #{deptCode} || '%' 
+      and t1.valid_ind = '1'
+      union all
+    select t2.EMPLOY_CODE, 
+           t2.CNAME as "cname"
+      from SALESMAN_VIRTUAL t2
+    where t2.dept_code like #{deptCode} || '%' 
+      and t2.valid_ind = '1'
+      and t2.SALESMAN_TYPE = '1'
+	</select>
+	
+	<!--根据主键删除非HR人员信息-->
+	<update id="deleteByEmpCode" parameterType="com.sinosafe.xszc.group.vo.SalesmanVirtual" >
+		update CHANNEL_MEDIUM_NODE_ACCOUNT t
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate
+		where t.EMPLOY_CODE = #{employCode}
+	</update>
+</mapper>

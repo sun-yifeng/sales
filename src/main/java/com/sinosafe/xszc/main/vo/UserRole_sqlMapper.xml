@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.main.vo.UserRole" >
+		<resultMap id="BaseResultMap" type="java.util.HashMap">
+				<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+				<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+				<result column="USER_CODE" property="userCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+				<result column="ROLE_CNAME" property="roleCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+				<result column="ROLE_ENAME" property="roleEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+				<result column="ROLE_DESC" property="roleDesc" jdbcType="VARCHAR" javaType="java.lang.String" />
+	</resultMap>
+	
+		<select id="queryUserRoleCounts" parameterType="map" resultType="long">
+				select 
+        count(1)
+    from  um_sys_user_role e 
+    left join (
+                select
+                    r.ROLE_CODE
+                    ,r.ROLE_CNAME
+                    ,r.SYS_CODE SYS_CODE_role
+                    ,r.ROLE_ENAME
+                from um_role r
+                where 1=1
+                and r.VALID_IND='1'
+                ) a
+    on e.ROLE_CODE=a.ROLE_CODE
+    left join (
+                select
+                    x.SYS_USER_ID
+                    ,x.USER_CODE
+                    ,x.SYS_CODE SYS_CODE_user
+                from um_system_user x
+                where 1=1
+                    and x.VALID_IND='1'
+                ) b
+    on e.SYS_USER_ID=b.SYS_USER_ID
+    left join (
+                select
+                    p.DEPT_CODE,
+                    dpt.dept_simple_name,
+                    p.USER_CODE,
+                    p.CREATED_DATE CREATED_DATE_dept,
+                    p.CREATED_USER CREATED_USER_dept,
+                    p.DEFAULT_FLAG
+                from um_user_dept p left join department dpt on p.dept_code = dpt.dept_code
+                where 1=1
+                    and p.VALID_IND='1'
+                ) c
+    on b.USER_CODE=c.USER_CODE
+    left join (
+                select
+                    q.USER_CODE,
+                    q.USER_CNAME,
+                    DECODE(q.STATUS,'F',0,'N',1,'L',2,-1) STATUS
+                from um_user q
+                where 1=1
+                ) d
+    on b.USER_CODE=d.USER_CODE
+    <include refid="Base_Where_Sql" />
+        and a.SYS_CODE_role='xszc'
+        and b.SYS_CODE_user ='xszc'
+    order by c.DEPT_CODE ,b.USER_CODE,e.CREATED_DATE asc
+		</select>
+		
+		<select	id="queryUserRoles" parameterType="map" resultType="map">
+			select * from 
+						(select tmp.*,rownum rn from( 
+							select 
+        c.DEPT_CODE "deptCode",
+        c.dept_simple_name "deptName",
+        d.USER_CNAME "userCname",
+        b.USER_CODE "userCode",
+        decode(d.STATUS,0,'用户失效',1,'用户有效',2,'用户被锁定','其他') "status",
+        decode(e.valid_ind,0,'权限失效',1,decode(d.status,0,'---','权限有效'),'---') "valid",
+        a.ROLE_CNAME "roleCname",
+        to_char(
+                nvl2(
+                    c.CREATED_DATE_dept
+                    ,c.CREATED_DATE_dept
+                    ,to_date('19000101','yyyymmdd')
+                    ),
+                'yyyy-mm-dd HH24:mi:ss') "createdDate",
+        to_char(
+                nvl2(
+                    e.CREATED_DATE
+                    ,e.CREATED_DATE
+                    ,to_date('19000101','yyyymmdd')
+                    ),
+                'yyyy-mm-dd HH24:mi:ss') "openDate",
+        decode(e.valid_ind,1,'---',to_char(
+                nvl2(
+                    e.CREATED_DATE
+                    ,e.CREATED_DATE
+                    ,to_date('19000101','yyyymmdd')
+                    ),
+                'yyyy-mm-dd HH24:mi:ss')
+                ) "closeDate",
+        e.updated_user "operator"
+    from  um_sys_user_role e 
+    left join (
+                select
+                    r.ROLE_CODE
+                    ,r.ROLE_CNAME
+                    ,r.SYS_CODE SYS_CODE_role
+                    ,r.ROLE_ENAME
+                from um_role r
+                where 1=1
+                and r.VALID_IND='1'
+                ) a
+    on e.ROLE_CODE=a.ROLE_CODE
+    left join (
+                select
+                    x.SYS_USER_ID
+                    ,x.USER_CODE
+                    ,x.SYS_CODE SYS_CODE_user
+                from um_system_user x
+                where 1=1
+                    and x.VALID_IND='1'
+                ) b
+    on e.SYS_USER_ID=b.SYS_USER_ID
+    left join (
+                select
+                    p.DEPT_CODE,
+                    dpt.dept_simple_name,
+                    p.USER_CODE,
+                    p.CREATED_DATE CREATED_DATE_dept,
+                    p.CREATED_USER CREATED_USER_dept,
+                    p.DEFAULT_FLAG
+                from um_user_dept p left join department dpt on p.dept_code = dpt.dept_code
+                where 1=1
+                    and p.VALID_IND='1'
+                ) c
+    on b.USER_CODE=c.USER_CODE
+    left join (
+                select
+                    q.USER_CODE,
+                    q.USER_CNAME,
+                    DECODE(q.STATUS,'F',0,'N',1,'L',2,-1) STATUS
+                from um_user q
+                where 1=1
+                ) d
+    on b.USER_CODE=d.USER_CODE
+    <include refid="Base_Where_Sql" />
+        and a.SYS_CODE_role='xszc'
+        and b.SYS_CODE_user ='xszc'
+    order by c.DEPT_CODE ,b.USER_CODE,e.CREATED_DATE asc 
+			   ) tmp
+		   where rownum &lt;= #{endpoint}
+			) where rn &gt;= #{startpoint}
+		</select>
+		
+		<!-- 查询条件 -->
+		<sql id="Base_Where_Sql">
+			<where>
+				1=1
+				<if test="deptCodeTwo != null and deptCodeTwo !=''">
+			 	and c.dept_code like #{deptCodeTwo,jdbcType=VARCHAR} || '%'
+			 </if>
+			 <if test="deptCodeThree != null and deptCodeThree !=''">
+			 	and c.dept_code like #{deptCodeThree,jdbcType=VARCHAR} || '%'
+			 </if>
+			 <if test="deptCode != null and deptCode !=''">
+			 	and c.dept_code like #{deptCode,jdbcType=VARCHAR} || '%' 
+			 </if>
+			 <if test="userCode != null and userCode !=''">
+		 		and b.user_code like '%' || #{userCode,jdbcType=VARCHAR} || '%'
+		 	</if>
+			 <if test="userCname != null and userCname !=''">
+			 	and d.user_cname like '%' || #{userCname,jdbcType=VARCHAR} ||'%'
+			 </if>
+			 <if test="roleCname != null and roleCname !=''">
+			 	and a.role_cname like '%' || #{roleCname,jdbcType=VARCHAR} ||'%'
+			 </if>
+			 <if test="status != null and status !=''"> 
+			 	and d.status = #{status,jdbcType=CHAR}
+			 </if>
+			 <if test="valid != null and valid !=''">
+			 	and e.valid_ind = #{valid,jdbcType=CHAR}
+			 </if>
+			</where>
+		</sql>
+		
+		<select id="queryRoleNames" parameterType="map" resultType="map">
+			 select t.role_cname as "roleCname"
+			  from um_role t
+			 where t.sys_code = 'xszc'
+			   and t.valid_ind = '1'
+		</select>		
+</mapper>

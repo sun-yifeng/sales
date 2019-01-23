@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportDayRemotePolicy" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="SIGN_THIS_DAY" property="signThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CHENNEL_NAME" property="chennelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REPORT_DAY" property="reportDay" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="INCREATE_RATE" property="increateRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="FOUND_DATE" property="foundDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_YEAR" property="signThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_MONTH" property="incomeThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOUR_NAME" property="gourName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PLAN_FEE" property="planFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_YEAR" property="incomeThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_DAY" property="incomeThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_LAST_YEAR" property="incomeLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_LAST_DAY" property="incomeLastDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_MONTH" property="signThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMOTE_NODE_CODE" property="remoteNodeCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOUR_CODE" property="gourCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHENNEL_CODE" property="chennelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMOTE_NODE_NAME" property="remoteNodeName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_LAST_DAY" property="signLastDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportDayRemotePolicy">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="SIGN_THIS_DAY" property="signThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CHENNEL_NAME" property="chennelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REPORT_DAY" property="reportDay" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="INCREATE_RATE" property="increateRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="FOUND_DATE" property="foundDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_YEAR" property="signThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_MONTH" property="incomeThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GOUR_NAME" property="gourName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PLAN_FEE" property="planFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_THIS_YEAR" property="incomeThisYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SUPPORT_NAME" property="supportName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSSI_NAME" property="bussiName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INCOME_THIS_DAY" property="incomeThisDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_LAST_YEAR" property="incomeLastYear" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCOME_LAST_DAY" property="incomeLastDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_THIS_MONTH" property="signThisMonth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMOTE_NODE_CODE" property="remoteNodeCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSSI_CODE" property="bussiCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GOUR_CODE" property="gourCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SUPPORT_CODE" property="supportCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHENNEL_CODE" property="chennelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_NAME" property="employName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMOTE_NODE_NAME" property="remoteNodeName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SIGN_LAST_DAY" property="signLastDay" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		to_char(SIGN_THIS_DAY, 'fm99999999999990.00') as "signThisDay",
+		CHENNEL_NAME,
+		REPORT_DAY,
+		PK_ID,
+		to_char(INCREATE_RATE*100, 'fm99999999999990.00')  || '%' as "increateRate",
+		FOUND_DATE,
+		DEPT_CODE_FOUR,
+		to_char(SIGN_THIS_YEAR, 'fm99999999999990.00') as "signThisYear",
+		to_char(INCOME_THIS_MONTH, 'fm99999999999990.00') as "incomeThisMonth",
+		DEPT_CODE_TWO,
+		to_char(PLAN_FEE, 'fm99999999999990.00') as "planFee",
+		to_char(INCOME_THIS_YEAR, 'fm99999999999990.00') as "incomeThisYear",
+		to_char(INCOME_THIS_DAY, 'fm99999999999990.00') as "incomeThisDay",
+		to_char(INCOME_LAST_YEAR, 'fm99999999999990.00') as "incomeLastYear",
+		to_char(INCOME_LAST_DAY, 'fm99999999999990.00') as "incomeLastDay",
+		DEPT_NAME_THREE,
+		DEPT_NAME_TWO,
+		to_char(SIGN_THIS_MONTH, 'fm99999999999990.00') as "signThisMonth",
+		DEPT_CODE_THREE,
+		REMOTE_NODE_CODE,
+		DEPT_NAME_FOUR,
+		CHENNEL_CODE,
+		REMOTE_NODE_NAME,
+		to_char(SIGN_LAST_DAY, 'fm99999999999990.00') as "signLastDay"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		SIGN_THIS_DAY as "signThisDay",
+		CHENNEL_NAME as "chennelName",
+		REPORT_DAY as "reportDay",
+		PK_ID as "pkId",
+		INCREATE_RATE as "increateRate",
+		FOUND_DATE as "foundDate",
+		DEPT_CODE_FOUR as "deptCodeFour",
+		SIGN_THIS_YEAR as "signThisYear",
+		INCOME_THIS_MONTH as "incomeThisMonth",
+		GOUR_NAME as "gourName",
+		DEPT_CODE_TWO as "deptCodeTwo",
+		PLAN_FEE as "planFee",
+		INCOME_THIS_YEAR as "incomeThisYear",
+		SUPPORT_NAME as "supportName",
+		BUSSI_NAME as "bussiName",
+		INCOME_THIS_DAY as "incomeThisDay",
+		INCOME_LAST_YEAR as "incomeLastYear",
+		INCOME_LAST_DAY as "incomeLastDay",
+		DEPT_NAME_THREE as "deptNameThree",
+		DEPT_NAME_TWO as "deptNameTwo",
+		SIGN_THIS_MONTH as "signThisMonth",
+		DEPT_CODE_THREE as "deptCodeThree",
+		REMOTE_NODE_CODE as "remoteNodeCode",
+		BUSSI_CODE as "bussiCode",
+		GOUR_CODE as "gourCode",
+		DEPT_NAME_FOUR as "deptNameFour",
+		SUPPORT_CODE as "supportCode",
+		CHENNEL_CODE as "chennelCode",
+		EMPLOY_NAME as "employName",
+		EMPLOY_CODE as "employCode",
+		REMOTE_NODE_NAME as "remoteNodeName",
+		SIGN_LAST_DAY as "signLastDay"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{signThisDay,jdbcType=DOUBLE},
+ 		#{chennelName,jdbcType=VARCHAR},
+ 		#{reportDay,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{increateRate,jdbcType=DOUBLE},
+ 		#{foundDate,jdbcType=DATE},
+ 		#{deptCodeFour,jdbcType=VARCHAR},
+ 		#{signThisYear,jdbcType=DOUBLE},
+ 		#{incomeThisMonth,jdbcType=DOUBLE},
+ 		#{gourName,jdbcType=VARCHAR},
+ 		#{deptCodeTwo,jdbcType=VARCHAR},
+ 		#{planFee,jdbcType=DOUBLE},
+ 		#{incomeThisYear,jdbcType=DOUBLE},
+ 		#{supportName,jdbcType=VARCHAR},
+ 		#{bussiName,jdbcType=VARCHAR},
+ 		#{incomeThisDay,jdbcType=DOUBLE},
+ 		#{incomeLastYear,jdbcType=DOUBLE},
+ 		#{incomeLastDay,jdbcType=DOUBLE},
+ 		#{deptNameThree,jdbcType=VARCHAR},
+ 		#{deptNameTwo,jdbcType=VARCHAR},
+ 		#{signThisMonth,jdbcType=DOUBLE},
+ 		#{deptCodeThree,jdbcType=VARCHAR},
+ 		#{remoteNodeCode,jdbcType=VARCHAR},
+ 		#{bussiCode,jdbcType=VARCHAR},
+ 		#{gourCode,jdbcType=VARCHAR},
+ 		#{deptNameFour,jdbcType=VARCHAR},
+ 		#{supportCode,jdbcType=VARCHAR},
+ 		#{chennelCode,jdbcType=VARCHAR},
+ 		#{employName,jdbcType=VARCHAR},
+ 		#{employCode,jdbcType=VARCHAR},
+ 		#{remoteNodeName,jdbcType=VARCHAR},
+ 		#{signLastDay,jdbcType=DOUBLE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<choose>
+		   <when test="deptCodeFour != null and deptCodeFour !='' ">
+		      and DEPT_CODE_FOUR like f_get_inter_dept(#{deptCodeFour,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <when test="deptCodeThree != null and deptCodeThree !='' ">
+		      and DEPT_CODE_THREE like f_get_inter_dept(#{deptCodeThree,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <when test="deptCodeTwo != null and deptCodeTwo !='' ">
+		      and DEPT_CODE_TWO like f_get_inter_dept(#{deptCodeTwo,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <otherwise></otherwise>
+		</choose>
+		<if test="signThisDay != null and signThisDay != ''">
+			and SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE}
+		</if>
+		<if test="chennelName != null and chennelName != ''">
+			and CHENNEL_NAME = #{chennelName,jdbcType=VARCHAR}
+		</if>
+		<if test="reportDay != null and reportDay != ''">
+			and REPORT_DAY = #{reportDay,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="increateRate != null and increateRate != ''">
+			and INCREATE_RATE = #{increateRate,jdbcType=DOUBLE}
+		</if>
+		<if test="foundDate != null and foundDate != ''">
+			and FOUND_DATE = #{foundDate,jdbcType=DATE}
+		</if>
+		<if test="signThisYear != null and signThisYear != ''">
+			and SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE}
+		</if>
+		<if test="incomeThisMonth != null and incomeThisMonth != ''">
+			and INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="gourName != null and gourName != ''">
+			and GOUR_NAME = #{gourName,jdbcType=VARCHAR}
+		</if>
+		<if test="planFee != null and planFee != ''">
+			and PLAN_FEE = #{planFee,jdbcType=DOUBLE}
+		</if>
+		<if test="incomeThisYear != null and incomeThisYear != ''">
+			and INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE}
+		</if>
+		<if test="supportName != null and supportName != ''">
+			and SUPPORT_NAME = #{supportName,jdbcType=VARCHAR}
+		</if>
+		<if test="bussiName != null and bussiName != ''">
+			and BUSSI_NAME = #{bussiName,jdbcType=VARCHAR}
+		</if>
+		<if test="incomeThisDay != null and incomeThisDay != ''">
+			and INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE}
+		</if>
+		<if test="incomeLastYear != null and incomeLastYear != ''">
+			and INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE}
+		</if>
+		<if test="incomeLastDay != null and incomeLastDay != ''">
+			and INCOME_LAST_DAY = #{incomeLastDay,jdbcType=DOUBLE}
+		</if>
+		<if test="signThisMonth != null and signThisMonth != ''">
+			and SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE}
+		</if>
+		<if test="remoteNodeCode != null and remoteNodeCode != ''">
+			and REMOTE_NODE_CODE = #{remoteNodeCode,jdbcType=VARCHAR}
+		</if>
+		<if test="bussiCode != null and bussiCode != ''">
+			and BUSSI_CODE = #{bussiCode,jdbcType=VARCHAR}
+		</if>
+		<if test="gourCode != null and gourCode != ''">
+			and GOUR_CODE = #{gourCode,jdbcType=VARCHAR}
+		</if>
+		<if test="supportCode != null and supportCode != ''">
+			and SUPPORT_CODE = #{supportCode,jdbcType=VARCHAR}
+		</if>
+		<if test="chennelCode != null and chennelCode != ''">
+			and CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="employName != null and employName != ''">
+			and EMPLOY_NAME = #{employName,jdbcType=VARCHAR}
+		</if>
+		<if test="employCode != null and employCode != ''">
+			and EMPLOY_CODE = #{employCode,jdbcType=VARCHAR}
+		</if>
+		<if test="remoteNodeName != null and remoteNodeName != ''">
+			and REMOTE_NODE_NAME = #{remoteNodeName,jdbcType=VARCHAR}
+		</if>
+		<if test="signLastDay != null and signLastDay != ''">
+			and SIGN_LAST_DAY = #{signLastDay,jdbcType=DOUBLE}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportDayRemotePolicy" >
+    insert into REPORT_DAY_REMOTE_POLICY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_DAY_REMOTE_POLICY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from REPORT_DAY_REMOTE_POLICY
+    where PK_ID = #{pkId,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_DAY_REMOTE_POLICY
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_DAY_REMOTE_POLICY
+	<set>
+	<if test="signThisDay != null and signThisDay != ''">
+		SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="chennelName != null and chennelName != ''">
+		CHENNEL_NAME = #{chennelName,jdbcType=VARCHAR},
+	</if>
+  	<if test="reportDay != null and reportDay != ''">
+		REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+	</if>
+   	<if test="increateRate != null and increateRate != ''">
+		INCREATE_RATE = #{increateRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="foundDate != null and foundDate != ''">
+		FOUND_DATE = #{foundDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisYear != null and signThisYear != ''">
+		SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisMonth != null and incomeThisMonth != ''">
+		INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="gourName != null and gourName != ''">
+		GOUR_NAME = #{gourName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="planFee != null and planFee != ''">
+		PLAN_FEE = #{planFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisYear != null and incomeThisYear != ''">
+		INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="supportName != null and supportName != ''">
+		SUPPORT_NAME = #{supportName,jdbcType=VARCHAR},
+	</if>
+  	<if test="bussiName != null and bussiName != ''">
+		BUSSI_NAME = #{bussiName,jdbcType=VARCHAR},
+	</if>
+  	<if test="incomeThisDay != null and incomeThisDay != ''">
+		INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeLastYear != null and incomeLastYear != ''">
+		INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeLastDay != null and incomeLastDay != ''">
+		INCOME_LAST_DAY = #{incomeLastDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisMonth != null and signThisMonth != ''">
+		SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="remoteNodeCode != null and remoteNodeCode != ''">
+		REMOTE_NODE_CODE = #{remoteNodeCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="bussiCode != null and bussiCode != ''">
+		BUSSI_CODE = #{bussiCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="gourCode != null and gourCode != ''">
+		GOUR_CODE = #{gourCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="supportCode != null and supportCode != ''">
+		SUPPORT_CODE = #{supportCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="chennelCode != null and chennelCode != ''">
+		CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="employName != null and employName != ''">
+		EMPLOY_NAME = #{employName,jdbcType=VARCHAR},
+	</if>
+  	<if test="employCode != null and employCode != ''">
+		EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="remoteNodeName != null and remoteNodeName != ''">
+		REMOTE_NODE_NAME = #{remoteNodeName,jdbcType=VARCHAR},
+	</if>
+  	<if test="signLastDay != null and signLastDay != ''">
+		SIGN_LAST_DAY = #{signLastDay,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_DAY_REMOTE_POLICY
+		set 
+			SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+  			CHENNEL_NAME = #{chennelName,jdbcType=VARCHAR},
+  			REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+   			INCREATE_RATE = #{increateRate,jdbcType=DOUBLE},
+  			FOUND_DATE = #{foundDate,jdbcType=DATE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+  			INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+  			GOUR_NAME = #{gourName,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			PLAN_FEE = #{planFee,jdbcType=DOUBLE},
+  			INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+  			SUPPORT_NAME = #{supportName,jdbcType=VARCHAR},
+  			BUSSI_NAME = #{bussiName,jdbcType=VARCHAR},
+  			INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+  			INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+  			INCOME_LAST_DAY = #{incomeLastDay,jdbcType=DOUBLE},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			REMOTE_NODE_CODE = #{remoteNodeCode,jdbcType=VARCHAR},
+  			BUSSI_CODE = #{bussiCode,jdbcType=VARCHAR},
+  			GOUR_CODE = #{gourCode,jdbcType=VARCHAR},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			SUPPORT_CODE = #{supportCode,jdbcType=VARCHAR},
+  			CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR},
+  			EMPLOY_NAME = #{employName,jdbcType=VARCHAR},
+  			EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+  			REMOTE_NODE_NAME = #{remoteNodeName,jdbcType=VARCHAR},
+  			SIGN_LAST_DAY = #{signLastDay,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportDayRemotePolicy" >
+	update REPORT_DAY_REMOTE_POLICY
+	<set>
+	<if test="signThisDay != null and signThisDay != ''">
+		SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="chennelName != null and chennelName != ''">
+		CHENNEL_NAME = #{chennelName,jdbcType=VARCHAR},
+	</if>
+  	<if test="reportDay != null and reportDay != ''">
+		REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+	</if>
+   	<if test="increateRate != null and increateRate != ''">
+		INCREATE_RATE = #{increateRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="foundDate != null and foundDate != ''">
+		FOUND_DATE = #{foundDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisYear != null and signThisYear != ''">
+		SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisMonth != null and incomeThisMonth != ''">
+		INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="gourName != null and gourName != ''">
+		GOUR_NAME = #{gourName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="planFee != null and planFee != ''">
+		PLAN_FEE = #{planFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeThisYear != null and incomeThisYear != ''">
+		INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="supportName != null and supportName != ''">
+		SUPPORT_NAME = #{supportName,jdbcType=VARCHAR},
+	</if>
+  	<if test="bussiName != null and bussiName != ''">
+		BUSSI_NAME = #{bussiName,jdbcType=VARCHAR},
+	</if>
+  	<if test="incomeThisDay != null and incomeThisDay != ''">
+		INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeLastYear != null and incomeLastYear != ''">
+		INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+	</if>
+  	<if test="incomeLastDay != null and incomeLastDay != ''">
+		INCOME_LAST_DAY = #{incomeLastDay,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="signThisMonth != null and signThisMonth != ''">
+		SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="remoteNodeCode != null and remoteNodeCode != ''">
+		REMOTE_NODE_CODE = #{remoteNodeCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="bussiCode != null and bussiCode != ''">
+		BUSSI_CODE = #{bussiCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="gourCode != null and gourCode != ''">
+		GOUR_CODE = #{gourCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="supportCode != null and supportCode != ''">
+		SUPPORT_CODE = #{supportCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="chennelCode != null and chennelCode != ''">
+		CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="employName != null and employName != ''">
+		EMPLOY_NAME = #{employName,jdbcType=VARCHAR},
+	</if>
+  	<if test="employCode != null and employCode != ''">
+		EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="remoteNodeName != null and remoteNodeName != ''">
+		REMOTE_NODE_NAME = #{remoteNodeName,jdbcType=VARCHAR},
+	</if>
+  	<if test="signLastDay != null and signLastDay != ''">
+		SIGN_LAST_DAY = #{signLastDay,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportDayRemotePolicy" >
+		update REPORT_DAY_REMOTE_POLICY
+		set 
+			SIGN_THIS_DAY = #{signThisDay,jdbcType=DOUBLE},
+  			CHENNEL_NAME = #{chennelName,jdbcType=VARCHAR},
+  			REPORT_DAY = #{reportDay,jdbcType=VARCHAR},
+   			INCREATE_RATE = #{increateRate,jdbcType=DOUBLE},
+  			FOUND_DATE = #{foundDate,jdbcType=DATE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			SIGN_THIS_YEAR = #{signThisYear,jdbcType=DOUBLE},
+  			INCOME_THIS_MONTH = #{incomeThisMonth,jdbcType=DOUBLE},
+  			GOUR_NAME = #{gourName,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			PLAN_FEE = #{planFee,jdbcType=DOUBLE},
+  			INCOME_THIS_YEAR = #{incomeThisYear,jdbcType=DOUBLE},
+  			SUPPORT_NAME = #{supportName,jdbcType=VARCHAR},
+  			BUSSI_NAME = #{bussiName,jdbcType=VARCHAR},
+  			INCOME_THIS_DAY = #{incomeThisDay,jdbcType=DOUBLE},
+  			INCOME_LAST_YEAR = #{incomeLastYear,jdbcType=DOUBLE},
+  			INCOME_LAST_DAY = #{incomeLastDay,jdbcType=DOUBLE},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			SIGN_THIS_MONTH = #{signThisMonth,jdbcType=DOUBLE},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			REMOTE_NODE_CODE = #{remoteNodeCode,jdbcType=VARCHAR},
+  			BUSSI_CODE = #{bussiCode,jdbcType=VARCHAR},
+  			GOUR_CODE = #{gourCode,jdbcType=VARCHAR},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			SUPPORT_CODE = #{supportCode,jdbcType=VARCHAR},
+  			CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR},
+  			EMPLOY_NAME = #{employName,jdbcType=VARCHAR},
+  			EMPLOY_CODE = #{employCode,jdbcType=VARCHAR},
+  			REMOTE_NODE_NAME = #{remoteNodeName,jdbcType=VARCHAR},
+  			SIGN_LAST_DAY = #{signLastDay,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_DAY_REMOTE_POLICY
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_DAY_REMOTE_POLICY
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_DAY_REMOTE_POLICY <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportDayRemotePolicy" resultType="long">
+	select count(1)
+	from REPORT_DAY_REMOTE_POLICY <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_REMOTE_POLICY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_REMOTE_POLICY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_REMOTE_POLICY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_REMOTE_POLICY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_DAY_REMOTE_POLICY
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_DAY_REMOTE_POLICY <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.auth.vo.Auth">
+
+	<!-- 机构代码开关是否关闭 -->
+	<select id="findBtnCfg" parameterType="map" resultType="long">
+		select count(1) from tmp_cfg_dept t where t.dept_code = #{deptCode, jdbcType=VARCHAR} and t.open_flag = '0'
+	</select>
+	
+	<select id="findBtnCfgMap" parameterType="map" resultType="map">
+		select t.DEPT_CODE deptCode,t.OPEN_FLAG openFlag from TMP_CFG_DEPT t where t.dept_code = #{deptCode, jdbcType=VARCHAR} and t.open_flag = '0'
+	</select>
+	
+	<select id="findBtnHtml" parameterType="map" resultType="map">
+		select t.html_id as "htmlId" from tmp_cfg_html t where t.open_flag = '0'
+	</select>
+	
+
+</mapper>

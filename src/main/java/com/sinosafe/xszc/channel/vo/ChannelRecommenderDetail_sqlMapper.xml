@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelRecommendDetail">
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="RECOMMENDER_ID" property="recommenderId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="RECOMMENDER_CODE" property="recommenderCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="RECOMMENDER_NAME" property="recommenderName" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="CHANNEL_NAME" property="channelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+	</resultMap>
+	
+	<!-- 查询条件 -->
+	<sql id="Base_Where_Sql">
+		<where>
+			1=1
+			<!-- 机构 -->
+			<if test="deptCodeTwo != null and deptCodeTwo != '' and deptCodeTwo != '00'">
+				<choose>
+					<when test="deptCodeFour != null and deptCodeFour != ''">
+					    and t1.dept_code like #{deptCodeFour,jdbcType=VARCHAR} || '%'
+					</when>
+					<when test="deptCodeThree != null and deptCodeThree != ''">
+					    and t1.dept_code like #{deptCodeThree,jdbcType=VARCHAR} || '%'
+					</when>
+					<otherwise>
+					    and t1.dept_code like #{deptCodeTwo,jdbcType=VARCHAR} || '%'
+					</otherwise>
+				</choose>
+			</if>
+			<if test="recommenderName !=null and recommenderName != ''">
+				and t1.RECOMMENDER_NAME like '%' || #{recommenderName,jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="recommenderCode !=null and recommenderCode !=''">
+				and t1.RECOMMENDER_CODE = #{recommenderCode,jdbcType=VARCHAR}
+			</if>
+			<if test="channelCode !=null and channelCode != ''">
+				and t1.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+			</if>
+			<if test="channelName !=null and channelName != ''">
+				and t1.CHANNEL_NAME like '%' || #{channelName,jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="approvedStatus != null and approvedStatus != ''">
+				and t1.approved_status = #{approvedStatus,jdbcType=VARCHAR}
+			</if>
+			<if test="deptCode != null and deptCode != ''">
+				and t1.dept_code like #{deptCode,jdbcType=VARCHAR} || '%'
+			</if>
+		</where>	
+	</sql>
+	
+	<select id="queryRecommenderCount" parameterType="map" resultType="long">
+		select count(1) from salesman t 
+		 	   left join department d on t.dept_code = d.dept_code 
+			   where 1=1
+			   and t.valid_ind = '1' 
+			   and t.status = '1'
+			   <if test="deptCode != null and deptCode != ''">
+			    and	t.dept_code like #{deptCode,jdbcType=VARCHAR} || '%'
+			   </if>
+			   <if test="employCode != null and employCode != ''">
+			    and t.employ_code = #{employCode,jdbcType=VARCHAR}
+			   </if>
+			   <if test="salesmanCname != null and salesmanCname != ''"> 
+			   	and t.salesman_cname = #{salesmanCname,jdbcType=VARCHAR}
+			   </if>
+	</select>
+	
+	<!-- 根据当前用户部门查询出推荐人 -->
+	<select id='queryRecommenderByDeptCode' parameterType="map" resultType="map">
+        select * from (
+			select a.*,rownum rn from(select t.employ_code "employCode",
+			   t.dept_code "deptCode",
+			   d.dept_simple_name "deptName",
+			   t.salesman_cname "salesmanCname",
+			   t.status "status" 
+			   from salesman t
+			   left join department d on t.dept_code = d.dept_code 
+			   where 1=1 
+			   and t.valid_ind = '1' 
+			   and t.status = '1'
+			   <if test="deptCode != null and deptCode != ''">
+			    and	t.dept_code like #{deptCode,jdbcType=VARCHAR} || '%'
+			   </if>
+			   <if test="employCode != null and employCode != ''">
+			    and	t.employ_code = #{employCode,jdbcType=VARCHAR}
+			   </if>
+			   <if test="salesmanCname != null and salesmanCname != ''"> 
+			    and	t.salesman_cname = #{salesmanCname,jdbcType=VARCHAR}
+			   </if>
+			   ) a
+		   where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+         select count(1)
+          from channel_recommender_detail t1
+          <include refid="Base_Where_Sql" />
+          and t1.valid_ind = '1'
+	</select>
+	
+	<!-- 查询所有推荐人 -->
+	<select id="queryListPage" parameterType="map" resultType="map">
+		select * from (
+			select a.*, rownum rn from (select 
+			   t1.recommender_id "recommenderId",
+		       t1.dept_code "deptCode",
+		       t1.dept_name "deptName",
+		       t1.recommender_code "recommenderCode",
+		       t1.recommender_name "recommenderName",
+		       t1.channel_code "channelCode",
+		       t1.channel_name "channelName",
+		       t1.APPROVED_STATUS "approvedStatus"
+ 			 from channel_recommender_detail t1 
+ 			 <include refid="Base_Where_Sql" />
+ 			 and t1.valid_ind = '1'
+ 			 order by t1.updated_date desc) a 
+  			where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 增加一条推荐人信息 -->
+	<select id="insertRecommender" parameterType="map">
+		insert into channel_recommender_detail(
+			recommender_id,
+			dept_code,
+			dept_name,
+			recommender_code,
+			recommender_name,
+			valid_ind,
+			channel_code,
+			channel_name,
+			approved_status,
+			
+			created_user,
+			created_date,
+			updated_user,
+			updated_date)
+		values(
+			sys_guid(),
+			#{deptCode,jdbcType=VARCHAR},
+			#{deptCname,jdbcType=VARCHAR},
+			#{recommenderCode,jdbcType=VARCHAR},
+			#{recommenderName,jdbcType=VARCHAR},
+			'1',
+			#{channelCode,jdbcType=VARCHAR},
+			#{channelName,jdbcType=VARCHAR},
+			'0',
+			
+			#{createdUser,jdbcType=VARCHAR},
+			sysdate,
+			#{updatedUser,jdbcType=VARCHAR},
+			sysdate
+		)	
+	</select>
+	
+	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="map">
+		select 
+			   t1.recommender_id "recommenderId",
+		       t1.dept_code "deptCode",
+		       t1.dept_name "deptName",
+		       t1.recommender_code "recommenderCode",
+		       t1.recommender_name "recommenderName",
+		       t1.channel_code "channelCode",
+		       t1.channel_name "channelName"
+ 			 from channel_recommender_detail t1
+ 			 where 1=1
+ 			 and t1.recommender_id = #{recommenderId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="updateRecommender" parameterType="map">
+		update channel_recommender_detail t
+			set
+				t.recommender_code = #{recommenderCode,jdbcType=VARCHAR},
+				t.recommender_name = #{recommenderName,jdbcType=VARCHAR},
+				t.approved_status = '0',
+				t.updated_user = #{updatedUser,jdbcType=VARCHAR},
+				t.updated_date = sysdate
+			where t.recommender_id = #{recommenderId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="deleteRecommenderById" parameterType="java.lang.String">
+		update channel_recommender_detail t
+			set
+				t.VALID_IND = '0'
+			where t.recommender_id = #{recommenderId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 为个人代理添加推荐人的时候，把个代状态改变为'4'(全名营销代理人) -->
+	<select id="updateChannelFlag" parameterType="java.lang.String">
+		update channel_main t
+			set t.channel_flag=#{channelFlag,jdbcType=VARCHAR}
+		where t.channel_code = #{channelCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 将代理人的推荐人信息数据同步 -->
+	<select id="syncRecommenders" parameterType="map" statementType="CALLABLE" >
+		<![CDATA[ 
+          { call SALESUPPORT_IMPORT_HX.p_single_recommender(
+           #{recommender_id, mode=IN, jdbcType=VARCHAR},
+           #{o_result_code, mode=OUT, jdbcType=VARCHAR},
+           #{o_result_msg, mode=OUT, jdbcType=VARCHAR}
+           )} 
+        ]]> 
+	</select>
+	
+	<update id="updateRowsApprove"  parameterType="map" >
+			update channel_recommender_detail t
+			set t.approved_status = '1',
+				t.approved_user = 'admin',
+				t.approved_date = sysdate
+			where  t.recommender_id= #{pkId,jdbcType=VARCHAR}
+	 </update>
+</mapper>

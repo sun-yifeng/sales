@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.partner.vo.Individual">
+
+    <!-- 查询详细信息-->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="map">
+		 select t1.channel_code as "channelCode",
+		       t2.channel_name as "channelName",
+		       t1.dept_code as "deptCode",
+		       t3.dept_cname as "deptCname",
+		       t1.dept_code as "processDeptCode",
+		       t1.dept_code || '-' || t3.dept_simple_name as "processDeptCname",
+		       t2.parent_channel_code as "parentChannelCode",
+		       t2.parent_channel_code || '-' || t4.medium_cname as "parentChannelName",
+		       t1.business_line as "businessLine",
+		       t1.channel_category as "channelCategory",
+		       t1.channel_flag as "channelFlag",
+		       t1.channel_origin as "channelOrigin",
+		       t2.parent_channel_code as "parentChannelCode",
+		       t1.bank_account as "bankAccount",
+		       t1.bank_province as "bankProvince",
+		       t1.bank_city as "bankCity",
+		       t1.bank_receive as "bankReceive",
+		       t1.bank_node as "bankNode",
+		       t1.bank_name as "bankName",
+		       t2.certify_type as "certifyType",
+		       t2.certify_no as "certifyNo",
+		       t2.tel as "tel",
+		       t2.mobile as "mobile",
+		       t2.adderss as "adderss",
+		       t1.remark as "remark"
+		  from channel_main t1
+		 inner join channel_agent_detail t2
+		    on t1.channel_code = t2.channel_code
+		  left join department t3
+		    on t1.dept_code = t3.dept_code
+		  left join channel_medium_detail t4
+		    on t2.parent_channel_code = t4.channel_code
+         where t1.channel_code = #{channelCode,jdbcType=VARCHAR}
+    </select>
+	
+	<!-- 更新渠道主表 -->
+    <update id="updateChannelMain" parameterType="map">
+        update channel_main t 
+          set
+              t.dept_code = #{processDeptCode,jdbcType=VARCHAR},
+              t.bank_name = #{bankName,jdbcType=VARCHAR},
+              t.bank_account = #{bankAccount,jdbcType=VARCHAR},
+              t.bank_province = #{bankProvince,jdbcType=VARCHAR},
+              t.bank_city = #{bankCity,jdbcType=VARCHAR},
+              t.bank_receive = #{bankReceive,jdbcType=VARCHAR},
+              t.bank_node = #{bankNode,jdbcType=VARCHAR},
+              t.office_address = #{officeAddress,jdbcType=VARCHAR},
+              t.contact = #{contact,jdbcType=VARCHAR},
+              t.remark = #{remark,jdbcType=VARCHAR},
+              t.updated_user = #{updatedUser,jdbcType=VARCHAR},
+              t.updated_date = sysdate
+        where t.channel_code = #{channelCode,jdbcType=VARCHAR}
+    </update>
+	<insert id="insertChannelMain" parameterType="map">
+	    insert into channel_main (
+	        channel_code,
+	        dept_code,
+	        category,
+	        channel_category,
+	        channel_flag,
+	        mistake_flag,
+	        
+	        business_line,
+	        bank_account,
+	        bank_name,
+	        bank_province,
+	        bank_city,
+	        
+	        bank_receive,
+	        bank_node,
+	        
+	        remark,
+	        status,
+	        valid_ind,
+	        channel_origin,
+	        approve_flag,
+	        
+	        created_user,
+	        created_date,
+	        updated_user,
+	        updated_date)
+	        values (
+	        #{channelCode,jdbcType=VARCHAR},
+	        #{processDeptCode,jdbcType=VARCHAR},
+	        '19001',
+	        '19001',
+	        '3',
+	        '0',
+	        
+	        '925005',
+	        #{bankAccount,jdbcType=VARCHAR},
+	        #{bankName,jdbcType=VARCHAR},
+	        #{bankProvince,jdbcType=VARCHAR},
+	        #{bankCity,jdbcType=VARCHAR},
+	        
+	        #{bankReceive,jdbcType=VARCHAR},
+	        #{bankNode,jdbcType=VARCHAR},
+	        
+	        #{remark,jdbcType=VARCHAR},
+	        '1',
+	        '1',
+	        '1',
+	        '0',
+	        
+	        #{createdUser,jdbcType=VARCHAR},
+	        sysdate,
+	        #{updatedUser,jdbcType=VARCHAR},
+	        sysdate
+	        )
+	</insert>
+		
+	<!-- 更新渠道子表 -->
+    <update id="updateChannelAgent" parameterType="map">
+        update channel_Agent_detail t 
+           set
+               t.channel_name = #{channelName,jdbcType=VARCHAR},
+               t.certify_type = #{certifyType,jdbcType=VARCHAR},
+               t.certify_no = #{certifyNo,jdbcType=VARCHAR},
+               t.parent_channel_code = #{parentChannelCode,jdbcType=VARCHAR},
+               t.tel = #{tel,jdbcType=VARCHAR},
+               t.mobile = #{mobile,jdbcType=VARCHAR},
+               t.email = #{email,jdbcType=VARCHAR},
+               t.adderss = #{adderss,jdbcType=VARCHAR},
+               t.updated_user = #{updatedUser,jdbcType=VARCHAR},
+               t.updated_date = sysdate
+         where t.channel_code = #{channelCode,jdbcType=VARCHAR}
+    </update>
+	
+	<!-- 插入渠道子表 -->
+	<insert id="insertChannelAgent" parameterType="map">
+		insert into channel_agent_detail (
+			channel_code,
+			channel_name,
+			certify_type,
+			certify_no,
+			parent_channel_code,
+			
+			status,
+			valid_ind,
+			tel,
+			mobile,
+			email,
+			adderss,
+		
+			created_user,
+			created_date,
+			updated_user,
+			updated_date
+		)
+		values
+		(
+			#{channelCode,jdbcType=VARCHAR},
+			#{channelName,jdbcType=VARCHAR},
+			#{certifyType,jdbcType=VARCHAR},
+			#{certifyNo,jdbcType=VARCHAR},
+			#{parentChannelCode,jdbcType=VARCHAR},
+			
+			'1',
+			'1',
+			#{tel,jdbcType=VARCHAR},
+			#{mobile,jdbcType=VARCHAR},
+			#{email,jdbcType=VARCHAR},
+			#{adderss,jdbcType=VARCHAR},
+			
+			#{createdUser,jdbcType=VARCHAR},
+			sysdate,
+			#{updatedUser,jdbcType=VARCHAR},
+			sysdate		
+		)
+	</insert>
+	
+	<!-- 生成渠道主键 （没有调用共用的方法，参数名称可能不一样）-->
+	<select id="getChannelCode" statementType="CALLABLE" parameterType="map">
+		{ call get_agt_no(
+		#{channelCode,jdbcType=VARCHAR,mode=INOUT},
+		#{processDeptCode,jdbcType=VARCHAR,mode=IN},
+		#{channelCategory,jdbcType=CHAR,mode=IN},
+		#{property,jdbcType=CHAR,mode=IN})}
+	</select>
+	
+	<!-- 条件分页查询语句 -->
+	<select id="queryListPage" parameterType="map" resultType="map">
+		select * from (
+			select a.*,rownum rn from (
+				select t1.channel_code as "channelCode",
+				       t2.channel_name as "channelName",
+				       t1.dept_code as "deptCode",
+				       t3.dept_cname as "deptCname",
+				       t1.approve_code || t4.salesman_cname as "processUserCode",
+				       t1.channel_flag as "channelFlag",
+				       t1.approve_flag as "approveFlag",
+				       t1.channel_origin as "channelOrigin"
+				  from channel_main t1
+				 inner join channel_agent_detail t2
+				    on t1.channel_code = t2.channel_code
+				  left join department t3
+				    on t1.dept_code = t3.dept_code
+				  left join salesman t4
+				    on t1.approve_code = t4.employ_code
+				<include refid="Base_Where_Sql" />
+					order by t1.updated_date desc
+		) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+         select count(1)
+          from channel_main t1
+         inner join channel_agent_detail t2
+            on t1.channel_code = t2.channel_code
+          left join department t3
+            on t1.dept_code = t3.dept_code
+          left join salesman t4
+            on t1.approve_code = t4.employ_code
+		<include refid="Base_Where_Sql" />
+	</select>
+		
+	<!-- 查询条件 -->
+	<sql id="Base_Where_Sql">
+		<where>
+			1 = 1
+			and t1.channel_flag in ('1','3')
+			<!-- 是否包含传统渠道  -->
+            <choose>
+              <!-- 如果勾选“含传统渠道”，则不加任何过滤条件  -->
+              <when test="existsFlag == '1' or existsFlag == 1 ">
+                 and 1 = 1
+              </when>
+              <!-- 默认只查询外部企业和有协议的内部渠道  -->
+              <otherwise>
+                  and t1.channel_code in (select distinct t5.channel_code
+                                 from channel_main t5
+                                where 1 = 1
+                                  and t5.channel_flag = '3'
+                                   or exists (select 1
+                                         from channel_confer t6
+                                        where 1 = 1
+                                          and t5.channel_flag = '1'
+                                          and t6.confer_type = upper('H')
+                                          and t5.channel_code = t6.channel_code))
+              </otherwise>
+            </choose>
+			<if test="deptCode != null and deptCode != ''">			      
+				and t1.dept_code like trim(#{deptCode,jdbcType=VARCHAR})||'%'
+			</if>
+			<if test="channelName != null and channelName != ''">
+				and t2.channel_name like trim(#{channelName,jdbcType=VARCHAR})||'%'
+			</if>
+			<if test="channelCode != null and channelCode != ''">
+				and t1.channel_code like trim(#{channelCode,jdbcType=VARCHAR})||'%'
+			</if>
+			<if test="channelFlag != null and channelFlag != ''">
+				and t1.channel_flag = #{channelFlag,jdbcType=VARCHAR}
+			</if>
+			<if test="processUserCode != null and processUserCode != ''">
+				and t2.process_user_code like trim(#{processUserCode,jdbcType=VARCHAR})||'%'
+			</if>
+			<if test="signDateBgn != null and signDateBgn != ''">
+			    <![CDATA[ and t2.sign_date >= to_date(#{signDateBgn,jdbcType=VARCHAR}, 'yyyy-mm-dd') ]]>
+			</if>
+			<if test="signDateEnd != null and signDateEnd != ''">
+				<![CDATA[ and t2.sign_date <= to_date(#{signDateEnd,jdbcType=VARCHAR}, 'yyyy-mm-dd') ]]>
+			</if>
+			<if test="approveFlag != null and approveFlag != ''">
+				and t1.approve_flag = #{approveFlag,jdbcType=VARCHAR}
+			</if>
+			<!-- 查询删除的数据  -->
+			<choose>
+			    <when test="isDelete != null and isDelete != ''"></when>
+			    <otherwise>and t1.valid_ind = '1'</otherwise>
+			</choose>
+		</where>
+	</sql>
+	
+</mapper>

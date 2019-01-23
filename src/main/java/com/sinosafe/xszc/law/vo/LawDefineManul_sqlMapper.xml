@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.LawDefineManul" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROC_NAME" property="procName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_CODE" property="taskCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_STATUS" property="taskStatus" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_BNG_DATE" property="taskBeginDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TASK_END_DATE" property="taskEndDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="OPERATOR_ID" property="operatorId" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="TASK_ID" property="taskId" jdbcType="DATE" javaType="java.lang.String" />
+ 	</resultMap>
+ 	
+ 	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.LawDefineManul">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROC_NAME" property="procName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_CODE" property="taskCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_STATUS" property="taskStatus" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_BNG_DATE" property="taskBeginDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TASK_END_DATE" property="taskEndDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="OPERATOR_ID" property="operatorId" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="TASK_ID" property="taskId" jdbcType="DATE" javaType="java.lang.String" />
+ 	</resultMap>
+ 	
+	<select id="queryManualTaskList" parameterType="map" resultMap="BaseResultMap">
+		select 
+			t.VERSION_ID as "versionId",
+			t.DEPT_CODE || d.dept_simple_name as "deptSimpleName",
+			t.LINE_CODE as "lineCode",
+			t.CALC_MONTH as "calcMonth",
+			t.PROC_NAME as "procName",
+			t1.TASK_NAME as "taskName",
+			t1.TASK_CODE as "taskCode",
+			t.TASK_STATUS as "taskStatus",
+			t.updated_user as "updatedUser",
+			to_char(t.TASK_BNG_DATE,'yyyy-mm-dd hh24:mi:ss') as "taskBeginDate",
+		    to_char(t.TASK_END_DATE,'yyyy-mm-dd hh24:mi:ss') as "taskEndDate",
+			t.REMARK as "remark",
+			t.task_id as "taskId",
+			t.OPERATOR_ID as "operatorId"
+		from T_LAW_DEFINE_MANUAL t
+		left join department d on t.dept_code = d.dept_code
+		left join t_law_define_step t1 on t1.task_code = t.task_code
+		where 1=1
+		and t.VALID_IND = '1'
+		and t1.VALID_IND = '1'
+		<if test="taskStatus != null and taskStatus !=''">
+			and t.task_status = #{taskStatus,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId !=''">
+			and t.version_id = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="calcMonth != null and calcMonth != ''">
+			and t.CALC_MONTH = #{calcMonth,jdbcType=VARCHAR}
+		</if>
+		order by t.dept_code,t1.TASK_CODE asc
+	</select>
+	
+	<select id="execManualCal1" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL pkg_law_manual.run_manual_step1 (
+	      #{versionId,mode=IN,jdbcType=VARCHAR},
+	      #{calcMonth,mode=IN,jdbcType=VARCHAR},
+	      #{deptCode,mode=IN,jdbcType=VARCHAR},
+	      #{lineCode,mode=IN,jdbcType=VARCHAR},
+	      #{userCode,mode=IN,jdbcType=VARCHAR},
+	      #{resultMsg,mode=OUT,jdbcType=VARCHAR}
+	      )}
+	   ]]>
+	 </select>
+	 
+	 <select id="execManualCal2" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL pkg_law_manual.run_manual_step2 (
+	      #{versionId,mode=IN,jdbcType=VARCHAR},
+	      #{calcMonth,mode=IN,jdbcType=VARCHAR},
+	      #{deptCode,mode=IN,jdbcType=VARCHAR},
+	      #{lineCode,mode=IN,jdbcType=VARCHAR},
+	      #{userCode,mode=IN,jdbcType=VARCHAR},
+	      #{resultMsg,mode=OUT,jdbcType=VARCHAR}
+	      )}
+	   ]]>
+	 </select>
+	 
+	 <select id="execManualCal3" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL pkg_law_manual.run_manual_step3 (
+	      #{versionId,mode=IN,jdbcType=VARCHAR},
+	      #{calcMonth,mode=IN,jdbcType=VARCHAR},
+	      #{deptCode,mode=IN,jdbcType=VARCHAR},
+	      #{lineCode,mode=IN,jdbcType=VARCHAR},
+	      #{userCode,mode=IN,jdbcType=VARCHAR},
+	      #{resultMsg,mode=OUT,jdbcType=VARCHAR}
+	      )}
+	   ]]>
+	 </select>
+	 
+	 <select id="execManualCal4" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL pkg_law_manual.run_manual_step4 (
+	      #{versionId,mode=IN,jdbcType=CHAR},
+	      #{calcMonth,mode=IN,jdbcType=CHAR},
+	      #{deptCode,mode=IN,jdbcType=CHAR},
+	      #{lineCode,mode=IN,jdbcType=CHAR},
+	      #{userCode,mode=IN,jdbcType=CHAR},
+	      #{resultMsg,mode=OUT,jdbcType=CHAR}
+	      )}
+	   ]]>
+	 </select>
+	 
+	 <select id="execManualCal5" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL pkg_law_manual.run_manual_step5 (
+	      #{versionId,mode=IN,jdbcType=VARCHAR},
+	      #{calcMonth,mode=IN,jdbcType=VARCHAR},
+	      #{deptCode,mode=IN,jdbcType=VARCHAR},
+	      #{lineCode,mode=IN,jdbcType=VARCHAR},
+	      #{userCode,mode=IN,jdbcType=VARCHAR},
+	      #{resultMsg,mode=OUT,jdbcType=VARCHAR}
+	      )}
+	   ]]>
+	 </select>
+	 
+	 <select id="execManualCal6" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL pkg_law_manual.run_manual_step6 (
+	      #{versionId,mode=IN,jdbcType=VARCHAR},
+	      #{calcMonth,mode=IN,jdbcType=VARCHAR},
+	      #{deptCode,mode=IN,jdbcType=VARCHAR},
+	      #{lineCode,mode=IN,jdbcType=VARCHAR},
+	      #{userCode,mode=IN,jdbcType=VARCHAR},
+	      #{resultMsg,mode=OUT,jdbcType=VARCHAR}
+	      )}
+	   ]]>
+	 </select>
+	 
+	 <select id="execManualCal7" statementType="CALLABLE">
+	   <![CDATA[
+	     {CALL pkg_law_manual.run_manual_step7 (
+	      #{versionId,mode=IN,jdbcType=VARCHAR},
+	      #{calcMonth,mode=IN,jdbcType=VARCHAR},
+	      #{deptCode,mode=IN,jdbcType=VARCHAR},
+	      #{lineCode,mode=IN,jdbcType=VARCHAR},
+	      #{userCode,mode=IN,jdbcType=VARCHAR},
+	      #{resultMsg,mode=OUT,jdbcType=VARCHAR}
+	      )}
+	   ]]>
+	 </select>
+	 
+	 <select id="findTaskStatus" parameterType="map" resultType="long">
+	 	select count(1) from t_law_define_manual t left join t_law_define_step t1 
+	 	on t.task_code = t1.task_code
+	 	where 1=1
+		and t.VALID_IND = '1'
+		and t1.VALID_IND = '1'
+		and t.task_status = '2'
+		and t.calc_month = #{calcMonth,jdbcType=VARCHAR}
+	 </select>
+	 
+	 <select id="queryLastTaskStatus" parameterType="map" resultType="java.lang.String">
+	 	select t.task_status from t_law_define_manual t left join t_law_define_step t1 
+	 	on t.task_code = t1.task_code
+	 	where 1=1
+		and t.VALID_IND = '1'
+		and t.task_code = #{taskCode,jdbcType=VARCHAR}
+		and t.calc_month = #{calcMonth,jdbcType=VARCHAR}
+		and t.version_id = #{versionId,jdbcType=VARCHAR}
+	 </select>
+	 
+	 <select id="queryRuleConfigByVersionId" parameterType="map" resultType="long">
+	 	select count(1) from t_law_define_config t 
+	 	where 1=1 
+	 	and t.VALID_IND = '1' 
+	 	and t.version_id = #{versionId,jdbcType=VARCHAR}
+	 </select>
+	 
+	 <select id="updateTaskStatus" parameterType="map">
+	 	update t_law_define_manual t set
+	 	t.task_status = '1'
+	 	where 1=1
+	 	and t.VALID_IND = '1' 
+	 	and t.version_id = #{versionId,jdbcType=VARCHAR}
+	 	and t.task_code = #{taskCode,jdbcType=VARCHAR}
+	 </select>
+	 
+	 <update id="updateOperaterUser" parameterType="map">
+	 	update t_law_define_manual t set
+	 		t.updated_user = #{userCode,jdbcType=VARCHAR},
+	 		t.operator_id = #{operatorId,jdbcType=VARCHAR},
+	 		t.updated_date = sysdate
+	 	where 1=1
+		 	and t.VALID_IND = '1' 
+		 	and t.version_id = #{versionId,jdbcType=VARCHAR}
+		 	and t.task_code = #{taskCode,jdbcType=VARCHAR}
+	 </update>
+	 
+	 <!-- 查询计算过程日志的数量 -->
+	 <select id="queryCalcLogsCount" parameterType="map" resultType="long">
+	 	select count(1) from t_law_log t
+	 	 where 1=1
+	 	 	and t.task_id = #{taskId,jdbcType=VARCHAR}
+	 	 <if test="logLevel !=null and logLevel !=''">
+	 	 	and t.log_level >= #{logLevel,jdbcType=INTEGER}
+	 	 </if>
+	 </select>
+	 
+	 <select id="queryCalcLogs" parameterType="map" resultMap="BaseResultMap">
+	 	select * from(
+	 	select a.*,rownum rn from(select 
+	 	 	t.func_name as "funcName",
+	 	 	t.log_level as "logLevel",
+	 	 	t.log_sub as "logSub",
+	 	 	t.log_msg as "logMsg"
+	 	from t_law_log t
+	 	 where 1=1
+	 	 and t.task_id = #{taskId,jdbcType=VARCHAR}
+	 	 <if test="logLevel !=null and logLevel !=''">
+	 	 	and t.log_level >= #{logLevel,jdbcType=INTEGER}
+	 	 </if>
+	 	 order by t.created_date) a
+	 	  where rownum &lt;= #{endpoint}
+	 	) where rn &gt;= #{startpoint}
+	 	
+	 </select>
+	 
+	 <!-- 查询计算月份 -->
+	<select id="queryCalcMonth" parameterType="map" resultType="java.lang.String">
+	 	select t.cfg_value from config t where 1=1
+	 	and t.valid_ind = '1'
+		and t.cfg_code = #{cfgCode,jdbcType=VARCHAR}
+	 </select>
+</mapper>

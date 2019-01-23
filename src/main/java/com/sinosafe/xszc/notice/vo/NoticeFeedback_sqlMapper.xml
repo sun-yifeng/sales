@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.notice.vo.NoticeFeedback" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="FEEDBACK_ID" property="feedbackId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_USER" property="feedbackUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_CONTENT" property="feedbackContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROCESSOR" property="processor" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PROCESS_CONTENT" property="processContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOTICE_ID" property="noticeId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_DATE" property="feedbackDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="PROCESS_DATE" property="processDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="line_name" property="lineName" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.notice.vo.NoticeFeedback">
+		<id column="FEEDBACK_ID" property="feedbackId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_USER" property="feedbackUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_CONTENT" property="feedbackContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROCESSOR" property="processor" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PROCESS_CONTENT" property="processContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NOTICE_ID" property="noticeId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_DATE" property="feedbackDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="PROCESS_DATE" property="processDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		FEEDBACK_USER,
+		CREATED_USER,
+		FEEDBACK_CONTENT,
+		UPDATED_DATE,
+		STATUS,
+		PROCESSOR,
+		VALID_IND,
+		CREATED_DATE,
+		PROCESS_CONTENT,
+		NOTICE_ID,
+		FEEDBACK_DATE,
+		PROCESS_DATE,
+		FEEDBACK_ID,
+		DEPT_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		FEEDBACK_USER as "feedbackUser",
+		CREATED_USER as "createdUser",
+		FEEDBACK_CONTENT as "feedbackContent",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		PROCESSOR as "processor",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		PROCESS_CONTENT as "processContent",
+		NOTICE_ID as "noticeId",
+		FEEDBACK_DATE as "feedbackDate",
+		PROCESS_DATE as "processDate",
+		FEEDBACK_ID as "feedbackId",
+		DEPT_CODE as "deptCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{feedbackUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{feedbackContent,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{status,jdbcType=CHAR},
+ 		#{processor,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{processContent,jdbcType=VARCHAR},
+ 		#{noticeId,jdbcType=VARCHAR},
+ 		#{feedbackDate,jdbcType=DATE},
+ 		#{processDate,jdbcType=DATE},
+ 		#{feedbackId,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{businessLine,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackUser != null and feedbackUser != ''">
+			and FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackContent != null and feedbackContent != ''">
+			and FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="processor != null and processor != ''">
+			and PROCESSOR = #{processor,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="processContent != null and processContent != ''">
+			and PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR}
+		</if>
+		<if test="noticeId != null and noticeId != ''">
+			and NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackDate != null and feedbackDate != ''">
+			and FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE}
+		</if>
+		<if test="processDate != null and processDate != ''">
+			and PROCESS_DATE = #{processDate,jdbcType=DATE}
+		</if>
+		<if test="feedbackId != null and feedbackId != ''">
+			and FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="Base_noWhere_Sql_S">
+		<if test="deptCode != null and deptCode != ''">
+			and nf.dept_code like trim(#{deptCode,jdbcType=VARCHAR})||'%'
+		</if>
+		<if test="feedbackId != null and feedbackId != ''">
+			and nf.FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''">
+			and nf.STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="tiltle != null and tiltle != ''">
+			and TILTLE like '%' || #{tiltle,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<sql id="Base_noWhere_Sql_D">
+		<if test="deptCode != null and deptCode != ''">
+			and nf.dept_code = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="publishDeptCode != null and publishDeptCode != ''">
+			and n.PUBLISH_DEPT_CODE = #{publishDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackId != null and feedbackId != ''">
+			and nf.FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''">
+			and nf.STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="tiltle != null and tiltle != ''">
+			and TILTLE like '%' || #{tiltle,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+		<if test="noticeId != null and noticeId != ''">
+			and nf.NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and nf.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeFeedback" >
+    insert into NOTICE_FEEDBACK (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into NOTICE_FEEDBACK (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from NOTICE_FEEDBACK
+    where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from NOTICE_FEEDBACK
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update NOTICE_FEEDBACK
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackUser != null and feedbackUser != ''">
+		FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackContent != null and feedbackContent != ''">
+		FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = sysdate,
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="processor != null and processor != ''">
+		PROCESSOR = #{processor,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="processContent != null and processContent != ''">
+		PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="noticeId != null and noticeId != ''">
+		NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackDate != null and feedbackDate != ''">
+		FEEDBACK_DATE = sysdate,
+	</if>
+  	<if test="processDate != null and processDate != ''">
+		PROCESS_DATE = sysdate,
+	</if>
+   	</set>
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateFeedBackByNoticeId" parameterType="map" >
+	update NOTICE_FEEDBACK
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackUser != null and feedbackUser != ''">
+		FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackContent != null and feedbackContent != ''">
+		FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = sysdate,
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="processor != null and processor != ''">
+		PROCESSOR = #{processor,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="processContent != null and processContent != ''">
+		PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackDate != null and feedbackDate != ''">
+		FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE},
+	</if>
+  	<if test="processDate != null and processDate != ''">
+		PROCESS_DATE = #{processDate,jdbcType=DATE},
+	</if>
+   	</set>
+	where NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update NOTICE_FEEDBACK
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			PROCESSOR = #{processor,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+  			NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+  			FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE},
+  			PROCESS_DATE = #{processDate,jdbcType=DATE},
+   		where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeFeedback" >
+	update NOTICE_FEEDBACK
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackUser != null and feedbackUser != ''">
+		FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackContent != null and feedbackContent != ''">
+		FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="processor != null and processor != ''">
+		PROCESSOR = #{processor,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="processContent != null and processContent != ''">
+		PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="noticeId != null and noticeId != ''">
+		NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackDate != null and feedbackDate != ''">
+		FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE},
+	</if>
+  	<if test="processDate != null and processDate != ''">
+		PROCESS_DATE = #{processDate,jdbcType=DATE},
+	</if>
+   	</set>
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeFeedback" >
+		update NOTICE_FEEDBACK
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			PROCESSOR = #{processor,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+  			NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+  			FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE},
+  			PROCESS_DATE = #{processDate,jdbcType=DATE},
+   		where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from NOTICE_FEEDBACK
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from NOTICE_FEEDBACK
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="queryFeedbackByNoticeID" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from NOTICE_FEEDBACK
+	where NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from NOTICE_FEEDBACK <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.notice.vo.NoticeFeedback" resultType="long">
+	select count(1)
+	from NOTICE_FEEDBACK <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+			nf.FEEDBACK_USER,
+			nf.FEEDBACK_CONTENT,
+			nf.PROCESS_CONTENT,
+			decode(nf.STATUS,'0','未下发','1','未反馈','2','已反馈','3','已处理','4','已驳回') STATUS,
+			nf.FEEDBACK_DATE,
+			nf.FEEDBACK_ID,
+			nf.DEPT_CODE,
+			nf.STATUS as "status",
+			b.dept_simple_name as "deptName"
+		<!--	( select line_name from business_line where line_code = nf.business_line ) "line_name" -->
+		from NOTICE_FEEDBACK nf 
+		left join department b 
+			on b.dept_code = nf.dept_code 
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryAllByNoticeId" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+			b.dept_simple_name as "deptName",
+			nf.FEEDBACK_USER as "feedbackUser",
+			to_char(nf.FEEDBACK_DATE,'yyyy-mm-dd hh24:mi:ss') as "feedbackDate",
+			nf.FEEDBACK_CONTENT as "feedbackContent",
+			nf.PROCESS_CONTENT as "processContent",
+			nf.FEEDBACK_ID as "feedbackId",
+			nf.STATUS as "status",
+			nf.notice_id as "noticeId"
+		from NOTICE_FEEDBACK nf 
+		left join department b 
+			on b.dept_code = nf.dept_code 
+		where nf.notice_id = #{noticeId,jdbcType=VARCHAR}
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryListsPage" parameterType="map" resultMap="BaseResultMap">
+		select 
+		  n.PUBLISH_DEPT_CODE as "publishDeptCode",
+		  n.NOTIC_ID as "noticId",
+		  n.TILTLE as "tiltle",
+		  n.CONTENT as "content",
+		  n.PUBLISH_DATE as "publishDate",
+		  n.PUBLISHER as "publisher",
+		  n.NOTIC_GROUP_ID as "noticGroupId",
+		  to_char(n.CREATED_DATE,'yyyy-mm-dd') as "createdDate",
+		  nf.FEEDBACK_ID,
+		  decode(nf.STATUS,'0','未下发','1','未反馈','2','已反馈','3','已处理','4','已驳回') STATUS,
+		  nf.DEPT_CODE,
+		  nf.FEEDBACK_CONTENT,
+		  nf.PROCESS_CONTENT
+		from NOTICE_FEEDBACK nf
+		  left join notice n 
+		  on nf.notice_id = n.notic_id and n.valid_ind = '1'
+		where 1=1 
+		and  nf.valid_ind = '1'
+		and nf.STATUS != '0'
+		<if test="deptCode != null and deptCode != ''">
+			and nf.dept_code = trim(#{deptCode,jdbcType=VARCHAR})
+		</if>
+		<if test="feedbackId != null and feedbackId != ''">
+			and nf.FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''">
+			and nf.STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			and PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+		</if>
+		<if test="tiltle != null and tiltle != ''">
+			and TILTLE like '%' || #{tiltle,jdbcType=VARCHAR} ||'%' 
+		</if>
+		<if test="noticId != null and noticId != ''">
+			and NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+		</if>
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE_FEEDBACK
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE_FEEDBACK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from NOTICE_FEEDBACK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from NOTICE_FEEDBACK
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from NOTICE_FEEDBACK <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 用于反馈的页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="query_notic_for_feedback" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				  n.PUBLISH_DEPT_CODE as "publishDeptCode",
+				  n.NOTIC_ID as "noticId",
+				  n.TILTLE as "tiltle",
+				  n.CONTENT as "content",
+				  to_char(n.PUBLISH_DATE,'yyyy-mm-dd') as "publishDate",
+				  n.PUBLISHER as "publisher",
+				  nf.FEEDBACK_ID,
+				  decode(nf.STATUS,'0','未下发','1','未反馈','2','已反馈','3','已处理','4','已驳回') STATUS,
+				  nf.DEPT_CODE,
+				  nf.FEEDBACK_DATE,
+				  n.FEEDBACK_TYPE as "feedbackType"
+				from NOTICE_FEEDBACK nf
+				  left join notice n 
+				  on nf.notice_id = n.notic_id and n.valid_ind = '1'
+				where 1=1
+				
+			  	<!--  <include refid="Base_noWhere_Sql_S"/>  -->
+				    <if test="deptCode != null and deptCode != ''">
+						and nf.dept_code = trim(#{deptCode,jdbcType=VARCHAR})
+					</if>
+					and
+					<foreach collection="roleEname" index="index" item="roleName" open="(" separator=" or " close=")">  
+				    	nf.role_code = #{roleName,jdbcType=VARCHAR}
+				   </foreach>  
+					<if test="feedbackId != null and feedbackId != ''">
+						and nf.FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+					</if>
+					<if test="status != null and status != ''">
+						and nf.STATUS = #{status,jdbcType=CHAR}
+					</if>
+					<if test="beginDate != null and beginDate != ''">
+						and PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+					</if>
+					<if test="tiltle != null and tiltle != ''">
+						and TILTLE like '%' || #{tiltle,jdbcType=VARCHAR} ||'%' 
+					</if>
+					<if test="noticId != null and noticId != ''">
+						and NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+					</if> 
+				  and nf.valid_ind = '1'
+				  and nf.STATUS not in ('0','2','3')
+				  and n.status = '1'
+				  order by nf.UPDATED_DATE desc
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count"  from NOTICE_FEEDBACK nf
+				  left join notice n 
+				  on nf.notice_id = n.notic_id and n.valid_ind = '1'
+				where 1=1 
+				and  nf.valid_ind = '1'
+				and nf.STATUS not in ('0','2','3')
+				and n.status = '1'
+				and 
+				  <foreach collection="roleEname" index="index" item="roleName" open="(" separator=" or " close=")">  
+				      nf.role_code = #{roleName,jdbcType=VARCHAR}
+				  </foreach>
+			<!-- 	and 
+				<foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+			       nf.business_line = #{nrlValue,jdbcType=VARCHAR}
+			    </foreach>   -->
+				  <if test="deptCode != null and deptCode != ''">
+						and nf.dept_code = trim(#{deptCode,jdbcType=VARCHAR})
+					</if>
+					<if test="feedbackId != null and feedbackId != ''">
+						and nf.FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+					</if>
+					<if test="status != null and status != ''">
+						and nf.STATUS = #{status,jdbcType=CHAR}
+					</if>
+					<if test="beginDate != null and beginDate != ''">
+						and PUBLISH_DATE between to_date (#{beginDate},'yyyy-mm-dd') and  to_date (#{endDate},'yyyy-mm-dd')
+					</if>
+					<if test="tiltle != null and tiltle != ''">
+						and TILTLE like '%' || #{tiltle,jdbcType=VARCHAR} ||'%' 
+					</if>
+					<if test="noticId != null and noticId != ''">
+						and NOTIC_ID = #{noticId,jdbcType=VARCHAR}
+					</if>
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 用于反馈的页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="query_notic_for_deal" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				  n.PUBLISH_DEPT_CODE as "publishDeptCode",
+				  n.NOTIC_ID as "noticId",
+				  n.TILTLE as "tiltle",
+				  n.CONTENT as "content",
+				  to_char(n.PUBLISH_DATE,'yyyy-mm-dd') as "publishDate",
+				  n.PUBLISHER as "publisher",
+				  nf.FEEDBACK_ID,
+				  decode(nf.STATUS,'0','未下发','1','未反馈','2','已反馈','3','已处理','4','已驳回') STATUS,
+				  nf.DEPT_CODE,
+				  dept_simple_name as "deptFname",
+				  nf.FEEDBACK_DATE,
+				  n.FEEDBACK_TYPE as "feedBackType",
+				  nf.UPDATED_USER as "updatedUser"
+				from NOTICE_FEEDBACK nf
+				  left join notice n 
+				  on nf.notice_id = n.notic_id and n.valid_ind = '1'
+				  left join DEPARTMENT dept
+				  on nf.DEPT_CODE = dept.DEPT_CODE 
+				where 1=1 
+				and  nf.valid_ind = '1'
+				and nf.STATUS = '2'
+				<include refid="Base_noWhere_Sql_D"/>
+				order by nf.UPDATED_DATE desc
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count"  from NOTICE_FEEDBACK nf
+				  left join notice n 
+				  on nf.notice_id = n.notic_id and n.valid_ind = '1'
+				where 1=1 
+				and  nf.valid_ind = '1'
+				and nf.STATUS = '2'
+				<include refid="Base_noWhere_Sql_D"/>
+			<!--	and 
+			  	<foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+				  	nf.business_line = #{nrlValue,jdbcType=VARCHAR}
+			  	</foreach>  -->
+		</otherwise>
+	</choose>
+	</select>
+	
+	<select id="queryNoticeFeedbackData" parameterType="map" resultMap="BaseResultMap">
+				select 
+				  n.PUBLISH_DEPT_CODE as "publishDeptCode",
+				  n.NOTIC_ID as "noticId",
+				  n.TILTLE as "tiltle",
+				  n.CONTENT as "content",
+				  to_char(n.PUBLISH_DATE,'yyyy-mm-dd') as "publishDate",
+				  n.PUBLISHER as "publisher",
+				  nf.FEEDBACK_ID,
+				  decode(nf.STATUS,'0','未下发','1','未反馈','2','已反馈','3','已处理','4','已驳回') STATUS,
+				  nf.DEPT_CODE,
+				  dept_simple_name as "deptFname",
+				  nf.FEEDBACK_DATE,
+				  n.FEEDBACK_TYPE as "feedBackType",
+				  nf.UPDATED_USER as "updatedUser"
+				from NOTICE_FEEDBACK nf
+				  left join notice n 
+				  on nf.notice_id = n.notic_id and n.valid_ind = '1'
+				  left join DEPARTMENT dept
+				  on nf.DEPT_CODE = dept.DEPT_CODE 
+				where 1=1 
+				and  nf.valid_ind = '1'
+				and nf.STATUS = '2'
+				<include refid="Base_noWhere_Sql_D"/>
+	</select>
+	
+	<select id="queryStatus" parameterType="map" resultMap="BaseResultMap">
+		select nf.status
+		  from notice_feedback nf
+		 where nf.notice_id = #{noticeId,jdbcType=VARCHAR}
+		 and nf.feedback_id != #{feedbackId,jdbcType=VARCHAR}
+		 group by nf.status
+	</select>
+	
+	<select id="getFeedbackCount" parameterType="map" resultType="long">
+		select count(1)
+		  from notice_feedback nf
+		 where nf.notice_id = #{noticId,jdbcType=VARCHAR}
+		 and nf.role_code in (
+        <foreach item="item" index="index" collection="roleCode" separator=",">
+				#{item}
+		</foreach>
+        )
+	</select>
+	
+	<select id="queryDataExist" parameterType="map" resultType="long">
+		select count(1)
+		  from notice_feedback nf
+		 where nf.notice_id = #{noticeId,jdbcType=VARCHAR}
+		 and nf.dept_code = #{deptCode,jdbcType=VARCHAR}
+		 and nf.role_code = #{roleCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryUser" parameterType="map" resultType="long">
+		select count(1)
+	      from um_role r, um_sys_user_role e, um_system_user t, um_user_dept p
+	     where r.role_code = e.role_code
+	       and e.sys_user_id = t.sys_user_id
+	       and r.sys_code = t.sys_code
+	       and t.user_code = p.user_code
+	       and r.sys_code='xszc'
+	       and r.valid_ind = '1'
+	       and e.valid_ind = '1'
+	       and t.valid_ind = '1'
+	       and p.valid_ind = '1'
+	       and r.role_ename=#{roleEname,jdbcType=VARCHAR}
+	       and p.dept_code=#{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryFeedbackData" parameterType="map" resultMap="BaseResultMap">
+	             select 
+				  n.PUBLISH_DEPT_CODE as "publishDeptCode",
+				  n.NOTIC_ID as "noticId",
+				  n.TILTLE as "tiltle",
+				  n.CONTENT as "content",
+				  to_char(n.PUBLISH_DATE,'yyyy-mm-dd') as "publishDate",
+				  n.PUBLISHER as "publisher",
+				  nf.FEEDBACK_ID,
+				  decode(nf.STATUS,'0','未下发','1','未反馈','2','已反馈','3','已处理','4','已驳回') STATUS,
+				  nf.DEPT_CODE,
+				  dept_simple_name as "deptFname",
+				  nf.FEEDBACK_DATE
+				from NOTICE_FEEDBACK nf
+				  left join notice n 
+				  on nf.notice_id = n.notic_id and n.valid_ind = '1'
+				  left join DEPARTMENT dept
+				  on nf.DEPT_CODE = dept.DEPT_CODE 
+				where 1=1 
+				and nf.valid_ind='1'
+				and n.valid_ind='1'
+		        and nf.notice_id = #{noticId,jdbcType=VARCHAR}
+		        and nf.role_code= #{roleCode,jdbcType=VARCHAR}  
+		        and nf.dept_code= #{deptCode,jdbcType=VARCHAR}  
+	</select>
+	
+	<select id="queryAuthorityNoticeNumber" parameterType="map" resultType="long">
+	             select  count(1)
+				from NOTICE_FEEDBACK nf
+				where 1=1 
+		        and nf.notice_id = #{noticeId,jdbcType=VARCHAR}
+		        and nf.dept_code= #{deptCode,jdbcType=VARCHAR}  
+		        and nf.updated_user= #{updatedUser,jdbcType=VARCHAR}  
+	</select>
+	
+	<insert id="insertData" parameterType="map" >
+    insert into NOTICE_FEEDBACK ( <include refid="Base_Column_List" /> )
+		select UPDATED_USER,
+			null,
+			CREATED_USER,
+			null,
+			sysdate,
+			'1',
+			null,
+			VALID_IND,
+			sysdate,
+			null,
+			#{noticId,jdbcType=VARCHAR},
+			null,
+			null,
+			sys_guid(),
+			DEPT_CODE
+			from NOTICE_FEEDBACK nf
+		where nf.NOTICE_ID = #{oldNoticId,jdbcType=VARCHAR}
+		and nf.valid_ind = '1'
+	</insert>
+	
+	<update id="deleteByNoticId" parameterType="map" >
+		update NOTICE_FEEDBACK
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where NOTICE_ID = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="queryReceiveDept" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select distinct dept_code
+			from notice_feedback t 
+			where 1=1
+			and t.valid_ind='1'
+			and t.notice_id = #{noticeId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="querySendMailRoles" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select t.dept_code as "deptCode",
+		    t.role_code as "roleCode"
+			from notice_feedback t 
+			where 1=1
+			and t.valid_ind='1'
+			and t.notice_id = #{noticeId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryRoleNames" parameterType="map" resultMap="BaseResultMap">
+		select t.role_code as "roleCode"
+			from notice_feedback t 
+			where 1=1
+			and t.valid_ind='1'
+			and t.notice_id = #{noticeId,jdbcType=VARCHAR}
+			and t.dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="updateNoticeFeedbackStatus">
+		update notice_feedback n
+		set n.status = #{status,jdbcType=VARCHAR}
+		where n.notice_id = #{noticId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="queryUpdateRoleName" parameterType="map" resultMap="BaseResultMap">
+		select t.feedback_id as "feedBackId"
+			from notice_feedback t 
+			where 1=1
+			and t.valid_ind = 1
+			and t.notice_id = #{noticeId,jdbcType=VARCHAR}
+			and t.dept_code = #{deptCode,jdbcType=VARCHAR}
+			and t.role_code in (
+	        <foreach item="item" index="index" collection="rolesList" separator=",">
+					#{item}
+			</foreach>
+        )
+	</select>
+	
+	<select id="queryFeedBackIds" parameterType="map" resultMap="BaseResultMap">
+		select t.feedback_id as "feedBackId",
+		    t.updated_user as "updatedUser"
+			from notice_feedback t 
+			where 1=1
+			and t.valid_ind = 1
+			and t.notice_id = #{noticeId,jdbcType=VARCHAR}
+			and t.dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="feedbackIsEffective" parameterType="java.lang.String" resultType="java.lang.String">
+		select 1 
+		from notice_feedback nf,notice n
+		where nf.notice_id = n.notic_id
+		  and nf.valid_ind = '1'
+		  and n.valid_ind = '1'
+		  and trunc( n.publish_date + n.feedback_day ) >= trunc(sysdate)
+		  and nf.feedback_id = #{feedbackId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getFeedBackRole" parameterType="java.lang.String" resultType="java.lang.String">
+		select nf.role_code 
+		from notice_feedback nf
+		where 1=1
+		  and nf.feedback_id=#{feedbackId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getFeedBackRoleNames" parameterType="map" resultMap="BaseResultMap">
+		select nf.role_code as "roleCode" 
+		from notice_feedback nf
+		where 1=1
+		  and nf.notice_id=#{noticeId,jdbcType=VARCHAR}
+		  and nf.dept_code=#{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="updateFeedBackStuats" parameterType="map">
+		update notice_feedback n
+		<set>
+		<if test="updatedUser != null and updatedUser != ''">
+			n.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+		</if>
+	  	<if test="feedbackUser != null and feedbackUser != ''">
+			n.FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+		</if>
+	  	<if test="createdUser != null and createdUser != ''">
+			n.CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+		</if>
+	  	<if test="feedbackContent != null and feedbackContent != ''">
+			n.FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+		</if>
+	  	<if test="updatedDate != null and updatedDate != ''">
+			n.UPDATED_DATE = sysdate,
+		</if>
+	  	<if test="status != null and status != ''">
+			n.STATUS = #{status,jdbcType=CHAR},
+		</if>
+	  	<if test="processor != null and processor != ''">
+			n.PROCESSOR = #{processor,jdbcType=VARCHAR},
+		</if>
+	  	<if test="validInd != null and validInd != ''">
+			n.VALID_IND = #{validInd,jdbcType=CHAR},
+		</if>
+	  	<if test="createdDate != null and createdDate != ''">
+			n.CREATED_DATE = #{createdDate,jdbcType=DATE},
+		</if>
+	  	<if test="processContent != null and processContent != ''">
+			n.PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+		</if>
+	  	<if test="feedbackDate != null and feedbackDate != ''">
+			n.FEEDBACK_DATE = sysdate,
+		</if>
+	  	<if test="processDate != null and processDate != ''">
+			n.PROCESS_DATE = #{processDate,jdbcType=DATE},
+		</if>
+	   	</set>
+		where n.feedback_id = #{feedBackId,jdbcType=VARCHAR}
+	</update>
+</mapper>

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TIndexFactor" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SERNO" property="serno" javaType="java.lang.String" jdbcType="INTEGER" />
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="INDEX_CODE" property="indexCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FACTOR_CODE" property="factorCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ORDER_NO" property="orderNo" jdbcType="INTEGER" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="EXHIBIT_TYPE" property="exhibitType" jdbcType="INTEGER" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TIndexFactor">
+		<id column="SERNO" property="serno" javaType="java.lang.String" jdbcType="INTEGER" />
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="INDEX_CODE" property="indexCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FACTOR_CODE" property="factorCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ORDER_NO" property="orderNo" jdbcType="INTEGER" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="EXHIBIT_TYPE" property="exhibitType" jdbcType="INTEGER" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		VALID_IND,
+		INDEX_CODE,
+		FACTOR_CODE,
+		CHANNEL_ID,
+		LAST_OPT,
+		ORDER_NO,
+		VERSION_ID,
+		OPT_DATE,
+		EXHIBIT_TYPE,
+		SERNO
+	</sql>
+	
+	<!-- 分页查询 -->
+	<sql id="Base_Column_Lists" >
+		tif.VALID_IND,
+		tif.INDEX_CODE,
+		tif.FACTOR_CODE,
+		tif.CHANNEL_ID,
+		tif.LAST_OPT,
+		tif.ORDER_NO,
+		tif.VERSION_ID,
+		tif.OPT_DATE,
+		tif.EXHIBIT_TYPE,
+		tif.SERNO
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		VALID_IND as "validInd",
+		INDEX_CODE as "indexCode",
+		FACTOR_CODE as "factorCode",
+		CHANNEL_ID as "channelId",
+		LAST_OPT as "lastOpt",
+		ORDER_NO as "orderNo",
+		VERSION_ID as "versionId",
+		OPT_DATE as "optDate",
+		EXHIBIT_TYPE as "exhibitType",
+		SERNO as "serno"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{validInd,jdbcType=CHAR},
+ 		#{indexCode,jdbcType=VARCHAR},
+ 		#{factorCode,jdbcType=VARCHAR},
+ 		#{channelId,jdbcType=VARCHAR},
+ 		#{lastOpt,jdbcType=VARCHAR},
+ 		#{orderNo,jdbcType=INTEGER},
+ 		#{versionId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{exhibitType,jdbcType=INTEGER},
+ 		#{serno,jdbcType=INTEGER}
+ 	</sql>
+	
+		<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sqls">
+		<if test="validInd != null and validInd != ''">
+			and tif.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="indexCode != null and indexCode != ''">
+			and tif.INDEX_CODE = #{indexCode,jdbcType=VARCHAR}
+		</if>
+		<if test="factorCode != null and factorCode != ''">
+			and tif.FACTOR_CODE = #{factorCode,jdbcType=VARCHAR}
+		</if>
+		<if test="channelId != null and channelId != ''">
+			and tif.CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != ''">
+			and tif.LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			and tif.ORDER_NO = #{orderNo,jdbcType=INTEGER}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and tif.VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != ''">
+			and tif.OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="exhibitType != null and exhibitType != ''">
+			and tif.EXHIBIT_TYPE = #{exhibitType,jdbcType=INTEGER}
+		</if>
+		<if test="serno != null and serno != ''">
+			and tif.SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="indexCode != null and indexCode != ''">
+			and INDEX_CODE = #{indexCode,jdbcType=VARCHAR}
+		</if>
+		<if test="factorCode != null and factorCode != ''">
+			and FACTOR_CODE = #{factorCode,jdbcType=VARCHAR}
+		</if>
+		<if test="channelId != null and channelId != ''">
+			and CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != ''">
+			and LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			and ORDER_NO = #{orderNo,jdbcType=INTEGER}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != ''">
+			and OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="exhibitType != null and exhibitType != ''">
+			and EXHIBIT_TYPE = #{exhibitType,jdbcType=INTEGER}
+		</if>
+		<if test="serno != null and serno != ''">
+			and SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TIndexFactor" >
+    insert into t_law_index_factor (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into t_law_index_factor (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_law_index_factor
+    where SERNO = #{serno,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from t_law_index_factor
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update t_law_index_factor
+	<set>
+	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="indexCode != null and indexCode != ''">
+		INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="factorCode != null and factorCode != ''">
+		FACTOR_CODE = #{factorCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="orderNo != null and orderNo != ''">
+		ORDER_NO = #{orderNo,jdbcType=INTEGER},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		VERSION_ID = #{versionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+  	<if test="exhibitType != null and exhibitType != ''">
+		EXHIBIT_TYPE = #{exhibitType,jdbcType=INTEGER},
+	</if>
+   	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update t_law_index_factor
+		set 
+			VALID_IND = #{validInd,jdbcType=CHAR},
+  			INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+  			FACTOR_CODE = #{factorCode,jdbcType=VARCHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			ORDER_NO = #{orderNo,jdbcType=INTEGER},
+  			VERSION_ID = #{versionId,jdbcType=VARCHAR},
+  			OPT_DATE = #{optDate,jdbcType=DATE},
+  			EXHIBIT_TYPE = #{exhibitType,jdbcType=INTEGER},
+   		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TIndexFactor" >
+	update t_law_index_factor
+	<set>
+	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="indexCode != null and indexCode != ''">
+		INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="factorCode != null and factorCode != ''">
+		FACTOR_CODE = #{factorCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="orderNo != null and orderNo != ''">
+		ORDER_NO = #{orderNo,jdbcType=INTEGER},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		VERSION_ID = #{versionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+  	<if test="exhibitType != null and exhibitType != ''">
+		EXHIBIT_TYPE = #{exhibitType,jdbcType=INTEGER},
+	</if>
+   	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TIndexFactor" >
+		update t_law_index_factor
+		set 
+			VALID_IND = #{validInd,jdbcType=CHAR},
+  			INDEX_CODE = #{indexCode,jdbcType=VARCHAR},
+  			FACTOR_CODE = #{factorCode,jdbcType=VARCHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			ORDER_NO = #{orderNo,jdbcType=INTEGER},
+  			VERSION_ID = #{versionId,jdbcType=VARCHAR},
+  			OPT_DATE = sysdate,
+  			EXHIBIT_TYPE = #{exhibitType,jdbcType=INTEGER}
+   		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_Lists" />,
+		      	tid.index_name as "indexName",
+		       	tld.version_cname as "versionCname",
+		         case
+                     when substr(tif.factor_code, 1, 1) = 'F' then
+                      tfd.item_name
+                     when substr(tif.factor_code, 1, 1) = 'W' then
+                      tids.index_name 
+                 end as "itemName"
+		  from t_law_index_factor tif
+				  left join t_factor_def tfd on tif.FACTOR_CODE = tfd.item_code and tfd.valid_ind = '1'
+				  left join t_law_index_def tids on tif.factor_code = tids.index_code
+				  left join t_law_index_def tid on tif.index_code = tid.index_code and tid.valid_ind = '1'
+				  left join t_law_define tld on tif.version_id = tld.version_code and tld.valid_ind = '1'
+				 where tif.valid_ind = '1'
+					and tif.SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from t_law_index_factor
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from t_law_index_factor tif
+       left join t_law_index_def tid on tif.index_code = tid.index_code
+       left join t_factor_def tfd on tif.factor_code = tfd.item_code
+               where tif.valid_ind = '1'
+        <include refid="Base_Where_Sqls" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.TIndexFactor" resultType="long">
+	select count(1)
+	from t_law_index_factor <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_Lists"/>,
+	           tid.index_name as "indexName",
+	           tld.version_cname as "versionCName",
+	            case
+                     when substr(tif.factor_code, 1, 1) = 'F' then
+                      tfd.item_name
+                     when substr(tif.factor_code, 1, 1) = 'W' then
+                      tids.index_name 
+                   end as "itemName"
+		from t_law_index_factor tif
+	           left join t_law_index_def tid on tif.index_code = tid.index_code
+	           left join t_law_index_def tids on tif.factor_code = tids.index_code
+               left join t_factor_def tfd on tif.factor_code = tfd.item_code
+               left join t_law_define tld on tif.version_id = tld.version_code
+               where tif.valid_ind = '1'
+		<include refid="Base_Where_Sqls"/>
+			order by tif.order_no,tif.opt_date desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_index_factor
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_index_factor
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_index_factor
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from t_law_index_factor
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from t_law_index_factor <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 生成流水号-->
+	<select id="serialNumber" parameterType="com.sinosafe.xszc.law.vo.TIndexFactor" resultType="long">
+			SELECT max(t.serno) + 1
+			  from t_law_index_factor t
+	</select>
+	
+	<!-- 删除 -->
+	<update id="deleteByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TIndexFactor" >
+		update t_law_index_factor
+		set 
+  			VALID_IND = '0',
+  			OPT_DATE = sysdate
+  		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+</mapper>

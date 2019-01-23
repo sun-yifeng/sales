@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportTotalGroupMenber" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="JUNIOR_CAPACITY" property="juniorCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SENIOR_CAPACITY" property="seniorCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCREASE_COUNT" property="increaseCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="CAPACITY_CLASS_E" property="capacityClassE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAPACITY_CLASS_D" property="capacityClassD" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAPACITY_CLASS_C" property="capacityClassC" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CAPACITY_CLASS_B" property="capacityClassB" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MANAGER_CAPACITY" property="managerCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PROBATION_CAPACITY" property="probationCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAPACITY_CLASS_A" property="capacityClassA" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MIDDLE_CAPACITY" property="middleCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DIMISSION_COUNT" property="dimissionCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MANAGER_COUNT" property="managerCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="REPORT_DATE" property="reportDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="HIGH_CAPACITY" property="highCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportTotalGroupMenber">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="JUNIOR_CAPACITY" property="juniorCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SENIOR_CAPACITY" property="seniorCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="INCREASE_COUNT" property="increaseCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="CAPACITY_CLASS_E" property="capacityClassE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAPACITY_CLASS_D" property="capacityClassD" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAPACITY_CLASS_C" property="capacityClassC" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CAPACITY_CLASS_B" property="capacityClassB" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MANAGER_CAPACITY" property="managerCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PROBATION_CAPACITY" property="probationCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAPACITY_CLASS_A" property="capacityClassA" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MIDDLE_CAPACITY" property="middleCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DIMISSION_COUNT" property="dimissionCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MANAGER_COUNT" property="managerCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="REPORT_DATE" property="reportDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="HIGH_CAPACITY" property="highCapacity" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		PK_ID,
+		JUNIOR_CAPACITY,
+		SENIOR_CAPACITY,
+		INCREASE_COUNT,
+		CAPACITY_CLASS_E,
+		CREATED_USER,
+		CAPACITY_CLASS_D,
+		PARENT_DEPT,
+		CAPACITY_CLASS_C,
+		CAPACITY_CLASS_B,
+		DEPT_CODE,
+		MANAGER_CAPACITY,
+		PROBATION_CAPACITY,
+		DEPT_NAME,
+		CAPACITY_CLASS_A,
+		UPDATED_DATE,
+		CREATED_DATE,
+		MIDDLE_CAPACITY,
+		DIMISSION_COUNT,
+		MANAGER_COUNT,
+		REPORT_DATE,
+		HIGH_CAPACITY
+	</sql>
+	
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="User_Base_Column_List" >
+		
+		t.UPDATED_USER,
+		PK_ID,
+		JUNIOR_CAPACITY,
+		SENIOR_CAPACITY,
+		INCREASE_COUNT,
+		CAPACITY_CLASS_E,
+		t.CREATED_USER,
+		CAPACITY_CLASS_D,
+		PARENT_DEPT,
+		CAPACITY_CLASS_C,
+		CAPACITY_CLASS_B,
+		de.dept_simple_name DEPT_CODE,
+		MANAGER_CAPACITY,
+		PROBATION_CAPACITY,
+		DEPT_NAME,
+		CAPACITY_CLASS_A,
+		t.UPDATED_DATE,
+		t.CREATED_DATE,
+		MIDDLE_CAPACITY,
+		DIMISSION_COUNT,
+		MANAGER_COUNT,
+		REPORT_DATE,
+		HIGH_CAPACITY
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		PK_ID as "pkId",
+		JUNIOR_CAPACITY as "juniorCapacity",
+		SENIOR_CAPACITY as "seniorCapacity",
+		INCREASE_COUNT as "increaseCount",
+		CAPACITY_CLASS_E as "capacityClassE",
+		CREATED_USER as "createdUser",
+		CAPACITY_CLASS_D as "capacityClassD",
+		PARENT_DEPT as "parentDept",
+		CAPACITY_CLASS_C as "capacityClassC",
+		CAPACITY_CLASS_B as "capacityClassB",
+		DEPT_CODE as "deptCode",
+		MANAGER_CAPACITY as "managerCapacity",
+		PROBATION_CAPACITY as "probationCapacity",
+		DEPT_NAME as "deptName",
+		CAPACITY_CLASS_A as "capacityClassA",
+		UPDATED_DATE as "updatedDate",
+		CREATED_DATE as "createdDate",
+		MIDDLE_CAPACITY as "middleCapacity",
+		DIMISSION_COUNT as "dimissionCount",
+		MANAGER_COUNT as "managerCount",
+		REPORT_DATE as "reportDate",
+		HIGH_CAPACITY as "highCapacity"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{juniorCapacity,jdbcType=DOUBLE},
+ 		#{seniorCapacity,jdbcType=DOUBLE},
+ 		#{increaseCount,jdbcType=INTEGER},
+ 		#{capacityClassE,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{capacityClassD,jdbcType=DOUBLE},
+ 		#{parentDept,jdbcType=VARCHAR},
+ 		#{capacityClassC,jdbcType=DOUBLE},
+ 		#{capacityClassB,jdbcType=DOUBLE},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{managerCapacity,jdbcType=DOUBLE},
+ 		#{probationCapacity,jdbcType=DOUBLE},
+ 		#{deptName,jdbcType=VARCHAR},
+ 		#{capacityClassA,jdbcType=DOUBLE},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{middleCapacity,jdbcType=DOUBLE},
+ 		#{dimissionCount,jdbcType=INTEGER},
+ 		#{managerCount,jdbcType=INTEGER},
+ 		#{reportDate,jdbcType=VARCHAR},
+ 		#{highCapacity,jdbcType=DOUBLE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="juniorCapacity != null and juniorCapacity != ''">
+			and JUNIOR_CAPACITY = #{juniorCapacity,jdbcType=DOUBLE}
+		</if>
+		<if test="seniorCapacity != null and seniorCapacity != ''">
+			and SENIOR_CAPACITY = #{seniorCapacity,jdbcType=DOUBLE}
+		</if>
+		<if test="increaseCount != null and increaseCount != ''">
+			and INCREASE_COUNT = #{increaseCount,jdbcType=INTEGER}
+		</if>
+		<if test="capacityClassE != null and capacityClassE != ''">
+			and CAPACITY_CLASS_E = #{capacityClassE,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="capacityClassD != null and capacityClassD != ''">
+			and CAPACITY_CLASS_D = #{capacityClassD,jdbcType=DOUBLE}
+		</if>
+		<if test="parentDept != null and parentDept != ''">
+			and PARENT_DEPT = #{parentDept,jdbcType=VARCHAR}
+		</if>
+		<if test="capacityClassC != null and capacityClassC != ''">
+			and CAPACITY_CLASS_C = #{capacityClassC,jdbcType=DOUBLE}
+		</if>
+		<if test="capacityClassB != null and capacityClassB != ''">
+			and CAPACITY_CLASS_B = #{capacityClassB,jdbcType=DOUBLE}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="managerCapacity != null and managerCapacity != ''">
+			and MANAGER_CAPACITY = #{managerCapacity,jdbcType=DOUBLE}
+		</if>
+		<if test="probationCapacity != null and probationCapacity != ''">
+			and PROBATION_CAPACITY = #{probationCapacity,jdbcType=DOUBLE}
+		</if>
+		<if test="deptName != null and deptName != ''">
+			and DEPT_NAME = #{deptName,jdbcType=VARCHAR}
+		</if>
+		<if test="capacityClassA != null and capacityClassA != ''">
+			and CAPACITY_CLASS_A = #{capacityClassA,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="middleCapacity != null and middleCapacity != ''">
+			and MIDDLE_CAPACITY = #{middleCapacity,jdbcType=DOUBLE}
+		</if>
+		<if test="dimissionCount != null and dimissionCount != ''">
+			and DIMISSION_COUNT = #{dimissionCount,jdbcType=INTEGER}
+		</if>
+		<if test="managerCount != null and managerCount != ''">
+			and MANAGER_COUNT = #{managerCount,jdbcType=INTEGER}
+		</if>
+		<if test="reportDate != null and reportDate != ''">
+			and REPORT_DATE = #{reportDate,jdbcType=VARCHAR}
+		</if>
+		<if test="highCapacity != null and highCapacity != ''">
+			and HIGH_CAPACITY = #{highCapacity,jdbcType=DOUBLE}
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="User_Base_Where_Sql">
+		<where>
+			de.valid_ind = 1
+		<if test="parentDept != null and parentDept!=''">
+			and de.parent_dept_code = #{parentDept,jdbcType=VARCHAR}
+		</if>
+		<if test="deptName != null and deptName!=''">
+			and DEPT_NAME = #{deptName,jdbcType=VARCHAR}
+		</if>
+		<if test="reportMoth != null and reportMoth != ''">
+			and to_date(substr(report_date,1,7),'yyyy-mm') = to_date(#{reportMoth,jdbcType=VARCHAR},'yyyymm')
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and de.dept_code = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalGroupMenber" >
+    insert into REPORT_MONTH_GROUP_MENBER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_MONTH_GROUP_MENBER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from REPORT_MONTH_GROUP_MENBER
+    where PK_ID = #{pkId,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_MONTH_GROUP_MENBER
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_MONTH_GROUP_MENBER
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="juniorCapacity != null and juniorCapacity != ''">
+		JUNIOR_CAPACITY = #{juniorCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="seniorCapacity != null and seniorCapacity != ''">
+		SENIOR_CAPACITY = #{seniorCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="increaseCount != null and increaseCount != ''">
+		INCREASE_COUNT = #{increaseCount,jdbcType=INTEGER},
+	</if>
+  	<if test="capacityClassE != null and capacityClassE != ''">
+		CAPACITY_CLASS_E = #{capacityClassE,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="capacityClassD != null and capacityClassD != ''">
+		CAPACITY_CLASS_D = #{capacityClassD,jdbcType=DOUBLE},
+	</if>
+  	<if test="parentDept != null and parentDept != ''">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="capacityClassC != null and capacityClassC != ''">
+		CAPACITY_CLASS_C = #{capacityClassC,jdbcType=DOUBLE},
+	</if>
+  	<if test="capacityClassB != null and capacityClassB != ''">
+		CAPACITY_CLASS_B = #{capacityClassB,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="managerCapacity != null and managerCapacity != ''">
+		MANAGER_CAPACITY = #{managerCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="probationCapacity != null and probationCapacity != ''">
+		PROBATION_CAPACITY = #{probationCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptName != null and deptName != ''">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="capacityClassA != null and capacityClassA != ''">
+		CAPACITY_CLASS_A = #{capacityClassA,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="middleCapacity != null and middleCapacity != ''">
+		MIDDLE_CAPACITY = #{middleCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="dimissionCount != null and dimissionCount != ''">
+		DIMISSION_COUNT = #{dimissionCount,jdbcType=INTEGER},
+	</if>
+  	<if test="managerCount != null and managerCount != ''">
+		MANAGER_COUNT = #{managerCount,jdbcType=INTEGER},
+	</if>
+  	<if test="reportDate != null and reportDate != ''">
+		REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="highCapacity != null and highCapacity != ''">
+		HIGH_CAPACITY = #{highCapacity,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_MONTH_GROUP_MENBER
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			JUNIOR_CAPACITY = #{juniorCapacity,jdbcType=DOUBLE},
+  			SENIOR_CAPACITY = #{seniorCapacity,jdbcType=DOUBLE},
+  			INCREASE_COUNT = #{increaseCount,jdbcType=INTEGER},
+  			CAPACITY_CLASS_E = #{capacityClassE,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CAPACITY_CLASS_D = #{capacityClassD,jdbcType=DOUBLE},
+  			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			CAPACITY_CLASS_C = #{capacityClassC,jdbcType=DOUBLE},
+  			CAPACITY_CLASS_B = #{capacityClassB,jdbcType=DOUBLE},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			MANAGER_CAPACITY = #{managerCapacity,jdbcType=DOUBLE},
+  			PROBATION_CAPACITY = #{probationCapacity,jdbcType=DOUBLE},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			CAPACITY_CLASS_A = #{capacityClassA,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			MIDDLE_CAPACITY = #{middleCapacity,jdbcType=DOUBLE},
+  			DIMISSION_COUNT = #{dimissionCount,jdbcType=INTEGER},
+  			MANAGER_COUNT = #{managerCount,jdbcType=INTEGER},
+  			REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+  			HIGH_CAPACITY = #{highCapacity,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalGroupMenber" >
+	update REPORT_MONTH_GROUP_MENBER
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="juniorCapacity != null and juniorCapacity != ''">
+		JUNIOR_CAPACITY = #{juniorCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="seniorCapacity != null and seniorCapacity != ''">
+		SENIOR_CAPACITY = #{seniorCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="increaseCount != null and increaseCount != ''">
+		INCREASE_COUNT = #{increaseCount,jdbcType=INTEGER},
+	</if>
+  	<if test="capacityClassE != null and capacityClassE != ''">
+		CAPACITY_CLASS_E = #{capacityClassE,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="capacityClassD != null and capacityClassD != ''">
+		CAPACITY_CLASS_D = #{capacityClassD,jdbcType=DOUBLE},
+	</if>
+  	<if test="parentDept != null and parentDept != ''">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="capacityClassC != null and capacityClassC != ''">
+		CAPACITY_CLASS_C = #{capacityClassC,jdbcType=DOUBLE},
+	</if>
+  	<if test="capacityClassB != null and capacityClassB != ''">
+		CAPACITY_CLASS_B = #{capacityClassB,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="managerCapacity != null and managerCapacity != ''">
+		MANAGER_CAPACITY = #{managerCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="probationCapacity != null and probationCapacity != ''">
+		PROBATION_CAPACITY = #{probationCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptName != null and deptName != ''">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="capacityClassA != null and capacityClassA != ''">
+		CAPACITY_CLASS_A = #{capacityClassA,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="middleCapacity != null and middleCapacity != ''">
+		MIDDLE_CAPACITY = #{middleCapacity,jdbcType=DOUBLE},
+	</if>
+  	<if test="dimissionCount != null and dimissionCount != ''">
+		DIMISSION_COUNT = #{dimissionCount,jdbcType=INTEGER},
+	</if>
+  	<if test="managerCount != null and managerCount != ''">
+		MANAGER_COUNT = #{managerCount,jdbcType=INTEGER},
+	</if>
+  	<if test="reportDate != null and reportDate != ''">
+		REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+	</if>
+  	<if test="highCapacity != null and highCapacity != ''">
+		HIGH_CAPACITY = #{highCapacity,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalGroupMenber" >
+		update REPORT_MONTH_GROUP_MENBER
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			JUNIOR_CAPACITY = #{juniorCapacity,jdbcType=DOUBLE},
+  			SENIOR_CAPACITY = #{seniorCapacity,jdbcType=DOUBLE},
+  			INCREASE_COUNT = #{increaseCount,jdbcType=INTEGER},
+  			CAPACITY_CLASS_E = #{capacityClassE,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CAPACITY_CLASS_D = #{capacityClassD,jdbcType=DOUBLE},
+  			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			CAPACITY_CLASS_C = #{capacityClassC,jdbcType=DOUBLE},
+  			CAPACITY_CLASS_B = #{capacityClassB,jdbcType=DOUBLE},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			MANAGER_CAPACITY = #{managerCapacity,jdbcType=DOUBLE},
+  			PROBATION_CAPACITY = #{probationCapacity,jdbcType=DOUBLE},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			CAPACITY_CLASS_A = #{capacityClassA,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			MIDDLE_CAPACITY = #{middleCapacity,jdbcType=DOUBLE},
+  			DIMISSION_COUNT = #{dimissionCount,jdbcType=INTEGER},
+  			MANAGER_COUNT = #{managerCount,jdbcType=INTEGER},
+  			REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+  			HIGH_CAPACITY = #{highCapacity,jdbcType=DOUBLE}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_MONTH_GROUP_MENBER
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_MONTH_GROUP_MENBER
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_MONTH_GROUP_MENBER  t
+	   inner join department de on t.dept_code = de.inter_code 
+	   <include refid="User_Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportTotalGroupMenber" resultType="long">
+	select count(1)
+	from REPORT_MONTH_GROUP_MENBER <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="User_Base_Column_List"/>
+		from REPORT_MONTH_GROUP_MENBER t
+	   inner join department de on t.dept_code = de.inter_code
+		<include refid="User_Base_Where_Sql"/>
+		order by t.PK_ID asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MONTH_GROUP_MENBER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MONTH_GROUP_MENBER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MONTH_GROUP_MENBER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_MONTH_GROUP_MENBER
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_MONTH_GROUP_MENBER <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

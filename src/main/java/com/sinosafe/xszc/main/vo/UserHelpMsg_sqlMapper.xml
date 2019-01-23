@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.main.vo.UserHelpMsg" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EDIT_USER" property="editUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PK_ID" property="pkId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PAGE_NAME" property="pageName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EDIT_DATE" property="editDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PAGE_CODE" property="pageCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_PKID" property="parentPkid" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="HELP_CONTENT" property="helpContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.main.vo.UserHelpMsg">
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EDIT_USER" property="editUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PK_ID" property="pkId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PAGE_NAME" property="pageName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EDIT_DATE" property="editDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PAGE_CODE" property="pageCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_PKID" property="parentPkid" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="HELP_CONTENT" property="helpContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		VALID_IND,
+		EDIT_USER,
+		PK_ID,
+		PAGE_NAME,
+		EDIT_DATE,
+		CREATE_USER,
+		PAGE_CODE,
+		PARENT_PKID,
+		CREATE_DATE,
+		HELP_CONTENT
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		VALID_IND as "validInd",
+		EDIT_USER as "editUser",
+		PK_ID as "pkId",
+		PAGE_NAME as "pageName",
+		EDIT_DATE as "editDate",
+		CREATE_USER as "createUser",
+		PAGE_CODE as "pageCode",
+		PARENT_PKID as "parentPkid",
+		CREATE_DATE as "createDate",
+		HELP_CONTENT as "helpContent"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{validInd,jdbcType=CHAR},
+ 		#{editUser,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=VARCHAR},
+ 		#{pageName,jdbcType=VARCHAR},
+ 		to_date(#{editDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{createUser,jdbcType=VARCHAR},
+ 		#{pageCode,jdbcType=VARCHAR},
+ 		#{parentPkid,jdbcType=VARCHAR},
+ 		to_date(#{createDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{helpContent,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="editUser != null and editUser != ''">
+			and EDIT_USER = #{editUser,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=VARCHAR}
+		</if>
+		<if test="pageName != null and pageName != ''">
+			and PAGE_NAME = #{pageName,jdbcType=VARCHAR}
+		</if>
+		<if test="editDate != null and editDate != ''">
+			and EDIT_DATE = #{editDate,jdbcType=DATE}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and CREATE_USER = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="pageCode != null and pageCode != ''">
+			and PAGE_CODE = #{pageCode,jdbcType=VARCHAR}
+		</if>
+		<if test="parentPkid != null and parentPkid != ''">
+			and PARENT_PKID = #{parentPkid,jdbcType=VARCHAR}
+		</if>
+		<if test="createDate != null and createDate != ''">
+			and CREATE_DATE = #{createDate,jdbcType=DATE}
+		</if>
+		<if test="helpContent != null and helpContent != ''">
+			and HELP_CONTENT = #{helpContent,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.main.vo.UserHelpMsg" >
+    insert into USER_HELP_MSG (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into USER_HELP_MSG (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.sinosafe.xszc.main.vo.UserHelpMsg" >
+		update USER_HELP_MSG
+		set 
+  			page_name = #{pageName,jdbcType=VARCHAR},
+  			page_code = #{pageCode,jdbcType=VARCHAR},
+  			parent_pkid = #{parentPkid,jdbcType=VARCHAR},
+  			help_content = #{helpContent,jdbcType=VARCHAR},
+  			edit_date = to_date(#{editDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+  			edit_User = #{editUser,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from USER_HELP_MSG <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!--按照页面编码来查找长度-->
+	<select id="countByPageCode" parameterType="java.lang.String" resultType="long">
+	   select count(1) from USER_HELP_MSG where page_Code= #{pageCode,jdbcType=VARCHAR} and VALID_IND = 1
+	</select>
+	
+	<!--按照页面编码来查询详细信息-->
+	<select id="selectByPageCode" parameterType="java.lang.String" resultType="map">
+	   select 
+	     <include refid="Base_Column_List_JavaName" />
+       from USER_HELP_MSG 
+       where page_Code= #{pageCode,jdbcType=VARCHAR} and VALID_IND = 1
+	</select>
+	
+	<!--根据Id来查询详细信息-->
+	<select id="getMsgDetailByPrimaryKey" parameterType="java.lang.String" resultType="map">
+	   select 
+	     <include refid="Base_Column_List_JavaName" />
+       from USER_HELP_MSG 
+       where pk_id= #{pkid,jdbcType=VARCHAR} and VALID_IND = 1
+	</select>
+	
+	<!--查询树结构-->
+	<select id="selectListForTree" parameterType="map" resultType="map">
+	   select 
+	     pk_id as "id",
+	     parent_pkid as "pid",
+	     page_name as "text"
+       from USER_HELP_MSG 
+       where VALID_IND = 1
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.main.vo.UserHelpMsg" resultType="long">
+	select count(1)
+	from USER_HELP_MSG <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from USER_HELP_MSG
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from USER_HELP_MSG
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from USER_HELP_MSG
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from USER_HELP_MSG
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from USER_HELP_MSG
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from USER_HELP_MSG <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+</mapper>

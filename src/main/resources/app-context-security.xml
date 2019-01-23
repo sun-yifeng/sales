@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<security:http auto-config="true" access-denied-page="/core/login/loginError.jsp?login_error=1">
+		<security:form-login login-page="/login/login.jsp" authentication-failure-url="/login/loginError.jsp?login_error=1" default-target-url="/home/main.jsp" />
+		<security:logout logout-success-url="/login/login.jsp" />
+		<security:intercept-url pattern="/core/login/**" filters="none" />
+		<security:intercept-url pattern="/core/skin/**" filters="none" />
+		<security:intercept-url pattern="/core/js/**" filters="none" />
+		<security:intercept-url pattern="/core/common/**" filters="none" />
+		<security:intercept-url pattern="/core/schema/**" filters="none" />
+		<security:intercept-url pattern="/**" access="ROLE_USER" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<!-- <security:password-encoder hash="sha"> <security:salt-source user-property="username" /> </security:password-encoder> -->
+			<security:user-service>
+				<security:user name="testa" password="testa" authorities="ROLE_USER, ROLE_ADMIN" />
+				<security:user name="testb" password="testb" authorities="ROLE_USER" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>

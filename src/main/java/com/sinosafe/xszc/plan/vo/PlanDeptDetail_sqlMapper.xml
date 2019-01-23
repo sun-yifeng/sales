@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.plan.vo.PlanDeptDetail" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PLAN_DEPT_ID" property="planDeptId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_RISK_TYPE" property="deptRiskType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="IPORTANT_PREMIUM" property="iportantPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_PREMINUM" property="financePreminum" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="NORMAL_PREMIUM" property="normalPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CONTENT" property="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PLAN_MAIN_ID" property="planMainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.plan.vo.PlanDeptDetail">
+		<id column="PLAN_DEPT_ID" property="planDeptId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_RISK_TYPE" property="deptRiskType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="IPORTANT_PREMIUM" property="iportantPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_PREMINUM" property="financePreminum" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="NORMAL_PREMIUM" property="normalPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CONTENT" property="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PLAN_MAIN_ID" property="planMainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		PLAN_DEPT_ID,
+		CREATED_USER,
+		DEPT_CODE,
+		DEPT_RISK_TYPE,
+		REMARK,
+		IPORTANT_PREMIUM,
+		UPDATED_DATE,
+		STATUS,
+		FINANCE_PREMINUM,
+		VALID_IND,
+		CREATED_DATE,
+		NORMAL_PREMIUM,
+		CONTENT,
+		PLAN_MAIN_ID
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		PLAN_DEPT_ID as "planDeptId",
+		CREATED_USER as "createdUser",
+		DEPT_CODE as "deptCode",
+		DEPT_RISK_TYPE as "deptRiskType",
+		REMARK as "remark",
+		IPORTANT_PREMIUM as "iportantPremium",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		FINANCE_PREMINUM as "financePreminum",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		NORMAL_PREMIUM as "normalPremium",
+		CONTENT as "content",
+		PLAN_MAIN_ID as "planMainId"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{planDeptId,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{deptRiskType,jdbcType=CHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		#{iportantPremium,jdbcType=DOUBLE},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{financePreminum,jdbcType=DOUBLE},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{normalPremium,jdbcType=DOUBLE},
+ 		#{content,jdbcType=VARCHAR},
+ 		#{planMainId,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="planDeptId != null and planDeptId != ''">
+			and PLAN_DEPT_ID = #{planDeptId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="deptRiskType != null and deptRiskType != ''">
+			and DEPT_RISK_TYPE = #{deptRiskType,jdbcType=CHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="iportantPremium != null and iportantPremium != ''">
+			and IPORTANT_PREMIUM = #{iportantPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="financePreminum != null and financePreminum != ''">
+			and FINANCE_PREMINUM = #{financePreminum,jdbcType=DOUBLE}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="normalPremium != null and normalPremium != ''">
+			and NORMAL_PREMIUM = #{normalPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="content != null and content != ''">
+			and CONTENT = #{content,jdbcType=VARCHAR}
+		</if>
+		<if test="planMainId != null and planMainId != ''">
+			and PLAN_MAIN_ID = #{planMainId,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	
+	<sql id="Use_Where_Sql">
+		<where>
+			   t.valid_ind = '1' 
+	       and d.valid_ind = '1'
+	       and t.plan_type = '1'
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="planDeptId != null and planDeptId != ''">
+			and PLAN_DEPT_ID = #{planDeptId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and d.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="deptRiskType != null and deptRiskType != ''">
+			and DEPT_RISK_TYPE = #{deptRiskType,jdbcType=CHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="iportantPremium != null and iportantPremium != ''">
+			and IPORTANT_PREMIUM = #{iportantPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="financePreminum != null and financePreminum != ''">
+			and FINANCE_PREMINUM = #{financePreminum,jdbcType=DOUBLE}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="normalPremium != null and normalPremium != ''">
+			and NORMAL_PREMIUM = #{normalPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="content != null and content != ''">
+			and CONTENT = #{content,jdbcType=VARCHAR}
+		</if>
+		<if test="planMainId != null and planMainId != ''">
+			and PLAN_MAIN_ID = #{planMainId,jdbcType=VARCHAR}
+		</if>
+		<if test="year != null and year != ''">
+			and year = #{year,jdbcType=VARCHAR}
+		</if>
+		<if test="quarter != null and quarter != ''">
+			and quarter = #{quarter,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.plan.vo.PlanDeptDetail" >
+    insert into PLAN_DEPT_DETAIL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into PLAN_DEPT_DETAIL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PLAN_DEPT_DETAIL
+    where PLAN_DEPT_ID = #{planDeptId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from PLAN_DEPT_DETAIL
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+ 	
+ 	<update id="deletePlanDeptDetail" parameterType="java.lang.String" >
+ 		update PLAN_DEPT_DETAIL set VALID_IND = '0' where PLAN_MAIN_ID = #{planMainId}
+ 	</update>
+ 
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update PLAN_DEPT_DETAIL
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptRiskType != null and deptRiskType != ''">
+		DEPT_RISK_TYPE = #{deptRiskType,jdbcType=CHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="iportantPremium != null and iportantPremium != ''">
+		IPORTANT_PREMIUM = #{iportantPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="financePreminum != null and financePreminum != ''">
+		FINANCE_PREMINUM = #{financePreminum,jdbcType=DOUBLE},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="normalPremium != null and normalPremium != ''">
+		NORMAL_PREMIUM = #{normalPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="content != null and content != ''">
+		CONTENT = #{content,jdbcType=VARCHAR},
+	</if>
+  	<if test="planMainId != null and planMainId != ''">
+		PLAN_MAIN_ID = #{planMainId,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PLAN_DEPT_ID = #{planDeptId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update PLAN_DEPT_DETAIL
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			DEPT_RISK_TYPE = #{deptRiskType,jdbcType=CHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			IPORTANT_PREMIUM = #{iportantPremium,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			FINANCE_PREMINUM = #{financePreminum,jdbcType=DOUBLE},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			NORMAL_PREMIUM = #{normalPremium,jdbcType=DOUBLE},
+  			CONTENT = #{content,jdbcType=VARCHAR},
+  			PLAN_MAIN_ID = #{planMainId,jdbcType=VARCHAR}
+  		where PLAN_DEPT_ID = #{planDeptId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.plan.vo.PlanDeptDetail" >
+	update PLAN_DEPT_DETAIL
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptRiskType != null and deptRiskType != ''">
+		DEPT_RISK_TYPE = #{deptRiskType,jdbcType=CHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="iportantPremium != null and iportantPremium != ''">
+		IPORTANT_PREMIUM = #{iportantPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="financePreminum != null and financePreminum != ''">
+		FINANCE_PREMINUM = #{financePreminum,jdbcType=DOUBLE},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="normalPremium != null and normalPremium != ''">
+		NORMAL_PREMIUM = #{normalPremium,jdbcType=DOUBLE},
+	</if>
+  	<if test="content != null and content != ''">
+		CONTENT = #{content,jdbcType=VARCHAR},
+	</if>
+  	</set>
+	where PLAN_MAIN_ID = #{planMainId,jdbcType=VARCHAR}
+	  and PLAN_DEPT_ID = #{planDeptId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.plan.vo.PlanDeptDetail" >
+		update PLAN_DEPT_DETAIL
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			DEPT_RISK_TYPE = #{deptRiskType,jdbcType=CHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			IPORTANT_PREMIUM = #{iportantPremium,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			FINANCE_PREMINUM = #{financePreminum,jdbcType=DOUBLE},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			NORMAL_PREMIUM = #{normalPremium,jdbcType=DOUBLE},
+  			CONTENT = #{content,jdbcType=VARCHAR},
+  			PLAN_MAIN_ID = #{planMainId,jdbcType=VARCHAR}
+  		where PLAN_DEPT_ID = #{planDeptId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultVo" parameterType="java.lang.String" >
+     select <include refid="Base_Column_List" />
+	   from PLAN_DEPT_DETAIL
+      where PLAN_MAIN_ID = #{planMainId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select nvl(t.dept_risk_type,4) dept_risk_type,
+    	   sum(t.finance_preminum) finance_preminum,
+    	   sum(t.iportant_premium) iportant_premium,
+    	   sum(t.normal_premium) normal_premium
+     from plan_dept_detail t 
+    where t.plan_main_id = #{planMainId,jdbcType=VARCHAR}
+    group by rollup(t.dept_risk_type)
+    order by t.dept_risk_type
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+      from plan_main t
+     inner join department d 
+             on t.dept_code = d.dept_code
+        <include refid="Use_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.plan.vo.PlanDeptDetail" resultType="long">
+	select count(1)
+	from PLAN_DEPT_DETAIL <include refid="Base_Where_Sql" />
+	</select>
+
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from PLAN_DEPT_DETAIL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from PLAN_DEPT_DETAIL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from PLAN_DEPT_DETAIL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageInfoDept" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+	select * from (
+		select a.*,rownum rn from (
+		select t.plan_main_id as "planMainId",
+	           d.dept_simple_name as "deptCode",
+	           t.year as "year",
+	           t.quarter as "quarter",
+	           t.dept_premium as "deptPremium"
+	      from plan_main t
+	     inner join department d 
+	             on t.dept_code = d.dept_code
+	     <include refid="Use_Where_Sql" />
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from PLAN_DEPT_DETAIL <include refid="Use_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from PLAN_DEPT_DETAIL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from PLAN_DEPT_DETAIL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from SALE_PLAN_DEPT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="comparePlanMain" parameterType="map" resultMap="BaseResultMap">
+		select a.dept_premium_all     as "deptPremiumAll",
+		       a.finance_preminum_all as "financePreminumAll",
+		       a.iportant_premium_all as "iportantPremiumAll",
+		       a.normal_premium_all   as "normalPremiumAll",
+		       b.dept_premium_pro     as "deptPremiumPro",
+		       b.finance_preminum_pro as "financePreminumPro",
+		       b.iportant_premium_pro as "iportantPremiumPro",
+		       b.normal_premium_pro   as "normalPremiumPro"
+		  from (select de.parent_dept_code,
+		               pm.year,
+		               pm.quarter,
+		               sum(pm.dept_premium) dept_premium_all,
+		               sum(pdd.finance_preminum) finance_preminum_all,
+		               sum(pdd.iportant_premium) iportant_premium_all,
+		               sum(pdd.normal_premium) normal_premium_all
+		          from plan_main pm
+		         inner join (select gpdd.plan_main_id,
+		                           sum(gpdd.finance_preminum) finance_preminum,
+		                           sum(gpdd.iportant_premium) iportant_premium,
+		                           sum(gpdd.normal_premium) normal_premium
+		                      from plan_dept_detail gpdd
+		                     where gpdd.valid_ind = 1
+		                     group by gpdd.plan_main_id) pdd
+		            on pdd.plan_main_id = pm.plan_main_id
+		         inner join department de
+		            on de.dept_code = pm.dept_code
+		         where pm.valid_ind = '1'
+		           and de.valid_ind = '1'
+		           and pm.plan_type = '1'
+		           and exists
+		         (select 1
+		                  from salesman sa
+		                 where sa.valid_ind = '1'
+		                   and sa.dept_code = de.parent_dept_code
+		                   and sa.salesman_code = #{userCode})
+		         group by de.parent_dept_code, pm.year, pm.quarter) a
+		 inner join (select pm.dept_code,
+		                    pm.year,
+		                    pm.quarter,
+		                    pm.dept_premium dept_premium_pro,
+		                    pdd.finance_preminum finance_preminum_pro,
+		                    pdd.iportant_premium iportant_premium_pro,
+		                    pdd.normal_premium   normal_premium_pro
+		               from plan_main pm
+		              inner join (select gpdd.plan_main_id,
+		                                sum(gpdd.finance_preminum) finance_preminum,
+		                                sum(gpdd.iportant_premium) iportant_premium,
+		                                sum(gpdd.normal_premium) normal_premium
+		                           from plan_dept_detail gpdd
+		                          where gpdd.valid_ind = 1
+		                          group by gpdd.plan_main_id) pdd
+		                 on pm.plan_main_id = pdd.plan_main_id
+		              inner join salesman sa
+		                 on pm.dept_code = sa.dept_code
+		              where pm.valid_ind = 1
+		                and sa.valid_ind = 1
+		                and sa.salesman_code = #{userCode}) b
+		    on a.parent_dept_code = b.dept_code
+		   and a.year = b.year
+		   and a.quarter = b.quarter
+		 where a.year = #{year}
+	</select>
+	
+	<update id="updatePlanDeptDetailStatus" parameterType="map" >
+		update plan_dept_detail pdd 
+		   set pdd.status = '1'
+		 where exists (
+		       select 1
+		         from plan_main pm
+		        inner join department de
+		                on de.dept_code = pm.dept_code
+		        inner join salesman sa
+		                on de.parent_dept_code = sa.dept_code
+		        where pm.valid_ind = 1
+		          and sa.valid_ind = 1
+		          and de.valid_ind = 1
+		          and sa.salesman_code = #{userCode}
+		          and pm.year = #{year}
+		          and pm.plan_main_id = pdd.plan_main_id
+		       )
+		  and pdd.valid_ind = 1
+	</update>
+	
+</mapper>

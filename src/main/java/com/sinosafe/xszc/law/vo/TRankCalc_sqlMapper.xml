@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TRankCalc" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SERNO" property="serno" javaType="java.lang.Double" jdbcType="INTEGER" />
+		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANGE_TYPE" property="changeType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ORDER_NO" property="orderNo" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="TARGET_RANK_CODE" property="targetRankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="COND_TYPE" property="condType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COND" property="cond" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TRankCalc">
+		<id column="SERNO" property="serno" javaType="java.lang.Double" jdbcType="INTEGER" />
+		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANGE_TYPE" property="changeType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ORDER_NO" property="orderNo" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 		<result column="TARGET_RANK_CODE" property="targetRankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="COND_TYPE" property="condType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COND" property="cond" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		CHANNEL_ID,
+		CHANGE_TYPE,
+		VERSION_ID,
+		ORDER_NO,
+		TARGET_RANK_CODE,
+		LAST_OPT,
+		OPT_DATE,
+		VALID_IND,
+		COND_TYPE,
+		COND,
+		RANK_CODE,
+		SERNO
+	</sql>
+	
+	<sql id="Base_Column_Listss" >
+		t.CHANNEL_ID,
+		t.CHANGE_TYPE,
+		t.VERSION_ID,
+		t.ORDER_NO,
+		t.TARGET_RANK_CODE,
+		t.LAST_OPT,
+		t.OPT_DATE,
+		t.VALID_IND,
+		t.COND_TYPE,
+		t.COND,
+		t.RANK_CODE,
+		t.SERNO
+	</sql>
+	
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_Lists" >
+		t.CHANNEL_ID,
+		t.CHANGE_TYPE,
+		t.VERSION_ID,
+		t.ORDER_NO,
+		t.TARGET_RANK_CODE,
+		t.LAST_OPT,
+		t.OPT_DATE,
+		t.VALID_IND,
+		t.COND_TYPE,
+		t.COND,
+		t.RANK_CODE,
+		t.SERNO,
+		tr.rank_name as "rankName",
+		tld.version_cname as "versionCname"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		CHANNEL_ID as "channelId",
+		CHANGE_TYPE as "changeType",
+		VERSION_ID as "versionId",
+		ORDER_NO as "orderNo",
+		TARGET_RANK_CODE as "targetRankCode",
+		LAST_OPT as "lastOpt",
+		OPT_DATE as "optDate",
+		VALID_IND as "validInd",
+		COND_TYPE as "condType",
+		COND as "cond",
+		RANK_CODE as "rankCode",
+		SERNO as "serno"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{channelId,jdbcType=VARCHAR},
+ 		#{changeType,jdbcType=VARCHAR},
+ 		#{versionId,jdbcType=VARCHAR},
+ 		#{orderNo,jdbcType=INTEGER},
+ 		#{targetRankCode,jdbcType=VARCHAR},
+ 		#{lastOpt,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{validInd,jdbcType=CHAR},
+ 		#{condType,jdbcType=VARCHAR},
+ 		#{cond,jdbcType=VARCHAR},
+ 		#{rankCode,jdbcType=VARCHAR},
+ 		#{serno,jdbcType=INTEGER}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="channelId != null and channelId != ''">
+			and CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="changeType != null and changeType != ''">
+			and CHANGE_TYPE = #{changeType,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			and ORDER_NO = #{orderNo,jdbcType=INTEGER}
+		</if>
+		<if test="targetRankCode != null and targetRankCode != ''">
+			and TARGET_RANK_CODE = #{targetRankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != ''">
+			and LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != ''">
+			and OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="condType != null and condType != ''">
+			and COND_TYPE = #{condType,jdbcType=VARCHAR}
+		</if>
+		<if test="cond != null and cond != ''">
+			and COND = #{cond,jdbcType=VARCHAR}
+		</if>
+		<if test="rankCode != null and rankCode != ''">
+			and RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="serno != null and serno != ''">
+			and SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+		</where>
+	</sql>
+	
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sqls">
+		<where>
+			t.valid_ind = '1'
+		<if test="channelId != null and channelId != ''">
+			and t.CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="changeType != null and changeType != ''">
+			and t.CHANGE_TYPE = #{changeType,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and t.VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+			and t.ORDER_NO = #{orderNo,jdbcType=INTEGER}
+		</if>
+		<if test="targetRankCode != null and targetRankCode != ''">
+			and t.TARGET_RANK_CODE = #{targetRankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != ''">
+			and t.LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != ''">
+			and t.OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="condType != null and condType != ''">
+			and t.COND_TYPE = #{condType,jdbcType=VARCHAR}
+		</if>
+		<if test="cond != null and cond != ''">
+			and t.COND = #{cond,jdbcType=VARCHAR}
+		</if>
+		<if test="rankCode != null and rankCode != ''">
+			and t.RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="serno != null and serno != ''">
+			and t.SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TRankCalc" >
+    insert into t_law_rank_calc (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into t_law_rank_calc (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+    delete from t_law_rank_calc
+    where SERNO = #{serno,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from t_law_rank_calc
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update t_law_rank_calc
+	<set>
+	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="changeType != null and changeType != ''">
+		CHANGE_TYPE = #{changeType,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		VERSION_ID = #{versionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="orderNo != null and orderNo != ''">
+		ORDER_NO = #{orderNo,jdbcType=INTEGER},
+	</if>
+  	<if test="targetRankCode != null and targetRankCode != ''">
+		TARGET_RANK_CODE = #{targetRankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="condType != null and condType != ''">
+		COND_TYPE = #{condType,jdbcType=VARCHAR},
+	</if>
+  	<if test="cond != null and cond != ''">
+		COND = #{cond,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+   	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update t_law_rank_calc
+		set 
+			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			CHANGE_TYPE = #{changeType,jdbcType=VARCHAR},
+  			VERSION_ID = #{versionId,jdbcType=VARCHAR},
+  			ORDER_NO = #{orderNo,jdbcType=INTEGER},
+  			TARGET_RANK_CODE = #{targetRankCode,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			OPT_DATE = #{optDate,jdbcType=DATE},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			COND_TYPE = #{condType,jdbcType=VARCHAR},
+  			COND = #{cond,jdbcType=VARCHAR},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+   		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TRankCalc" >
+	update t_law_rank_calc
+	<set>
+	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="changeType != null and changeType != ''">
+		CHANGE_TYPE = #{changeType,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		VERSION_ID = #{versionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="orderNo != null and orderNo != ''">
+		ORDER_NO = #{orderNo,jdbcType=INTEGER},
+	</if>
+  	<if test="targetRankCode != null and targetRankCode != ''">
+		TARGET_RANK_CODE = #{targetRankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="condType != null and condType != ''">
+		COND_TYPE = #{condType,jdbcType=VARCHAR},
+	</if>
+  	<if test="cond != null and cond != ''">
+		COND = #{cond,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+   	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TRankCalc" >
+		update t_law_rank_calc
+		set 
+			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			CHANGE_TYPE = #{changeType,jdbcType=VARCHAR},
+  			VERSION_ID = #{versionId,jdbcType=VARCHAR},
+  			ORDER_NO = #{orderNo,jdbcType=INTEGER},
+  			TARGET_RANK_CODE = #{targetRankCode,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			OPT_DATE = sysdate,
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			COND_TYPE = #{condType,jdbcType=VARCHAR},
+  			COND = #{cond,jdbcType=VARCHAR},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+   		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_Listss" />,
+    tld.version_cname as "versionCname"
+	from t_law_rank_calc t
+	 left join t_law_define tld 
+	    on t.version_id = tld.version_code
+	where t.SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_List" />
+	from t_law_rank_calc
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from t_law_rank_calc t <include refid="Base_Where_Sqls" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.TRankCalc" resultType="long">
+	select count(1)
+	from t_law_rank_calc <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_Lists"/>
+		from t_law_rank_calc t 
+		left join t_law_rank_def tr
+  			on tr.rank_code = t.rank_code
+  		left join t_law_define tld
+    		on t.version_id = tld.version_code
+		<include refid="Base_Where_Sqls"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_rank_calc
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_rank_calc
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_rank_calc
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from t_law_rank_calc
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from t_law_rank_calc <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	<!-- 生成流水号-->
+	<select id="serialNumber" parameterType="com.sinosafe.xszc.law.vo.TRankCalc" resultType="long">
+			SELECT max(t.serno) + 1
+			  from t_law_rank_calc t
+	</select>
+	
+	<!-- 删除 -->
+	<update id="deleteByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TRankCalc" >
+		update t_law_rank_calc
+		set 
+  			VALID_IND = '0',
+  			OPT_DATE = sysdate
+  		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+</mapper>

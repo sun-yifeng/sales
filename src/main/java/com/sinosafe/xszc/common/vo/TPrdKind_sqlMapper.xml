@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.common.vo.TPrdKind" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="C_KIND_NO" property="cKindNo" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="T_BGN_TM" property="tBgnTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="T_END_TM" property="tEndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_CRT_TM" property="tCrtTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_NME_EN" property="cNmeEn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_NME_CN" property="cNmeCn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.common.vo.TPrdKind">
+		<id column="C_KIND_NO" property="cKindNo" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="T_BGN_TM" property="tBgnTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="T_END_TM" property="tEndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_CRT_TM" property="tCrtTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_NME_EN" property="cNmeEn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_NME_CN" property="cNmeCn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		T_BGN_TM,
+		C_KIND_NO,
+		T_END_TM,
+		T_CRT_TM,
+		C_NME_EN,
+		C_NME_CN
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		T_BGN_TM as "tBgnTm",
+		C_KIND_NO as "cKindNo",
+		T_END_TM as "tEndTm",
+		T_CRT_TM as "tCrtTm",
+		C_NME_EN as "cNmeEn",
+		C_NME_CN as "cNmeCn"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{tBgnTm,jdbcType=DATE},
+ 		#{cKindNo,jdbcType=VARCHAR},
+ 		#{tEndTm,jdbcType=DATE},
+ 		#{tCrtTm,jdbcType=DATE},
+ 		#{cNmeEn,jdbcType=VARCHAR},
+ 		#{cNmeCn,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="tBgnTm != null and tBgnTm != ''">
+			and T_BGN_TM = #{tBgnTm,jdbcType=DATE}
+		</if>
+		<if test="cKindNo != null and cKindNo != ''">
+			and C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+		</if>
+		<if test="tEndTm != null and tEndTm != ''">
+			and T_END_TM = #{tEndTm,jdbcType=DATE}
+		</if>
+		<if test="tCrtTm != null and tCrtTm != ''">
+			and T_CRT_TM = #{tCrtTm,jdbcType=DATE}
+		</if>
+		<if test="cNmeEn != null and cNmeEn != ''">
+			and C_NME_EN = #{cNmeEn,jdbcType=VARCHAR}
+		</if>
+		<if test="cNmeCn != null and cNmeCn != ''">
+			and C_NME_CN = #{cNmeCn,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.common.vo.TPrdKind" >
+    insert into T_PRD_KIND (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_PRD_KIND (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_PRD_KIND
+    where C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_PRD_KIND
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_PRD_KIND
+	<set>
+	<if test="tBgnTm != null and tBgnTm != ''">
+		T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+	</if>
+   	<if test="tEndTm != null and tEndTm != ''">
+		T_END_TM = #{tEndTm,jdbcType=DATE},
+	</if>
+  	<if test="tCrtTm != null and tCrtTm != ''">
+		T_CRT_TM = #{tCrtTm,jdbcType=DATE},
+	</if>
+  	<if test="cNmeEn != null and cNmeEn != ''">
+		C_NME_EN = #{cNmeEn,jdbcType=VARCHAR},
+	</if>
+  	<if test="cNmeCn != null and cNmeCn != ''">
+		C_NME_CN = #{cNmeCn,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_PRD_KIND
+		set 
+			T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+   			T_END_TM = #{tEndTm,jdbcType=DATE},
+  			T_CRT_TM = #{tCrtTm,jdbcType=DATE},
+  			C_NME_EN = #{cNmeEn,jdbcType=VARCHAR},
+  			C_NME_CN = #{cNmeCn,jdbcType=VARCHAR}
+  		where C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.common.vo.TPrdKind" >
+	update T_PRD_KIND
+	<set>
+	<if test="tBgnTm != null and tBgnTm != ''">
+		T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+	</if>
+   	<if test="tEndTm != null and tEndTm != ''">
+		T_END_TM = #{tEndTm,jdbcType=DATE},
+	</if>
+  	<if test="tCrtTm != null and tCrtTm != ''">
+		T_CRT_TM = #{tCrtTm,jdbcType=DATE},
+	</if>
+  	<if test="cNmeEn != null and cNmeEn != ''">
+		C_NME_EN = #{cNmeEn,jdbcType=VARCHAR},
+	</if>
+  	<if test="cNmeCn != null and cNmeCn != ''">
+		C_NME_CN = #{cNmeCn,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.common.vo.TPrdKind" >
+		update T_PRD_KIND
+		set 
+			T_BGN_TM = #{tBgnTm,jdbcType=DATE},
+   			T_END_TM = #{tEndTm,jdbcType=DATE},
+  			T_CRT_TM = #{tCrtTm,jdbcType=DATE},
+  			C_NME_EN = #{cNmeEn,jdbcType=VARCHAR},
+  			C_NME_CN = #{cNmeCn,jdbcType=VARCHAR}
+  		where C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_PRD_KIND
+	where C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_PRD_KIND
+	where C_KIND_NO = #{cKindNo,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_PRD_KIND <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.common.vo.TPrdKind" resultType="long">
+	select count(1)
+	from T_PRD_KIND <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select t.c_kind_no as "code",t.c_nme_cn as "name" from t_Prd_Kind t 
+		where t.t_bgn_tm &lt; sysdate-1 
+		and nvl(t.t_end_tm,sysdate) &gt;= sysdate
+		order by t.c_kind_no
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_PRD_KIND
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_PRD_KIND
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_PRD_KIND
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_PRD_KIND
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_PRD_KIND <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

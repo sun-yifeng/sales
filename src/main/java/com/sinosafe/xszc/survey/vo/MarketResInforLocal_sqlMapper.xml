@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.survey.vo.MarketResInforLocal" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="LOCAL_MARKET_ID" property="localMarketId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="LOCAL_YEAR_TO_YEAR" property="localYearToYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMPANY_YEAR_ON_YEAR" property="companyYearOnYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="LOCAL_YEARS" property="localYears" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSERT_MONTH" property="insertMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONPANY_YEAR_TO_YEAR" property="conpanyYearToYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MAIN_ID" property="mainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CONTENT_NAME" property="contentName" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="LOCAL_YEAR_ON_YEAR" property="localYearOnYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="COMPANY_YEARS" property="companyYears" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.survey.vo.MarketResInforLocal">
+		<id column="LOCAL_MARKET_ID" property="localMarketId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="LOCAL_YEAR_TO_YEAR" property="localYearToYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COMPANY_YEAR_ON_YEAR" property="companyYearOnYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="LOCAL_YEARS" property="localYears" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSERT_MONTH" property="insertMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONPANY_YEAR_TO_YEAR" property="conpanyYearToYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MAIN_ID" property="mainId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CONTENT_NAME" property="contentName" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="LOCAL_YEAR_ON_YEAR" property="localYearOnYear" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="COMPANY_YEARS" property="companyYears" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		LOCAL_YEAR_TO_YEAR,
+		COMPANY_YEAR_ON_YEAR,
+		UPDATE_DATE,
+		LOCAL_YEARS,
+		DEPT_CODE,
+		INSERT_MONTH,
+		CONPANY_YEAR_TO_YEAR,
+		MAIN_ID,
+		VALID_IND,
+		CONTENT_NAME,
+		LOCAL_YEAR_ON_YEAR,
+		CREATE_USER,
+		LOCAL_MARKET_ID,
+		COMPANY_YEARS,
+		CREATE_DATE,
+		UPDATE_USER
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		LOCAL_YEAR_TO_YEAR as "localYearToYear",
+		COMPANY_YEAR_ON_YEAR as "companyYearOnYear",
+		UPDATE_DATE as "updateDate",
+		LOCAL_YEARS as "localYears",
+		DEPT_CODE as "deptCode",
+		INSERT_MONTH as "insertMonth",
+		CONPANY_YEAR_TO_YEAR as "conpanyYearToYear",
+		MAIN_ID as "mainId",
+		VALID_IND as "validInd",
+		CONTENT_NAME as "contentName",
+		LOCAL_YEAR_ON_YEAR as "localYearOnYear",
+		CREATE_USER as "createUser",
+		LOCAL_MARKET_ID as "localMarketId",
+		COMPANY_YEARS as "companyYears",
+		CREATE_DATE as "createDate",
+		UPDATE_USER as "updateUser"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{localYearToYear,jdbcType=VARCHAR},
+ 		#{companyYearOnYear,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{localYears,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{insertMonth,jdbcType=VARCHAR},
+ 		#{conpanyYearToYear,jdbcType=VARCHAR},
+ 		#{mainId,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{contentName,jdbcType=CHAR},
+ 		#{localYearOnYear,jdbcType=VARCHAR},
+ 		#{createUser,jdbcType=VARCHAR},
+ 		#{localMarketId,jdbcType=VARCHAR},
+ 		#{companyYears,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{updateUser,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="localYearToYear != null and localYearToYear != ''">
+			and LOCAL_YEAR_TO_YEAR = #{localYearToYear,jdbcType=VARCHAR}
+		</if>
+		<if test="companyYearOnYear != null and companyYearOnYear != ''">
+			and COMPANY_YEAR_ON_YEAR = #{companyYearOnYear,jdbcType=VARCHAR}
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			and UPDATE_DATE = #{updateDate,jdbcType=DATE}
+		</if>
+		<if test="localYears != null and localYears != ''">
+			and LOCAL_YEARS = #{localYears,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="insertMonth != null and insertMonth != ''">
+			and INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="conpanyYearToYear != null and conpanyYearToYear != ''">
+			and CONPANY_YEAR_TO_YEAR = #{conpanyYearToYear,jdbcType=VARCHAR}
+		</if>
+		<if test="mainId != null and mainId != ''">
+			and MAIN_ID = #{mainId,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="contentName != null and contentName != ''">
+			and CONTENT_NAME = #{contentName,jdbcType=CHAR}
+		</if>
+		<if test="localYearOnYear != null and localYearOnYear != ''">
+			and LOCAL_YEAR_ON_YEAR = #{localYearOnYear,jdbcType=VARCHAR}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and CREATE_USER = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="localMarketId != null and localMarketId != ''">
+			and LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+		</if>
+		<if test="companyYears != null and companyYears != ''">
+			and COMPANY_YEARS = #{companyYears,jdbcType=VARCHAR}
+		</if>
+		<if test="createDate != null and createDate != ''">
+			and CREATE_DATE = #{createDate,jdbcType=DATE}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforLocal" >
+    insert into MARKET_RES_INFOR_LOCAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into MARKET_RES_INFOR_LOCAL (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MARKET_RES_INFOR_LOCAL
+    where LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from MARKET_RES_INFOR_LOCAL
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update MARKET_RES_INFOR_LOCAL
+	<set>
+	<if test="localYearToYear != null and localYearToYear != ''">
+		LOCAL_YEAR_TO_YEAR = #{localYearToYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="companyYearOnYear != null and companyYearOnYear != ''">
+		COMPANY_YEAR_ON_YEAR = #{companyYearOnYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="localYears != null and localYears != ''">
+		LOCAL_YEARS = #{localYears,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="insertMonth != null and insertMonth != ''">
+		INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="conpanyYearToYear != null and conpanyYearToYear != ''">
+		CONPANY_YEAR_TO_YEAR = #{conpanyYearToYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="mainId != null and mainId != ''">
+		MAIN_ID = #{mainId,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="contentName != null and contentName != ''">
+		CONTENT_NAME = #{contentName,jdbcType=CHAR},
+	</if>
+  	<if test="localYearOnYear != null and localYearOnYear != ''">
+		LOCAL_YEAR_ON_YEAR = #{localYearOnYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="companyYears != null and companyYears != ''">
+		COMPANY_YEARS = #{companyYears,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update MARKET_RES_INFOR_LOCAL
+		set 
+			LOCAL_YEAR_TO_YEAR = #{localYearToYear,jdbcType=VARCHAR},
+  			COMPANY_YEAR_ON_YEAR = #{companyYearOnYear,jdbcType=VARCHAR},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			LOCAL_YEARS = #{localYears,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+  			CONPANY_YEAR_TO_YEAR = #{conpanyYearToYear,jdbcType=VARCHAR},
+  			MAIN_ID = #{mainId,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CONTENT_NAME = #{contentName,jdbcType=CHAR},
+  			LOCAL_YEAR_ON_YEAR = #{localYearOnYear,jdbcType=VARCHAR},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+   			COMPANY_YEARS = #{companyYears,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+  		where LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforLocal" >
+	update MARKET_RES_INFOR_LOCAL
+	<set>
+	<if test="localYearToYear != null and localYearToYear != ''">
+		LOCAL_YEAR_TO_YEAR = #{localYearToYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="companyYearOnYear != null and companyYearOnYear != ''">
+		COMPANY_YEAR_ON_YEAR = #{companyYearOnYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="localYears != null and localYears != ''">
+		LOCAL_YEARS = #{localYears,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="insertMonth != null and insertMonth != ''">
+		INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="conpanyYearToYear != null and conpanyYearToYear != ''">
+		CONPANY_YEAR_TO_YEAR = #{conpanyYearToYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="mainId != null and mainId != ''">
+		MAIN_ID = #{mainId,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="contentName != null and contentName != ''">
+		CONTENT_NAME = #{contentName,jdbcType=CHAR},
+	</if>
+  	<if test="localYearOnYear != null and localYearOnYear != ''">
+		LOCAL_YEAR_ON_YEAR = #{localYearOnYear,jdbcType=VARCHAR},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="companyYears != null and companyYears != ''">
+		COMPANY_YEARS = #{companyYears,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforLocal" >
+		update MARKET_RES_INFOR_LOCAL
+		set 
+			LOCAL_YEAR_TO_YEAR = #{localYearToYear,jdbcType=VARCHAR},
+  			COMPANY_YEAR_ON_YEAR = #{companyYearOnYear,jdbcType=VARCHAR},
+  			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			LOCAL_YEARS = #{localYears,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+  			CONPANY_YEAR_TO_YEAR = #{conpanyYearToYear,jdbcType=VARCHAR},
+  			MAIN_ID = #{mainId,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CONTENT_NAME = #{contentName,jdbcType=CHAR},
+  			LOCAL_YEAR_ON_YEAR = #{localYearOnYear,jdbcType=VARCHAR},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+   			COMPANY_YEARS = #{companyYears,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+  		where LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deleteByPkId"  parameterType="java.lang.String">
+	    update MARKET_RES_INFOR_LOCAL set VALID_IND = '0'
+	     where MAIN_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from MARKET_RES_INFOR_LOCAL
+	where LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from MARKET_RES_INFOR_LOCAL
+	where main_id = #{pkId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from MARKET_RES_INFOR_LOCAL <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforLocal" resultType="long">
+	select count(1)
+	from MARKET_RES_INFOR_LOCAL <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_LOCAL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_LOCAL
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_LOCAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_LOCAL
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from MARKET_RES_INFOR_LOCAL
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from MARKET_RES_INFOR_LOCAL <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

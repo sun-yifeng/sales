@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TRankDef" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="INTEGER" />
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_CODE" property="versionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NOTE" property="rankNote" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MANAGER_FLAG" property="managerFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="NORM_PREMIUM" property="normPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BASE_SALARY" property="baseSalary" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CACL_SALARY" property="caclSalary" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BASE_TOTAL" property="baseTotal" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BASE_RATE" property="baseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MAP_RANK" property="mapRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AUDIT_FLAG" property="auditFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TRankDef">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="INTEGER" />
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_CODE" property="versionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NOTE" property="rankNote" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="MANAGER_FLAG" property="managerFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="NORM_PREMIUM" property="normPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="BASE_SALARY" property="baseSalary" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CACL_SALARY" property="caclSalary" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BASE_TOTAL" property="baseTotal" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BASE_RATE" property="baseRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MAP_RANK" property="mapRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AUDIT_FLAG" property="auditFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		VALID_IND,
+		CHANNEL_ID,
+		VERSION_CODE,
+		LAST_OPT,
+		DEPT_CODE,
+		RANK_NOTE,
+		RANK_NAME,
+		RANK_CODE,
+		OPT_DATE,
+		PK_ID,
+		MANAGER_FLAG,
+		NORM_PREMIUM,
+		BASE_SALARY,
+		CACL_SALARY,
+		BASE_TOTAL,
+		BASE_RATE,
+		MAP_RANK,
+		AUDIT_FLAG,
+		LINE_CODE
+	</sql>
+	
+	<sql id="Base_Column_Lists" >
+		trd.VALID_IND,
+		trd.CHANNEL_ID,
+		trd.VERSION_CODE,
+		trd.LAST_OPT,
+		trd.DEPT_CODE,
+		trd.RANK_NOTE,
+		trd.RANK_NAME,
+		trd.RANK_CODE,
+		trd.OPT_DATE,
+		trd.PK_ID,
+		trd.MANAGER_FLAG,
+		trd.NORM_PREMIUM,
+		trd.BASE_SALARY,
+		trd.CACL_SALARY,
+		trd.BASE_TOTAL,
+		trd.BASE_RATE,
+		trd.MAP_RANK,
+		trd.AUDIT_FLAG,
+		decode(trd.LINE_CODE,'925004','电话直销','925005','网销业务','925006','渠道重客','925007','其他业务','925008','信用保证险','925009','创新','其他') as "LINE_CODE"
+	</sql>
+
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		VALID_IND as "validInd",
+		CHANNEL_ID as "channelId",
+		VERSION_CODE as "versionCode",
+		LAST_OPT as "lastOpt",
+		DEPT_CODE as "deptCode",
+		RANK_NOTE as "rankNote",
+		RANK_NAME as "rankName",
+		RANK_CODE as "rankCode",
+		OPT_DATE as "optDate",
+		PK_ID as "pkId",
+		MANAGER_FLAG as "managerFlag",
+		NORM_PREMIUM as "normPremium",
+		BASE_SALARY as "baseSalary",
+		CACL_SALARY as "caclSalary",
+		BASE_TOTAL as "baseTotal",
+		BASE_RATE as "baseRate",
+		MAP_RANK as "mapRank",
+		AUDIT_FLAG as "auditFlag",
+		LINE_CODE as "lineCode"
+	</sql>
+
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{validInd,jdbcType=CHAR},
+ 		#{channelId,jdbcType=VARCHAR},
+ 		#{versionCode,jdbcType=VARCHAR},
+ 		#{lastOpt,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{rankNote,jdbcType=VARCHAR},
+ 		#{rankName,jdbcType=VARCHAR},
+ 		#{rankCode,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{managerFlag,jdbcType=CHAR},
+ 		#{normPremium,jdbcType=DOUBLE},
+ 		#{baseSalary,jdbcType=DOUBLE},
+ 		#{caclSalary,jdbcType=DOUBLE},
+ 		#{baseTotal,jdbcType=DOUBLE},
+ 		#{baseRate,jdbcType=DOUBLE},
+ 		#{mapRank,jdbcType=VARCHAR},
+ 		#{auditFlag,jdbcType=VARCHAR},
+ 		#{lineCode,jdbcType=VARCHAR}
+ 	</sql>
+
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<if test="validInd != null and validInd != ''">
+			and trd.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="channelId != null and channelId != ''">
+			and trd.CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="versionCode != null and versionCode != ''">
+			and trd.VERSION_CODE = #{versionCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lastOpt != null and lastOpt != ''">
+			and trd.LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and trd.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="rankCode != null and rankCode != ''">
+			and trd.RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != ''">
+			and trd.OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and trd.PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="managerFlag != null and managerFlag != ''">
+			and trd.MANAGER_FLAG = #{managerFlag,jdbcType=CHAR}
+		</if>
+		<if test="normPremium != null and normPremium != ''">
+			and trd.NORM_PREMIUM = #{normPremium,jdbcType=DOUBLE}
+		</if>
+		<if test="baseSalary != null and baseSalary != ''">
+			and trd.BASE_SALARY = #{baseSalary,jdbcType=DOUBLE}
+		</if>
+		<if test="caclSalary != null and caclSalary != ''">
+			and trd.CACL_SALARY = #{caclSalary,jdbcType=DOUBLE}
+		</if>
+		<if test="baseTotal != null and baseTotal != ''">
+			and trd.BASE_TOTAL = #{baseTotal,jdbcType=DOUBLE}
+		</if>
+		<if test="baseRate != null and baseRate != ''">
+			and trd.BASE_RATE = #{baseRate,jdbcType=DOUBLE}
+		</if>
+		<if test="mapRank != null and mapRank != ''">
+			and trd.MAP_RANK = #{mapRank,jdbcType=VARCHAR}
+		</if>
+		<if test="auditFlag != null and auditFlag != ''">
+			and trd.AUDIT_FLAG = #{auditFlag,jdbcType=VARCHAR}
+		</if>
+		<if test="lineCode != null and lineCode != ''">
+			and trd.LINE_CODE = #{lineCode,jdbcType=VARCHAR}
+		</if>
+		<if test="rankNote != null and rankNote != ''">
+			and trd.RANK_NOTE like '%'||trim(#{rankNote,jdbcType=VARCHAR})||'%'
+		</if>
+		<if test="rankName != null and rankName != ''">
+			and trd.RANK_NAME like '%'||trim(#{rankName,jdbcType=VARCHAR})||'%'
+		</if>
+	</sql>
+
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TRankDef" >
+    insert into t_law_rank_def (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into t_law_rank_def (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_law_rank_def
+    where PK_ID = #{pkId,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from t_law_rank_def
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update t_law_rank_def
+	<set>
+	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionCode != null and versionCode != ''">
+		VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankNote != null and rankNote != ''">
+		RANK_NOTE = #{rankNote,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+	<if test="managerFlag != null and managerFlag != ''">
+		MANAGER_FLAG = #{managerFlag,jdbcType=CHAR}
+	</if>
+	<if test="normPremium != null and normPremium != ''">
+		NORM_PREMIUM = #{normPremium,jdbcType=DOUBLE}
+	</if>
+   	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update t_law_rank_def
+		set 
+			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			RANK_NOTE = #{rankNote,jdbcType=VARCHAR},
+  			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			OPT_DATE = #{optDate,jdbcType=DATE},
+  			MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+  			NORM_PREMIUM = #{normPremium,jdbcType=DOUBLE}
+   		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TRankDef" >
+	update t_law_rank_def
+	<set>
+	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionCode != null and versionCode != ''">
+		VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankNote != null and rankNote != ''">
+		RANK_NOTE = #{rankNote,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+	<if test="managerFlag != null and managerFlag != ''">
+		MANAGER_FLAG = #{managerFlag,jdbcType=CHAR}
+	</if>
+	<if test="normPremium != null and normPremium != ''">
+		NORM_PREMIUM = #{normPremium,jdbcType=DOUBLE}
+	</if>
+   	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TRankDef" >
+		update t_law_rank_def
+		set 
+			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+  			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			RANK_NOTE = #{rankNote,jdbcType=VARCHAR},
+  			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			OPT_DATE = sysdate,
+  			MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+  			NORM_PREMIUM = #{normPremium,jdbcType=DOUBLE},
+  			BASE_SALARY = #{baseSalary,jdbcType=DOUBLE},
+  			CACL_SALARY = #{caclSalary,jdbcType=DOUBLE},
+  			BASE_TOTAL = #{baseTotal,jdbcType=DOUBLE},
+  			BASE_RATE = #{baseRate,jdbcType=DOUBLE},
+  			MAP_RANK = #{mapRank,jdbcType=VARCHAR},
+  			AUDIT_FLAG = #{auditFlag,jdbcType=VARCHAR}
+   		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_Lists" />,
+	            dt.dept_simple_name as "deptName",
+		       	tld.version_cname as "versionCName"
+		  from t_law_rank_def trd
+           		 left join department dt on trd.dept_code = dt.dept_code and dt.valid_ind = '1'
+         		 left join t_law_define tld on trd.version_code = tld.version_code and tld.valid_ind = '1'
+         where trd.valid_ind = '1'
+				and trd.PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from t_law_rank_def
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.TRankDef" resultType="long">
+	select count(1)
+	from t_law_rank_def <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	     	 from t_law_rank_def trd
+		      left join department dt on trd.dept_code = dt.dept_code and dt.valid_ind = '1'
+		      left join t_law_define tld on trd.version_code = tld.version_code and tld.valid_ind = '1'
+		      left join salesman_rank sr on trd.map_rank = sr.salerank_code and sr.valid_ind = '1'
+		      where trd.valid_ind = '1'
+		<include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 分页查询 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+			  trd.CHANNEL_ID,trd.VERSION_CODE,
+			  trd.LAST_OPT,trd.DEPT_CODE,trd.RANK_NOTE,
+			  trd.RANK_NAME,trd.RANK_CODE,
+			  trd.PK_ID,trd.NORM_PREMIUM,
+			  decode(trd.MANAGER_FLAG, '0', '客户经理', '1', '团队经理',  '2', '其他',  '') MANAGER_FLAG,
+			  trd.BASE_SALARY,trd.CACL_SALARY,trd.BASE_TOTAL,trd.BASE_RATE,
+			  sr.salerank_cname MAP_RANK,
+			  decode(trd.AUDIT_FLAG,'0','否','1','是','')AUDIT_FLAG,
+		      dt.dept_code||dt.dept_simple_name as "deptName",
+      		  tld.version_cname as "versionCName",
+      		  decode(trd.LINE_CODE,'925004','电话直销','925005','网销业务','925006','渠道重客','925007','其他业务','925008','信用保证险','925009','创新','其他') as "lineCode"
+     	 from t_law_rank_def trd
+		      left join department dt on trd.dept_code = dt.dept_code and dt.valid_ind = '1'
+		      left join t_law_define tld on trd.version_code = tld.version_code and tld.valid_ind = '1'
+              left join salesman_rank sr on trd.map_rank = sr.salerank_code and sr.valid_ind = '1'
+		      where trd.valid_ind = '1'
+		<include refid="Base_Where_Sql"/>
+			  order by trd.rank_code
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_rank_def
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_rank_def
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from t_law_rank_def
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from t_law_rank_def
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from t_law_rank_def <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 生成流水号-->
+	<select id="serialNumber" parameterType="com.sinosafe.xszc.law.vo.TRankDef" resultType="long">
+			SELECT max(t.PK_ID) + 1
+			  from t_law_rank_def t
+	</select>
+	
+	<!-- 删除 -->
+	<update id="deleteByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.LawTarget" >
+		update t_law_rank_def
+		set 
+  			VALID_IND = '0',
+  			OPT_DATE = sysdate
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 查询职级 -->
+	<select id="queryRankByLineCode" parameterType="map" resultMap="BaseResultMap">
+		select 
+		  t1.rank_code as "value",
+		  t1.rank_name as "text",
+          t1.audit_flag as "auditFlag"
+		from t_law_rank_def t1
+		where t1.valid_ind = '1' 
+		  and t1.dept_code = #{deptCode,jdbcType=VARCHAR}
+		  and t1.line_code = #{lineCode,jdbcType=VARCHAR}
+		  and t1.item_status = '1'
+		order by t1.rank_code desc
+	</select>
+	
+	<!-- 查询职级名称 -->
+	<select id="queryRankNameByRankCode" parameterType="java.lang.String" resultType="String">
+		select t.rank_name from t_law_rank_def t 
+		where t.rank_code=#{rankCode,jdbcType=VARCHAR} 
+	</select>
+	
+	<!-- 查询客户经理职级 -->
+	<select id="queryManagerRankByLineCode" parameterType="map" resultMap="BaseResultMap">
+	    select t2.rank_code  as "value",
+        t2.rank_name  as "text",
+        t2.audit_flag as "auditFlag"
+	   from t_law_define t1, t_law_rank_def t2
+	  where t1.version_id = t2.version_id
+	    and t1.dept_code = t2.dept_code
+	    and t1.dept_code = #{deptCode,jdbcType=VARCHAR}
+	    and t1.valid_ind = '1'
+	    and t1.version_status = '1'
+	    and t2.valid_ind = '1'
+	    and t2.manager_flag = '0'
+	    and t2.line_code = #{lineCode,jdbcType=VARCHAR}
+	    and t2.item_status = '1'
+	    order by t2.rank_code asc
+	</select>
+	
+	<!-- 查询版本确认的职级 -->
+	<select id="queryConfirmRank" parameterType="map" resultMap="BaseResultMap">
+	    select t1.rank_code    as "value",
+         t1.rank_name    as "text",
+         t1.audit_flag   as "auditFlag"
+	    from t_law_rank_def t1, t_law_define t2
+	    where 1 = 1
+	     and t1.version_id = t2.version_id
+	     and t1.dept_code = t2.dept_code
+	     and t1.valid_ind = '1'
+	     and t2.valid_ind = '1'
+	     and t2.version_status = '1'
+	     and t1.item_status = '1'
+	     and t1.manager_flag =  substr(#{rankCode,jdbcType=VARCHAR},0,1)
+		 and t1.dept_code = #{deptCodeTwo,jdbcType=VARCHAR}
+	     order by t1.PK_ID asc
+	</select>
+	
+	<!-- 查询版本确认的职级 -->
+	<select id="queryConfirmRankCus" parameterType="map" resultMap="BaseResultMap">
+	   select t1.rank_code as "value", t1.rank_name as "text", t1.audit_flag as "auditFlag"
+		   from t_law_rank_def t1, T_LAW_DEFINE t2
+		  where t1.version_id = t2.version_id
+		    and t1.item_status = '1'
+		    and t1.dept_code = #{deptCodeTwo,jdbcType=VARCHAR}
+		    and t1.manager_flag = '0'
+		    and t2.valid_ind = '1'
+		    and t2.version_status = '1'
+		    and t2.dept_code = #{deptCodeTwo,jdbcType=VARCHAR}
+		 <if test="curDeptCode != '00' ">
+			<![CDATA[ and t1.norm_premium <= (select d.norm_premium from t_law_rank_def d where d.rank_code = #{recommendRank,jdbcType=VARCHAR}) ]]> 
+		</if>
+	     order by t1.PK_ID asc
+	</select>
+	
+	<!-- 查询版本确认的职级 -->
+	<select id="queryConfirmRankTeam" parameterType="map" resultMap="BaseResultMap">
+	   select t1.rank_code as "value", t1.rank_name as "text", t1.audit_flag as "auditFlag"
+		   from t_law_rank_def t1, T_LAW_DEFINE t2
+		  where t1.version_id = t2.version_id
+		    and t1.item_status = '1'
+		    and t1.dept_code = #{deptCodeTwo,jdbcType=VARCHAR}
+		    and t1.manager_flag = '1'
+		    and t2.valid_ind = '1'
+		    and t2.version_status = '1'
+		    and t2.dept_code = #{deptCodeTwo,jdbcType=VARCHAR}
+		 <if test="curDeptCode != '00' ">
+			<![CDATA[ and t1.norm_premium <= (select d.norm_premium from t_law_rank_def d where d.rank_code = #{recommendRank,jdbcType=VARCHAR}) ]]> 
+		</if>
+	     order by t1.PK_ID asc
+	</select>
+	
+	<!-- 查询当前职级 -->
+	<select id="queryCurrentRank" parameterType="String" resultMap="BaseResultMap">
+	    select t.manager_flag as "managerFlag" from t_law_rank_def t where t.rank_code=#{rankCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryReviewRank" parameterType="String" resultMap="BaseResultMap">
+	    select t.recommend_rank as "r_rank",nvl(t.cus_recommend_rank,'---') as "c_rank",t.review_result as "result" from review_rank t where t.rank_id=#{rankId,jdbcType=VARCHAR}
+	</select>
+	
+    <!-- 生成职级代码 -->
+	<select id="generateRankCode" parameterType="map" statementType="CALLABLE" >
+		<![CDATA[ 
+          { call P_GET_RANK_CODE(
+		           #{deptCode, mode=IN, jdbcType=VARCHAR},
+		           #{lineCode, mode=IN, jdbcType=VARCHAR},
+		           #{managerFlag, mode=IN, jdbcType=VARCHAR},
+		           #{mapRank, mode=IN, jdbcType=VARCHAR},
+		           #{rankCode, mode=OUT, jdbcType=VARCHAR}
+           )} 
+        ]]> 
+	</select>
+	
+</mapper>

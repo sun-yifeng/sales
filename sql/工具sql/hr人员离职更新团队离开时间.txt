@@ -1,0 +1,13 @@
+declare
+  v_dimissdate date;
+begin
+  for c_sales in (select t.sales_code from group_menber t where t.leave_date = date '2099-12-31') loop
+    select t1.dimission_date into v_dimissdate from salesman t1 where t1.salesman_code = c_sales.sales_code;
+    if (v_dimissdate < sysdate) then
+      update group_menber t2
+         set t2.leave_date = v_dimissdate, t2.updated_date = sysdate ,t2.updated_user = 'liuym'
+       where t2.sales_code = c_sales.sales_code
+         and t2.leave_date = date '2099-12-31';
+    end if;
+  end loop;
+end;

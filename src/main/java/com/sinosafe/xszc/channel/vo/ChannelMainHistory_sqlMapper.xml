@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelMainHistory" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="HISTORY_ID" property="historyId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="BANK_NODE" property="bankNode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_ACCOUNT" property="bankAccount" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CATEGORY" property="category" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_CONTENT" property="mistakeContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_PROVINCE" property="bankProvince" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_RECEIVE" property="bankReceive" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_FLAG" property="financeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROPERTY" property="property" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OFFICE_ADDRESS" property="officeAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FEATURE" property="channelFeature" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="BANK_CITY" property="bankCity" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_FLAG" property="mistakeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_CODE" property="versionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FLAG" property="channelFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_RATE" property="channelRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CHANNEL_TYPE" property="channelType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_OWN_TYPE" property="channelOwnType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CATEGORY" property="channelCategory" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_PROPERTY" property="channelProperty" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_FLAG" property="approveFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_CODE" property="approveCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelMainHistory">
+		<id column="HISTORY_ID" property="historyId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="BANK_NODE" property="bankNode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_ACCOUNT" property="bankAccount" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CATEGORY" property="category" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_CONTENT" property="mistakeContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_PROVINCE" property="bankProvince" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_RECEIVE" property="bankReceive" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FINANCE_FLAG" property="financeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROPERTY" property="property" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OFFICE_ADDRESS" property="officeAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT" property="contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FEATURE" property="channelFeature" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="BANK_CITY" property="bankCity" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MISTAKE_FLAG" property="mistakeFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_CODE" property="versionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_FLAG" property="channelFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_RATE" property="channelRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CHANNEL_TYPE" property="channelType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_OWN_TYPE" property="channelOwnType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CATEGORY" property="channelCategory" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_PROPERTY" property="channelProperty" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_FLAG" property="approveFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="APPROVE_CODE" property="approveCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		BANK_NODE,
+		BANK_ACCOUNT,
+		CREATED_USER,
+		REMARK,
+		UPDATED_DATE,
+		STATUS,
+		VALID_IND,
+		CREATED_DATE,
+		CATEGORY,
+		MISTAKE_CONTENT,
+		TEL,
+		BANK_PROVINCE,
+		UPDATED_USER,
+		BANK_RECEIVE,
+		CHANNEL_CODE,
+		FINANCE_FLAG,
+		PROPERTY,
+		DEPT_CODE,
+		OFFICE_ADDRESS,
+		BANK_NAME,
+		CONTACT,
+		BUSINESS_LINE,
+		CHANNEL_FEATURE,
+		HISTORY_ID,
+		BANK_CITY,
+		MISTAKE_FLAG,
+		VERSION_CODE,
+		CHANNEL_FLAG,
+		CHANNEL_RATE,
+		CHANNEL_TYPE,
+		CHANNEL_OWN_TYPE,
+		CHANNEL_CATEGORY,
+		CHANNEL_PROPERTY,
+		APPROVE_FLAG,
+		APPROVE_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		BANK_NODE as "bankNode",
+		BANK_ACCOUNT as "bankAccount",
+		CREATED_USER as "createdUser",
+		REMARK as "remark",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		CATEGORY as "category",
+		MISTAKE_CONTENT as "mistakeContent",
+		TEL as "tel",
+		BANK_PROVINCE as "bankProvince",
+		UPDATED_USER as "updatedUser",
+		BANK_RECEIVE as "bankReceive",
+		CHANNEL_CODE as "channelCode",
+		FINANCE_FLAG as "financeFlag",
+		PROPERTY as "property",
+		DEPT_CODE as "deptCode",
+		OFFICE_ADDRESS as "officeAddress",
+		BANK_NAME as "bankName",
+		CONTACT as "contact",
+		BUSINESS_LINE as "businessLine",
+		CHANNEL_FEATURE as "channelFeature",
+		HISTORY_ID as "historyId",
+		BANK_CITY as "bankCity",
+		MISTAKE_FLAG as "mistakeFlag",
+		VERSION_CODE as "versionCode",
+		CHANNEL_FLAG as "channelFlag",
+		CHANNEL_RATE as "channelRate",
+		CHANNEL_TYPE as "channelType",
+		CHANNEL_OWN_TYPE as "channelOwnType",
+		CHANNEL_CATEGORY as "channelCategory",
+		CHANNEL_PROPERTY as "channelProperty",
+		APPROVE_FLAG as "approveFlag"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{bankNode,jdbcType=VARCHAR},
+ 		#{bankAccount,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{category,jdbcType=CHAR},
+ 		#{mistakeContent,jdbcType=VARCHAR},
+ 		#{tel,jdbcType=VARCHAR},
+ 		#{bankProvince,jdbcType=VARCHAR},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{bankReceive,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{financeFlag,jdbcType=CHAR},
+ 		#{property,jdbcType=CHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{officeAddress,jdbcType=VARCHAR},
+ 		#{bankName,jdbcType=VARCHAR},
+ 		#{contact,jdbcType=VARCHAR},
+ 		#{businessLine,jdbcType=CHAR},
+ 		#{channelFeature,jdbcType=CHAR},
+ 		#{historyId,jdbcType=VARCHAR},
+ 		#{bankCity,jdbcType=VARCHAR},
+ 		#{mistakeFlag,jdbcType=CHAR},
+ 		#{versionCode,jdbcType=VARCHAR},
+ 		#{channelFlag,jdbcType=CHAR},
+ 		#{channelRate,jdbcType=DOUBLE},
+ 		#{channelType,jdbcType=CHAR},
+ 		#{channelOwnType,jdbcType=CHAR},
+ 		#{channelCategory,jdbcType=CHAR},
+ 		#{channelProperty,jdbcType=CHAR},
+ 		#{approveFlag,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="bankNode != null and bankNode != ''">
+			and BANK_NODE = #{bankNode,jdbcType=VARCHAR}
+		</if>
+		<if test="bankAccount != null and bankAccount != ''">
+			and BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="category != null and category != ''">
+			and CATEGORY = #{category,jdbcType=CHAR}
+		</if>
+		<if test="mistakeContent != null and mistakeContent != ''">
+			and MISTAKE_CONTENT = #{mistakeContent,jdbcType=VARCHAR}
+		</if>
+		<if test="tel != null and tel != ''">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="bankProvince != null and bankProvince != ''">
+			and BANK_PROVINCE = #{bankProvince,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="bankReceive != null and bankReceive != ''">
+			and BANK_RECEIVE = #{bankReceive,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="financeFlag != null and financeFlag != ''">
+			and FINANCE_FLAG = #{financeFlag,jdbcType=CHAR}
+		</if>
+		<if test="property != null and property != ''">
+			and PROPERTY = #{property,jdbcType=CHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="officeAddress != null and officeAddress != ''">
+			and OFFICE_ADDRESS = #{officeAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="bankName != null and bankName != ''">
+			and BANK_NAME = #{bankName,jdbcType=VARCHAR}
+		</if>
+		<if test="contact != null and contact != ''">
+			and CONTACT = #{contact,jdbcType=VARCHAR}
+		</if>
+		<if test="businessLine != null and businessLine != ''">
+			and BUSINESS_LINE = #{businessLine,jdbcType=CHAR}
+		</if>
+		<if test="channelFeature != null and channelFeature != ''">
+			and CHANNEL_FEATURE = #{channelFeature,jdbcType=CHAR}
+		</if>
+		<if test="historyId != null and historyId != ''">
+			and HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+		</if>
+		<if test="bankCity != null and bankCity != ''">
+			and BANK_CITY = #{bankCity,jdbcType=VARCHAR}
+		</if>
+		<if test="mistakeFlag != null and mistakeFlag != ''">
+			and MISTAKE_FLAG = #{mistakeFlag,jdbcType=CHAR}
+		</if>
+		<if test="versionCode != null and versionCode != ''">
+			and VERSION_CODE = #{versionCode,jdbcType=VARCHAR}
+		</if>
+		<if test="channelFlag != null and channelFlag != ''">
+			and CHANNEL_FLAG = #{channelFlag,jdbcType=CHAR}
+		</if>
+		<if test="channelRate != null and channelRate != ''">
+			and CHANNEL_RATE = #{channelRate,jdbcType=DOUBLE}
+		</if>
+		<if test="channelType != null and channelType != ''">
+			and CHANNEL_TYPE = #{channelType,jdbcType=CHAR}
+		</if>
+		<if test="channelOwnType != null and channelOwnType != ''">
+			and CHANNEL_OWN_TYPE = #{channelOwnType,jdbcType=CHAR}
+		</if>
+		<if test="channelCategory != null and channelCategory != ''">
+			and CHANNEL_CATEGORY = #{channelCategory,jdbcType=CHAR}
+		</if>
+		<if test="channelProperty != null and channelProperty != ''">
+			and CHANNEL_PROPERTY = #{channelProperty,jdbcType=CHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMainHistory" >
+    insert into CHANNEL_MAIN_HISTORY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_MAIN_HISTORY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_MAIN_HISTORY
+    where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_MAIN_HISTORY
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_MAIN_HISTORY
+	<set>
+	<if test="bankNode != null and bankNode != ''">
+		BANK_NODE = #{bankNode,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankAccount != null and bankAccount != ''">
+		BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="category != null and category != ''">
+		CATEGORY = #{category,jdbcType=CHAR},
+	</if>
+  	<if test="mistakeContent != null and mistakeContent != ''">
+		MISTAKE_CONTENT = #{mistakeContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankProvince != null and bankProvince != ''">
+		BANK_PROVINCE = #{bankProvince,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankReceive != null and bankReceive != ''">
+		BANK_RECEIVE = #{bankReceive,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="financeFlag != null and financeFlag != ''">
+		FINANCE_FLAG = #{financeFlag,jdbcType=CHAR},
+	</if>
+  	<if test="property != null and property != ''">
+		PROPERTY = #{property,jdbcType=CHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="officeAddress != null and officeAddress != ''">
+		OFFICE_ADDRESS = #{officeAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankName != null and bankName != ''">
+		BANK_NAME = #{bankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="contact != null and contact != ''">
+		CONTACT = #{contact,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessLine != null and businessLine != ''">
+		BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+	</if>
+  	<if test="channelFeature != null and channelFeature != ''">
+		CHANNEL_FEATURE = #{channelFeature,jdbcType=CHAR},
+	</if>
+   	<if test="bankCity != null and bankCity != ''">
+		BANK_CITY = #{bankCity,jdbcType=VARCHAR},
+	</if>
+  	<if test="mistakeFlag != null and mistakeFlag != ''">
+		MISTAKE_FLAG = #{mistakeFlag,jdbcType=CHAR},
+	</if>
+  	<if test="versionCode != null and versionCode != ''">
+		VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelFlag != null and channelFlag != ''">
+		CHANNEL_FLAG = #{channelFlag,jdbcType=CHAR},
+	</if>
+  	<if test="channelRate != null and channelRate != ''">
+		CHANNEL_RATE = #{channelRate,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_MAIN_HISTORY
+		set 
+			BANK_NODE = #{bankNode,jdbcType=VARCHAR},
+  			BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CATEGORY = #{category,jdbcType=CHAR},
+  			MISTAKE_CONTENT = #{mistakeContent,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			BANK_PROVINCE = #{bankProvince,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			BANK_RECEIVE = #{bankReceive,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			FINANCE_FLAG = #{financeFlag,jdbcType=CHAR},
+  			PROPERTY = #{property,jdbcType=CHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			OFFICE_ADDRESS = #{officeAddress,jdbcType=VARCHAR},
+  			BANK_NAME = #{bankName,jdbcType=VARCHAR},
+  			CONTACT = #{contact,jdbcType=VARCHAR},
+  			BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+  			CHANNEL_FEATURE = #{channelFeature,jdbcType=CHAR},
+   			BANK_CITY = #{bankCity,jdbcType=VARCHAR},
+  			MISTAKE_FLAG = #{mistakeFlag,jdbcType=CHAR},
+  			VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+  			CHANNEL_FLAG = #{channelFlag,jdbcType=CHAR},
+  			CHANNEL_RATE = #{channelRate,jdbcType=DOUBLE}
+  		where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMainHistory" >
+	update CHANNEL_MAIN_HISTORY
+	<set>
+	<if test="bankNode != null and bankNode != ''">
+		BANK_NODE = #{bankNode,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankAccount != null and bankAccount != ''">
+		BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="category != null and category != ''">
+		CATEGORY = #{category,jdbcType=CHAR},
+	</if>
+  	<if test="mistakeContent != null and mistakeContent != ''">
+		MISTAKE_CONTENT = #{mistakeContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankProvince != null and bankProvince != ''">
+		BANK_PROVINCE = #{bankProvince,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankReceive != null and bankReceive != ''">
+		BANK_RECEIVE = #{bankReceive,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="financeFlag != null and financeFlag != ''">
+		FINANCE_FLAG = #{financeFlag,jdbcType=CHAR},
+	</if>
+  	<if test="property != null and property != ''">
+		PROPERTY = #{property,jdbcType=CHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="officeAddress != null and officeAddress != ''">
+		OFFICE_ADDRESS = #{officeAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="bankName != null and bankName != ''">
+		BANK_NAME = #{bankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="contact != null and contact != ''">
+		CONTACT = #{contact,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessLine != null and businessLine != ''">
+		BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+	</if>
+  	<if test="channelFeature != null and channelFeature != ''">
+		CHANNEL_FEATURE = #{channelFeature,jdbcType=CHAR},
+	</if>
+   	<if test="bankCity != null and bankCity != ''">
+		BANK_CITY = #{bankCity,jdbcType=VARCHAR},
+	</if>
+  	<if test="mistakeFlag != null and mistakeFlag != ''">
+		MISTAKE_FLAG = #{mistakeFlag,jdbcType=CHAR},
+	</if>
+  	<if test="versionCode != null and versionCode != ''">
+		VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelFlag != null and channelFlag != ''">
+		CHANNEL_FLAG = #{channelFlag,jdbcType=CHAR},
+	</if>
+  	<if test="channelRate != null and channelRate != ''">
+		CHANNEL_RATE = #{channelRate,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMainHistory" >
+		update CHANNEL_MAIN_HISTORY
+		set 
+			BANK_NODE = #{bankNode,jdbcType=VARCHAR},
+  			BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CATEGORY = #{category,jdbcType=CHAR},
+  			MISTAKE_CONTENT = #{mistakeContent,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			BANK_PROVINCE = #{bankProvince,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			BANK_RECEIVE = #{bankReceive,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			FINANCE_FLAG = #{financeFlag,jdbcType=CHAR},
+  			PROPERTY = #{property,jdbcType=CHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			OFFICE_ADDRESS = #{officeAddress,jdbcType=VARCHAR},
+  			BANK_NAME = #{bankName,jdbcType=VARCHAR},
+  			CONTACT = #{contact,jdbcType=VARCHAR},
+  			BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+  			CHANNEL_FEATURE = #{channelFeature,jdbcType=CHAR},
+   			BANK_CITY = #{bankCity,jdbcType=VARCHAR},
+  			MISTAKE_FLAG = #{mistakeFlag,jdbcType=CHAR},
+  			VERSION_CODE = #{versionCode,jdbcType=VARCHAR},
+  			CHANNEL_FLAG = #{channelFlag,jdbcType=CHAR},
+  			CHANNEL_RATE = #{channelRate,jdbcType=DOUBLE}
+  		where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MAIN_HISTORY
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MAIN_HISTORY
+	where HISTORY_ID = #{historyId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_MAIN_HISTORY <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMainHistory" resultType="long">
+	select count(1)
+	from CHANNEL_MAIN_HISTORY <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIN_HISTORY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIN_HISTORY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIN_HISTORY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIN_HISTORY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_MAIN_HISTORY
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_MAIN_HISTORY <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<insert id="insertData" parameterType="map" >
+    insert into channel_main_history ( <include refid="Base_Column_List" /> )
+		select BANK_NODE,
+			BANK_ACCOUNT,
+			#{updatedUser,jdbcType=VARCHAR},
+			REMARK,
+			sysdate,
+			STATUS,
+			VALID_IND,
+			sysdate,
+			CATEGORY,
+			MISTAKE_CONTENT,
+			TEL,
+			BANK_PROVINCE,
+			#{updatedUser,jdbcType=VARCHAR},
+			BANK_RECEIVE,
+			CHANNEL_CODE,
+			FINANCE_FLAG,
+			PROPERTY,
+			DEPT_CODE,
+			OFFICE_ADDRESS,
+			BANK_NAME,
+			CONTACT,
+			BUSINESS_LINE,
+			CHANNEL_FEATURE,
+			#{historyId,jdbcType=VARCHAR},
+			BANK_CITY,
+			MISTAKE_FLAG,
+			null,
+			CHANNEL_FLAG,
+			CHANNEL_RATE,
+			CHANNEL_TYPE,
+			CHANNEL_OWN_TYPE,
+			CHANNEL_CATEGORY,
+			CHANNEL_PROPERTY,
+			APPROVE_FLAG,
+			APPROVE_CODE
+			from channel_main cm
+		where cm.channel_code = #{channelCode,jdbcType=VARCHAR}
+		and cm.valid_ind = '1'
+	</insert>
+</mapper>

@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.review.vo.TMission" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Long" jdbcType="BIGINT" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_END_DATE" property="taskEndDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MISSION_TYPE" property="missionType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_FLAG" property="confirmFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TASK_STATUS" property="taskStatus" jdbcType="BIGINT" javaType="java.lang.Long" />
+ 		<result column="TASK_BNG_DATE" property="taskBngDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.review.vo.TMission">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Long" jdbcType="BIGINT" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_END_DATE" property="taskEndDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MISSION_TYPE" property="missionType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_FLAG" property="confirmFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TASK_STATUS" property="taskStatus" jdbcType="BIGINT" javaType="java.lang.Long" />
+ 		<result column="TASK_BNG_DATE" property="taskBngDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		PK_ID,
+		CONFIRM_USER,
+		CREATED_USER,
+		MISSION_TYPE,
+		REMARK,
+		STAT_MONTH,
+		DEPT_NAME_THREE,
+		DEPT_NAME_TWO,
+		UPDATED_DATE,
+		DEPT_CODE_THREE,
+		DEPT_CODE_FOUR,
+		VALID_IND,
+		CREATED_DATE,
+		DEPT_NAME_FOUR,
+		DEPT_CODE_TWO,
+		decode(TASK_STATUS,1,'正在运行...',2,'已经完成','') as "taskStatus",
+		CONFIRM_FLAG as "confirmValue",
+		decode(CONFIRM_FLAG,'0','待确认','1','已确认','') as "confirmFlag",
+		to_char(CONFIRM_DATE,'yyyy-mm-dd hh24:mi:ss') as "confirmDate",
+		to_char(TASK_BNG_DATE,'yyyy-mm-dd hh24:mi:ss') as "taskBngDate",
+		to_char(TASK_END_DATE,'yyyy-mm-dd hh24:mi:ss') as "taskEndDate"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		PK_ID as "pkId",
+		CONFIRM_USER as "confirmUser",
+		TASK_END_DATE as "taskEndDate",
+		CREATED_USER as "createdUser",
+		MISSION_TYPE as "missionType",
+		REMARK as "remark",
+		STAT_MONTH as "statMonth",
+		DEPT_NAME_THREE as "deptNameThree",
+		DEPT_NAME_TWO as "deptNameTwo",
+		UPDATED_DATE as "updatedDate",
+		DEPT_CODE_THREE as "deptCodeThree",
+		CONFIRM_FLAG as "confirmFlag",
+		DEPT_CODE_FOUR as "deptCodeFour",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		TASK_STATUS as "taskStatus",
+		TASK_BNG_DATE as "taskBngDate",
+		DEPT_NAME_FOUR as "deptNameFour",
+		DEPT_CODE_TWO as "deptCodeTwo",
+		CONFIRM_DATE as "confirmDate"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=BIGINT},
+ 		#{confirmUser,jdbcType=VARCHAR},
+ 		#{taskEndDate,jdbcType=DATE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{missionType,jdbcType=CHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		#{statMonth,jdbcType=VARCHAR},
+ 		#{deptNameThree,jdbcType=VARCHAR},
+ 		#{deptNameTwo,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{deptCodeThree,jdbcType=VARCHAR},
+ 		#{confirmFlag,jdbcType=CHAR},
+ 		#{deptCodeFour,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{taskStatus,jdbcType=BIGINT},
+ 		#{taskBngDate,jdbcType=DATE},
+ 		#{deptNameFour,jdbcType=VARCHAR},
+ 		#{deptCodeTwo,jdbcType=VARCHAR},
+ 		#{confirmDate,jdbcType=DATE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=BIGINT}
+		</if>
+		<if test="confirmUser != null and confirmUser != ''">
+			and CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR}
+		</if>
+		<if test="taskEndDate != null and taskEndDate != ''">
+			and TASK_END_DATE = #{taskEndDate,jdbcType=DATE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="missionType != null and missionType != ''">
+			and MISSION_TYPE = #{missionType,jdbcType=CHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="statMonth != null and statMonth != ''">
+			and STAT_MONTH = #{statMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameThree != null and deptNameThree != ''">
+			and DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameTwo != null and deptNameTwo != ''">
+			and DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptCodeThree != null and deptCodeThree != ''">
+			and DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmFlag != null and confirmFlag != ''">
+			and CONFIRM_FLAG = #{confirmFlag,jdbcType=CHAR}
+		</if>
+		<if test="deptCodeFour != null and deptCodeFour != ''">
+			and DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="taskStatus != null and taskStatus != ''">
+			and TASK_STATUS = #{taskStatus,jdbcType=BIGINT}
+		</if>
+		<if test="taskBngDate != null and taskBngDate != ''">
+			and TASK_BNG_DATE = #{taskBngDate,jdbcType=DATE}
+		</if>
+		<if test="deptNameFour != null and deptNameFour != ''">
+			and DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeTwo != null and deptCodeTwo != ''">
+			and DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmDate != null and confirmDate != ''">
+			and CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+		</if>
+		    and valid_ind = '1'
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.review.vo.TMission" >
+    insert into T_LAW_MISSION (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_LAW_MISSION (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_LAW_MISSION
+    where PK_ID = #{pkId,jdbcType=BIGINT}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_LAW_MISSION
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_LAW_MISSION
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="taskEndDate != null and taskEndDate != ''">
+		TASK_END_DATE = #{taskEndDate,jdbcType=DATE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="missionType != null and missionType != ''">
+		MISSION_TYPE = #{missionType,jdbcType=CHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmFlag != null and confirmFlag != ''">
+		CONFIRM_FLAG = #{confirmFlag,jdbcType=CHAR},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="taskStatus != null and taskStatus != ''">
+		TASK_STATUS = #{taskStatus,jdbcType=BIGINT},
+	</if>
+  	<if test="taskBngDate != null and taskBngDate != ''">
+		TASK_BNG_DATE = #{taskBngDate,jdbcType=DATE},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_LAW_MISSION
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			TASK_END_DATE = #{taskEndDate,jdbcType=DATE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			MISSION_TYPE = #{missionType,jdbcType=CHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			CONFIRM_FLAG = #{confirmFlag,jdbcType=CHAR},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			TASK_STATUS = #{taskStatus,jdbcType=BIGINT},
+  			TASK_BNG_DATE = #{taskBngDate,jdbcType=DATE},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+  		where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.review.vo.TMission" >
+	update T_LAW_MISSION
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="taskEndDate != null and taskEndDate != ''">
+		TASK_END_DATE = #{taskEndDate,jdbcType=DATE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="missionType != null and missionType != ''">
+		MISSION_TYPE = #{missionType,jdbcType=CHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmFlag != null and confirmFlag != ''">
+		CONFIRM_FLAG = #{confirmFlag,jdbcType=CHAR},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="taskStatus != null and taskStatus != ''">
+		TASK_STATUS = #{taskStatus,jdbcType=BIGINT},
+	</if>
+  	<if test="taskBngDate != null and taskBngDate != ''">
+		TASK_BNG_DATE = #{taskBngDate,jdbcType=DATE},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.review.vo.TMission" >
+		update T_LAW_MISSION
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+   			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			TASK_END_DATE = #{taskEndDate,jdbcType=DATE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			MISSION_TYPE = #{missionType,jdbcType=CHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			CONFIRM_FLAG = #{confirmFlag,jdbcType=CHAR},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			TASK_STATUS = #{taskStatus,jdbcType=BIGINT},
+  			TASK_BNG_DATE = #{taskBngDate,jdbcType=DATE},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+  		where PK_ID = #{pkId,jdbcType=BIGINT}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_MISSION
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Long" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_MISSION
+	where PK_ID = #{pkId,jdbcType=BIGINT}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_MISSION <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.review.vo.TMission" resultType="long">
+	select count(1)
+	from T_LAW_MISSION <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_MISSION tlm
+		<include refid="Base_Where_Sql"/>
+		and
+		<foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+		    <if test="nrlValue == '925007'">
+		        tlm.line_code in ( '925007','925006','925003','925008' )
+			</if>
+			<if test="nrlValue != '925007'">
+		      	tlm.line_code = #{nrlValue,jdbcType=VARCHAR}
+			</if>
+	   </foreach>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_MISSION
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_MISSION
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_MISSION
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_MISSION
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_MISSION <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+    <!-- 确认任务 -->
+	<update id="confirmTask" parameterType="map" >
+		update T_LAW_MISSION t
+		   set t.confirm_flag = '1',
+		       t.confirm_date = sysdate,
+		       t.confirm_user = #{updatedUser,jdbcType=VARCHAR}
+		 where t.stat_month = #{statMonth,jdbcType=VARCHAR}
+		   and t.dept_code_three = #{deptCodeThree,jdbcType=VARCHAR}
+		   and t.mission_type = #{missionType, jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 确认评分 -->
+	<update id="confirmScore" parameterType="map" >
+		update review_score t
+		   set t.confirm_status = '1',
+		       t.confirm_user   = #{updatedUser,jdbcType=VARCHAR},
+		       t.confirm_date   = sysdate
+		 where 1=1
+		   and t.calc_month = #{statMonth,jdbcType=VARCHAR}
+		   and t.dept_code_three = #{deptCodeThree,jdbcType=VARCHAR}
+	</update>
+	
+    <!-- 确认薪酬 -->
+	<update id="confirmSalary" parameterType="map" >
+		update review_salary t
+		   set t.confirm_status = '1',
+		       t.confirm_user   = #{updatedUser,jdbcType=VARCHAR},
+		       t.confirm_date   = sysdate
+		 where 1=1
+		   and t.calc_month = #{statMonth,jdbcType=VARCHAR}
+		   and t.dept_code_three = #{deptCodeThree,jdbcType=VARCHAR}
+	</update>
+	
+</mapper>

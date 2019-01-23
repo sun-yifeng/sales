@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportCommon" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="QUERY_ID" property="queryId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EXEC_SQL" property="execSql" jdbcType="CLOB" javaType="java.lang.String"/>
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="QUERY_NAME" property="queryName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="PARAM1_NAME" property="param1Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="PARAM2_NAME" property="param2Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="PARAM3_NAME" property="param3Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="ORDER_COLUMN" property="orderColumn" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	<resultMap id="BaseResultMap2" type="java.util.TreeMap">
+		<result column="VHL_TYPE" property="vhlType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.CommomQueryExport">
+		<id column="QUERY_ID" property="queryId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EXEC_SQL" property="execSql" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="QUERY_NAME" property="queryName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		EXEC_SQL,
+		CREATED_DATE,
+		QUERY_NAME,
+		CREATED_USER,
+		QUERY_ID,
+		UPDATED_DATE,
+		PARAM1_NAME,
+		PARAM2_NAME,
+		PARAM3_NAME,
+		ORDER_COLUMN
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		QUERY_NAME as "name",
+		QUERY_ID as "value"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{execSql,jdbcType=CLOB},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{queryName,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{queryId,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		and VALID_IND = '1'
+		<if test="execSql != null and execSql != ''">
+			and EXEC_SQL = #{execSql,jdbcType=CLOB}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="queryName != null and queryName != ''">
+			and QUERY_NAME = #{queryName,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="queryId != null and queryId != ''">
+			and QUERY_ID = #{queryId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.CommomQueryExport" >
+    insert into REPORT_COMMON_EXPORT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_COMMON_EXPORT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from REPORT_COMMON_EXPORT
+    where QUERY_ID = #{queryId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_COMMON_EXPORT
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_COMMON_EXPORT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="execSql != null and execSql != ''">
+		EXEC_SQL = #{execSql,jdbcType=CLOB},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="queryName != null and queryName != ''">
+		QUERY_NAME = #{queryName,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+	</if>
+  	</set>
+	where QUERY_ID = #{queryId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_COMMON_EXPORT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			EXEC_SQL = #{execSql,jdbcType=CLOB},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			QUERY_NAME = #{queryName,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+   			UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+  		where QUERY_ID = #{queryId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.CommomQueryExport" >
+	update REPORT_COMMON_EXPORT
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="execSql != null and execSql != ''">
+		EXEC_SQL = #{execSql,jdbcType=CLOB},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="queryName != null and queryName != ''">
+		QUERY_NAME = #{queryName,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+	</if>
+  	</set>
+	where QUERY_ID = #{queryId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.CommomQueryExport" >
+		update REPORT_COMMON_EXPORT
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			EXEC_SQL = #{execSql,jdbcType=CLOB},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			QUERY_NAME = #{queryName,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+   			UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+  		where QUERY_ID = #{queryId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REPORT_COMMON_EXPORT
+	where QUERY_ID = #{queryId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REPORT_COMMON_EXPORT
+	where QUERY_ID = #{queryId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_COMMON_EXPORT <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.CommomQueryExport" resultType="long">
+	select count(1)
+	from REPORT_COMMON_EXPORT <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_COMMON_EXPORT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_COMMON_EXPORT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_COMMON_EXPORT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	
+	<!-- 条件查询 -->
+	<select id="queryOptions" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List_JavaName"/>
+		from REPORT_COMMON_EXPORT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_COMMON_EXPORT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_COMMON_EXPORT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_COMMON_EXPORT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+
+	<select id="queryInfo" parameterType="map" resultMap="BaseResultMap2">
+		${execSql}
+		<if test="param1Name != null and param1Name != '' and param1Value != null and param1Value != ''">
+			and ${param1Name} like #{param1Value}
+	    </if>
+		<if test="param1Name != null and param1Name != '' and param2Value != null and param2Value != ''">
+			and ${param2Name} like #{param2Value}
+	    </if>
+		<if test="param3Name != null and param3Name != '' and param3Value != null and param3Value != ''">
+			and ${param3Name} like #{param3Value}
+	    </if>
+		<if test="orderColumn != null and orderColumn != ''">
+			${orderColumn}
+	    </if>
+	</select>
+    
+    <!-- 报表取表sql -->
+	<select id="existsTable" parameterType="java.lang.String" resultType="long">
+		select count(1) from user_tables t where t.TABLE_NAME = upper(#{tableName,jdbcType=VARCHAR})	 
+	</select>
+	
+	<!-- 报表取表sql -->
+	<select id="getColumName" parameterType="java.lang.String" resultType="map">
+	    select t1.COLUMN_NAME as "columnName", 
+	           t1.DATA_TYPE as "dataType", 
+	           t2.COMMENTS as "comments"
+	      from user_tab_cols t1
+	      left join user_col_comments t2
+	        on t1.table_name = t2.table_name
+	       and t1.column_name = t2.column_name
+	     where t1.table_name = upper(#{tableName,jdbcType=VARCHAR})
+	     order by t1.column_id		 
+	</select>
+	
+	<!-- 报表查询sql -->
+	<select id="queryReportListPage" parameterType="map" resultType="map">
+		select * from (
+			select a.*,rownum rn from (
+			  ${execSql}
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryReportCount" parameterType="map" resultType="long">
+		select count(1) from (${execSql})
+	</select>
+	
+	<!-- 业绩跟踪查询 日报表 -->
+	<!--{"employType":"","fComName":"","groupName":"","operType":"1","reportDay":"2015-08-09","zhComName":""}-->
+	<select id="queryDayGroupReportListByPage" parameterType="map" resultType="map">
+		 select * from (
+			select a.*,rownum rn from (
+				  select bb.DEPT_NAME_2 as "fComName",
+				       bb.DEPT_NAME_3 as "zhComName",
+				       bb.GROUP_NAME as "groupName",
+				       bb.GROUP_LEADER as "groupLeader",
+				       bb.REPORT_DAY as "reportDay",
+				       to_char(bb.THIS_DAY_INCOME, 'fm99999999999990.00') as "thisDayIncome",
+				       to_char(bb.MONTH_INCOME,  'fm99999999999990.00') as "monthIncome",
+				       to_char(bb.YEAR_Stan_PRM, 'fm99999999999990.00') as "yearStanPrm",
+				       to_char(bb.YEAR_INCOME,   'fm99999999999990.00') as "yearIncome",
+				       to_char(bb.YEAR_SIGN_DX,   'fm99999999999990.00') as "yearSignDx",
+				       to_char(bb.YEAR_SIGN_TOTAL,'fm99999999999990.00') as "yearSignTotal",
+				       to_char(bb.DAY_SIGN,      'fm99999999999990.00') as "daySign",
+				       to_char(bb.DAY_SIGN_DX,   'fm99999999999990.00') as "daySignDx",
+				       to_char(bb.DAY_SIGN_TOTAL,   'fm99999999999990.00') as "daySignTotal"
+				  from REPORT_DAY_GROUP_TOTAL_NEW bb
+				 where 1 = 1
+				 <if test="loginCode != null and loginCode != ''">
+				 and substr(bb.SALESMAN_CNAME, 0, 9) in(
+					    select
+					    sm1.EMPLOY_CODE
+					    from salesman sm1
+					    where sm1.GROUP_CODE in
+					    (
+					        select
+					        tdz.GROUP_CODE
+					        from GROUP_LEADER_RECORD tdz
+					        where tdz.GROUP_CODE in
+					        (
+					            select
+					            sm.GROUP_CODE
+					            from salesman sm
+					            where sm.SALESMAN_CODE=#{loginCode,jdbcType=VARCHAR}
+					        ) 
+					        and tdz.GROUP_LEADER=#{loginCode,jdbcType=VARCHAR}
+					    )
+					)
+				 </if>
+				 <if test="reportDay != null and reportDay != ''">
+					   and bb.REPORT_DAY = '${reportDay}'
+			     </if>
+				 <if test="fComName != null and fComName != ''">
+					   and bb.DEPT_code_2 = '9'||#{fComName,jdbcType=VARCHAR}
+			     </if>
+			     <if test="zhComName != null and zhComName != ''">
+					   and bb.DEPT_code_3 = '9'||#{zhComName,jdbcType=VARCHAR}
+			     </if>
+				 <if test="groupName != null and groupName != ''">
+					   and bb.GROUP_NAME like '%${groupName}%'
+			     </if>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryDayGroupReportListCount" parameterType="map" resultType="long">
+		select count(1) count
+				  from REPORT_DAY_GROUP_TOTAL_NEW bb
+				 where 1 = 1
+				 <if test="loginCode != null and loginCode != ''">
+				 and substr(bb.SALESMAN_CNAME, 0, 9) in(
+					    select
+					    sm1.EMPLOY_CODE
+					    from salesman sm1
+					    where sm1.GROUP_CODE in
+					    (
+					        select
+					        tdz.GROUP_CODE
+					        from GROUP_LEADER_RECORD tdz
+					        where tdz.GROUP_CODE in
+					        (
+					            select
+					            sm.GROUP_CODE
+					            from salesman sm
+					            where sm.SALESMAN_CODE=#{loginCode,jdbcType=VARCHAR}
+					        ) 
+					        and tdz.GROUP_LEADER=#{loginCode,jdbcType=VARCHAR}
+					    )
+					)
+				 </if>
+				 <if test="reportDay != null and reportDay != ''">
+					   and bb.REPORT_DAY = '${reportDay}'
+			     </if>
+				 <if test="fComName != null and fComName != ''">
+					   and bb.DEPT_code_2 = '9'||#{fComName,jdbcType=VARCHAR}
+			     </if>
+			     <if test="zhComName != null and zhComName != ''">
+					   and bb.DEPT_code_3 = '9'||#{zhComName,jdbcType=VARCHAR}
+			     </if>
+				 <if test="groupName != null and groupName != ''">
+					   and bb.GROUP_NAME like '%${groupName}%'
+			     </if>
+	</select>
+	
+	<!-- 业绩跟踪查询 月报表 -->
+	<select id="queryMonthGroupReportListByPage" parameterType="map" resultType="map">
+		 select * from (
+			select a.*,rownum rn from (
+				  select DEPT_NAME_2 as "fComName",
+				       DEPT_NAME_3 as "zhComName",
+				       GROUP_NAME as "groupName",
+				       GROUP_LEADER as "groupLeader",
+				       to_char(YEAR_STAN_PRM, 'fm99999999999990.00') as "yearStanPrm",
+				       to_char(YEAR_INCOME, 'fm99999999999990.00') as "yearIncome",
+				       to_char(POLICY_COST_RATE, 'fm99999999999990.00') as "policyCostRate",
+				       to_char(TO_YEAR_COMPANSATION, 'fm99999999999990.00') as "toYearCompansation",
+				       to_char(TO_YEAR_COMPANSATION_LM, 'fm99999999999990.00') as "lastYearCompansation",
+				       to_char(PRE_MONTH_INCOME, 'fm99999999999990.00') as "preMonthIncome",
+				       to_char(LAST_MONTH_INCOME, 'fm99999999999990.00') as "lastMonthIncome",
+				       to_char(this_MONTH_INCOME,'fm99999999999990.00') as "thisMonthIncome",
+				       to_char(PRE_MONTH_SIGN,'fm99999999999990.00') as "preMonthSign",
+				       to_char(LAST_MONTH_SIGN,'fm99999999999990.00') as "lastMonthSign",
+				       to_char(THIS_MONTH_SIGN,'fm99999999999990.00') as "thisMonthSign",
+				       to_char(YEAR_SIGN,'fm99999999999990.00') as "yearSign",
+				       to_char(YEAR_SIGN_DX,'fm99999999999990.00') as "yearSignDx",
+				       to_char(POLICY_CON_RATE*YEAR_INCOME, 'fm99999999999990.00') as "policyConRateCount",
+				       REPORT_MONTH as "reportMonth"
+				  from REPORT_MONTH_GROUP_TOTAL_NEW
+				 where 1 = 1 
+				 <if test="reportMonth != null and reportMonth != ''">
+					   and REPORT_MONTH = '${reportMonth}'
+			     </if>
+				 <if test="fComName != null and fComName != ''">
+					   and DEPT_CODE_2 = '9'||#{fComName,jdbcType=VARCHAR}
+			     </if>
+			     <if test="zhComName != null and zhComName != ''">
+					   and DEPT_CODE_3 = '9'||#{zhComName,jdbcType=VARCHAR}
+			     </if>
+				 <if test="groupName != null and groupName != ''">
+					   and GROUP_NAME = #{groupName,jdbcType=VARCHAR}
+			     </if>
+				 <if test="groupLeader != null and groupLeader != ''">
+					   and GROUP_LEADER like '%'||#{groupLeader,jdbcType=VARCHAR}||'%'
+			     </if>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryMonthGroupReportListCount" parameterType="map" resultType="long">
+		select count(1) count from REPORT_MONTH_GROUP_TOTAL_NEW
+		 where 1 = 1
+		<if test="reportMonth != null and reportMonth != ''">
+					   and REPORT_MONTH = '${reportMonth}'
+			     </if>
+				 <if test="fComName != null and fComName != ''">
+					   and DEPT_CODE_2 = '9'||#{fComName,jdbcType=VARCHAR}
+			     </if>
+			     <if test="zhComName != null and zhComName != ''">
+					   and DEPT_CODE_3 = '9'||#{zhComName,jdbcType=VARCHAR}
+			     </if>
+				 <if test="groupName != null and groupName != ''">
+					   and GROUP_NAME = #{groupName,jdbcType=VARCHAR}
+			     </if>
+				 <if test="groupLeader != null and groupLeader != ''">
+					   and GROUP_LEADER like '%'||#{groupLeader,jdbcType=VARCHAR}||'%'
+			     </if>
+	</select>
+	
+	<select id="queryGroupPaihang" parameterType="map" resultType="map">
+				   select rownum  as "paimingIndex",
+				       ybs.DEPT_NAME_2   as "deptName2",
+				       ybs.DEPT_NAME_3   as "deptName3",
+				       ybs.GROUP_NAME    as "groupName",
+				       ybs.GROUP_LEADER  as "groupLeader",
+				       dz.SALESMAN_CNAME as "salesmanCname",
+				       ybs.YEAR_INCOME   as "yearIncome",
+				       ybs.TO_YEAR_COMPANSATION "toYearCompansation",
+				       ybs.POLICY_COST_RATE     "policyCostRate",
+				       ybs.POLICY_CON_RATE      "policyConRate",
+				       ybs.LINIAN_RATE_ZB       "linianRatezb",
+				       ybs.REPORT_MONTH         "reportMonth",
+				       ybs.SALE_STAR            "saleStar",
+				       RTRIM(TO_CHAR(round(ybs.SCHEM_RATE * 100, 2), 'fm999999990.99'), '.') || '%' "schemRate",
+				       ybs.policyConRateCount as "policyConRateCount"
+				  from (select
+				         yb.DEPT_NAME_2,
+				         yb.DEPT_NAME_3,
+				         yb.GROUP_NAME,
+				         yb.GROUP_LEADER,
+				         yb.REPORT_MONTH,
+				         yb.SCHEM_RATE,
+				         round(yb.YEAR_INCOME / 10000, 2) YEAR_INCOME,
+				         to_char(yb.POLICY_CON_RATE*yb.YEAR_INCOME, 'fm99999999999990.00') policyConRateCount,
+				         RTRIM(TO_CHAR(round(yb.TO_YEAR_COMPANSATION * 100, 2),'fm999999990.99'), '.') || '%' TO_YEAR_COMPANSATION,
+				         RTRIM(TO_CHAR(round(yb.POLICY_COST_RATE * 100, 2), 'fm999999990.99'), '.') || '%' POLICY_COST_RATE,
+				         RTRIM(TO_CHAR(round(yb.POLICY_CON_RATE * 100, 2), 'fm999999990.99'),'.') || '%' POLICY_CON_RATE,
+				         RTRIM(TO_CHAR(round(yb.LINIAN_RATE_ZB * 100, 2), 'fm999999990.99'), '.') || '%' LINIAN_RATE_ZB,
+				         decode(yb.SALE_STAR, '', '---', null, '---', '金明星') SALE_STAR,
+				         yb.GROUP_CODE
+				          from REPORT_MONTH_GROUP_TOTAL_NEW yb
+				         where yb.GROUP_CODE in
+				               (select td.GROUP_CODE
+				                  from GROUP_MAIN td
+				                  left join GROUP_LEADER_RECORD tdz
+				                    on td.GROUP_CODE = tdz.GROUP_CODE(+)
+				                   and tdz.VALID_IND = 1
+				                   and td.VALID_IND = 1
+				                 where td.VIRTUAL_FLAG = 0
+				                   and (tdz.GROUP_LEADER is not null or
+				                       tdz.GROUP_LEADER <![CDATA[<>]]>''))
+				           and yb.GROUP_AMT <![CDATA[<>]]>0 
+				           <if test="reportMonth != null and reportMonth != ''">
+				           	   and yb.REPORT_MONTH = '${reportMonth}'
+				           </if>
+				           <if test="curDeptCode != null and curDeptCode != ''">
+							   and yb.DEPT_CODE_2 like '9${curDeptCode}%'
+						   </if>
+				           <if test="fComName != null and fComName != ''">
+							   and yb.DEPT_CODE_2 like '9${fComName}%'
+						   </if>
+				           <if test="zhComName != null and zhComName != ''">
+							   and yb.DEPT_CODE_3 like '9${zhComName}%'
+						   </if>
+				        ) ybs
+				  left join
+				 (select t1.GROUP_CODE, s.EMPLOY_CODE || s.SALESMAN_CNAME SALESMAN_CNAME
+				    from GROUP_LEADER_RECORD t1
+				    left join SALESMAN s
+				      on t1.VALID_IND = 1
+				     and s.VALID_IND  = 1
+				     and t1.GROUP_LEADER = s.SALESMAN_CODE(+)
+				   where s.EMPLOY_CODE is not null) dz
+				    on ybs.GROUP_CODE = dz.GROUP_CODE(+)
+				    <!--团队业绩排行榜-->
+				    <if test="orderType=='reportGroupAchOrder'">
+					    order by ybs.DEPT_NAME_2 ,ybs.YEAR_INCOME desc
+				    </if>
+				    <!--业绩达成率排行榜-->
+				    <if test="orderType=='reportGroupAchRateOrder'">
+					    order by ybs.DEPT_NAME_2 ,ybs.SCHEM_RATE desc
+				    </if>
+				    <!--边际贡献排行-->
+				    <if test="orderType=='reportGroupCostRateOrder'">
+					    order by ybs.DEPT_NAME_2 ,ybs.policyConRateCount desc
+				    </if>
+	</select>
+	
+	<select id="queryGroupPaihangCount" parameterType="map" resultType="long">
+		select 
+	      count(1) count
+		  from (select
+		         yb.DEPT_NAME_2,
+		         yb.DEPT_NAME_3,
+		         yb.GROUP_NAME,
+		         yb.GROUP_LEADER,
+		         round(yb.YEAR_INCOME / 10000, 2) YEAR_INCOME,
+		         RTRIM(TO_CHAR(round(yb.TO_YEAR_COMPANSATION * 100, 2),'fm999999990.99'), '.') || '%' TO_YEAR_COMPANSATION,
+		         RTRIM(TO_CHAR(round(yb.POLICY_COST_RATE * 100, 2), 'fm999999990.99'), '.') || '%' POLICY_COST_RATE,
+		         RTRIM(TO_CHAR(round(yb.POLICY_CON_RATE * 100, 2), 'fm999999990.99'),'.') || '%' POLICY_CON_RATE,
+		         RTRIM(TO_CHAR(round(yb.LINIAN_RATE_ZB * 100, 2), 'fm999999990.99'),'.') || '%' LINIAN_RATE_ZB,
+		         decode(yb.SALE_STAR, '', '---', null, '---', '金明星') SALE_STAR,
+		         yb.GROUP_CODE
+		         from REPORT_MONTH_GROUP_TOTAL_NEW yb
+		         where yb.GROUP_CODE in
+		               (select td.GROUP_CODE
+		                  from GROUP_MAIN td
+		                  left join GROUP_LEADER_RECORD tdz
+		                    on td.GROUP_CODE = tdz.GROUP_CODE(+)
+		                   and tdz.VALID_IND = 1
+		                   and td.VALID_IND = 1
+		                 where td.VIRTUAL_FLAG = 0
+		                   and (tdz.GROUP_LEADER is not null or
+		                       tdz.GROUP_LEADER <![CDATA[<>]]> ''))
+		           and yb.GROUP_AMT <![CDATA[<>]]> 0 
+				           <if test="reportMonth != null and reportMonth != ''">
+				           	   and yb.REPORT_MONTH = '${reportMonth}'
+				           </if>
+				           <if test="curDeptCode != null and curDeptCode != ''">
+							   and yb.DEPT_CODE_2 like '9${curDeptCode}%'
+						   </if>
+				           <if test="fComName != null and fComName != ''">
+							   and yb.DEPT_CODE_2 like '9${fComName}%'
+						   </if>
+				           <if test="zhComName != null and zhComName != ''">
+							   and yb.DEPT_CODE_3 like '9${zhComName}%'
+						   </if>
+		         order by yb.DEPT_CODE_2, yb.YEAR_INCOME desc) ybs
+		  left join
+		 (select t1.GROUP_CODE, s.EMPLOY_CODE || s.SALESMAN_CNAME SALESMAN_CNAME
+		    from GROUP_LEADER_RECORD t1
+		    left join SALESMAN s
+		      on t1.VALID_IND = 1
+		     and s.VALID_IND = 1
+		     and t1.GROUP_LEADER = s.SALESMAN_CODE(+)
+		   where s.EMPLOY_CODE is not null) dz
+		    on ybs.GROUP_CODE = dz.GROUP_CODE(+)
+	</select>
+	
+	<select id="getCurUserGroupMsg"  parameterType="map" resultType="map">
+		select 
+		       t1.group_code as "groupCode",
+		       t1.dept_code as "deptCode",
+		       t1.GROUP_NAME as "groupName"
+		  from group_main t1
+		 inner join group_leader_record t2
+		    on t1.group_code = t2.group_code
+		 where t2.group_leader = #{userName,jdbcType=VARCHAR} 
+		 and t2.valid_ind=1
+	</select>
+</mapper>

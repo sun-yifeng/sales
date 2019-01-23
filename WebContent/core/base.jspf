@@ -1,0 +1,123 @@
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ page import="com.hf.framework.core.context.PlatformContext"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<%
+	String _path = request.getContextPath(); // 上下文路径
+	_path = _path.replaceAll("\\\\", "/");
+	if (!_path.startsWith("/")) {
+		_path = "/" + _path;
+	}
+	if (_path.endsWith("/")) {
+		_path = _path.substring(0, (_path.length() - 1));
+	}
+	String _jsVersion = PlatformContext.getJSVersion(); // js前端缓存控制版本号
+	String _cssVersion = PlatformContext.getCSSVersion(); // css前端缓存控制版本号
+	String _skinTheme = PlatformContext.getSkinTheme(); // 系统皮肤主题风格
+%>
+<%-- om css --%>
+<link rel="stylesheet" type="text/css" href="<%=_path%>/core/js/ref/operamasks-ui-2.1/css/hf/om-default.css?v=<%=_cssVersion%>"> 
+<script type="text/javascript" src="<%=_path%>/core/js/ref/jquery-1.6.3.js?v=<%=_jsVersion%>"></script>
+<%-- om js  --%>
+<script type="text/javascript" src="<%=_path%>/core/js/ref/operamasks-ui-2.1/om-all.min.js?v=<%=_jsVersion%>"></script>
+<script type="text/javascript" src="<%=_path%>/core/js/ref/operamasks-ui-2.1/rules.js?v=<%=_jsVersion%>"></script>
+<%-- json  --%>
+<script type="text/javascript" src="<%=_path%>/core/js/ref/json2.min.js?v=<%=_jsVersion%>"></script>
+<script type="text/javascript" src="<%=_path%>/core/js/util.js?v=<%=_jsVersion%>"></script>
+<script type="text/javascript" src="<%=_path%>/core/js/fillform.js?v=<%=_jsVersion%>"></script>
+<script type="text/javascript" src="<%=_path%>/core/js/validateForm.js?v=<%=_jsVersion%>"></script>
+<script type="text/javascript" src="<%=_path%>/core/js/report.js?v=<%=_jsVersion%>"></script>
+<%-- faux  --%>
+<link rel="stylesheet" type="text/css" href="<%=_path%>/core/faux/fauxconsole.css?v=<%=_jsVersion%>">
+<script type="text/javascript" src="<%=_path%>/core/faux/fauxconsole.js?v=<%=_jsVersion%>"></script>
+<script type="text/javascript">
+
+// 设置全局上下文路径
+Util.appCxtPath = "<%=_path%>";
+
+// 禁用删除键的返回作用
+document.onkeydown = function() {
+	 // 如果按下的是退格键
+     if(event.keyCode == 8) {
+	     // 如果是在textarea内不执行任何操作
+	     if(event.srcElement.tagName.toLowerCase() != "input"  && event.srcElement.tagName.toLowerCase() != "textarea" && event.srcElement.tagName.toLowerCase() != "password"){
+	         event.returnValue = false;
+	     }
+	     // 如果是readOnly或者disable不执行任何操作
+	     if(event.srcElement.readOnly == true || event.srcElement.disabled == true){
+	         event.returnValue = false;
+	     }
+     }
+}
+
+$(function(){
+  // css
+  $("#filterForm").find("input[name^='formMap']").css({"width":"151px"});
+  $(".sele").css({"width":"130px"});	
+  // input
+  $("input[readonly][readonly$='readonly']").css({"background-color":"#F0F0F0"});
+  $("input[disabled][disabled$='disabled']").css({"background-color":"#F0F0F0"});
+  $("input[readonly][readonly$='true']").css({"background-color":"#F0F0F0"});
+  $("input[disabled][disabled$='true']").css({"background-color":"#F0F0F0"});
+  // textarea
+  $("textarea[readonly][readonly$='readonly']").css({"background-color":"#F0F0F0"});
+  $("textarea[disabled][disabled$='disabled']").css({"background-color":"#F0F0F0"});
+  $("textarea[readonly][readonly$='true']").css({"background-color":"#F0F0F0"});
+  $("textarea[disabled][disabled$='true']").css({"background-color":"#F0F0F0"});
+});
+
+$(function(){
+	 //
+	Util.post("<%=_path%>/auth/findCfgDept.do",'', function(data) {
+ 			if(data){
+ 				Util.post("<%=_path%>/auth/findCfgHtml.do",'', function(array) {
+ 					for (var k = 0, length = array.length; k < length; k++) {
+ 						 $("#" + array[k].htmlId).remove();
+ 						}
+ 				});	
+ 			} //end if
+		}
+ 	);
+	//
+});
+
+</script>
+
+<%-- 页面浮动帮助开始  --%>
+<link href="<%=_path%>/core/js/fd/css/online.css" rel="stylesheet" type="text/css" />
+<div id="onService_panel">
+	<div class="onService_panel_s">
+		<div class="online_boxs">
+			<div class="boxs_t"><span class="boxs_t_l"></span><span class="boxs_t_m"></span><span class="boxs_t_r"></span></div>
+			<div class="boxs_m_l">
+				<div class="boxs_m_r">
+					<div class="box_m_m">
+						<div id="onlineList">
+							<em class="online_close" id="onlineClose" title="关闭"></em>
+							<div class="online_open" id="onlineOpen"></div>
+							<div class="online_icon" onclick="showHelpMsg()">
+								<span class="pic"><img src="<%=_path%>/core/js/fd/images/1-11112R03132.png" /></span>
+								<span class="name">帮助信息</span>
+							</div>
+							<div class="online_icon" id="helpMsgControlBtn" onclick="setHelpMsg()">
+								<span class="pic"><img src="<%=_path%>/core/js/fd/images/1-11112R03156-50.png" /></span>
+								<span class="name">我来配置</span>
+							</div>
+							<div class="online_icon" onclick="hiddenToolBar()">
+								<span class="pic"><img src="<%=_path%>/core/js/fd/images/1-11112R03124-50.png" /></span>
+								<span class="name">隐藏帮助</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="boxs_b"><span class="boxs_b_l"></span><span class="boxs_b_m"></span><span class="boxs_b_r"></span></div>
+		</div>
+	</div>
+</div>
+<!--onService_panel end-->
+<script type="text/javascript" src="<%=_path%>/core/js/fd/js/online.js"></script>
+<script type="text/javascript" src="<%=_path%>/core/js/helpMsg.js"></script>
+<%-- 页面浮动帮助结束  --%>
+
+

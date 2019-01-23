@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.group.vo.GroupMain" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="GROUP_CODE" property="groupCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FOUND_DATE" property="foundDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_DATE2" property="updatedDate2" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_TYPE" property="groupType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VIRTUAL_FLAG" property="virtualFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="HISTORYID" property="historyId" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.group.vo.GroupMain">
+		<id column="GROUP_CODE" property="groupCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FOUND_DATE" property="foundDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="GROUP_TYPE" property="groupType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VIRTUAL_FLAG" property="virtualFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_USER,
+		DEPT_CODE,
+		REMARK,
+		FOUND_DATE,
+		STATUS,
+		UPDATED_DATE,
+		GROUP_TYPE,
+		VALID_IND,
+		CREATED_DATE,
+		GROUP_NAME,
+		GROUP_CODE,
+		VIRTUAL_FLAG
+	</sql>
+	
+	<!-- 管理页面显示 YYYY-MM-DD 时间格式转换 -->
+	<sql id="Base_Column_Lists" >
+		gm.UPDATED_USER,
+		gm.CREATED_USER,
+		gm.DEPT_CODE,
+		gm.REMARK,
+		to_char(gm.FOUND_DATE,'yyyy-mm-dd')FOUND_DATE,
+		gm.STATUS,
+		to_char(gm.UPDATED_DATE,'yyyy-mm-dd HH24:Mi:SS')UPDATED_DATE2,
+		gm.GROUP_TYPE,
+		gm.VALID_IND,
+		gm.CREATED_DATE,
+		gm.GROUP_NAME,
+		gm.GROUP_CODE,
+		gm.VIRTUAL_FLAG
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_USER as "createdUser",
+		DEPT_CODE as "deptCode",
+		REMARK as "remark",
+		FOUND_DATE as "foundDate",
+		STATUS as "status",
+		UPDATED_DATE as "updatedDate",
+		GROUP_TYPE as "groupType",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		GROUP_NAME as "groupName",
+		GROUP_CODE as "groupCode",
+		VIRTUAL_FLAG as "virtualFlag"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		to_date(#{foundDate},'yyyy-mm-dd'),
+ 		#{status,jdbcType=CHAR},
+ 		sysdate,
+ 		#{groupType,jdbcType=CHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{groupName,jdbcType=VARCHAR},
+ 		#{groupCode,jdbcType=VARCHAR},
+ 		#{virtualFlag,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="foundDate != null and foundDate != ''">
+			and FOUND_DATE = #{foundDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="groupType != null and groupType != ''">
+			and GROUP_TYPE = #{groupType,jdbcType=CHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and GROUP_NAME = #{groupName,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="virtualFlag != null and virtualFlag != ''">
+			and VIRTUAL_FLAG = #{virtualFlag,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 团队管理页面条件查询-->
+	<sql id="Base_Where_Sql_List">
+		<if test="deptCode != null and deptCode != ''">
+			and gm.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupType != null and groupType != ''">
+			and gm.GROUP_TYPE = #{groupType,jdbcType=CHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and gm.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and gm.GROUP_NAME like '%'||trim(#{groupName,jdbcType=VARCHAR})||'%'
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and gm.GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="virtualFlag != null and virtualFlag != ''">
+			and gm.VIRTUAL_FLAG = #{virtualFlag,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<!-- 团队长设定与撤销用到的查询SQL -->
+	<sql id="Base_Where_Sqls">
+		<if test="deptCode != null and deptCode != ''">
+			and gm.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupType != null and groupType != ''">
+			and gm.GROUP_TYPE = #{groupType,jdbcType=CHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and gm.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and gm.GROUP_NAME like '%'||trim(#{groupName,jdbcType=VARCHAR})||'%'
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and gm.GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="virtualFlag != null and virtualFlag != ''">
+			and gm.VIRTUAL_FLAG = #{virtualFlag,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.group.vo.GroupMain" >
+    insert into GROUP_MAIN (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into GROUP_MAIN (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from GROUP_MAIN
+    where GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from GROUP_MAIN
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update GROUP_MAIN
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="foundDate != null and foundDate != ''">
+		FOUND_DATE = to_date(#{foundDate},'yyyy-mm-dd'),
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="groupType != null and groupType != ''">
+		GROUP_TYPE = #{groupType,jdbcType=CHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME like '%#{groupName,jdbcType=VARCHAR}%',
+	</if>
+	 <if test="virtualFlag != null and virtualFlag != ''">
+		VIRTUAL_FLAG = #{virtualFlag,jdbcType=VARCHAR},
+	</if>
+   	</set>
+	where GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update GROUP_MAIN
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			FOUND_DATE = to_date(#{foundDate},'yyyy-mm-dd'),
+  			STATUS = #{status,jdbcType=CHAR},
+  			UPDATED_DATE = sysdate,
+  			GROUP_TYPE = #{groupType,jdbcType=CHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			VIRTUAL_FLAG = #{virtualFlag,jdbcType=VARCHAR}
+   		where GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.group.vo.GroupMain" >
+	update GROUP_MAIN
+	<set>
+		<if test="updatedUser != null and updatedUser != ''">
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+		</if>
+<!-- 	  	<if test="deptCode != null and deptCode != ''"> -->
+<!-- 			DEPT_CODE = #{deptCode,jdbcType=VARCHAR}, -->
+<!-- 		</if> -->
+	  	<if test="remark != null and remark != ''">
+			REMARK = #{remark,jdbcType=VARCHAR},
+		</if>
+	  	<if test="foundDate != null and foundDate != ''">
+			FOUND_DATE = to_date(#{foundDate,jdbcType=DATE},'yyyy-mm-dd'),
+		</if>
+	  	<if test="status != null and status != ''">
+			STATUS = #{status,jdbcType=CHAR},
+		</if>
+	  	<if test="groupType != null and groupType != ''">
+			GROUP_TYPE = #{groupType,jdbcType=CHAR},
+		</if>
+	  	<if test="validInd != null and validInd != ''">
+			VALID_IND = #{validInd,jdbcType=CHAR},
+		</if>
+	  	<if test="groupName != null and groupName != ''">
+			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+		</if>
+		<if test="virtualFlag != null and virtualFlag != ''">
+			VIRTUAL_FLAG = #{virtualFlag,jdbcType=VARCHAR},
+		</if>
+			updated_date = sysdate
+   	</set>
+	  where GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="insertGroupMainHistory" parameterType="com.sinosafe.xszc.group.vo.GroupMain">
+	insert into group_main_history ( 
+	HISTORYID,
+	<include refid="Base_Column_List"/>)	
+	select 
+	#{historyId,jdbcType=VARCHAR},
+	    #{updatedUser,jdbcType=VARCHAR},
+		CREATED_USER,
+		DEPT_CODE,
+		REMARK,
+		FOUND_DATE,
+		STATUS,
+		sysDate,
+		GROUP_TYPE,
+		VALID_IND,
+		CREATED_DATE,
+		GROUP_NAME,
+		GROUP_CODE,
+		VIRTUAL_FLAG
+		from group_main gm
+		where gm.group_code=#{groupCode,jdbcType=VARCHAR}	
+		and gm.valid_ind='1'
+	</insert>
+	
+	
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.group.vo.GroupMain" >
+		update GROUP_MAIN
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			FOUND_DATE = to_date(#{foundDate},'yyyy-mm-dd'),
+  			STATUS = #{status,jdbcType=CHAR},
+  			UPDATED_DATE = sysdate,
+  			GROUP_TYPE = #{groupType,jdbcType=CHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			VIRTUAL_FLAG = #{virtualFlag,jdbcType=VARCHAR}
+   		where GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from GROUP_MAIN
+	where GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from GROUP_MAIN
+	where GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</select>
+	<!-- 团队代码生成-->
+	<select id="queryCounts" parameterType="com.sinosafe.xszc.group.vo.GroupMain" resultType="long">
+			SELECT max(substr(t.group_code, -4)) + 1
+		  from GROUP_MAIN t
+		 where t.group_code like  '${deptCode}%'
+	</select>
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="map" resultType="long">
+	select count(1)
+	from GROUP_MAIN <include refid="Base_Where_Sql" />
+	</select>
+	<!-- 分页查询团队信息 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+				select  <include refid="Base_Column_Lists"/>,
+				dl.pro_dept as "parentDeptCode",    
+               dl.pro_name as "parentDept",
+               dl.city_name as "deptName",
+               dl.market_name as "deptMarket"
+               ,
+      		   (select count(1) from group_menber gmb left join salesman ss on gmb.sales_code = ss.salesman_code where ss.group_code = gm.group_code) as "numbers"
+		  from group_main gm
+             inner join department_level dl on gm.dept_code = dl.market_dept
+			 where gm.valid_ind = '1'
+	         <!-- 显示是否已经设置团队长 -->
+			 <if test="identify == 0 and identify != null and identify != '' ">
+					and not exists (
+			            select 1 from group_leader_record gl 
+			             where gm.group_code = gl.group_code 
+			               and gl.valid_ind = '1' )
+		     </if>
+		     <if test="identify == 1 and identify != null and identify != '' ">
+					and exists (
+			            select 1 from group_leader_record gl 
+			             where gm.group_code = gl.group_code  and gl.valid_ind = '1' )
+		     </if>
+			 <if test="parentDept != null and parentDept != '' and deptCode == '' ">
+					and dl.pro_dept = #{parentDept} 
+			 </if>
+			 <if test="deptName != null and deptName != '' and deptCode == '' ">
+					and dl.city_dept = #{deptName}
+			 </if>
+			 <include refid="Base_Where_Sql_List"/>
+<!-- 			 <if test="groupType == null or groupType == ''"> -->
+<!-- 			 	and -->
+<!-- 				<foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">   -->
+<!-- 	            	gm.GROUP_TYPE = #{nrlValue,jdbcType=CHAR} -->
+<!-- 	            </foreach> -->
+<!-- 			 </if> -->
+		order by gm.dept_code
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	
+	<!-- 分页查询团队历史轨迹信息 -->
+	<select id="queryHistoryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+				select  gm.historyid as historyId,
+				<include refid="Base_Column_Lists"/>,
+				dl.pro_dept as "parentDeptCode",    
+               dl.pro_name as "parentDept",
+               dl.city_name as "deptName",
+               dl.market_name as "deptMarket"
+               <!--,
+      		   (select count(1) from salesman ss where ss.group_code = gm.group_code  and ss.valid_ind = 1) as "numbers" -->
+		  from group_main_history gm
+             left join department_level dl on gm.dept_code = dl.market_dept
+			 where gm.valid_ind = '1'
+			 
+        <!-- 显示是否已经设置团队长 -->
+		<if test="identify == 0 and identify != null and identify != '' ">
+				and not exists (
+		            select 1 from group_leader_record gl 
+		             where gm.group_code = gl.group_code 
+		               and gl.valid_ind = '1' )
+	    </if>
+	    <if test="identify == 1 and identify != null and identify != '' ">
+				and exists (
+		            select 1 from group_leader_record gl 
+		             where gm.group_code = gl.group_code  and gl.valid_ind = '1' )
+	    </if>
+		<if test="parentDept != null and parentDept != '' and deptCode == '' ">
+				and dl.pro_dept = #{parentDept} 
+		</if>
+		<if test="deptName != null and deptName != '' and deptCode == '' ">
+				and dl.city_dept = #{deptName}
+		</if>
+		<include refid="Base_Where_Sql_List"/>
+		order by gm.UPDATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询团队历史轨迹条数-->
+	 <select id="queryHistoryCount" parameterType="map" resultType="long">
+	 	select count(1) from (
+	 	select  gm.historyid as historyId,
+				<include refid="Base_Column_Lists"/>,
+				dl.pro_dept as "parentDeptCode",    
+               dl.pro_name as "parentDept",
+               dl.city_name as "deptName",
+               dl.market_name as "deptMarket"
+               <!--,
+      		   (select count(1) from salesman ss where ss.group_code = gm.group_code  and ss.valid_ind = 1) as "numbers" -->
+		  from group_main_history gm
+             left join department_level dl on gm.dept_code = dl.market_dept
+			 where gm.valid_ind = '1'
+			 
+        <!-- 显示是否已经设置团队长 -->
+		<if test="identify == 0 and identify != null and identify != '' ">
+				and not exists (
+		            select 1 from group_leader_record gl 
+		             where gm.group_code = gl.group_code 
+		               and gl.valid_ind = '1' )
+	    </if>
+	    <if test="identify == 1 and identify != null and identify != '' ">
+				and exists (
+		            select 1 from group_leader_record gl 
+		             where gm.group_code = gl.group_code  and gl.valid_ind = '1' )
+	    </if>
+		<if test="parentDept != null and parentDept != '' and deptCode == '' ">
+				and dl.pro_dept = #{parentDept} 
+		</if>
+		<if test="deptName != null and deptName != '' and deptCode == '' ">
+				and dl.city_dept = #{deptName}
+		</if>
+		<include refid="Base_Where_Sql_List"/>)
+	 	
+	 </select>
+	 
+    <!-- 查询团队长设定与撤销数据 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+		select  count(1)
+                 from group_main gm
+	                  left join department_level dl
+	                    on gm.dept_code = dl.market_dept
+	                  left join (select *
+	                              from group_leader_record
+	                             where valid_ind = '1') glr
+	                    on glr.group_code = gm.group_code
+	                  left join salesman sam
+	                    on glr.group_leader = sam.salesman_code  
+	                  left join t_law_rank_def trd
+	                    on trd.rank_code = sam.sale_rank
+	                 where gm.valid_ind = '1' and gm.group_type <![CDATA[<>]]> '2'
+			<if test="identify == 0 and identify != null and identify != '' ">
+					and not exists (
+			            select 1 
+			              from group_leader_record gl 
+			             where gm.group_code = gl.group_code 
+			               and gl.valid_ind = '1' )
+		    </if>
+		    <if test="identify == 1 and identify != null and identify != '' ">
+					and exists (
+			            select 1  from group_leader_record gl 
+			             where gm.group_code = gl.group_code  and gl.valid_ind = '1' )
+		    </if>
+			<if test="parentDept != null and parentDept != '' and deptCode == '' ">
+					and dl.pro_dept = #{parentDept} 
+			</if>
+			<if test="deptName != null and deptName != '' and deptCode == '' ">
+					and dl.city_dept = #{deptName}
+			</if>
+			<include refid="Base_Where_Sqls"/>
+<!-- 			<if test="groupType == null or groupType == ''"> -->
+<!-- 			 	and -->
+<!-- 				<foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">   -->
+<!-- 	            	gm.GROUP_TYPE = #{nrlValue,jdbcType=CHAR} -->
+<!-- 	            </foreach> -->
+<!-- 			</if> -->
+	</select>
+	
+	<select id="queryListCount" parameterType="map" resultType="long">
+		select  count(1)
+                 from group_main gm
+	                  left join department_level dl
+	                    on gm.dept_code = dl.market_dept
+	                  left join (select *
+	                              from group_leader_record
+	                             where valid_ind = '1') glr
+	                    on glr.group_code = gm.group_code
+	                  left join salesman sam
+	                    on glr.group_leader = sam.salesman_code  
+	                  left join t_law_rank_def trd
+	                    on trd.rank_code = sam.sale_rank
+	                 where gm.valid_ind = '1'
+			<if test="identify == 0 and identify != null and identify != '' ">
+					and not exists (
+			            select 1 
+			              from group_leader_record gl 
+			             where gm.group_code = gl.group_code 
+			               and gl.valid_ind = '1' )
+		    </if>
+		    <if test="identify == 1 and identify != null and identify != '' ">
+					and exists (
+			            select 1  from group_leader_record gl 
+			             where gm.group_code = gl.group_code  and gl.valid_ind = '1' )
+		    </if>
+			<if test="parentDept != null and parentDept != '' and deptCode == '' ">
+					and dl.pro_dept = #{parentDept} 
+			</if>
+			<if test="deptName != null and deptName != '' and deptCode == '' ">
+					and dl.city_dept = #{deptName}
+			</if>
+			<include refid="Base_Where_Sqls"/>
+<!-- 			<if test="groupType == null or groupType == ''"> -->
+<!-- 			 	and -->
+<!-- 				<foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">   -->
+<!-- 	            	gm.GROUP_TYPE = #{nrlValue,jdbcType=CHAR} -->
+<!-- 	            </foreach> -->
+<!-- 			</if> -->
+	</select>
+	
+	<!-- 查询团队的历史记录条数-->
+	<select id="queryCountHistory" parameterType="map" resultType="long">
+		select count(1) from
+		(select  <include refid="Base_Column_Lists"/>,
+						dl.pro_dept as "parentDeptCode",    
+                       dl.pro_name as "parentDept",
+                       dl.city_name as "deptName",
+                       dl.market_name as "deptMarket",
+				       glr.group_leader as "groupLeader",
+				       trd.rank_name as "groupRank",
+				       glr.leader_record_id as "leaderRecordId"
+	                  from group_main_history gm
+	                 inner join department_level dl
+	                    on gm.dept_code = dl.market_dept
+	                  left join (select *
+	                              from group_leader_history
+	                             where valid_ind = '1') glr
+	                    on glr.group_code = gm.group_code and glr.history_id=gm.historyid
+	                  left join salesman sam
+	                    on glr.group_leader = sam.salesman_code  
+	                  left join t_law_rank_def trd
+	                    on trd.rank_code = sam.sale_rank
+	                 where gm.valid_ind = '1'
+	                   and gm.virtual_flag = '0'
+	                   and gm.group_code=#{groupCode,jdbcType=VARCHAR} 
+			<if test="identify == 0 and identify != null and identify != '' ">
+					and not exists (
+			            select 1 
+			              from group_leader_history gl 
+			             where gl.history_id=gm.historyid 
+			               and gl.valid_ind = '1' )
+		    </if>
+		    <if test="identify == 1 and identify != null and identify != '' ">
+					and exists (
+			            select 1  from group_leader_history gl 
+			             where gl.history_id=gm.historyid  and gl.valid_ind = '1' )
+		    </if>
+			<if test="parentDept != null and parentDept != '' and deptCode == '' ">
+					and dl.pro_dept = #{parentDept} 
+			</if>
+			<if test="deptName != null and deptName != '' and deptCode == '' ">
+					and dl.city_dept = #{deptName}
+			</if>
+			<include refid="Base_Where_Sqls"/>)
+		
+	</select>
+
+	<!-- 根据条件查询页面查询是否显示所有的团队长设定信息或撤销团队信息，是与否 -->
+	<select id="queryListPages" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+				select  <include refid="Base_Column_Lists"/>,
+						dl.pro_dept as "parentDeptCode",    
+                       dl.pro_name as "parentDept",
+                       dl.city_name as "deptName",
+                       dl.market_name as "deptMarket",
+				       glr.group_leader as "groupLeader",
+				       trd.rank_name as "groupRank",
+				       glr.leader_record_id as "leaderRecordId"
+	                  from group_main gm
+	                  left join department_level dl
+	                    on gm.dept_code = dl.market_dept
+	                  left join (select *
+	                              from group_leader_record
+	                             where valid_ind = '1') glr
+	                    on glr.group_code = gm.group_code
+	                  left join salesman sam
+	                    on glr.group_leader = sam.salesman_code  
+	                  left join t_law_rank_def trd
+	                    on trd.rank_code = sam.sale_rank
+	                 where gm.valid_ind = '1' and gm.group_type <![CDATA[<>]]> '2'
+			<if test="identify == 0 and identify != null and identify != '' ">
+					and not exists (
+			            select 1 
+			              from group_leader_record gl 
+			             where gm.group_code = gl.group_code 
+			               and gl.valid_ind = '1' )
+		    </if>
+		    <if test="identify == 1 and identify != null and identify != '' ">
+					and exists (
+			            select 1  from group_leader_record gl 
+			             where gm.group_code = gl.group_code  and gl.valid_ind = '1' )
+		    </if>
+			<if test="parentDept != null and parentDept != '' and deptCode == '' ">
+					and dl.pro_dept = #{parentDept} 
+			</if>
+			<if test="deptName != null and deptName != '' and deptCode == '' ">
+					and dl.city_dept = #{deptName}
+			</if>
+			<include refid="Base_Where_Sqls"/>
+<!-- 		 	<if test="groupType == null or groupType == ''"> -->
+<!-- 			 	and -->
+<!-- 				<foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">   -->
+<!-- 	            	gm.GROUP_TYPE = #{nrlValue,jdbcType=CHAR} -->
+<!-- 	            </foreach> -->
+<!-- 			</if> -->
+		    <!--order by UPDATED_DATE desc-->
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryLeaderHistoryList" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+				select  gm.historyid, 
+				      <include refid="Base_Column_Lists"/>,
+						dl.pro_dept as "parentDeptCode",    
+                       dl.pro_name as "parentDept",
+                       dl.city_name as "deptName",
+                       dl.market_name as "deptMarket",
+				       glr.group_leader as "groupLeader",
+				       trd.rank_name as "groupRank",
+				       glr.leader_record_id as "leaderRecordId"
+	                  from group_main_history gm
+	                 inner join department_level dl
+	                    on gm.dept_code = dl.market_dept
+	                  left join (select *
+	                              from group_leader_history
+	                             where valid_ind = '1') glr
+	                    on glr.group_code = gm.group_code and glr.history_id=gm.historyid
+	                  left join salesman sam
+	                    on glr.group_leader = sam.salesman_code  
+	                  left join t_law_rank_def trd
+	                    on trd.rank_code = sam.sale_rank
+	                 where gm.valid_ind = '1'
+	                   and gm.virtual_flag = '0'
+	                   and gm.group_code=#{groupCode,jdbcType=VARCHAR} 
+			<if test="identify == 0 and identify != null and identify != '' ">
+					and not exists (
+			            select 1 
+			              from group_leader_history gl 
+			             where gl.history_id=gm.historyid 
+			               and gl.valid_ind = '1' )
+		    </if>
+		    <if test="identify == 1 and identify != null and identify != '' ">
+					and exists (
+			            select 1  from group_leader_history gl 
+			             where gl.history_id=gm.historyid  and gl.valid_ind = '1' )
+		    </if>
+			<if test="parentDept != null and parentDept != '' and deptCode == '' ">
+					and dl.pro_dept = #{parentDept} 
+			</if>
+			<if test="deptName != null and deptName != '' and deptCode == '' ">
+					and dl.city_dept = #{deptName}
+			</if>
+			<include refid="Base_Where_Sqls"/>
+			
+		    order by gm.UPDATED_DATE desc
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_MAIN
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_MAIN
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from GROUP_MAIN
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from GROUP_MAIN
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from GROUP_MAIN <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 查询详细信息，用于详细与修改 -->
+	<select id="querySaleGroupListsPage" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+			select <include refid="Base_Column_Lists" />,
+			   dl.pro_dept as "parentDeptCode",    
+               dl.pro_name as "parentDept",
+               dl.city_name as "deptName",
+               dl.market_name as "deptMarket"
+			from GROUP_MAIN gm
+			inner join department_level dl on gm.dept_code = dl.market_dept
+			<include refid="Base_Where_Sqls"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	
+	<!-- 查询某条历史轨迹的详细信息-->
+	<select id="groupMainHistoryDetail" parameterType="map" resultMap="BaseResultMap">
+		      select <include refid="Base_Column_Lists" />,
+			   dl.pro_dept as "parentDeptCode",    
+               dl.pro_name as "parentDept",
+               dl.city_name as "deptName",
+               dl.market_name as "deptMarket",
+               trd.rank_name as "rankName",
+			   sam.salesman_cname as "salesmanCname"
+			from GROUP_MAIN_HISTORY gm
+			inner join department_level dl on gm.dept_code = dl.market_dept
+			 left join (select *
+	                      from group_leader_history
+	                      where valid_ind = '1') glr
+	         on glr.group_code = gm.group_code and glr.history_id=gm.historyid
+	         left join salesman sam
+	         on glr.group_leader = sam.salesman_code  
+	         left join t_law_rank_def trd
+	         on trd.rank_code = sam.sale_rank
+			where gm.historyid=#{historyId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 查询团队名称用于人员管理页面显示 -->
+	<select id="queryGroupCname" parameterType="map" resultMap="BaseResultMap">
+       select gm.group_name "groupName", gm.group_code "groupCode"
+         from salesman ss
+        inner join group_main gm on ss.group_code = gm.group_code
+        where gm.valid_ind = '1'  and  ss.group_code = #{groupCode}
+	</select>
+	
+	<!-- 根据CODE查询四级机构下的团队 -->
+	<select id="queryDeptGroup" parameterType="map" resultMap="BaseResultMap">
+	    select gm.group_name as "text", gm.group_code as "value"
+	      from group_main gm
+	     where gm.valid_ind = '1'
+	       and gm.dept_code = #{deptCode}
+	</select>
+	
+	<!-- 根据deptCode模糊查询团队 -->
+	<select id="queryGroupListForLawImp" parameterType="map" resultMap="BaseResultMap">
+	     select distinct t2.group_name      as "groupName", 
+	           t1.salesman_code    as "salesmanCode",
+		       t1.salesman_cname      as "salesmanCname",
+		       t1.employ_code           as "employCode",
+		       t2.group_code              as "groupCode",
+		       t5.dept_simple_name  as "deptName"
+		  from group_leader_record t4
+		 inner join salesman t1
+		    on t4.group_leader = t1.salesman_code
+		 inner join group_main t2
+		    on t1.group_code = t2.group_code
+		 inner join t_law_define t3
+		    on t1.business_line = t3.line_code
+		 inner join department t5
+		    on t2.dept_code = t5.dept_code
+		   and substr(t1.dept_code, 0, 2) = t3.dept_code
+		   and t3.version_id = #{versionId,jdbcType=VARCHAR}
+		 where t1.status = '1'
+		   and t1.valid_ind = '1'
+		   and t2.valid_ind = '1'
+		   and t3.valid_ind = '1'
+		   and t4.valid_ind = '1'
+		   and t5.valid_ind = '1'
+	</select>
+	
+	<!-- 查询团队名称是否存在 -->
+	<select id="queryGroupNameCount" parameterType="map" resultType="long">
+			select count(1)
+		  from group_main t
+		  	where t.valid_ind = '1'
+		<if test="groupName != null and groupName != '' ">
+		      and t.group_name = #{groupName,jdbcType=VARCHAR}
+		 </if>
+		 <if test="deptCode != null and deptCode != '' ">
+		      and t.dept_code = #{deptCode,jdbcType=VARCHAR}
+		 </if>
+         <!-- 修改时团队可以为原来的名字-->
+		 <if test="groupCode != null and groupCode != '' ">
+		      and t.group_code != #{groupCode,jdbcType=VARCHAR}
+		 </if>
+	</select>
+	
+	<!-- 查询团队长 -->
+	<select id="existsGroupLeader" parameterType="map" resultType="Long">
+        select count(1) 
+          from group_leader_record t
+         where t.group_code = #{groupCode,jdbcType=VARCHAR}
+           and t.valid_ind = '1'
+	</select>
+	
+	<!-- 查询团队长 -->
+	<select id="queryGroupLeaderCname" parameterType="map" resultType="String">
+		select t2.salesman_cname
+		  from group_leader_record t1, salesman t2
+		 where 1=1
+		   and t1.valid_ind = '1'
+		   and t2.valid_ind = '1'
+		   and t1.group_code = #{groupCode,jdbcType=VARCHAR}
+		   and t1.group_leader = t2.salesman_code
+	</select>
+	
+	<!--根据团队CODE删除团队信息-->
+	<update id="deleteById" parameterType="com.sinosafe.xszc.group.vo.GroupMain" >
+		update group_main gm
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where gm.group_code = #{groupCode}
+	</update>
+	<!--页面初次化时INPUT TEXT显示对应DEPTECODE的GROUPCODE-->
+	<select id="querygroupmaine" parameterType="String" resultMap="BaseResultMap">
+	select t.group_name ,t.group_code  
+	  from group_main t 
+	 where t.valid_ind = '1'
+	 and t.dept_code=#{deptCode,jdbcType=VARCHAR}
+	 order by t.group_code 
+	</select>
+	
+	<select id="queryGroupMember" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+			   select t2.salesman_cname as "name",
+					       t2.employ_code as "employ",
+					       t2.salesman_code as "salesmanCode",
+					       decode(t2.status,'1','在职','2','离职','3','离退休','4','不在职','') "status",
+					       to_char(t2.entry_date,'yyyy-mm-dd') as "entryDate",
+					       to_char(t1.entry_date,'yyyy-mm-dd') as "entryGroupDate",
+					       to_char(t1.leave_date,'yyyy-mm-dd') as "leaveDate"
+					      from GROUP_MENBER t1
+					      left join salesman t2
+					        on t1.sales_code = t2.salesman_code
+					     where t1.group_code = #{groupCode,jdbcType=VARCHAR}
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryGroupMemberCount" parameterType="map" resultType="long">
+			   select count(1) "count"
+					      from GROUP_MENBER t1
+					      left join salesman t2
+					        on t1.sales_code = t2.salesman_code
+					     where t1.group_code = #{groupCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryTrueGroupMember" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+			   select t2.salesman_cname as "name",
+					       t2.employ_code as "employ",
+					       t2.salesman_code as "salesmanCode",
+					       decode(t2.status,'1','在职','2','离职','3','离退休','4','不在职','') "status",
+					       to_char(t2.entry_date,'yyyy-mm-dd') as "entryDate",
+					       to_char(t1.entry_date,'yyyy-mm-dd') as "entryGroupDate",
+					       to_char(t1.leave_date,'yyyy-mm-dd') as "leaveDate"
+					      from GROUP_MENBER t1
+					      left join salesman t2
+					        on t1.sales_code = t2.salesman_code
+					      left join group_main t3
+                            on t3.group_code = t1.group_code
+					     where 1=1
+					     and t2.status = '1'
+					     and (((t1.entry_date = t3.found_date) and t1.leave_date is null) or
+					         ((t1.entry_date = t3.found_date) and t1.leave_date >= sysdate and t1.leave_date is not null) or
+					         <![CDATA[ ((t1.entry_date != t3.found_date) and t1.entry_date <= sysdate and t1.leave_date is null) or 
+					         ((t1.entry_date != t3.found_date) and t1.entry_date <= sysdate and t1.leave_date >=sysdate and t1.leave_date is not null) ) ]]>
+					     and t1.group_code = #{groupCode,jdbcType=VARCHAR}
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryTrueGroupMemberCount" parameterType="map" resultType="long">
+			   select count(1) "count"
+					      from GROUP_MENBER t1
+					      left join salesman t2
+					        on t1.sales_code = t2.salesman_code
+					      left join group_main t3
+                            on t3.group_code = t1.group_code
+					     where 1=1
+					     and t2.status = '1'
+					      and (((t1.entry_date = t3.found_date) and t1.leave_date is null) or
+					         ((t1.entry_date = t3.found_date) and t1.leave_date >= sysdate and t1.leave_date is not null) or
+					         <![CDATA[ ((t1.entry_date != t3.found_date) and t1.entry_date <= sysdate and t1.leave_date is null) or 
+					         ((t1.entry_date != t3.found_date) and t1.entry_date <= sysdate and t1.leave_date >=sysdate and t1.leave_date is not null) ) ]]>
+					     and t1.group_code = #{groupCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryGroupMemberDetail" parameterType="map" resultMap="BaseResultMap">
+		       select t2.dept_simple_name as "parentDept",
+				        t3.dept_simple_name as "deptName",
+				        t4.dept_simple_name as "deptMarket",
+				        t1.group_name as "groupName",
+				        to_char(t1.found_date,'yyyy-mm-dd') as "foundDate",
+				        t1.virtual_flag,
+				        t1.group_type
+				   from group_main t1
+				   left join department t2
+				     on substr(t1.dept_code, 0, 2) = t2.dept_code
+				   left join department t3
+				     on substr(t1.dept_code, 0, 4) = t3.dept_code
+				   left join department t4
+				     on t1.dept_code = t4.dept_code
+				  where t1.group_code = #{groupCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryGroupType" parameterType="map" resultType="String">
+		select t.group_type as "groupType"
+          from group_main t
+        where t.valid_ind = '1'
+          and t.group_code = #{groupCode,jdbcType=VARCHAR}
+	</select>
+</mapper>

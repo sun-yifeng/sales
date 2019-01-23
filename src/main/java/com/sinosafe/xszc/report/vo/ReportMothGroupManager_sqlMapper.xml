@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportMothGroupManager" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="TOYEAR_CONTRI_RATE" property="toyearContriRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="ACQUISI_COST_POLICY" property="acquisiCostPolicy" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TOYAER_PAYMENT" property="toyaerPayment" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_YEAR_ACCI_FREQ" property="lastYearAcciFreq" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TO_YEAR_CUMULATIVE" property="toYearCumulative" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNT_MONTHLY_SEVEN" property="countMonthlySeven" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="COUNT_MONTHLY_ONE" property="countMonthlyOne" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TOYEAR_ACCI_FREQ" property="toyearAcciFreq" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="REPORT_MONTH" property="reportMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_YEAR_CUMULATIVE" property="lastYearCumulative" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_ELEVEN" property="countMonthlyEleven" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_TWO" property="countMonthlyTwo" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNT_MONTHLY_TEN" property="countMonthlyTen" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_FOUR" property="countMonthlyFour" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MANAGE_CODE" property="manageCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_YAER_PAYMENT" property="lastYaerPayment" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNT_MONTHLY_TWELVE" property="countMonthlyTwelve" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_FIVE" property="countMonthlyFive" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="ROSE" property="rose" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_NINE" property="countMonthlyNine" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_SIX" property="countMonthlySix" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_EIGHT" property="countMonthlyEight" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROWTH" property="growth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_THREE" property="countMonthlyThree" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportMothGroupManager">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		<result column="TOYEAR_CONTRI_RATE" property="toyearContriRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="ACQUISI_COST_POLICY" property="acquisiCostPolicy" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TOYAER_PAYMENT" property="toyaerPayment" jdbcType="DOUBLE" javaType="java.lang.Double" />
+  		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_YEAR_ACCI_FREQ" property="lastYearAcciFreq" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TO_YEAR_CUMULATIVE" property="toYearCumulative" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNT_MONTHLY_SEVEN" property="countMonthlySeven" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="COUNT_MONTHLY_ONE" property="countMonthlyOne" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="TOYEAR_ACCI_FREQ" property="toyearAcciFreq" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="REPORT_MONTH" property="reportMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_YEAR_CUMULATIVE" property="lastYearCumulative" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_ELEVEN" property="countMonthlyEleven" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_TWO" property="countMonthlyTwo" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNT_MONTHLY_TEN" property="countMonthlyTen" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_FOUR" property="countMonthlyFour" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MANAGE_CODE" property="manageCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_YAER_PAYMENT" property="lastYaerPayment" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COUNT_MONTHLY_TWELVE" property="countMonthlyTwelve" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_FIVE" property="countMonthlyFive" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="ROSE" property="rose" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_NINE" property="countMonthlyNine" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_SIX" property="countMonthlySix" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_EIGHT" property="countMonthlyEight" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROWTH" property="growth" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="COUNT_MONTHLY_THREE" property="countMonthlyThree" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		TOYEAR_CONTRI_RATE,
+		ACQUISI_COST_POLICY,
+		TOYAER_PAYMENT,
+		PK_ID,
+		CREATED_USER,
+		LAST_YEAR_ACCI_FREQ,
+		TO_YEAR_CUMULATIVE,
+		PARENT_DEPT,
+		DEPT_NAME,
+		COUNT_MONTHLY_SEVEN,
+		UPDATED_DATE,
+		COUNT_MONTHLY_ONE,
+		TOYEAR_ACCI_FREQ,
+		CREATED_DATE,
+		REPORT_MONTH,
+		LAST_YEAR_CUMULATIVE,
+		COUNT_MONTHLY_ELEVEN,
+		COUNT_MONTHLY_TWO,
+		UPDATED_USER,
+		COUNT_MONTHLY_TEN,
+		COUNT_MONTHLY_FOUR,
+		MANAGE_CODE,
+		LAST_YAER_PAYMENT,
+		DEPT_CODE,
+		COUNT_MONTHLY_TWELVE,
+		COUNT_MONTHLY_FIVE,
+		ROSE,
+		COUNT_MONTHLY_NINE,
+		COUNT_MONTHLY_SIX,
+		COUNT_MONTHLY_EIGHT,
+		GROWTH,
+		COUNT_MONTHLY_THREE,
+		GROUP_CODE
+	</sql>
+	
+	<sql id="Use_Base_Column_List" >
+		to_char(TOYEAR_CONTRI_RATE*100, 'fm99999999999990.00')  || '%' as "toyearContriRate",
+		to_char(ACQUISI_COST_POLICY*100, 'fm99999999999990.00')  || '%' as "acquisiCostPolicy",
+		to_char(TOYAER_PAYMENT*100, 'fm99999999999990.00')  || '%' as "toyaerPayment",
+		to_char(LAST_YEAR_ACCI_FREQ*100, 'fm99999999999990.00')  || '%' as "lastYearAcciFreq",
+		to_char(TO_YEAR_CUMULATIVE, 'fm99999999999990.00') as "toYearCumulative",
+		PARENT_DEPT,
+		DEPT_NAME,
+		to_char(COUNT_MONTHLY_SEVEN, 'fm99999999999990.00') as "countMonthlySeven",
+		to_char(COUNT_MONTHLY_ONE, 'fm99999999999990.00') as "countMonthlyOne",
+		to_char(TOYEAR_ACCI_FREQ*100, 'fm99999999999990.00')  || '%' as "toyearAcciFreq",
+		REPORT_MONTH,
+		LAST_YEAR_CUMULATIVE,
+		to_char(COUNT_MONTHLY_ELEVEN, 'fm99999999999990.00') as "countMonthlyEleven",
+		to_char(COUNT_MONTHLY_TWO, 'fm99999999999990.00') as "countMonthlyTwo",
+		to_char(COUNT_MONTHLY_TEN, 'fm99999999999990.00') as "countMonthlyTen",
+		to_char(COUNT_MONTHLY_FOUR, 'fm99999999999990.00') as "countMonthlyFour",
+		MANAGE_CODE,
+		to_char(LAST_YAER_PAYMENT*100, 'fm99999999999990.00')  || '%' as "lastYaerPayment",
+		DEPT_CODE,
+		to_char(COUNT_MONTHLY_TWELVE, 'fm99999999999990.00') as "countMonthlyTwelve",
+		to_char(COUNT_MONTHLY_FIVE, 'fm99999999999990.00') as "countMonthlyFive",
+		to_char(ROSE*100, 'fm99999999999990.00')  || '%' as "roses",
+		to_char(COUNT_MONTHLY_NINE, 'fm99999999999990.00') as "countMonthlyNine",
+		to_char(COUNT_MONTHLY_SIX, 'fm99999999999990.00') as "countMonthlySix",
+		to_char(COUNT_MONTHLY_EIGHT, 'fm99999999999990.00') as "countMonthlyEight",
+		to_char(GROWTH*100, 'fm99999999999990.00')  || '%' as "growths",
+		to_char(COUNT_MONTHLY_THREE, 'fm99999999999990.00') as "countMonthlyThree",
+		GROUP_CODE
+	</sql>
+	
+	<!-- 单独条件分页查询并导出Excel语句,注意下面语句中的查询字段不可以更改顺序不可修改，否则将导致导出数据混乱 -->
+	<select id="queryListToExcel" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select rownum rn,a.* from (
+		select  
+		nvl(de.dept_simple_name,' ') DEPT_CODE,
+		nvl(GROUP_CODE,' ') GROUP_CODE,
+		nvl(MANAGE_CODE,' ') MANAGE_CODE,
+		nvl(LAST_YEAR_CUMULATIVE,0) LAST_YEAR_CUMULATIVE,
+		nvl(COUNT_MONTHLY_ONE,0) COUNT_MONTHLY_ONE,
+		nvl(COUNT_MONTHLY_TWO,0) COUNT_MONTHLY_TWO,
+		nvl(COUNT_MONTHLY_THREE,0) COUNT_MONTHLY_THREE,
+		nvl(COUNT_MONTHLY_FOUR,0) COUNT_MONTHLY_FOUR,
+		nvl(COUNT_MONTHLY_FIVE,0) COUNT_MONTHLY_FIVE,
+		nvl(COUNT_MONTHLY_SIX,0) COUNT_MONTHLY_SIX,
+		nvl(COUNT_MONTHLY_SEVEN,0) COUNT_MONTHLY_SEVEN,
+		nvl(COUNT_MONTHLY_EIGHT,0) COUNT_MONTHLY_EIGHT,
+		nvl(COUNT_MONTHLY_NINE,0) COUNT_MONTHLY_NINE,
+		nvl(COUNT_MONTHLY_TEN,0) COUNT_MONTHLY_TEN,
+		nvl(COUNT_MONTHLY_ELEVEN,0) COUNT_MONTHLY_ELEVEN,
+		nvl(COUNT_MONTHLY_TWELVE,0) COUNT_MONTHLY_TWELVE,
+		nvl(TO_YEAR_CUMULATIVE,0) TO_YEAR_CUMULATIVE,
+		nvl(ROSE,0) ROSE,
+		nvl(GROWTH,0) GROWTH,
+		nvl(LAST_YAER_PAYMENT,0) LAST_YAER_PAYMENT,
+		nvl(LAST_YEAR_ACCI_FREQ,0) LAST_YEAR_ACCI_FREQ,
+		nvl(TOYAER_PAYMENT,0) TOYAER_PAYMENT,
+		nvl(TOYEAR_ACCI_FREQ,0) TOYEAR_ACCI_FREQ,
+		nvl(TOYEAR_CONTRI_RATE,0) TOYEAR_CONTRI_RATE,
+		nvl(ACQUISI_COST_POLICY,0) ACQUISI_COST_POLICY
+		from REPORT_MOTH_GROUP_MANAGER t
+	   inner join department de on t.dept_code = de.inter_code
+		<include refid="Use_Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		TOYEAR_CONTRI_RATE as "toyearContriRate",
+		ACQUISI_COST_POLICY as "acquisiCostPolicy",
+		TOYAER_PAYMENT as "toyaerPayment",
+		PK_ID as "pkId",
+		CREATED_USER as "createdUser",
+		LAST_YEAR_ACCI_FREQ as "lastYearAcciFreq",
+		TO_YEAR_CUMULATIVE as "toYearCumulative",
+		PARENT_DEPT as "parentDept",
+		DEPT_NAME as "deptName",
+		COUNT_MONTHLY_SEVEN as "countMonthlySeven",
+		UPDATED_DATE as "updatedDate",
+		COUNT_MONTHLY_ONE as "countMonthlyOne",
+		TOYEAR_ACCI_FREQ as "toyearAcciFreq",
+		CREATED_DATE as "createdDate",
+		REPORT_MONTH as "reportMonth",
+		LAST_YEAR_CUMULATIVE as "lastYearCumulative",
+		COUNT_MONTHLY_ELEVEN as "countMonthlyEleven",
+		COUNT_MONTHLY_TWO as "countMonthlyTwo",
+		UPDATED_USER as "updatedUser",
+		COUNT_MONTHLY_TEN as "countMonthlyTen",
+		COUNT_MONTHLY_FOUR as "countMonthlyFour",
+		MANAGE_CODE as "manageCode",
+		LAST_YAER_PAYMENT as "lastYaerPayment",
+		DEPT_CODE as "deptCode",
+		COUNT_MONTHLY_TWELVE as "countMonthlyTwelve",
+		COUNT_MONTHLY_FIVE as "countMonthlyFive",
+		ROSE as "rose",
+		COUNT_MONTHLY_NINE as "countMonthlyNine",
+		COUNT_MONTHLY_SIX as "countMonthlySix",
+		COUNT_MONTHLY_EIGHT as "countMonthlyEight",
+		GROWTH as "growth",
+		COUNT_MONTHLY_THREE as "countMonthlyThree",
+		GROUP_CODE as "groupCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{toyearContriRate,jdbcType=DOUBLE},
+ 		#{acquisiCostPolicy,jdbcType=DOUBLE},
+ 		#{toyaerPayment,jdbcType=DOUBLE},
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{lastYearAcciFreq,jdbcType=DOUBLE},
+ 		#{toYearCumulative,jdbcType=DOUBLE},
+ 		#{parentDept,jdbcType=VARCHAR},
+ 		#{deptName,jdbcType=VARCHAR},
+ 		#{countMonthlySeven,jdbcType=DOUBLE},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{countMonthlyOne,jdbcType=DOUBLE},
+ 		#{toyearAcciFreq,jdbcType=DOUBLE},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{reportMonth,jdbcType=VARCHAR},
+ 		#{lastYearCumulative,jdbcType=DOUBLE},
+ 		#{countMonthlyEleven,jdbcType=DOUBLE},
+ 		#{countMonthlyTwo,jdbcType=DOUBLE},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{countMonthlyTen,jdbcType=DOUBLE},
+ 		#{countMonthlyFour,jdbcType=DOUBLE},
+ 		#{manageCode,jdbcType=VARCHAR},
+ 		#{lastYaerPayment,jdbcType=DOUBLE},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{countMonthlyTwelve,jdbcType=DOUBLE},
+ 		#{countMonthlyFive,jdbcType=DOUBLE},
+ 		#{rose,jdbcType=DOUBLE},
+ 		#{countMonthlyNine,jdbcType=DOUBLE},
+ 		#{countMonthlySix,jdbcType=DOUBLE},
+ 		#{countMonthlyEight,jdbcType=DOUBLE},
+ 		#{growth,jdbcType=DOUBLE},
+ 		#{countMonthlyThree,jdbcType=DOUBLE},
+ 		#{groupCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="toyearContriRate != null">
+			and TOYEAR_CONTRI_RATE = #{toyearContriRate,jdbcType=DOUBLE}
+		</if>
+		<if test="acquisiCostPolicy != null">
+			and ACQUISI_COST_POLICY = #{acquisiCostPolicy,jdbcType=DOUBLE}
+		</if>
+		<if test="toyaerPayment != null">
+			and TOYAER_PAYMENT = #{toyaerPayment,jdbcType=DOUBLE}
+		</if>
+		<if test="pkId != null">
+			and PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="createdUser != null">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="lastYearAcciFreq != null">
+			and LAST_YEAR_ACCI_FREQ = #{lastYearAcciFreq,jdbcType=DOUBLE}
+		</if>
+		<if test="toYearCumulative != null">
+			and TO_YEAR_CUMULATIVE = #{toYearCumulative,jdbcType=DOUBLE}
+		</if>
+		<if test="parentDept != null and parentDept != '' ">
+			and PARENT_DEPT like #{parentDept,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="deptName != null and deptName != ''">
+			and DEPT_NAME like #{deptName,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="countMonthlySeven != null">
+			and COUNT_MONTHLY_SEVEN = #{countMonthlySeven,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="countMonthlyOne != null">
+			and COUNT_MONTHLY_ONE = #{countMonthlyOne,jdbcType=DOUBLE}
+		</if>
+		<if test="toyearAcciFreq != null">
+			and TOYEAR_ACCI_FREQ = #{toyearAcciFreq,jdbcType=DOUBLE}
+		</if>
+		<if test="createdDate != null">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="reportMonth != null">
+			and REPORT_MONTH = #{reportMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="lastYearCumulative != null">
+			and LAST_YEAR_CUMULATIVE = #{lastYearCumulative,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlyEleven != null">
+			and COUNT_MONTHLY_ELEVEN = #{countMonthlyEleven,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlyTwo != null">
+			and COUNT_MONTHLY_TWO = #{countMonthlyTwo,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedUser != null">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="countMonthlyTen != null">
+			and COUNT_MONTHLY_TEN = #{countMonthlyTen,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlyFour != null">
+			and COUNT_MONTHLY_FOUR = #{countMonthlyFour,jdbcType=DOUBLE}
+		</if>
+		<if test="manageCode != null">
+			and MANAGE_CODE = #{manageCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lastYaerPayment != null">
+			and LAST_YAER_PAYMENT = #{lastYaerPayment,jdbcType=DOUBLE}
+		</if>
+		<if test="deptCode != null">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="countMonthlyTwelve != null">
+			and COUNT_MONTHLY_TWELVE = #{countMonthlyTwelve,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlyFive != null">
+			and COUNT_MONTHLY_FIVE = #{countMonthlyFive,jdbcType=DOUBLE}
+		</if>
+		<if test="rose != null">
+			and ROSE = #{rose,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlyNine != null">
+			and COUNT_MONTHLY_NINE = #{countMonthlyNine,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlySix != null">
+			and COUNT_MONTHLY_SIX = #{countMonthlySix,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlyEight != null">
+			and COUNT_MONTHLY_EIGHT = #{countMonthlyEight,jdbcType=DOUBLE}
+		</if>
+		<if test="growth != null">
+			and GROWTH = #{growth,jdbcType=DOUBLE}
+		</if>
+		<if test="countMonthlyThree != null">
+			and COUNT_MONTHLY_THREE = #{countMonthlyThree,jdbcType=DOUBLE}
+		</if>
+		<if test="groupCode != null">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="Use_Base_Where_Sql">
+		<where>
+		<choose>
+		   <when test="deptCode != null and deptCode !='' ">
+		      and DEPT_CODE like f_get_inter_dept(#{deptCode,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <when test="parentDept != null and parentDept !='' ">
+		      and PARENT_DEPT like f_get_inter_dept(#{parentDept,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <otherwise></otherwise>
+		</choose>
+		<if test="deptName != null and deptName != ''">
+			and DEPT_NAME like #{deptName,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="reportMonth != null and reportMonth != ''">
+			and to_date(substr(REPORT_MONTH,1,7),'yyyy-mm') = to_date(#{reportMonth,jdbcType=VARCHAR},'yyyymm')
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportMothGroupManager" >
+    insert into REPORT_MOTH_GROUP_MANAGER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_MOTH_GROUP_MANAGER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from REPORT_MOTH_GROUP_MANAGER
+    where PK_ID = #{pkId,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_MOTH_GROUP_MANAGER
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REPORT_MOTH_GROUP_MANAGER
+	<set>
+	<if test="toyearContriRate != null">
+		TOYEAR_CONTRI_RATE = #{toyearContriRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="acquisiCostPolicy != null">
+		ACQUISI_COST_POLICY = #{acquisiCostPolicy,jdbcType=DOUBLE},
+	</if>
+  	<if test="toyaerPayment != null">
+		TOYAER_PAYMENT = #{toyaerPayment,jdbcType=DOUBLE},
+	</if>
+   	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastYearAcciFreq != null">
+		LAST_YEAR_ACCI_FREQ = #{lastYearAcciFreq,jdbcType=DOUBLE},
+	</if>
+  	<if test="toYearCumulative != null">
+		TO_YEAR_CUMULATIVE = #{toYearCumulative,jdbcType=DOUBLE},
+	</if>
+  	<if test="parentDept != null">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptName != null">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="countMonthlySeven != null">
+		COUNT_MONTHLY_SEVEN = #{countMonthlySeven,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="countMonthlyOne != null">
+		COUNT_MONTHLY_ONE = #{countMonthlyOne,jdbcType=DOUBLE},
+	</if>
+  	<if test="toyearAcciFreq != null">
+		TOYEAR_ACCI_FREQ = #{toyearAcciFreq,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="reportMonth != null">
+		REPORT_MONTH = #{reportMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastYearCumulative != null">
+		LAST_YEAR_CUMULATIVE = #{lastYearCumulative,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyEleven != null">
+		COUNT_MONTHLY_ELEVEN = #{countMonthlyEleven,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyTwo != null">
+		COUNT_MONTHLY_TWO = #{countMonthlyTwo,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="countMonthlyTen != null">
+		COUNT_MONTHLY_TEN = #{countMonthlyTen,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyFour != null">
+		COUNT_MONTHLY_FOUR = #{countMonthlyFour,jdbcType=DOUBLE},
+	</if>
+  	<if test="manageCode != null">
+		MANAGE_CODE = #{manageCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastYaerPayment != null">
+		LAST_YAER_PAYMENT = #{lastYaerPayment,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCode != null">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="countMonthlyTwelve != null">
+		COUNT_MONTHLY_TWELVE = #{countMonthlyTwelve,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyFive != null">
+		COUNT_MONTHLY_FIVE = #{countMonthlyFive,jdbcType=DOUBLE},
+	</if>
+  	<if test="rose != null">
+		ROSE = #{rose,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyNine != null">
+		COUNT_MONTHLY_NINE = #{countMonthlyNine,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlySix != null">
+		COUNT_MONTHLY_SIX = #{countMonthlySix,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyEight != null">
+		COUNT_MONTHLY_EIGHT = #{countMonthlyEight,jdbcType=DOUBLE},
+	</if>
+  	<if test="growth != null">
+		GROWTH = #{growth,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyThree != null">
+		COUNT_MONTHLY_THREE = #{countMonthlyThree,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupCode != null">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REPORT_MOTH_GROUP_MANAGER
+		set 
+			TOYEAR_CONTRI_RATE = #{toyearContriRate,jdbcType=DOUBLE},
+  			ACQUISI_COST_POLICY = #{acquisiCostPolicy,jdbcType=DOUBLE},
+  			TOYAER_PAYMENT = #{toyaerPayment,jdbcType=DOUBLE},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			LAST_YEAR_ACCI_FREQ = #{lastYearAcciFreq,jdbcType=DOUBLE},
+  			TO_YEAR_CUMULATIVE = #{toYearCumulative,jdbcType=DOUBLE},
+  			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			COUNT_MONTHLY_SEVEN = #{countMonthlySeven,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			COUNT_MONTHLY_ONE = #{countMonthlyOne,jdbcType=DOUBLE},
+  			TOYEAR_ACCI_FREQ = #{toyearAcciFreq,jdbcType=DOUBLE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			REPORT_MONTH = #{reportMonth,jdbcType=VARCHAR},
+  			LAST_YEAR_CUMULATIVE = #{lastYearCumulative,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_ELEVEN = #{countMonthlyEleven,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_TWO = #{countMonthlyTwo,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			COUNT_MONTHLY_TEN = #{countMonthlyTen,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_FOUR = #{countMonthlyFour,jdbcType=DOUBLE},
+  			MANAGE_CODE = #{manageCode,jdbcType=VARCHAR},
+  			LAST_YAER_PAYMENT = #{lastYaerPayment,jdbcType=DOUBLE},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			COUNT_MONTHLY_TWELVE = #{countMonthlyTwelve,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_FIVE = #{countMonthlyFive,jdbcType=DOUBLE},
+  			ROSE = #{rose,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_NINE = #{countMonthlyNine,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_SIX = #{countMonthlySix,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_EIGHT = #{countMonthlyEight,jdbcType=DOUBLE},
+  			GROWTH = #{growth,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_THREE = #{countMonthlyThree,jdbcType=DOUBLE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.report.vo.ReportMothGroupManager" >
+	update REPORT_MOTH_GROUP_MANAGER
+	<set>
+	<if test="toyearContriRate != null">
+		TOYEAR_CONTRI_RATE = #{toyearContriRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="acquisiCostPolicy != null">
+		ACQUISI_COST_POLICY = #{acquisiCostPolicy,jdbcType=DOUBLE},
+	</if>
+  	<if test="toyaerPayment != null">
+		TOYAER_PAYMENT = #{toyaerPayment,jdbcType=DOUBLE},
+	</if>
+   	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastYearAcciFreq != null">
+		LAST_YEAR_ACCI_FREQ = #{lastYearAcciFreq,jdbcType=DOUBLE},
+	</if>
+  	<if test="toYearCumulative != null">
+		TO_YEAR_CUMULATIVE = #{toYearCumulative,jdbcType=DOUBLE},
+	</if>
+  	<if test="parentDept != null">
+		PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptName != null">
+		DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+	</if>
+  	<if test="countMonthlySeven != null">
+		COUNT_MONTHLY_SEVEN = #{countMonthlySeven,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="countMonthlyOne != null">
+		COUNT_MONTHLY_ONE = #{countMonthlyOne,jdbcType=DOUBLE},
+	</if>
+  	<if test="toyearAcciFreq != null">
+		TOYEAR_ACCI_FREQ = #{toyearAcciFreq,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="reportMonth != null">
+		REPORT_MONTH = #{reportMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastYearCumulative != null">
+		LAST_YEAR_CUMULATIVE = #{lastYearCumulative,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyEleven != null">
+		COUNT_MONTHLY_ELEVEN = #{countMonthlyEleven,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyTwo != null">
+		COUNT_MONTHLY_TWO = #{countMonthlyTwo,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="countMonthlyTen != null">
+		COUNT_MONTHLY_TEN = #{countMonthlyTen,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyFour != null">
+		COUNT_MONTHLY_FOUR = #{countMonthlyFour,jdbcType=DOUBLE},
+	</if>
+  	<if test="manageCode != null">
+		MANAGE_CODE = #{manageCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastYaerPayment != null">
+		LAST_YAER_PAYMENT = #{lastYaerPayment,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCode != null">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="countMonthlyTwelve != null">
+		COUNT_MONTHLY_TWELVE = #{countMonthlyTwelve,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyFive != null">
+		COUNT_MONTHLY_FIVE = #{countMonthlyFive,jdbcType=DOUBLE},
+	</if>
+  	<if test="rose != null">
+		ROSE = #{rose,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyNine != null">
+		COUNT_MONTHLY_NINE = #{countMonthlyNine,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlySix != null">
+		COUNT_MONTHLY_SIX = #{countMonthlySix,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyEight != null">
+		COUNT_MONTHLY_EIGHT = #{countMonthlyEight,jdbcType=DOUBLE},
+	</if>
+  	<if test="growth != null">
+		GROWTH = #{growth,jdbcType=DOUBLE},
+	</if>
+  	<if test="countMonthlyThree != null">
+		COUNT_MONTHLY_THREE = #{countMonthlyThree,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupCode != null">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.report.vo.ReportMothGroupManager" >
+		update REPORT_MOTH_GROUP_MANAGER
+		set 
+			TOYEAR_CONTRI_RATE = #{toyearContriRate,jdbcType=DOUBLE},
+  			ACQUISI_COST_POLICY = #{acquisiCostPolicy,jdbcType=DOUBLE},
+  			TOYAER_PAYMENT = #{toyaerPayment,jdbcType=DOUBLE},
+   			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			LAST_YEAR_ACCI_FREQ = #{lastYearAcciFreq,jdbcType=DOUBLE},
+  			TO_YEAR_CUMULATIVE = #{toYearCumulative,jdbcType=DOUBLE},
+  			PARENT_DEPT = #{parentDept,jdbcType=VARCHAR},
+  			DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+  			COUNT_MONTHLY_SEVEN = #{countMonthlySeven,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			COUNT_MONTHLY_ONE = #{countMonthlyOne,jdbcType=DOUBLE},
+  			TOYEAR_ACCI_FREQ = #{toyearAcciFreq,jdbcType=DOUBLE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			REPORT_MONTH = #{reportMonth,jdbcType=VARCHAR},
+  			LAST_YEAR_CUMULATIVE = #{lastYearCumulative,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_ELEVEN = #{countMonthlyEleven,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_TWO = #{countMonthlyTwo,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			COUNT_MONTHLY_TEN = #{countMonthlyTen,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_FOUR = #{countMonthlyFour,jdbcType=DOUBLE},
+  			MANAGE_CODE = #{manageCode,jdbcType=VARCHAR},
+  			LAST_YAER_PAYMENT = #{lastYaerPayment,jdbcType=DOUBLE},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			COUNT_MONTHLY_TWELVE = #{countMonthlyTwelve,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_FIVE = #{countMonthlyFive,jdbcType=DOUBLE},
+  			ROSE = #{rose,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_NINE = #{countMonthlyNine,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_SIX = #{countMonthlySix,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_EIGHT = #{countMonthlyEight,jdbcType=DOUBLE},
+  			GROWTH = #{growth,jdbcType=DOUBLE},
+  			COUNT_MONTHLY_THREE = #{countMonthlyThree,jdbcType=DOUBLE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_MOTH_GROUP_MANAGER
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />
+	from REPORT_MOTH_GROUP_MANAGER
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_MOTH_GROUP_MANAGER t
+	   <!--inner join department de on t.dept_code = de.inter_code-->
+		<include refid="Use_Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportMothGroupManager" resultType="long">
+	select count(1)
+	from REPORT_MOTH_GROUP_MANAGER <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Use_Base_Column_List"/>
+		from REPORT_MOTH_GROUP_MANAGER t
+	   <!--inner join department de on t.dept_code = de.inter_code-->
+		<include refid="Use_Base_Where_Sql"/>
+		order by t.parent_dept,t.Manage_Code desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MOTH_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MOTH_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MOTH_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_MOTH_GROUP_MANAGER
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_MOTH_GROUP_MANAGER <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MOTH_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageVo" parameterType="map" resultMap="BaseResultVo">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_MOTH_GROUP_MANAGER
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_MOTH_GROUP_MANAGER <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_MOTH_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+</mapper>

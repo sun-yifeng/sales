@@ -1,0 +1,2022 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.group.vo.Salesman" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SALESMAN_CODE" property="salesmanCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="SALESMAN_TYPE" property="salesmanType" jdbcType="CHAR" javaType="java.lang.String" />
+		<result column="SALESMAN_FLAG" property="salesmanFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_LINE" property="lastLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="HOBBY" property="hobby" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TRYTOU" property="trytou" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_NO" property="businessNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REGULAR_DATE" property="regularDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_DATE2" property="updatedDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CERTIFY_NO" property="certifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TITLE_TYPE" property="titleType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PWD" property="pwd" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MARRY" property="marry" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="SALE_RANK" property="saleRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_ENAME" property="salesmanEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARTY" property="party" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEX" property="sex" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEGREE" property="degree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PWD_UPDATE_TIME" property="pwdUpdateTime" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="QUALIFY_NO" property="qualifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGE" property="age" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="FROM_ADDRESS" property="fromAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_STATUS" property="processStatus" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EVALUATE" property="evaluate" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EDUCATION" property="education" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENTRY_DATE" property="entryDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="NATION" property="nation" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MAGOR" property="magor" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TITLE" property="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_EXTEND" property="deptExtend" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTRACT_DATE" property="contractDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FRONT_DATE" property="frontDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POSITION" property="position" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="HISTORYID" property="historyId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INVALID_DATE" property="invalidDate" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="VALID_DATE" property="validDate" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="STAT_FLAG" property="statFlag" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="SALE_RANK_TWO" property="saleRankTwo" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="DIRECTOR" property="director" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="AGE_SALARY" property="ageSalary" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="AREA" property="areaBrand" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.group.vo.Salesman">
+		<id column="SALESMAN_CODE" property="salesmanCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="SALESMAN_TYPE" property="salesmanType" jdbcType="CHAR" javaType="java.lang.String" />
+		<result column="SALESMAN_FLAG" property="salesmanFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LAST_LINE" property="lastLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="HOBBY" property="hobby" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TRYTOU" property="trytou" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_NO" property="businessNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REMARK" property="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REGULAR_DATE" property="regularDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CERTIFY_NO" property="certifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TITLE_TYPE" property="titleType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PWD" property="pwd" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="MARRY" property="marry" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+  		<result column="SALE_RANK" property="saleRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_ENAME" property="salesmanEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARTY" property="party" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEX" property="sex" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEGREE" property="degree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PWD_UPDATE_TIME" property="pwdUpdateTime" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="QUALIFY_NO" property="qualifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGE" property="age" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="FROM_ADDRESS" property="fromAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_STATUS" property="processStatus" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EVALUATE" property="evaluate" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="EDUCATION" property="education" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ENTRY_DATE" property="entryDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="NATION" property="nation" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MAGOR" property="magor" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TITLE" property="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_FLAG" property="statFlag" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="SALE_RANK_TWO" property="saleRankTwo" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="DIRECTOR" property="director" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="AGE_SALARY" property="ageSalary" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 		<result column="AREA" property="areaBrand" jdbcType="VARCHAR" javaType="java.lang.String"/>
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		SALESMAN_TYPE,
+		SALESMAN_FLAG,
+		CREATED_USER,
+		LAST_LINE,
+		HOBBY,
+		TRYTOU,
+		BUSINESS_NO,
+		REMARK,
+		to_char(REGULAR_DATE,'yyyy-MM-dd HH24:mi:ss') REGULAR_DATE,
+		UPDATED_DATE,
+		STATUS,
+		CERTIFY_NO,
+		TITLE_TYPE,
+		PWD,
+		VALID_IND,
+		MARRY,
+		CREATED_DATE,
+		SALESMAN_CODE,
+		SALE_RANK,
+		TEL,
+		SALESMAN_ENAME,
+		PARTY,
+		SEX,
+		DEGREE,
+		UPDATED_USER,
+		PWD_UPDATE_TIME,
+		to_char(BIRTHDAY,'yyyy-MM-dd HH24:mi:ss')BIRTHDAY,
+		QUALIFY_NO,
+		AGE,
+		FROM_ADDRESS,
+		DEPT_CODE,
+		BUSINESS_LINE,
+		SALESMAN_CNAME,
+		PROCESS_STATUS,
+		EVALUATE,
+		EDUCATION,
+		ENTRY_DATE,
+		NATION,
+		GROUP_CODE,
+		MAGOR,
+		TITLE,
+		DEPT_EXTEND,
+		CONTRACT_DATE,
+		POSITION,
+		EMPLOY_CODE,
+		SALE_RANK_TWO,
+		DIRECTOR,
+		AGE_SALARY,
+		AREA
+	</sql>
+	
+	<sql id="User_Base_Column_List" >
+		s.SALESMAN_TYPE,
+		s.SALESMAN_FLAG,
+		s.CREATED_USER,
+		s.LAST_LINE,
+		s.HOBBY,
+		s.TRYTOU,
+		s.BUSINESS_NO,
+		s.REMARK,
+		to_char(s.REGULAR_DATE,'yyyy-MM-dd HH24:mi:ss') REGULAR_DATE,
+		s.UPDATED_DATE,
+		s.STATUS,
+		s.CERTIFY_NO,
+		s.TITLE_TYPE,
+		s.PWD,
+		s.VALID_IND,
+		s.MARRY,
+		s.CREATED_DATE,
+		s.SALESMAN_CODE,
+		s.SALE_RANK,
+		s.TEL,
+		s.SALESMAN_ENAME,
+		s.PARTY,
+		s.SEX,
+		s.DEGREE,
+		s.UPDATED_USER,
+		s.PWD_UPDATE_TIME,
+		to_char(s.BIRTHDAY,'yyyy-MM-dd HH24:mi:ss')BIRTHDAY,
+		s.QUALIFY_NO,
+		s.AGE,
+		s.FROM_ADDRESS,
+		s.DEPT_CODE,
+		s.BUSINESS_LINE,
+		s.SALESMAN_CNAME,
+		s.PROCESS_STATUS,
+		s.EVALUATE,
+		s.EDUCATION,
+		s.ENTRY_DATE,
+		s.NATION,
+		s.group_code||'-'||g.group_name as GROUP_CODE,
+		s.MAGOR,
+		s.TITLE,
+		s.DEPT_EXTEND,
+		s.CONTRACT_DATE,
+		s.POSITION,
+		s.EMPLOY_CODE,
+		s.SALE_RANK_TWO,
+		s.DIRECTOR,
+		s.AGE_SALARY,
+		decode(s.AREA,'0','异地','1','同城')
+	</sql>
+	
+	<!-- 页面查询时间字段的转换 -->
+	<sql id="Base_Column_Lists" >
+		t1.SALESMAN_TYPE,
+		t1.SALESMAN_FLAG,
+		t1.LAST_LINE,
+		t1.HOBBY,
+		t1.TRYTOU,
+		t1.BUSINESS_NO,
+		t1.REMARK,
+		to_char(t1.REGULAR_DATE,'yyyy-mm-dd')REGULAR_DATE,
+		to_char(t1.UPDATED_DATE,'yyyy-mm-dd')UPDATED_DATE2,
+		t1.STATUS,
+		t1.CERTIFY_NO,
+		t1.TITLE_TYPE,
+		t1.PWD,
+		t1.VALID_IND,
+		t1.MARRY,
+		t1.CREATED_DATE,
+		t1.SALESMAN_CODE,
+		t1.SALE_RANK,
+		t1.TEL,
+		t1.SALESMAN_ENAME,
+		t1.PARTY,
+		t1.SEX,
+		t1.DEGREE,
+		t1.UPDATED_USER,
+		t1.PWD_UPDATE_TIME,
+		to_char(t1.BIRTHDAY,'yyyy-mm-dd')BIRTHDAY,
+		t1.QUALIFY_NO,
+		t1.AGE,
+		t1.FROM_ADDRESS,
+		t1.DEPT_CODE,
+		t1.BUSINESS_LINE,
+		t1.SALESMAN_CNAME,
+		t1.PROCESS_STATUS,
+		t1.EVALUATE,
+		t1.EDUCATION,
+		to_char(t1.ENTRY_DATE,'yyyy-mm-dd')ENTRY_DATE,
+		t1.NATION,
+		t1.GROUP_CODE,
+		t1.MAGOR,
+		t1.TITLE,
+		t1.DEPT_EXTEND,
+		to_char(t1.CONTRACT_DATE,'yyyy-mm-dd')CONTRACT_DATE,
+		t1.POSITION,
+		t1.EMPLOY_CODE,
+		t1.SALE_RANK_TWO,
+		t1.DIRECTOR,
+		t1.AGE_SALARY,
+		decode(t1.AREA,'0','异地','1','同城') as "area"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		SALESMAN_TYPE as "salesmanType",
+		SALESMAN_FLAG as "salesmanFlag",
+		CREATED_USER as "createdUser",
+		LAST_LINE as "lastLine",
+		HOBBY as "hobby",
+		TRYTOU as "trytou",
+		BUSINESS_NO as "businessNo",
+		REMARK as "remark",
+		REGULAR_DATE as "regularDate",
+		UPDATED_DATE as "updatedDate",
+		STATUS as "status",
+		CERTIFY_NO as "certifyNo",
+		TITLE_TYPE as "titleType",
+		PWD as "pwd",
+		VALID_IND as "validInd",
+		MARRY as "marry",
+		CREATED_DATE as "createdDate",
+		SALESMAN_CODE as "salesmanCode",
+		SALE_RANK as "saleRank",
+		TEL as "tel",
+		SALESMAN_ENAME as "salesmanEname",
+		PARTY as "party",
+		SEX as "sex",
+		DEGREE as "degree",
+		UPDATED_USER as "updatedUser",
+		PWD_UPDATE_TIME as "pwdUpdateTime",
+		BIRTHDAY as "birthday",
+		QUALIFY_NO as "qualifyNo",
+		AGE as "age",
+		FROM_ADDRESS as "fromAddress",
+		DEPT_CODE as "deptCode",
+		BUSINESS_LINE as "businessLine",
+		SALESMAN_CNAME as "salesmanCname",
+		PROCESS_STATUS as "processStatus",
+		EVALUATE as "evaluate",
+		EDUCATION as "education",
+		ENTRY_DATE as "entryDate",
+		NATION as "nation",
+		GROUP_CODE as "groupCode",
+		MAGOR as "magor",
+		TITLE as "title",
+		DEPT_EXTEND as "deptExtend",
+		CONTRACT_DATE as "contractDate",
+		POSITION as "position",
+		EMPLOY_CODE as "employCode",
+		SALE_RANK_TWO as "saleRankTwo",
+		DIRECTOR as "director",
+		AGE_SALARY as "ageSalary",
+		decode(AREA,'0','异地','1','同城') as "area"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{salesmanType,jdbcType=CHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{lastLine,jdbcType=CHAR},
+ 		#{hobby,jdbcType=VARCHAR},
+ 		#{trytou,jdbcType=CHAR},
+ 		#{businessNo,jdbcType=VARCHAR},
+ 		#{remark,jdbcType=VARCHAR},
+ 		to_date(#{regularDate},'yyyy-mm-dd'),
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{certifyNo,jdbcType=VARCHAR},
+ 		#{titleType,jdbcType=CHAR},
+ 		#{pwd,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{marry,jdbcType=CHAR},
+ 		sysdate,
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{saleRank,jdbcType=CHAR},
+ 		#{tel,jdbcType=VARCHAR},
+ 		#{salesmanEname,jdbcType=VARCHAR},
+ 		#{party,jdbcType=VARCHAR},
+ 		#{sex,jdbcType=CHAR},
+ 		#{degree,jdbcType=VARCHAR},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{pwdUpdateTime,jdbcType=DATE},
+ 		to_date(#{birthday},'yyyy-mm-dd'),
+ 		#{qualifyNo,jdbcType=VARCHAR},
+ 		#{age,jdbcType=INTEGER},
+ 		#{fromAddress,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{businessLine,jdbcType=CHAR},
+ 		#{salesmanCname,jdbcType=VARCHAR},
+ 		#{processStatus,jdbcType=CHAR},
+ 		#{evaluate,jdbcType=CHAR},
+ 		#{education,jdbcType=VARCHAR},
+ 		to_date(#{entryDate},'yyyy-mm-dd'),
+ 		#{nation,jdbcType=VARCHAR},
+ 		#{groupCode,jdbcType=VARCHAR},
+ 		#{magor,jdbcType=VARCHAR},
+ 		#{title,jdbcType=VARCHAR},
+ 		to_date(#{contractDate},'yyyy-mm-dd'),
+ 		#{deptExtend,jdbcType=VARCHAR},
+ 		#{position,jdbcType=VARCHAR},
+ 		#{employCode,jdbcType=VARCHAR}
+ 	</sql>
+	<sql id="salesmanhistory_column">
+		historyid,
+		SALESMAN_CODE,
+		DEPT_CODE,
+		dept_extend,
+		salesman_cname,
+		salesman_ename,
+		sex,
+		age,
+		birthday,
+		certify_no,
+		nation,
+		from_address,
+		party,
+		degree,
+		education,
+		magor,
+		status,
+		salesman_type,
+		contract_date,
+		entry_date,
+		regular_date,
+		title_type,
+		position,
+		business_no,
+		qualify_no,
+		marry,
+		process_status,
+		tel,
+		pwd,
+		pwd_update_time,
+		group_code,
+		hobby,
+		remark,
+		business_line,
+		last_line,
+		sale_rank,
+		trytou,
+		evaluate,
+		employ_code,
+		valid_ind,
+		created_user,
+		created_date,
+		updated_user,
+		updated_date,
+		dimission_date,
+		dept_code_last,
+		salesman_flag,
+		stat_flag
+		</sql>
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="contractDate != null and contractDate != ''">
+			and CONTRACT_DATE = #{contractDate,jdbcType=CHAR}
+		</if>
+		<if test="deptExtend != null and deptExtend != ''">
+			and DEPT_EXTEND = #{deptExtend,jdbcType=CHAR}
+		</if>
+		<if test="position != null and position != ''">
+			and POSITION = #{position,jdbcType=CHAR}
+		</if>
+		<if test="salesmanType != null and salesmanType != ''">
+			and SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="lastLine != null and lastLine != ''">
+			and LAST_LINE = #{lastLine,jdbcType=CHAR}
+		</if>
+		<if test="hobby != null and hobby != ''">
+			and HOBBY = #{hobby,jdbcType=VARCHAR}
+		</if>
+		<if test="trytou != null and trytou != ''">
+			and TRYTOU = #{trytou,jdbcType=CHAR}
+		</if>
+		<if test="businessNo != null and businessNo != ''">
+			and BUSINESS_NO = #{businessNo,jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+			and REMARK = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="regularDate != null and regularDate != ''">
+			and REGULAR_DATE = #{regularDate,jdbcType=DATE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="certifyNo != null and certifyNo != ''">
+			and CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="titleType != null and titleType != ''">
+			and TITLE_TYPE = #{titleType,jdbcType=CHAR}
+		</if>
+		<if test="pwd != null and pwd != ''">
+			and PWD = #{pwd,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="marry != null and marry != ''">
+			and MARRY = #{marry,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="saleRank != null and saleRank != ''">
+			and SALE_RANK = #{saleRank,jdbcType=VARCHAR}
+		</if>
+		<if test="tel != null and tel != ''">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanEname != null and salesmanEname != ''">
+			and SALESMAN_ENAME = #{salesmanEname,jdbcType=VARCHAR}
+		</if>
+		<if test="party != null and party != ''">
+			and PARTY = #{party,jdbcType=VARCHAR}
+		</if>
+		<if test="sex != null and sex != ''">
+			and SEX = #{sex,jdbcType=CHAR}
+		</if>
+		<if test="degree != null and degree != ''">
+			and DEGREE = #{degree,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="pwdUpdateTime != null and pwdUpdateTime != ''">
+			and PWD_UPDATE_TIME = #{pwdUpdateTime,jdbcType=DATE}
+		</if>
+		<if test="birthday != null and birthday != ''">
+			and BIRTHDAY = #{birthday,jdbcType=DATE}
+		</if>
+		<if test="qualifyNo != null and qualifyNo != ''">
+			and QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="age != null and age != ''">
+			and AGE = #{age,jdbcType=INTEGER}
+		</if>
+		<if test="fromAddress != null and fromAddress != ''">
+			and FROM_ADDRESS = #{fromAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="businessLine != null and businessLine != ''">
+			and BUSINESS_LINE = #{businessLine,jdbcType=CHAR}
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR}
+		</if>
+		<if test="processStatus != null and processStatus != ''">
+			and PROCESS_STATUS = #{processStatus,jdbcType=CHAR}
+		</if>
+		<if test="evaluate != null and evaluate != ''">
+			and EVALUATE = #{evaluate,jdbcType=CHAR}
+		</if>
+		<if test="education != null and education != ''">
+			and EDUCATION = #{education,jdbcType=VARCHAR}
+		</if>
+		<if test="entryDate != null and entryDate != ''">
+			and ENTRY_DATE = #{entryDate,jdbcType=DATE}
+		</if>
+		<if test="nation != null and nation != ''">
+			and NATION = #{nation,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="magor != null and magor != ''">
+			and MAGOR = #{magor,jdbcType=VARCHAR}
+		</if>
+		<if test="title != null and title != ''">
+			and TITLE = #{title,jdbcType=VARCHAR}
+		</if>
+		<if test="employCode != null and employCode != ''">
+			and EMPLOY_CODE = #{employCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 多级部门代码的查询条件 -->
+	<sql id="Base_Where_Sql_Multi_Table">
+		<if test="validInd == null or validInd == ''">
+			and t1.VALID_IND = '1'
+		</if>
+		<if test="noEmployCode == null or noEmployCode == ''">
+			and t1.EMPLOY_CODE is not null
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and t1.SALESMAN_CODE  like '%' || #{salesmanCode,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="saleRank != null and saleRank != ''">
+			and t1.SALE_RANK = #{saleRank,jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanEname != null and salesmanEname != ''">
+			and t1.SALESMAN_ENAME = #{salesmanEname,jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanFlag != null and salesmanFlag != ''">
+			and t1.SALESMAN_FLAG = #{salesmanFlag,jdbcType=VARCHAR}
+		</if>
+		<if test="fromAddress != null and fromAddress != ''">
+			and t1.FROM_ADDRESS = #{fromAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''">
+			and t1.STATUS = #{status,jdbcType=VARCHAR}
+		</if>
+		<if test="processStatus != null and processStatus != ''">
+			and t1.PROCESS_STATUS = #{processStatus,jdbcType=CHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and t1.GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="businessLine != null and businessLine != ''">
+			and t1.BUSINESS_LINE = #{businessLine}
+		</if>
+        <!-- 机构 -->
+		<if test="deptCodeTwo != null and deptCodeTwo != '' and deptCodeTwo != '00'">
+			<choose>
+				<when test="deptCodeFour != null and deptCodeFour != ''">
+				    and t1.DEPT_CODE like #{deptCodeFour,jdbcType=VARCHAR} || '%'
+				</when>
+				<when test="deptCodeThree != null and deptCodeThree != ''">
+				    and t1.DEPT_CODE like #{deptCodeThree,jdbcType=VARCHAR} || '%'
+				</when>
+				<otherwise>
+				    and t1.DEPT_CODE like #{deptCodeTwo,jdbcType=VARCHAR} || '%'
+				</otherwise>
+			</choose>
+		</if>
+		<!-- 姓名 -->
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and t1.SALESMAN_CNAME like '%' || #{salesmanCname,jdbcType=VARCHAR} || '%'
+		</if>
+		<!-- 工号 -->
+		<if test="employCode != null and employCode != ''">
+			and t1.EMPLOY_CODE like '%' || #{employCode} || '%'
+		</if>
+		<!-- 团队名称 -->
+		<if test="groupName != null and groupName != ''">
+			and t2.group_name like '%' || #{groupName,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="xbFilter != null and xbFilter != ''">
+			<if test="xbFilter=='true'">
+				and sc.valid_status != '0'
+			</if>
+  		 </if>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.group.vo.Salesman" >
+    insert into SALESMAN (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into SALESMAN (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+       delete from SALESMAN
+         where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</delete>
+
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	   update SALESMAN
+	<set>
+	<if test="contractDate != null and contractDate != ''">
+		CONTRACT_DATE = #{contractDate,jdbcType=DATE}
+	</if>
+	<if test="deptExtend != null and deptExtend != ''">
+		DEPT_EXTEND = #{deptExtend,jdbcType=CHAR}
+	</if>
+	<if test="position != null and position != ''">
+		POSITION = #{position,jdbcType=CHAR}
+	</if>
+	<if test="salesmanType != null and salesmanType != ''">
+		SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastLine != null and lastLine != ''">
+		LAST_LINE = #{lastLine,jdbcType=CHAR},
+	</if>
+  	<if test="hobby != null and hobby != ''">
+		HOBBY = #{hobby,jdbcType=VARCHAR},
+	</if>
+  	<if test="trytou != null and trytou != ''">
+		TRYTOU = #{trytou,jdbcType=CHAR},
+	</if>
+  	<if test="businessNo != null and businessNo != ''">
+		BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="regularDate != null and regularDate != ''">
+		REGULAR_DATE = #{regularDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="certifyNo != null and certifyNo != ''">
+		CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="titleType != null and titleType != ''">
+		TITLE_TYPE = #{titleType,jdbcType=CHAR},
+	</if>
+  	<if test="pwd != null and pwd != ''">
+		PWD = #{pwd,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="marry != null and marry != ''">
+		MARRY = #{marry,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+   	<if test="saleRank != null and saleRank != ''">
+		SALE_RANK = #{saleRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanEname != null and salesmanEname != ''">
+		SALESMAN_ENAME = #{salesmanEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="party != null and party != ''">
+		PARTY = #{party,jdbcType=VARCHAR},
+	</if>
+  	<if test="sex != null and sex != ''">
+		SEX = #{sex,jdbcType=CHAR},
+	</if>
+  	<if test="degree != null and degree != ''">
+		DEGREE = #{degree,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="pwdUpdateTime != null and pwdUpdateTime != ''">
+		PWD_UPDATE_TIME = #{pwdUpdateTime,jdbcType=DATE},
+	</if>
+  	<if test="birthday != null and birthday != ''">
+		BIRTHDAY = #{birthday,jdbcType=DATE},
+	</if>
+  	<if test="qualifyNo != null and qualifyNo != ''">
+		QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="age != null and age != ''">
+		AGE = #{age,jdbcType=INTEGER},
+	</if>
+  	<if test="fromAddress != null and fromAddress != ''">
+		FROM_ADDRESS = #{fromAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessLine != null and businessLine != ''">
+		BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+	</if>
+  	<if test="salesmanCname != null and salesmanCname != ''">
+		SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="processStatus != null and processStatus != ''">
+		PROCESS_STATUS = #{processStatus,jdbcType=CHAR},
+	</if>
+  	<if test="evaluate != null and evaluate != ''">
+		EVALUATE = #{evaluate,jdbcType=CHAR},
+	</if>
+  	<if test="education != null and education != ''">
+		EDUCATION = #{education,jdbcType=VARCHAR},
+	</if>
+  	<if test="entryDate != null and entryDate != ''">
+		ENTRY_DATE = #{entryDate,jdbcType=DATE},
+	</if>
+  	<if test="nation != null and nation != ''">
+		NATION = #{nation,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="magor != null and magor != ''">
+		MAGOR = #{magor,jdbcType=VARCHAR},
+	</if>
+  	<if test="title != null and title != ''">
+		TITLE = #{title,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update SALESMAN
+		set 
+			SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			LAST_LINE = #{lastLine,jdbcType=CHAR},
+  			HOBBY = #{hobby,jdbcType=VARCHAR},
+  			TRYTOU = #{trytou,jdbcType=CHAR},
+  			BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			REGULAR_DATE = to_date(#{regularDate},'yyyy-mm-dd'),
+  			UPDATED_DATE = sysdate,
+  			STATUS = #{status,jdbcType=CHAR},
+  			CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+  			TITLE_TYPE = #{titleType,jdbcType=CHAR},
+  			PWD = #{pwd,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			MARRY = #{marry,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+   			SALE_RANK = #{saleRank,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			SALESMAN_ENAME = #{salesmanEname,jdbcType=VARCHAR},
+  			PARTY = #{party,jdbcType=VARCHAR},
+  			SEX = #{sex,jdbcType=CHAR},
+  			DEGREE = #{degree,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			PWD_UPDATE_TIME = #{pwdUpdateTime,jdbcType=DATE},
+  			BIRTHDAY = to_date(#{birthday},'yyyy-mm-dd'),
+  			QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+  			AGE = #{age,jdbcType=INTEGER},
+  			FROM_ADDRESS = #{fromAddress,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+  			SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+  			PROCESS_STATUS = #{processStatus,jdbcType=CHAR},
+  			EVALUATE = #{evaluate,jdbcType=CHAR},
+  			EDUCATION = #{education,jdbcType=VARCHAR},
+  			ENTRY_DATE = to_date(#{entryDate},'yyyy-mm-dd'),
+  			NATION = #{nation,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			MAGOR = #{magor,jdbcType=VARCHAR},
+  			TITLE = #{title,jdbcType=VARCHAR},
+  			CONTRACT_DATE = to_date(#{contractDate},'yyyy-mm-dd'),
+  			DEPT_EXTEND = #{deptExtend,jdbcType=VARCHAR},
+  			POSITION = #{position,jdbcType=VARCHAR},
+  			EMPLOY_CODE = #{employCode,jdbcType=VARCHAR}
+  		where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.group.vo.Salesman" >
+	update SALESMAN
+	<set>
+	<if test="contractDate != null and contractDate != ''">
+		CONTRACT_DATE = #{contractDate,jdbcType=DATE}
+	</if>
+	<if test="deptExtend != null and deptExtend != ''">
+		DEPT_EXTEND = #{deptExtend,jdbcType=CHAR}
+	</if>
+	<if test="position != null and position != ''">
+		POSITION = #{position,jdbcType=CHAR}
+	</if>
+	<if test="salesmanType != null and salesmanType != ''">
+		SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="lastLine != null and lastLine != ''">
+		LAST_LINE = #{lastLine,jdbcType=CHAR},
+	</if>
+  	<if test="hobby != null and hobby != ''">
+		HOBBY = #{hobby,jdbcType=VARCHAR},
+	</if>
+  	<if test="trytou != null and trytou != ''">
+		TRYTOU = #{trytou,jdbcType=CHAR},
+	</if>
+  	<if test="businessNo != null and businessNo != ''">
+		BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="remark != null and remark != ''">
+		REMARK = #{remark,jdbcType=VARCHAR},
+	</if>
+  	<if test="regularDate != null and regularDate != ''">
+		REGULAR_DATE = #{regularDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="certifyNo != null and certifyNo != ''">
+		CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="titleType != null and titleType != ''">
+		TITLE_TYPE = #{titleType,jdbcType=CHAR},
+	</if>
+  	<if test="pwd != null and pwd != ''">
+		PWD = #{pwd,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="marry != null and marry != ''">
+		MARRY = #{marry,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+   	<if test="saleRank != null and saleRank != ''">
+		SALE_RANK = #{saleRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanEname != null and salesmanEname != ''">
+		SALESMAN_ENAME = #{salesmanEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="party != null and party != ''">
+		PARTY = #{party,jdbcType=VARCHAR},
+	</if>
+  	<if test="sex != null and sex != ''">
+		SEX = #{sex,jdbcType=CHAR},
+	</if>
+  	<if test="degree != null and degree != ''">
+		DEGREE = #{degree,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="pwdUpdateTime != null and pwdUpdateTime != ''">
+		PWD_UPDATE_TIME = #{pwdUpdateTime,jdbcType=DATE},
+	</if>
+  	<if test="birthday != null and birthday != ''">
+		BIRTHDAY = #{birthday,jdbcType=DATE},
+	</if>
+  	<if test="qualifyNo != null and qualifyNo != ''">
+		QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="age != null and age != ''">
+		AGE = #{age,jdbcType=INTEGER},
+	</if>
+  	<if test="fromAddress != null and fromAddress != ''">
+		FROM_ADDRESS = #{fromAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="businessLine != null and businessLine != ''">
+		BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+	</if>
+  	<if test="salesmanCname != null and salesmanCname != ''">
+		SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="processStatus != null and processStatus != ''">
+		PROCESS_STATUS = #{processStatus,jdbcType=CHAR},
+	</if>
+  	<if test="evaluate != null and evaluate != ''">
+		EVALUATE = #{evaluate,jdbcType=CHAR},
+	</if>
+  	<if test="education != null and education != ''">
+		EDUCATION = #{education,jdbcType=VARCHAR},
+	</if>
+  	<if test="entryDate != null and entryDate != ''">
+		ENTRY_DATE = #{entryDate,jdbcType=DATE},
+	</if>
+  	<if test="nation != null and nation != ''">
+		NATION = #{nation,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="magor != null and magor != ''">
+		MAGOR = #{magor,jdbcType=VARCHAR},
+	</if>
+  	<if test="title != null and title != ''">
+		TITLE = #{title,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- HR人员处理，业务线变更不需要修改机构代码 -->
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.group.vo.Salesman" >
+		update SALESMAN
+		set 
+			SALESMAN_TYPE = #{salesmanType,jdbcType=CHAR},
+  			LAST_LINE = #{lastLine,jdbcType=CHAR},
+  			HOBBY = #{hobby,jdbcType=VARCHAR},
+  			TRYTOU = #{trytou,jdbcType=CHAR},
+  			BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+  			REMARK = #{remark,jdbcType=VARCHAR},
+  			REGULAR_DATE = to_date(#{regularDate},'yyyy-mm-dd'),
+  			UPDATED_DATE = sysdate,
+  			STATUS = #{status,jdbcType=CHAR},
+  			CERTIFY_NO = #{certifyNo,jdbcType=VARCHAR},
+  			TITLE_TYPE = #{titleType,jdbcType=CHAR},
+  			PWD = #{pwd,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			MARRY = #{marry,jdbcType=CHAR},
+   			SALE_RANK = #{saleRank,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			SALESMAN_ENAME = #{salesmanEname,jdbcType=VARCHAR},
+  			PARTY = #{party,jdbcType=VARCHAR},
+  			SEX = #{sex,jdbcType=CHAR},
+  			DEGREE = #{degree,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			PWD_UPDATE_TIME = #{pwdUpdateTime,jdbcType=DATE},
+  			BIRTHDAY = to_date(#{birthday},'yyyy-mm-dd'),
+  			QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+  			AGE = #{age,jdbcType=INTEGER},
+  			FROM_ADDRESS = #{fromAddress,jdbcType=VARCHAR},
+  			BUSINESS_LINE = #{businessLine,jdbcType=CHAR},
+  			SALESMAN_CNAME = #{salesmanCname,jdbcType=VARCHAR},
+  			PROCESS_STATUS = #{processStatus,jdbcType=CHAR},
+  			EVALUATE = #{evaluate,jdbcType=CHAR},
+  			EDUCATION = #{education,jdbcType=VARCHAR},
+  			ENTRY_DATE = to_date(#{entryDate},'yyyy-mm-dd'),
+  			NATION = #{nation,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR},
+  			MAGOR = #{magor,jdbcType=VARCHAR},
+  			TITLE = #{title,jdbcType=VARCHAR},
+  			CONTRACT_DATE = to_date(#{contractDate},'yyyy-mm-dd'),
+  			DEPT_EXTEND = #{deptExtend,jdbcType=VARCHAR},
+  			POSITION = #{position,jdbcType=VARCHAR},
+  			STAT_FlAG = #{statFlag,jdbcType=VARCHAR},
+  			SALE_RANK_TWO = #{saleRankTwo,jdbcType=VARCHAR},
+  			DIRECTOR = #{director,jdbcType=VARCHAR},
+  			AREA = #{areaBrand,jdbcType=VARCHAR}
+  		where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 人员异动需要修改机构代码 -->
+	<update id="updateChangeByPrimaryKeyVo" parameterType="com.sinosafe.xszc.group.vo.Salesman" >
+		update SALESMAN
+		set 
+			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			PROCESS_STATUS = #{processStatus,jdbcType=CHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="validateInfoSalesman" parameterType="java.lang.String">
+		update salesman s 
+		set s.valid_ind = '0' 
+		where s.valid_ind = '1' 
+		  and s.salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="insertsalemanyidonghistory" parameterType="com.sinosafe.xszc.group.vo.Salesman">
+		insert into salesman_history (<include refid="salesmanhistory_column"/>,
+		change_type,
+		group_member_code,
+		invalid_date,
+		yidong_status,
+		valid_date
+		)
+		select #{historyId,jdbcType=VARCHAR},
+		SALESMAN_CODE,
+		DEPT_CODE,
+		dept_extend,
+		salesman_cname,
+		salesman_ename,
+		sex,
+		age,
+		birthday,
+		certify_no,
+		nation,
+		from_address,
+		party,
+		degree,
+		education,
+		magor,
+		status,
+		salesman_type,
+		contract_date,
+		entry_date,
+		regular_date,
+		title_type,
+		position,
+		business_no,
+		qualify_no,
+		marry,
+		process_status,
+		tel,
+		pwd,
+		pwd_update_time,
+		group_code,
+		hobby,
+		remark,
+		business_line,
+		last_line,
+		sale_rank,
+		trytou,
+		evaluate,
+		employ_code,
+		valid_ind,
+		created_user,
+		created_date,
+		#{updatedUser,jdbcType=VARCHAR},
+		sysDate,
+		dimission_date,
+		dept_code_last,
+		salesman_flag,
+		stat_flag,
+		'人员异动',
+		#{groupMemberCode},
+		to_date('2064/12/31','yyyy/mm/dd'),
+		'0',
+		to_date(substr(#{validDate},0,10),'yyyy-mm-dd') as valid_date
+		from salesman sm
+		where sm.salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+		and valid_ind='1'
+	</insert>
+	
+	<insert id="insertsalemanhistory" parameterType="com.sinosafe.xszc.group.vo.Salesman">
+		insert into salesman_history (<include refid="salesmanhistory_column"/>,
+		change_type
+		)
+		select #{historyId,jdbcType=VARCHAR},
+		SALESMAN_CODE,
+		DEPT_CODE,
+		dept_extend,
+		salesman_cname,
+		salesman_ename,
+		sex,
+		age,
+		birthday,
+		certify_no,
+		nation,
+		from_address,
+		party,
+		degree,
+		education,
+		magor,
+		status,
+		salesman_type,
+		contract_date,
+		entry_date,
+		regular_date,
+		title_type,
+		position,
+		business_no,
+		qualify_no,
+		marry,
+		process_status,
+		tel,
+		pwd,
+		pwd_update_time,
+		group_code,
+		hobby,
+		remark,
+		business_line,
+		last_line,
+		sale_rank,
+		trytou,
+		evaluate,
+		employ_code,
+		valid_ind,
+		created_user,
+		created_date,
+		#{updatedUser,jdbcType=VARCHAR},
+		sysDate,
+		dimission_date,
+		dept_code_last,
+		salesman_flag,
+		stat_flag,
+		'业务线变更'
+		from salesman sm
+		where sm.salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+		and valid_ind='1'
+	</insert>
+	<insert id="insertSalesmanHistory2" parameterType="map">
+		insert into salesman_history (<include refid="salesmanhistory_column"/>
+		
+		)
+		select #{historyId,jdbcType=VARCHAR},
+		SALESMAN_CODE,
+		DEPT_CODE,
+		dept_extend,
+		salesman_cname,
+		salesman_ename,
+		sex,
+		age,
+		birthday,
+		certify_no,
+		nation,
+		from_address,
+		party,
+		degree,
+		education,
+		magor,
+		status,
+		salesman_type,
+		contract_date,
+		entry_date,
+		regular_date,
+		title_type,
+		position,
+		business_no,
+		qualify_no,
+		marry,
+		process_status,
+		tel,
+		pwd,
+		pwd_update_time,
+		group_code,
+		hobby,
+		remark,
+		business_line,
+		last_line,
+		sale_rank,
+		trytou,
+		evaluate,
+		employ_code,
+		valid_ind,
+		created_user,
+		created_date,
+		#{updatedUser,jdbcType=VARCHAR},
+		sysDate,
+		dimission_date,
+		dept_code_last,
+		salesman_flag,
+		stat_flag
+	    from salesman sm
+		where sm.salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+		and valid_ind='1'
+		
+	</insert>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from SALESMAN
+	where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from SALESMAN
+	where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPKyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="User_Base_Column_List" />
+	from salesman s left join group_main g on s.group_code=g.group_code 
+	where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</select>
+
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="map" resultType="long">
+	select count(1)
+	from SALESMAN <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from SALESMAN
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from SALESMAN
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryListByWhere" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from SALESMAN t1 where t1.valid_Ind =  '1'
+			 and t1.process_status = '2'
+             and t1.status = '1'
+             and t1.salesman_flag = '1'
+		<if test="deptCode != null and deptCode != '' ">
+			and t1.dept_Code like '${deptCode}%' 
+		</if>
+	</select>
+	
+	<select id="querySalemanForLawImp" parameterType="map" resultMap="BaseResultMap">
+		select 
+		  t2.dept_code "deptCode", 
+		  t2.dept_simple_name "deptName",
+		  t1.salesman_code "salesmanCode",
+		  t1.employ_code "employCode",
+		  t1.salesman_cname "salesmanCname"
+		  from SALESMAN t1
+		  left join department t2
+		    on t1.dept_code = t2.dept_code
+		 where t1.valid_Ind = '1'
+		   and t1.process_status = '2'
+		   and t1.salesman_flag = '1'
+		   and t1.stat_flag = '1'
+		   <if test="deptCode != null and deptCode != '' ">
+			  and t1.dept_Code like '${deptCode}%' 
+		   </if>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from SALESMAN
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from SALESMAN
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from SALESMAN <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 查询团队下的员工 -->
+	<select id="queryGroupSalesman" parameterType="map" resultMap="BaseResultMap">
+    select t1.salesman_code, 
+           t1.salesman_cname
+      from salesman t1
+     left join group_main gm on t1.group_code = gm.group_code and gm.valid_ind = '1'
+     where t1.process_status = '2'
+		<if test="groupCode != null and groupCode != '' ">
+			and t1.group_code =  #{groupCode}
+		</if>
+		 <if test="userCode != null and userCode!= '' ">
+			and t1.salesman_code =  #{userCode}
+		</if>
+	</select>
+	
+ 	<!-- 查询员工的详细信息 -->
+	<select id="querySalesmanListPage" parameterType="map" resultMap="BaseResultMap">
+		select 
+			<include refid="Base_Column_Lists" />,
+			dl.pro_dept as "parentDeptCode", 
+			dl.pro_name as "parentDept",   
+			dl.city_dept as "deptNameCode",
+		    dl.city_name as "deptName",
+		    dl.market_name as "deptMarket",
+			gm.group_code as "groupCode", 
+			gm.group_name as "groupName",
+			tlaw.rank_name as "rankName",
+			to_char(t1.dimission_date,'yyyy-mm-dd') as "quitDate",
+			to_char(t1.front_date,'yyyy-mm-dd') as "frontDate",
+			to_char(t2.entry_date,'yyyy-mm-dd') as "entryGroupDate",
+			to_char(t2.leave_date,'yyyy-mm-dd') as "leaveGroupDate",
+			t2.pk_id as "pkId"
+		from salesman t1
+		  	left join t_law_rank_def tlaw on t1.sale_rank=tlaw.rank_code
+		  	left join department_level dl on t1.dept_code = dl.market_dept
+		  	left join group_main gm on t1.group_code = gm.group_code
+		  	left join group_menber t2 on t2.sales_code = t1.salesman_code and t2.group_code = t1.group_code
+		where t1.salesman_code = #{salesmanCode}
+	</select>
+	
+	 <!-- 查询员工的历史记录的详细信息 -->
+	<select id="querySalesmanHistoryList" parameterType="map" resultMap="BaseResultMap">
+			select t1.historyid, 
+			 to_char(t1.invalid_date,'yyyy-mm-dd')invalid_date,
+			 to_char(t1.valid_date,'yyyy-mm-dd') valid_date ,
+			<include refid="Base_Column_Lists" />,
+			dl.pro_dept as "parentDeptCode", 
+			dl.pro_name as "parentDept",   
+			dl.city_dept as "deptNameCode",
+		    dl.city_name as "deptName",
+		    dl.market_name as "deptMarket",
+			gm.group_code as "groupCode", 
+			gm.group_name as "groupName",
+			tlaw.rank_name as "rankName"
+			from salesman_history t1
+			inner join department_level dl on t1.dept_code = dl.market_dept
+			left join group_main gm on t1.group_code = gm.group_code
+			left join t_law_rank_def tlaw on t1.sale_rank=tlaw.rank_code
+			where t1.historyid = #{historyId} 
+	</select>
+
+	<select id="querySalesmanOfLastInfoListPage" parameterType="map" resultMap="BaseResultMap">
+			select <include refid="Base_Column_Lists" />,
+			dl.pro_dept as "parentDeptCode", 
+			dl.pro_name as "parentDept",   
+			dl.city_dept as "deptNameCode",
+		    dl.city_name as "deptName",
+		    dl.market_name as "deptMarket",
+			gm.group_code as "groupCode", 
+			gm.group_name as "groupName",
+			t1.DEPT_CODE as "deptCode"
+			from salesman t1
+			inner join department_level dl on nvl(t1.dept_code_last,t1.dept_code) = dl.market_dept
+			left join group_main gm on t1.group_code = gm.group_code
+			where t1.salesman_code = #{salesmanCode}
+	</select>
+	
+	<!-- 查询HR人员的name和code，用于非HR人员新增 -->
+	<select id="queryNameAndCode" parameterType="map" resultMap="BaseResultMap">
+		select t1.salesman_code as "value",
+	       t1.salesman_cname as "text"
+	       from salesman t1 
+	       where t1.valid_ind = '1'
+		<if test="deptCode != null and deptCode!= '' ">
+			 and t1.dept_code = #{deptCode}
+		</if>
+	     <if test="salesmanCode != null and salesmanCode!= '' ">
+			 and t1.salesman_code = #{salesmanCode}
+		</if>
+	</select>
+	
+	<select id="querySalesmanInfoByCode" parameterType="map" resultMap="BaseResultMap">
+		select sale.salesman_code,sale.tel,sale.EMPLOY_CODE 
+			from salesman sale
+	        where sale.valid_ind = '1' 
+	        and sale.salesman_code = #{salesmanCode}
+	</select>
+	
+	<update id="updateSaleRank" parameterType="com.sinosafe.xszc.group.vo.Salesman" >
+		update SALESMAN
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}, 
+            updated_date = sysdate,
+   			SALE_RANK = #{saleRank,jdbcType=VARCHAR}
+  		where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="resetSalesman" parameterType="map" >
+		update SALESMAN
+		set process_status = '1',
+		    group_code='',
+		    business_line='',
+		    sale_rank='',
+		    trytou='',
+		    evaluate='',
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}, 
+            updated_date = sysdate
+  		where SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="queryDeptSalesman" parameterType="map" resultMap="BaseResultMap">
+    select t1.salesman_code, 
+           t1.salesman_cname
+      from salesman t1
+    where t1.dept_code like #{deptCode} || '%'
+      and t1.valid_ind = '1'
+	</select>
+	
+	<!--根据本门编码查询HR人员(人员工号和名称)-->
+	<select id="querySalesmanEmpCode" parameterType="map" resultMap="BaseResultMap">
+    select t1.EMPLOY_CODE as "employCode", 
+           t1.salesman_cname as "salesmanCname"
+      from salesman t1
+    where t1.dept_code like #{deptCode} || '%'
+      and t1.valid_ind = '1'
+      order by t1.salesman_cname
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryPageListCount" parameterType="map" resultType="long">
+		select count(1)
+		  from salesman t1
+		  left join group_main t2
+		    on t1.group_code = t2.group_code
+		    and t2.valid_ind = '1'
+		  left join business_line b
+		    on t1.business_line = b.line_code
+		  left join t_law_rank_def t3
+		    on  t1.sale_rank = t3.rank_code
+		    and t1.sale_rank is not null
+		    and t3.valid_ind = '1'
+		  left join salesman_category sc 
+		  	on t1.position_category_name = sc.category_name
+		 where 1=1
+		   and t1.dept_code not like '00%'
+		   <include refid="Base_Where_Sql_Multi_Table" />
+		   <!-- 分业务线查询，废除，2016年之后不分业务线
+		   and ( 
+		         t1.process_status = '1' 
+		         or
+		         ( 
+		           t1.process_status = '2' 
+		           and   
+		           <foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+		               t1.business_line = #{nrlValue,jdbcType=VARCHAR}
+		           </foreach>
+		         )
+		       )
+		    -->   
+	</select>
+	
+	
+	<!-- 条件查询总数据量 -->
+	<select id="querysalesmanhistory" parameterType="map" resultType="long">
+		select count(1)
+		  from salesman_history t1
+		  left join group_main t2
+		    on t1.group_code = t2.group_code
+		    and t1.valid_ind = '1'
+		  left join business_line b
+		    on t1.business_line = b.line_code
+		  left join t_law_rank_def t3
+		    on  t1.sale_rank = t3.rank_code
+		    and t1.sale_rank is not null
+		    and t3.valid_ind = '1'
+		 where 1=1 and t1.salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+		   and t1.valid_ind = '1'
+		   and t1.dept_code not like '00%'
+		<include refid="Base_Where_Sql_Multi_Table" />
+	</select>
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageList" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+				select t1.dept_code,
+				       t1.salesman_cname,
+				       t1.salesman_code,
+				       t1.age,
+				       t1.tel,
+				       t1.marry,
+				       t1.party,
+				       t1.title_type,
+				       t1.sex,
+				       t1.process_status,
+				       decode(t1.status,'1','在职','2','离职','3','离退休','4','不在职','') "status",
+				       decode(t1.salesman_type,'1','正式员工','2','试用员工','3','实习员工','6','待岗','7','内退员工',
+				              '8','离退休','9','内退员工','10','挂靠员工','11','顶岗实习','12','离职','13','其它','14','返聘') "salesmanType",
+				       t1.last_line,
+				       b.line_name "businessLine",
+				       t1.trytou,
+				       t1.magor,
+				       t1.title,
+				       t1.dept_extend,
+				       t1.education,
+				       t1.evaluate,
+				       t1.group_code,
+				       t1.employ_code,
+				       to_char(t1.entry_date, 'yyyy-mm-dd') entry_date,
+				       t1.business_no,
+				       t1.certify_no,
+				       to_char(t1.birthday, 'yyyy-mm-dd') birthday,
+				       to_char(t1.front_date, 'yyyy-mm-dd') front_date,
+				       to_char(t1.regular_date, 'yyyy-mm-dd') regular_date,
+				       to_char(t1.contract_date,'yyyy-mm-dd') contract_date,
+				       to_char(t1.dimission_date,'yyyy-mm-dd') "quitDate",
+				       t1.position,
+				       t1.salesman_flag "salesmanFlag",
+				       t2.group_name "groupName",
+				       t3.rank_name "rankName",
+				       t1.valid_ind as "validInd"
+                       <!--, 
+				       (select count(1) from GROUP_LEADER_RECORD c 
+				       where c.group_leader = t1.salesman_code
+				        and c.valid_ind = '1') "isLeader"-->
+				  from salesman t1
+				  left join group_main t2
+				    on t1.group_code = t2.group_code
+				    and t2.valid_ind = '1'
+				  left join business_line b
+				    on t1.business_line = b.line_code
+				  left join t_law_rank_def t3
+				    on  t1.sale_rank = t3.rank_code
+				    and t1.sale_rank is not null
+				    and t3.valid_ind = '1'
+				  left join salesman_category sc 
+				    on t1.position_category_name = sc.category_name
+				 where 1=1
+				   and t1.dept_code not like '00%'
+				   <include refid="Base_Where_Sql_Multi_Table"/>
+				   <!-- 分业务线查询，废除，2016年之后不分业务线 
+			       and ( 
+				         t1.process_status = '1' 
+				         or
+				         ( 
+				           t1.process_status = '2' 
+				           and   
+				           <foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+				               t1.business_line = #{nrlValue,jdbcType=VARCHAR}
+			               </foreach>
+			             )
+				       )
+				    -->
+		         order by t1.dept_code asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!--查询变更后记录-->
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageHistoryList" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				       t1.historyid,
+				       t1.dept_code,
+				       t1.salesman_cname,
+				       t1.salesman_code,
+				       t1.age,
+				       t1.tel,
+				       t1.marry,
+				       t1.party,
+				       t1.title_type,
+				       t1.sex,
+				       t1.process_status,
+				       decode(t1.status,'1','在职','2','离职','3','离退休','4','不在职','') "status",
+				       decode(t1.salesman_type,'1','正式员工','2','试用员工','3','实习员工','6','待岗','7','内退员工',
+				              '8','离退休','9','内退员工','10','挂靠员工','11','顶岗实习','12','离职','13','其它','14','返聘') "salesmanType",
+				       t1.last_line,
+				       b.line_name "businessLine",
+				       t1.trytou,
+				       t1.magor,
+				       t1.title,
+				       t1.dept_extend,
+				       t1.education,
+				       t1.evaluate,
+				       t1.group_code,
+				       t1.employ_code,
+				       to_char(t1.entry_date, 'yyyy-mm-dd') entry_date,
+				       t1.business_no,
+				       t1.certify_no,
+				       to_char(t1.birthday, 'yyyy-mm-dd') birthday,
+				       to_char(t1.regular_date, 'yyyy-mm-dd') regular_date,
+				       to_char(t1.contract_date, 'yyyy-mm-dd') contract_date,
+				       t1.position,
+				       t1.salesman_flag "salesmanFlag",
+				       t2.group_name "groupName",
+				       t3.rank_name "rankName",
+				       to_char(t1.updated_date,'yyyy-mm-dd HH24:MI:SS') updated_date2,
+				       t1.updated_user,
+				        to_char(t1.valid_date,'yyyy-mm-dd') valid_date,
+				       to_char(t1.invalid_date,'yyyy-mm-dd') invalid_date
+				       
+                       <!--, 
+				       (select count(1) from GROUP_LEADER_RECORD c 
+				       where c.group_leader = t1.salesman_code
+				        and c.valid_ind = '1') "isLeader"-->
+				  from salesman_history t1
+				  left join group_main t2
+				    on t1.group_code = t2.group_code
+				    and t1.valid_ind = '1'
+				  left join business_line b
+				    on t1.business_line = b.line_code
+				  left join t_law_rank_def t3
+				    on  t1.sale_rank = t3.rank_code
+				    and t1.sale_rank is not null
+				    and t3.valid_ind = '1'
+				 where 1=1  and t1.salesman_code=#{salesmanCode,jdbcType=VARCHAR}
+				   and t1.valid_ind = '1'
+				   and t1.dept_code not like '00%'
+				   <if test="#{changeType}=='业务线变更'">
+				   	and t1.change_type='业务线变更'
+				   </if>
+				     <if test="#{changeType}=='人员异动'">
+				   	and t1.change_type='人员异动'
+				   </if>
+				  
+		<include refid="Base_Where_Sql_Multi_Table"/>
+		         order by t1.updated_date desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+    <!-- 查询父机构代码和名称 -->
+	<select id="getParentDept" parameterType="java.lang.String" resultType="map">
+		select t2.dept_code "deptCode", t2.dept_simple_name "deptName",t2.dept_level "deptLevel"
+		  from department t1, department t2
+		 where 1 = 1
+		   and t1.dept_code = #{deptCode,jdbcType=VARCHAR}
+		   and t1.parent_dept_code = t2.dept_code
+	</select>
+	
+	<!-- 查询多级机构的代码 及名称 ，机构代码为营销服务部-->
+	<select id="getMultiDeptInfo" parameterType="java.lang.String" resultType="map">
+		select t.market_dept as "deptCodeFour",
+		       t.market_name as "deptNameFour",
+		       t.city_dept   as "deptCodeThree",
+		       t.city_name   as "deptNameThree",
+		       t.pro_dept    as "deptCodeTwo",
+		       t.pro_name    as "deptNameTwo"
+		  from department_level t
+		 where market_dept = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 查询多级机构的代码 及名称,机构代码为 支公司-->
+	<select id="getMultiDeptMark" parameterType="java.lang.String" resultType="map">
+		select '' as "deptCodeFour",
+		       '' as "deptNameFour",
+		       t1.dept_code as "deptCodeThree",
+		       t1.dept_simple_name as "deptNameThree",
+		       t2.dept_code as "deptCodeTwo",
+		       t2.dept_simple_name as "deptNameTwo"
+		  from department t1
+		  left join department t2
+		    on t1.parent_dept_code = t2.dept_code
+		 where t1.dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 查询多级机构的代码 及名称，机构代码为 分公司 -->
+	<select id="getMultiDeptProd" parameterType="java.lang.String" resultType="map">
+		select '' as "deptCodeFour",
+		       '' as "deptNameFour",
+		       '' as "deptCodeThree",
+		       '' as "deptNameThree",
+		       t1.dept_code as "deptCodeTwo",
+		       t1.dept_simple_name as "deptNameTwo"
+		  from department  t1
+		 where dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 查询机构名称 -->
+	<select id="getDeptNameByCode" parameterType="java.lang.String" resultType="java.lang.String">
+		select t.dept_simple_name "deptName"
+		  from department t
+		 where 1 = 1
+		   and t.dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 组织架构，统计团队数量，stat_flag 0不参与，1参与，设置团队长参与统计，取消或者不设置团队长则不统计 -->
+	<select id="queryGroupCount" parameterType="map" resultType="long" >
+		select count(1)
+		  from group_main t
+		 where 1=1
+		  and t.valid_ind = '1'
+		  and t.virtual_flag = '0'
+		  and t.stat_flag = '1'
+		 <if test="deptCode !=null and deptCode != '' " >
+		 	and t.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+		 </if>
+	</select>
+	
+    <!-- 组织架构，统计人员数量 -->
+	<select id="querySalesmanCount" parameterType="map" resultType="long" >
+		select count(1)
+		 from salesman t
+		where 1=1
+		  and t.valid_ind = '1'
+		  and t.process_status = '2'
+		  and t.status = '1'
+		  and t.salesman_flag = '1'
+		  and t.stat_flag = '1'
+		  and t.sale_rank is not null
+		 <if test="deptCode !=null and deptCode != '' " >
+		 	and t.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+		 </if>
+		 <if test="businessLine !=null and businessLine != '' " >
+		 	and t.business_line = #{businessLine, jdbcType=VARCHAR}
+		 </if>
+	</select>
+	
+	<select id="lawRankDefByRankCode" parameterType="java.lang.String" resultType="java.lang.Long">
+		select count(1) "total"
+		from T_LAW_RANK_DEF t 
+		where t.rank_code = #{rankCode,jdbcType=VARCHAR}
+		  and t.rank_name = '其他'
+	</select>
+	
+	<!-- 该职级的销售人员是否参与人数统计 -->
+	<select id="getRankStatFlag" parameterType="java.lang.String" resultType="java.lang.String">
+		select t.stat_flag "statFlag"
+		  from t_law_rank_def t
+		 where t.valid_ind = '1'
+		   and t.rank_code = #{rankCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="isExistSalesmanVirtual" parameterType="java.lang.String" resultType="java.lang.Long">
+		select count(1) "total" 
+		from salesman_virtual sv 
+		where sv.employ_code = #{employCode,jdbcType=VARCHAR}
+		  and sv.valid_ind = '1'
+		  and sv.salesman_type = '0'
+	</select>
+	
+	<select id="querySalesDirector" parameterType="java.lang.String" resultType="java.lang.String">
+		select decode(s.sale_director,'1','是','0','否','','否','') 
+		from salesman s 
+		where s.employ_code=#{salesmanCode,jdbcType=VARCHAR}
+	</select>
+	
+	<insert id="copyAndInsertSalesmanVirtual" parameterType="java.lang.String" >
+		insert into salesman_virtual(
+			virtual_id,
+			dept_code,
+			cname,
+			ename,
+			enter_date,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date,
+			employ_code,
+			end_date,
+			certiry_no,
+			birthday,
+			salesman_type 
+		)
+		select
+			sys_guid(),
+			dept_code,
+			salesman_cname,
+			salesman_ename,
+			entry_date,
+			'1',
+			created_user,
+			sysdate,
+			updated_user,
+			sysdate,
+			employ_code,
+			dimission_date,
+			certify_no,
+			birthday,
+			'0'
+		from salesman s
+		where s.valid_ind = '1'
+		  and s.employ_code = #{employCode,jdbcType=VARCHAR}
+	</insert>
+	
+	<update id="copyAndUpdateSalesmanVirtual" parameterType="com.sinosafe.xszc.group.vo.Salesman" >
+		update salesman_virtual	sv
+		set (
+			sv.cname,
+			sv.ename,
+			sv.enter_date,
+			sv.updated_user,
+			sv.updated_date,
+			sv.end_date,
+			sv.certiry_no,
+			sv.birthday
+		  ) = (
+		  	select 			
+              s.salesman_cname,
+			  s.salesman_ename,
+			  s.entry_date,
+			  #{updatedUser,jdbcType=VARCHAR},
+			  sysdate,
+			  s.DIMISSION_DATE,
+			  s.certify_no,
+			  s.birthday
+      		from salesman s
+      		where s.valid_ind = '1'
+		  	  and s.employ_code = sv.employ_code
+		  )
+		where sv.employ_code = #{employCode,jdbcType=VARCHAR}
+		  and sv.valid_ind = '1'
+		  and sv.salesman_type = '0'
+	</update>
+	<!-- 恢复员工的删除状态 -->
+	<update id="recoverDelStatus" parameterType="map">
+		update salesman t
+		   set 
+		   t.valid_ind = '1',
+		   t.updated_user = #{userCode,jdbcType=VARCHAR},
+		   t.updated_date = sysdate	
+		 where t.salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+		   and t.valid_ind = '0'
+		   and rownum = 1
+	</update>
+	
+	<insert id="insertGroupMember" parameterType="map" >
+		insert into GROUP_MENBER(
+			pk_id,
+			group_code,
+			sales_code,
+			employ_code,
+			entry_date,
+			leave_date,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date
+		) values (
+		    sys_guid(),
+		    #{groupCode,jdbcType=VARCHAR},
+		    #{salesCode,jdbcType=VARCHAR},
+		    (select t.employ_code from salesman t where t.salesman_code = #{salesmanCode,jdbcType=VARCHAR}),
+		    to_date(#{entryGroupDate},'yyyy-mm-dd hh24:mi:ss'),
+		    to_date('2099-12-31','yyyy-mm-dd'),
+		    '1',
+		    #{currentUser,jdbcType=VARCHAR},
+		    sysdate,
+		    #{currentUser,jdbcType=VARCHAR},
+		    sysdate
+		)
+		
+	</insert>	
+	
+	<update id="updateMember" parameterType="map">
+		update GROUP_MENBER t
+		   set 
+		   t.leave_date = to_date(#{validDate},'yyyy-mm-dd hh24:mi:ss'),
+		   t.updated_user = #{currentUser,jdbcType=VARCHAR},
+		   t.updated_date = sysdate	
+		 where t.group_code = #{groupCode,jdbcType=VARCHAR}
+		   and t.sales_code = #{salesCode,jdbcType=VARCHAR}
+		   and t.valid_ind = '1'
+	</update>
+	
+	<insert id="insertMember" parameterType="map" >
+		insert into GROUP_MENBER(
+			pk_id,
+			group_code,
+			sales_code,
+			employ_code,
+			entry_date,
+			leave_date,
+			valid_ind,
+			created_user,
+			created_date,
+			updated_user,
+			updated_date
+		) values (
+		    sys_guid(),
+		    #{groupCode,jdbcType=VARCHAR},
+		    #{salesmanCode,jdbcType=VARCHAR},
+		    (select t.employ_code from salesman t where t.salesman_code = #{salesmanCode,jdbcType=VARCHAR}),
+		    to_date(substr(#{validDate},0,10),'yyyy-mm-dd'),
+		    to_date('2099-12-31','yyyy-mm-dd'),
+		    '1',
+		    #{currentUser,jdbcType=VARCHAR},
+		    sysdate,
+		    #{currentUser,jdbcType=VARCHAR},
+		    sysdate
+		)
+	</insert>	
+	
+	<select id="queryGroupCode" parameterType="map" resultType="java.lang.String">
+		select t1.group_code
+		  from salesman t1
+		  left join group_main t2
+		    on t1.group_code = t2.group_code
+		   and t2.valid_ind = '1'
+		 where t1.valid_ind = '1'
+		   and t1.salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 查询HR人员记录 -->
+    <select id="querySalesmanHisHr" parameterType="map" resultType="map">
+    select * from (
+        select a.*,rownum rn from (
+			select t.account as "account",
+			       t.employeename "employeename",
+			       decode(t.status,'1','在职','2','离职','3','退休','2','不在职','未知') as "status",
+			       to_char(t.inpositiondate,'yyyy-mm-dd') as "inpositiondate",
+			       to_char(t.dimissiontime,'yyyy-mm-dd') as "dimissiontime",
+			       to_char(t.enterdate,'yyyy-mm-dd') as "enterdate",
+			       to_char(t.induedate,'yyyy-mm-dd') as "induedate",
+			       t.ifty as "ifty",
+			       t.positionname as "positionname",
+			       t.jobcategoryname as "jobcategoryname",
+			       t.companyname as "companyname"
+			  from emp_base_info t
+			 where 1 = 1
+			   and t.account = #{salesmanCode,jdbcType=VARCHAR}
+			 order by t.inpositiondate desc
+        ) a where rownum &lt;= 10000
+    ) where rn &gt;= 1
+    </select>
+    <update id="updateSalesmanMenberDate" parameterType="map">
+    	update group_menber t set 
+    	   t.entry_date = to_date(#{entryGroupDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+    	   t.leave_date = to_date(#{leaveGroupDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+    	   t.updated_user = #{currentUser,jdbcType=VARCHAR},
+    	   t.updated_date = sysdate
+    	where t.pk_id = #{pkId,jdbcType=VARCHAR}   
+    </update>
+    <update id="updateSalesmanFrontDate" parameterType="map">
+    	update salesman t set
+    	   t.front_date = to_date(#{frontDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+    	   t.updated_user = #{currentUser,jdbcType=VARCHAR},
+    	   t.updated_date = sysdate
+    	where t.salesman_code = #{salesCode,jdbcType=VARCHAR}
+    </update>
+    
+    <insert id="insertSalesmanRecord" parameterType="map">
+		insert into salesman_record(
+			salesman_code,
+			employ_code,  
+			front_date,   
+			entry_date,   
+			leave_date,
+			sign_num,   
+			created_user, 
+			created_date, 
+			updated_user, 
+			updated_date 
+		) values(
+			#{salesCode,jdbcType=VARCHAR},
+			#{employCode,jdbcType=VARCHAR},
+			to_date(#{frontDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+			to_date(#{entryGroupDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+			to_date(#{leaveGroupDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+			#{signNum,jdbcType=VARCHAR},
+			#{currentUser,jdbcType=VARCHAR},
+		    sysdate,
+		    #{currentUser,jdbcType=VARCHAR},
+		    sysdate
+		)    	
+    </insert>
+    <update id="delGroupMenber" parameterType="map">
+    	 delete from group_menber t where to_char(t.leave_date,'yyyy/mm/dd') = '2099/12/31' and t.sales_code = #{salesmanCode,jdbcType=VARCHAR}
+    </update>
+    <select id="querySalesmanRecord" parameterType="map" resultType="map">
+    	select 
+	    	t.salesman_code as "salesmanCode", 
+	    	t.employ_code as "employCode", 
+	    	to_char(t.front_date,'yyyy-mm-dd') as "frontDate", 
+	    	to_char(t.entry_date,'yyyy-mm-dd') as "entryDate", 
+	    	to_char(t.leave_date,'yyyy-mm-dd') as "leaveDate", 
+	    	t.sign_num as "signNum"
+		  from salesman_record t
+		 where t.salesman_code = #{salesmanCode,jdbcType=VARCHAR}
+		 order by t.leave_date desc
+    </select>
+</mapper>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>系统访问记录</title>
+</head>
+<body>
+     <form id="editMsgForm">
+    	   <input type="hidden" name="pkId" id="pkId" />
+    	   <input type="hidden" name="parentPkid" id="parentPkid"/>
+		   <table>
+			   <tr>
+				  <td style="padding-left:15px;height:28px"><span class="label">页面名称：</span></td>
+				  <td><input class="sele" name="pageName" id="pageName" style="width:240px" />&nbsp;如：“管理办法内容页面”</td>
+			   </tr>
+			   <tr>
+				  <td style="padding-left:15px;height:28px"><span class="label">页面代码：</span></td>
+				  <td><input class="sele" name="pageCode" id="pageCode" style="width:240px;background-color:#DCDCDC" readonly="readonly" />&nbsp;页面的识别码为自动生成,不可以修改</td>
+			   </tr>
+			   <tr>
+				  <td style="padding-left:15px;height:28px"><span class="label">帮助信息：</span></td>
+				  <td><textarea name="helpContent" style="width:500px;height:150px;" ></textarea></td>
+			   </tr>
+			   <tr>
+				  <td colspan="2" align="center">
+				     <span id="submitBtn" onclick="submitHelpData()" style="border:1px solid gray;width:102px;height:30px;display: inline-block;line-height:30px;cursor: pointer;">保存</span>
+				  </td>
+			   </tr>
+		   </table>
+	</form>
+</body>
+</html>

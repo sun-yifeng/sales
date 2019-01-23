@@ -1,0 +1,1 @@
+此目录存放function函数（不是存过包里面的function函数）。

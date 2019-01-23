@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.department.vo.Department" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="DEPT_CODE" property="deptCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="DEPT_ENAME" property="deptEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TAX_REGIST_NO" property="taxRegistNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FOUND_DATE" property="foundDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_RELATION_CODE" property="deptRelationCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CADDRESS" property="deptCaddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_NO" property="licenseNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONSULT_TEL" property="consultTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_VALID" property="licenseValid" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="DEPT_SIMPLE_NAME" property="deptSimpleName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TAX_RECOGNIZE_NO" property="taxRecognizeNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EXPIRE_DATE" property="expireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="QUALIFY_NO" property="qualifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ALARM_FLAG" property="alarmFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="TEL_DEPT_FLAG" property="telDeptFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_EADDRESS" property="deptEaddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INTER_CODE" property="interCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_LEVEL" property="deptLevel" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="CASE_ADDRESS" property="caseAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT_USER" property="contactUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="SPECIAL_DEPT" property="specialDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CIRC_CODE" property="circCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALE_REGION_CODE" property="saleRegionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_EXPIRE" property="licenseExpire" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CASE_TEL" property="caseTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_DEPT_CODE" property="parentDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POST_CODE" property="postCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_FLAG" property="deptFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CNAME" property="deptCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_SERIES" property="deptSeries" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURE_LICENSE_NO" property="insureLicenseNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CNAME" property="salesmanCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="Tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.department.vo.Department">
+		<id column="DEPT_CODE" property="deptCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="DEPT_ENAME" property="deptEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TAX_REGIST_NO" property="taxRegistNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FOUND_DATE" property="foundDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_RELATION_CODE" property="deptRelationCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CADDRESS" property="deptCaddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_NO" property="licenseNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONSULT_TEL" property="consultTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_VALID" property="licenseValid" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="DEPT_SIMPLE_NAME" property="deptSimpleName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TAX_RECOGNIZE_NO" property="taxRecognizeNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EXPIRE_DATE" property="expireDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="QUALIFY_NO" property="qualifyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ALARM_FLAG" property="alarmFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="TEL_DEPT_FLAG" property="telDeptFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_EADDRESS" property="deptEaddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INTER_CODE" property="interCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_LEVEL" property="deptLevel" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="CASE_ADDRESS" property="caseAddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONTACT_USER" property="contactUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="SPECIAL_DEPT" property="specialDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CIRC_CODE" property="circCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALE_REGION_CODE" property="saleRegionCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LICENSE_EXPIRE" property="licenseExpire" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CASE_TEL" property="caseTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_DEPT_CODE" property="parentDeptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="POST_CODE" property="postCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_FLAG" property="deptFlag" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CNAME" property="deptCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_SERIES" property="deptSeries" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSURE_LICENSE_NO" property="insureLicenseNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		DEPT_ENAME,
+		CREATED_USER,
+		TAX_REGIST_NO,
+		to_char(FOUND_DATE, 'yyyy-mm-dd') as "FOUND_DATE",
+		UPDATED_DATE,
+		DEPT_RELATION_CODE,
+		VALID_IND,
+		CREATED_DATE,
+		DEPT_CADDRESS,
+		LICENSE_NO,
+		TEL,
+		CONSULT_TEL,
+		to_char(LICENSE_VALID, 'yyyy-mm-dd') as "LICENSE_VALID",
+		DEPT_SIMPLE_NAME,
+		TAX_RECOGNIZE_NO,
+		FAX,
+		UPDATED_USER,
+		to_char(EXPIRE_DATE, 'yyyy-mm-dd') as "EXPIRE_DATE",
+		QUALIFY_NO,
+		ALARM_FLAG,
+		TEL_DEPT_FLAG,
+		DEPT_EADDRESS,
+		INTER_CODE,
+		DEPT_LEVEL,
+		CASE_ADDRESS,
+		CONTACT_USER,
+		DEPT_CODE,
+		SPECIAL_DEPT,
+		CIRC_CODE,
+		SALE_REGION_CODE,
+		to_char(LICENSE_EXPIRE, 'yyyy-mm-dd') as "LICENSE_EXPIRE",
+		CASE_TEL,
+		PARENT_DEPT_CODE,
+		POST_CODE,
+		DEPT_FLAG,
+		DEPT_CNAME,
+		DEPT_SERIES,
+		INSURE_LICENSE_NO
+	</sql>
+	
+	<!-- 新增数据列Sql -->
+	<sql id="insert_Base_Column" >
+		DEPT_ENAME,
+		CREATED_USER,
+		TAX_REGIST_NO,
+		FOUND_DATE,
+		UPDATED_DATE,
+		DEPT_RELATION_CODE,
+		VALID_IND,
+		CREATED_DATE,
+		DEPT_CADDRESS,
+		LICENSE_NO,
+		TEL,
+		CONSULT_TEL,
+		LICENSE_VALID,
+		DEPT_SIMPLE_NAME,
+		TAX_RECOGNIZE_NO,
+		FAX,
+		UPDATED_USER,
+		EXPIRE_DATE,
+		QUALIFY_NO,
+		ALARM_FLAG,
+		TEL_DEPT_FLAG,
+		DEPT_EADDRESS,
+		INTER_CODE,
+		DEPT_LEVEL,
+		CASE_ADDRESS,
+		CONTACT_USER,
+		DEPT_CODE,
+		SPECIAL_DEPT,
+		CIRC_CODE,
+		SALE_REGION_CODE,
+		LICENSE_EXPIRE,
+		CASE_TEL,
+		PARENT_DEPT_CODE,
+		POST_CODE,
+		DEPT_FLAG,
+		DEPT_CNAME,
+		DEPT_SERIES,
+		INSURE_LICENSE_NO
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		DEPT_ENAME as "deptEname",
+		CREATED_USER as "createdUser",
+		TAX_REGIST_NO as "taxRegistNo",
+		FOUND_DATE as "foundDate",
+		UPDATED_DATE as "updatedDate",
+		DEPT_RELATION_CODE as "deptRelationCode",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		DEPT_CADDRESS as "deptCaddress",
+		LICENSE_NO as "licenseNo",
+		TEL as "tel",
+		CONSULT_TEL as "consultTel",
+		LICENSE_VALID as "licenseValid",
+		DEPT_SIMPLE_NAME as "deptSimpleName",
+		TAX_RECOGNIZE_NO as "taxRecognizeNo",
+		FAX as "fax",
+		UPDATED_USER as "updatedUser",
+		EXPIRE_DATE as "expireDate",
+		QUALIFY_NO as "qualifyNo",
+		ALARM_FLAG as "alarmFlag",
+		TEL_DEPT_FLAG as "telDeptFlag",
+		DEPT_EADDRESS as "deptEaddress",
+		INTER_CODE as "interCode",
+		DEPT_LEVEL as "deptLevel",
+		CASE_ADDRESS as "caseAddress",
+		CONTACT_USER as "contactUser",
+		DEPT_CODE as "deptCode",
+		SPECIAL_DEPT as "specialDept",
+		CIRC_CODE as "circCode",
+		SALE_REGION_CODE as "saleRegionCode",
+		LICENSE_EXPIRE as "licenseExpire",
+		CASE_TEL as "caseTel",
+		PARENT_DEPT_CODE as "parentDeptCode",
+		POST_CODE as "postCode",
+		DEPT_FLAG as "deptFlag",
+		DEPT_CNAME as "deptCname",
+		DEPT_SERIES as "deptSeries",
+		INSURE_LICENSE_NO as "insureLicenseNo"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{deptEname,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{taxRegistNo,jdbcType=VARCHAR},
+ 		to_date(#{foundDate,jdbcType=DATE},'yyyy-MM-dd'),
+ 		sysdate,
+ 		#{deptRelationCode,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{deptCaddress,jdbcType=VARCHAR},
+ 		#{licenseNo,jdbcType=VARCHAR},
+ 		#{tel,jdbcType=VARCHAR},
+ 		#{consultTel,jdbcType=VARCHAR},
+ 		to_date(#{licenseValid,jdbcType=DATE},'yyyy-MM-dd'),
+ 		#{deptSimpleName,jdbcType=VARCHAR},
+ 		#{taxRecognizeNo,jdbcType=VARCHAR},
+ 		#{fax,jdbcType=VARCHAR},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		to_date(#{expireDate,jdbcType=DATE},'yyyy-MM-dd'),
+ 		#{qualifyNo,jdbcType=VARCHAR},
+ 		#{alarmFlag,jdbcType=CHAR},
+ 		#{telDeptFlag,jdbcType=CHAR},
+ 		#{deptEaddress,jdbcType=VARCHAR},
+ 		#{interCode,jdbcType=VARCHAR},
+ 		#{deptLevel,jdbcType=INTEGER},
+ 		#{caseAddress,jdbcType=VARCHAR},
+ 		#{contactUser,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{specialDept,jdbcType=VARCHAR},
+ 		#{circCode,jdbcType=VARCHAR},
+ 		#{saleRegionCode,jdbcType=VARCHAR},
+ 		to_date(#{licenseExpire,jdbcType=DATE},'yyyy-MM-dd'),
+ 		#{caseTel,jdbcType=VARCHAR},
+ 		#{parentDeptCode,jdbcType=VARCHAR},
+ 		#{postCode,jdbcType=VARCHAR},
+ 		#{deptFlag,jdbcType=VARCHAR},
+ 		#{deptCname,jdbcType=VARCHAR},
+ 		#{deptSeries,jdbcType=VARCHAR},
+ 		#{insureLicenseNo,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="deptEname != null and deptEname != ''">
+			and DEPT_ENAME = #{deptEname,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="taxRegistNo != null and taxRegistNo != ''">
+			and TAX_REGIST_NO = #{taxRegistNo,jdbcType=VARCHAR}
+		</if>
+		<if test="foundDate != null and foundDate != ''">
+			and FOUND_DATE = #{foundDate,jdbcType=DATE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptRelationCode != null and deptRelationCode != ''">
+			and DEPT_RELATION_CODE = #{deptRelationCode,jdbcType=VARCHAR}
+		</if>
+			and VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="deptCaddress != null and deptCaddress != ''">
+			and DEPT_CADDRESS = #{deptCaddress,jdbcType=VARCHAR}
+		</if>
+		<if test="licenseNo != null and licenseNo != ''">
+			and LICENSE_NO = #{licenseNo,jdbcType=VARCHAR}
+		</if>
+		<if test="tel != null and tel != ''">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="consultTel != null and consultTel != ''">
+			and CONSULT_TEL = #{consultTel,jdbcType=VARCHAR}
+		</if>
+		<if test="licenseValid != null and licenseValid != ''">
+			and LICENSE_VALID = #{licenseValid,jdbcType=DATE}
+		</if>
+		<if test="deptSimpleName != null and deptSimpleName != ''">
+			and DEPT_SIMPLE_NAME = #{deptSimpleName,jdbcType=VARCHAR}
+		</if>
+		<if test="taxRecognizeNo != null and taxRecognizeNo != ''">
+			and TAX_RECOGNIZE_NO = #{taxRecognizeNo,jdbcType=VARCHAR}
+		</if>
+		<if test="fax != null and fax != ''">
+			and FAX = #{fax,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="expireDate != null and expireDate != ''">
+			and EXPIRE_DATE = #{expireDate,jdbcType=DATE}
+		</if>
+		<if test="qualifyNo != null and qualifyNo != ''">
+			and QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="alarmFlag != null and alarmFlag != ''">
+			and ALARM_FLAG = #{alarmFlag,jdbcType=CHAR}
+		</if>
+		<if test="telDeptFlag != null and telDeptFlag != ''">
+			and TEL_DEPT_FLAG = #{telDeptFlag,jdbcType=CHAR}
+		</if>
+		<if test="deptEaddress != null and deptEaddress != ''">
+			and DEPT_EADDRESS = #{deptEaddress,jdbcType=VARCHAR}
+		</if>
+		<if test="interCode != null and interCode != ''">
+			and INTER_CODE = #{interCode,jdbcType=VARCHAR}
+		</if>
+		<if test="deptLevel != null and deptLevel != ''">
+			and DEPT_LEVEL = #{deptLevel,jdbcType=INTEGER}
+		</if>
+		<if test="caseAddress != null and caseAddress != ''">
+			and CASE_ADDRESS = #{caseAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="contactUser != null and contactUser != ''">
+			and CONTACT_USER = #{contactUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="specialDept != null and specialDept != ''">
+			and SPECIAL_DEPT = #{specialDept,jdbcType=VARCHAR}
+		</if>
+		<if test="circCode != null and circCode != ''">
+			and CIRC_CODE = #{circCode,jdbcType=VARCHAR}
+		</if>
+		<if test="saleRegionCode != null and saleRegionCode != ''">
+			and SALE_REGION_CODE = #{saleRegionCode,jdbcType=VARCHAR}
+		</if>
+		<if test="licenseExpire != null and licenseExpire != ''">
+			and LICENSE_EXPIRE = #{licenseExpire,jdbcType=DATE}
+		</if>
+		<if test="caseTel != null and caseTel != ''">
+			and CASE_TEL = #{caseTel,jdbcType=VARCHAR}
+		</if>
+		<if test="parentDeptCode != null and parentDeptCode != ''">
+			and PARENT_DEPT_CODE = #{parentDeptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="postCode != null and postCode != ''">
+			and POST_CODE = #{postCode,jdbcType=VARCHAR}
+		</if>
+		<if test="deptFlag != null and deptFlag != ''">
+			and DEPT_FLAG = #{deptFlag,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCname != null and deptCname != ''">
+			and DEPT_CNAME = #{deptCname,jdbcType=VARCHAR}
+		</if>
+		<if test="deptSeries != null and deptSeries != ''">
+			and DEPT_SERIES = #{deptSeries,jdbcType=VARCHAR}
+		</if>
+		<if test="insureLicenseNo != null and insureLicenseNo != ''">
+			and INSURE_LICENSE_NO = #{insureLicenseNo,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.department.vo.Department" >
+    insert into DEPARTMENT (
+		<include refid="insert_Base_Column" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into DEPARTMENT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DEPARTMENT
+    where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</delete>
+	
+	<!-- 
+		<delete id="deleteByDataKey" parameterType="long">
+	    delete from DEPARTMENT
+	    where PK_SERIAL = #{data}
+		</delete>
+	 -->
+	 
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update DEPARTMENT
+	<set>
+	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+	<if test="deptEname != null and deptEname != ''">
+		DEPT_ENAME = #{deptEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="taxRegistNo != null and taxRegistNo != ''">
+		TAX_REGIST_NO = #{taxRegistNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="foundDate != null and foundDate != ''">
+		FOUND_DATE = #{foundDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptRelationCode != null and deptRelationCode != ''">
+		DEPT_RELATION_CODE = #{deptRelationCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCaddress != null and deptCaddress != ''">
+		DEPT_CADDRESS = #{deptCaddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseNo != null and licenseNo != ''">
+		LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="consultTel != null and consultTel != ''">
+		CONSULT_TEL = #{consultTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseValid != null and licenseValid != ''">
+		LICENSE_VALID = #{licenseValid,jdbcType=DATE},
+	</if>
+  	<if test="deptSimpleName != null and deptSimpleName != ''">
+		DEPT_SIMPLE_NAME = #{deptSimpleName,jdbcType=VARCHAR},
+	</if>
+  	<if test="taxRecognizeNo != null and taxRecognizeNo != ''">
+		TAX_RECOGNIZE_NO = #{taxRecognizeNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="fax != null and fax != ''">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="expireDate != null and expireDate != ''">
+		EXPIRE_DATE = #{expireDate,jdbcType=DATE},
+	</if>
+  	<if test="qualifyNo != null and qualifyNo != ''">
+		QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="alarmFlag != null and alarmFlag != ''">
+		ALARM_FLAG = #{alarmFlag,jdbcType=CHAR},
+	</if>
+  	<if test="telDeptFlag != null and telDeptFlag != ''">
+		TEL_DEPT_FLAG = #{telDeptFlag,jdbcType=CHAR},
+	</if>
+  	<if test="deptEaddress != null and deptEaddress != ''">
+		DEPT_EADDRESS = #{deptEaddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="interCode != null and interCode != ''">
+		INTER_CODE = #{interCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptLevel != null and deptLevel != ''">
+		DEPT_LEVEL = #{deptLevel,jdbcType=INTEGER},
+	</if>
+  	<if test="caseAddress != null and caseAddress != ''">
+		CASE_ADDRESS = #{caseAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="contactUser != null and contactUser != ''">
+		CONTACT_USER = #{contactUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="specialDept != null and specialDept != ''">
+		SPECIAL_DEPT = #{specialDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="circCode != null and circCode != ''">
+		CIRC_CODE = #{circCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="saleRegionCode != null and saleRegionCode != ''">
+		SALE_REGION_CODE = #{saleRegionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseExpire != null and licenseExpire != ''">
+		LICENSE_EXPIRE = #{licenseExpire,jdbcType=DATE},
+	</if>
+  	<if test="caseTel != null and caseTel != ''">
+		CASE_TEL = #{caseTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="parentDeptCode != null and parentDeptCode != ''">
+		PARENT_DEPT_CODE = #{parentDeptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="postCode != null and postCode != ''">
+		POST_CODE = #{postCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptFlag != null and deptFlag != ''">
+		DEPT_FLAG = #{deptFlag,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCname != null and deptCname != ''">
+		DEPT_CNAME = #{deptCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptSeries != null and deptSeries != ''">
+		DEPT_SERIES = #{deptSeries,jdbcType=VARCHAR},
+	</if>
+  	<if test="insureLicenseNo != null and insureLicenseNo != ''">
+		INSURE_LICENSE_NO = #{insureLicenseNo,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update DEPARTMENT
+		set 
+			DEPT_ENAME = #{deptEname,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			TAX_REGIST_NO = #{taxRegistNo,jdbcType=VARCHAR},
+  			FOUND_DATE = #{foundDate,jdbcType=DATE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_RELATION_CODE = #{deptRelationCode,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			DEPT_CADDRESS = #{deptCaddress,jdbcType=VARCHAR},
+  			LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			CONSULT_TEL = #{consultTel,jdbcType=VARCHAR},
+  			LICENSE_VALID = #{licenseValid,jdbcType=DATE},
+  			DEPT_SIMPLE_NAME = #{deptSimpleName,jdbcType=VARCHAR},
+  			TAX_RECOGNIZE_NO = #{taxRecognizeNo,jdbcType=VARCHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			EXPIRE_DATE = #{expireDate,jdbcType=DATE},
+  			QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+  			ALARM_FLAG = #{alarmFlag,jdbcType=CHAR},
+  			TEL_DEPT_FLAG = #{telDeptFlag,jdbcType=CHAR},
+  			DEPT_EADDRESS = #{deptEaddress,jdbcType=VARCHAR},
+  			INTER_CODE = #{interCode,jdbcType=VARCHAR},
+  			DEPT_LEVEL = #{deptLevel,jdbcType=INTEGER},
+  			CASE_ADDRESS = #{caseAddress,jdbcType=VARCHAR},
+  			CONTACT_USER = #{contactUser,jdbcType=VARCHAR},
+   			SPECIAL_DEPT = #{specialDept,jdbcType=VARCHAR},
+  			CIRC_CODE = #{circCode,jdbcType=VARCHAR},
+  			SALE_REGION_CODE = #{saleRegionCode,jdbcType=VARCHAR},
+  			LICENSE_EXPIRE = #{licenseExpire,jdbcType=DATE},
+  			CASE_TEL = #{caseTel,jdbcType=VARCHAR},
+  			PARENT_DEPT_CODE = #{parentDeptCode,jdbcType=VARCHAR},
+  			POST_CODE = #{postCode,jdbcType=VARCHAR},
+  			DEPT_FLAG = #{deptFlag,jdbcType=VARCHAR},
+  			DEPT_CNAME = #{deptCname,jdbcType=VARCHAR},
+  			DEPT_SERIES = #{deptSeries,jdbcType=VARCHAR},
+  			INSURE_LICENSE_NO = #{insureLicenseNo,jdbcType=VARCHAR}
+  		where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</update>
+
+    <!-- 机构代码不能修改 ，因为机构代码被很多表关联-->
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.department.vo.Department" >
+	update DEPARTMENT
+	<set>
+	<!-- 	<if test="deptCode != null and deptCode != ''"> -->
+	<!-- 		DEPT_CODE = #{deptCode,jdbcType=VARCHAR}, -->
+	<!-- 	</if> -->
+	<if test="deptEname != null and deptEname != ''">
+		DEPT_ENAME = #{deptEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="taxRegistNo != null and taxRegistNo != ''">
+		TAX_REGIST_NO = #{taxRegistNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="foundDate != null and foundDate != ''">
+		FOUND_DATE = to_date(#{foundDate,jdbcType=DATE},'yyyy-MM-dd'),
+	</if>
+  	<if test="deptRelationCode != null and deptRelationCode != ''">
+		DEPT_RELATION_CODE = #{deptRelationCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="deptCaddress != null and deptCaddress != ''">
+		DEPT_CADDRESS = #{deptCaddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseNo != null and licenseNo != ''">
+		LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="consultTel != null and consultTel != ''">
+		CONSULT_TEL = #{consultTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseValid != null and licenseValid != ''">
+		LICENSE_VALID = to_date(#{licenseValid,jdbcType=DATE},'yyyy-MM-dd'),
+	</if>
+  	<if test="deptSimpleName != null and deptSimpleName != ''">
+		DEPT_SIMPLE_NAME = #{deptSimpleName,jdbcType=VARCHAR},
+	</if>
+  	<if test="taxRecognizeNo != null and taxRecognizeNo != ''">
+		TAX_RECOGNIZE_NO = #{taxRecognizeNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="fax != null and fax != ''">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="expireDate != null and expireDate != ''">
+		EXPIRE_DATE = to_date(#{expireDate,jdbcType=DATE},'yyyy-MM-dd'),
+	</if>
+  	<if test="qualifyNo != null and qualifyNo != ''">
+		QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="alarmFlag != null and alarmFlag != ''">
+		ALARM_FLAG = #{alarmFlag,jdbcType=CHAR},
+	</if>
+  	<if test="telDeptFlag != null and telDeptFlag != ''">
+		TEL_DEPT_FLAG = #{telDeptFlag,jdbcType=CHAR},
+	</if>
+  	<if test="deptEaddress != null and deptEaddress != ''">
+		DEPT_EADDRESS = #{deptEaddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="interCode != null and interCode != ''">
+		INTER_CODE = #{interCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptLevel != null and deptLevel != ''">
+		DEPT_LEVEL = #{deptLevel,jdbcType=INTEGER},
+	</if>
+  	<if test="caseAddress != null and caseAddress != ''">
+		CASE_ADDRESS = #{caseAddress,jdbcType=VARCHAR},
+	</if>
+  	<if test="contactUser != null and contactUser != ''">
+		CONTACT_USER = #{contactUser,jdbcType=VARCHAR},
+	</if>
+   	<if test="specialDept != null and specialDept != ''">
+		SPECIAL_DEPT = #{specialDept,jdbcType=VARCHAR},
+	</if>
+  	<if test="circCode != null and circCode != ''">
+		CIRC_CODE = #{circCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="saleRegionCode != null and saleRegionCode != ''">
+		SALE_REGION_CODE = #{saleRegionCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="licenseExpire != null and licenseExpire != ''">
+		LICENSE_EXPIRE = to_date(#{licenseExpire,jdbcType=DATE},'yyyy-MM-dd'),
+	</if>
+  	<if test="caseTel != null and caseTel != ''">
+		CASE_TEL = #{caseTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="parentDeptCode != null and parentDeptCode != ''">
+		PARENT_DEPT_CODE = #{parentDeptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="postCode != null and postCode != ''">
+		POST_CODE = #{postCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptFlag != null and deptFlag != ''">
+		DEPT_FLAG = #{deptFlag,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCname != null and deptCname != ''">
+		DEPT_CNAME = #{deptCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptSeries != null and deptSeries != ''">
+		DEPT_SERIES = #{deptSeries,jdbcType=VARCHAR},
+	</if>
+	<if test="areaRate != null and areaRate !=''">
+		AREA_RATE = #{areaRate,jdbcType=BIGINT},
+	</if>
+  	<if test="insureLicenseNo != null and insureLicenseNo != ''">
+		INSURE_LICENSE_NO = #{insureLicenseNo,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate
+  	</set>
+	where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.department.vo.Department" >
+		update DEPARTMENT
+		set 
+			DEPT_ENAME = #{deptEname,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			TAX_REGIST_NO = #{taxRegistNo,jdbcType=VARCHAR},
+  			FOUND_DATE = #{foundDate,jdbcType=DATE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_RELATION_CODE = #{deptRelationCode,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			DEPT_CADDRESS = #{deptCaddress,jdbcType=VARCHAR},
+  			LICENSE_NO = #{licenseNo,jdbcType=VARCHAR},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			CONSULT_TEL = #{consultTel,jdbcType=VARCHAR},
+  			LICENSE_VALID = #{licenseValid,jdbcType=DATE},
+  			DEPT_SIMPLE_NAME = #{deptSimpleName,jdbcType=VARCHAR},
+  			TAX_RECOGNIZE_NO = #{taxRecognizeNo,jdbcType=VARCHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			EXPIRE_DATE = #{expireDate,jdbcType=DATE},
+  			QUALIFY_NO = #{qualifyNo,jdbcType=VARCHAR},
+  			ALARM_FLAG = #{alarmFlag,jdbcType=CHAR},
+  			TEL_DEPT_FLAG = #{telDeptFlag,jdbcType=CHAR},
+  			DEPT_EADDRESS = #{deptEaddress,jdbcType=VARCHAR},
+  			INTER_CODE = #{interCode,jdbcType=VARCHAR},
+  			DEPT_LEVEL = #{deptLevel,jdbcType=INTEGER},
+  			CASE_ADDRESS = #{caseAddress,jdbcType=VARCHAR},
+  			CONTACT_USER = #{contactUser,jdbcType=VARCHAR},
+   			SPECIAL_DEPT = #{specialDept,jdbcType=VARCHAR},
+  			CIRC_CODE = #{circCode,jdbcType=VARCHAR},
+  			SALE_REGION_CODE = #{saleRegionCode,jdbcType=VARCHAR},
+  			LICENSE_EXPIRE = #{licenseExpire,jdbcType=DATE},
+  			CASE_TEL = #{caseTel,jdbcType=VARCHAR},
+  			PARENT_DEPT_CODE = #{parentDeptCode,jdbcType=VARCHAR},
+  			POST_CODE = #{postCode,jdbcType=VARCHAR},
+  			DEPT_FLAG = #{deptFlag,jdbcType=VARCHAR},
+  			DEPT_CNAME = #{deptCname,jdbcType=VARCHAR},
+  			DEPT_SERIES = #{deptSeries,jdbcType=VARCHAR},
+  			INSURE_LICENSE_NO = #{insureLicenseNo,jdbcType=VARCHAR}
+  		where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from DEPARTMENT
+	where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from DEPARTMENT
+	where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from DEPARTMENT <include refid="Base_Where_Sql" />
+	and dept_level = '1'
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.department.vo.Department" resultType="long">
+	select count(1)
+	from DEPARTMENT <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from DEPARTMENT
+		<include refid="Base_Where_Sql"/> 
+		and dept_level = '1'
+		order by dept_code asc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from DEPARTMENT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from DEPARTMENT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!--  根据用户userCode查询所在机构层级、机构编码、报表所用的机构编码  -->
+	<select id="queryProvince" parameterType="map" resultMap="BaseResultMap" >
+		select d.dept_code as "deptCode",
+		       d.parent_dept_code as "parentDeptCode",
+		       d.dept_code || d.dept_simple_name as "deptSimepleName",
+		       d.inter_code as "interCode",
+       		   d.dept_level as "deptLevel"
+		  from department d
+		 inner join salesman sa
+		         on d.dept_code = sa.dept_code
+		 where d.valid_ind = 1
+		   and sa.valid_ind = 1
+		 <if test="loginUserCode !=null and loginUserCode != '' " >
+		 	and sa.salesman_code = #{loginUserCode}
+		 </if>
+	</select>
+	
+	<!--  查询省分公司 begin -->
+	<select id="queryProvinceLevel0" parameterType="map" resultMap="BaseResultMap" >
+		select d.dept_code as "deptCode",
+		       d.parent_dept_code as "parentDeptCode",
+		       d.dept_code || d.dept_simple_name as "deptSimepleName",
+		       d.inter_code as "interCode",
+       		   d.dept_level as "deptLevel"
+		  from department d
+		 where d.valid_ind = 1
+		   and d.dept_level = 1
+		 order by d.dept_code
+	</select>
+	<select id="queryProvinceLevel1" parameterType="map" resultMap="BaseResultMap" >
+		select d.dept_code as "deptCode",
+		       d.parent_dept_code as "parentDeptCode",
+		       d.dept_code || d.dept_simple_name as "deptSimepleName",
+		       d.inter_code as "interCode",
+       		   d.dept_level as "deptLevel"
+		  from department d
+		 where d.valid_ind = 1
+		   	and d.dept_code = #{deptCode}
+		 order by d.dept_code
+	</select>
+	<select id="queryProvinceLevel2" parameterType="map" resultMap="BaseResultMap" >
+		select d.dept_code as "deptCode",
+		       d.parent_dept_code as "parentDeptCode",
+		       d.dept_code || d.dept_simple_name as "deptSimepleName",
+		       d.inter_code as "interCode",
+       		   d.dept_level as "deptLevel"
+		  from department d
+		 where d.valid_ind = 1
+		   and d.dept_code = #{parentDeptCode}
+		 order by d.dept_code
+	</select>
+	
+	<select id="queryProvinceLevel3" parameterType="map" resultMap="BaseResultMap" >
+		select d.dept_code as "deptCode",
+		       d.parent_dept_code as "parentDeptCode",
+		       d.dept_code || d.dept_simple_name as "deptSimepleName",
+		       d.inter_code as "interCode",
+       		   d.dept_level as "deptLevel"
+		  from department d
+		 where d.valid_ind = 1
+		   and d.dept_code = ( select parent_dept_code from department where dept_code = #{parentDeptCode} )
+		 order by d.dept_code
+	</select>
+	<!--  查询省分公司  end  -->
+	
+	<!--  查询中支机构  -->
+	<select id="queryCityAll" parameterType="map" resultMap="BaseResultMap" >
+		select d.dept_code as "deptCode",
+		       d.parent_dept_code as "parentDeptCode",
+		       d.dept_code || d.dept_simple_name as "deptSimepleName",
+		       d.inter_code as "interCode",
+       		   d.dept_level as "deptLevel"
+		  from department d
+		 where d.valid_ind = 1
+		   and d.parent_dept_code = #{province}
+		 order by d.dept_code
+	</select>	
+	
+	<!-- 查询父级机构的代码和名称 -->
+	<select id="queryParentDept" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+	   select t1.parent_dept_code  as "parentDeptCode",
+	          t1.dept_code as "deptCode",
+	          t1.dept_level as "deptLevel",
+	          t2.dept_cname  as "parentDeptName"
+	    from department t1, department t2
+	   where t1.parent_dept_code = t2.dept_code
+	   and t1.valid_ind = '1'
+	   and t2.valid_ind = '1'
+	     <if test="deptCode != null" >
+	       and t1.dept_code = #{deptCode}
+	     </if>
+	     <if test="interCode != null">
+	       and t1.inter_code = #{interCode}
+	     </if>
+	</select>
+	
+	<!-- 通过父机构查询子机构   -->
+	<select id="queryDeptByParentCode" parameterType="map" resultMap="BaseResultMap">
+	    select t.dept_code as "id",
+		       t.dept_simple_name as "text",
+		       t.parent_dept_code as "pid",
+		       t.dept_code as "departCode"
+		    from department t
+		    where 1=1
+	           and t.valid_ind = '1'
+	        <if test=" parentCode != null and parentCode !='' ">
+	           and t.parent_dept_code = #{parentCode}
+	        </if>
+			order by t.dept_code
+	</select> 
+	
+	<!-- 查询单个机构，作为父机构（选择经办人弹出页面使用）   -->
+	<select id="queryDeptByDeptCode" parameterType="map" resultMap="BaseResultMap">
+	    select t.dept_code as "id",
+		       t.dept_simple_name as "text",
+		       t.parent_dept_code as "pid",
+		       t.dept_code as "departCode"
+		    from department t
+		    where 1=1
+	           and t.valid_ind = '1'
+	           and t.dept_code = #{deptCode}
+			order by t.dept_code
+	</select>
+	
+	<!-- 自定义SQL，通过机构代码查询机构级别  -->
+	<select id="queryDeptLevel" parameterType="java.lang.String" resultType="int">
+		select t.dept_level as "deptLevel"
+		  from department t
+		 where 1 = 1
+		   and t.valid_ind = '1'
+		   and t.dept_code = #{deptCode}
+	</select> 
+	
+	<!-- 自定义SQL，判断是否有子机构  -->
+	<select id="existChildDept" parameterType="java.lang.String" resultType="long">
+		select count(1) from department t where t.valid_ind = '1' and t.parent_dept_code = #{parentDeptCode}
+	</select>    
+		
+	<!-- 查询本级的名称用于修改页面显示 -->
+	<select id="queryParentDepts" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+		select t1.parent_dept_code as "parentDeptCode",
+		       t1.dept_code        as "deptCode",
+		       t2.dept_simple_name       as "parentDeptName",
+		       t1.dept_level       as "deptLevel"
+		  from department t1, department t2
+		 where t1.dept_code = t2.dept_code
+				 and t1.valid_ind = '1'
+				 and t2.valid_ind = '1'
+	     <if test="deptCode != null" >
+	       and t1.dept_code = #{deptCode}
+	     </if>
+	     <if test="interCode != null">
+	       and t1.inter_code = #{interCode}
+	     </if>
+	</select>
+   
+	<!-- 是否存在机构,不能加valid_ind = '1'，因为如果删除了之后，deptCode依然存在  -->
+	<select id="existDept" parameterType="java.lang.String" resultType="long">
+		select count(1)
+		  from department t
+		 where 1 = 1
+           <!--  and t.valid_ind = '1' -->
+		   and t.dept_code = #{deptCode}
+	</select> 
+	
+	<!-- 删除机构  -->
+	<select id="removeDept" parameterType="map" resultType="long">
+		update department t
+		   set t.valid_ind = '0', t.updated_user = #{updatedUser}, t.updated_date = sysdate
+		 where t.dept_code = #{deptCode}
+	</select>
+	
+	<!-- 查询机构下的员工 -->
+	<select id="queryUserByDeptCode" parameterType="java.lang.String" resultType="map">
+		select t.salesman_code  as "salesmanCode",
+		       t.salesman_cname as "salesmanCname",
+		       t.tel            as "Tel"
+		  from salesman t
+		 where t.dept_code like #{deptCode}||'%'
+	</select>
+	
+	<!-- 条件查询总数据量-选择用户 -->
+	<select id="queryCountUser" parameterType="map" resultType="long">
+	   select count(1) from salesman t where t.valid_ind = '1' and t.dept_code like #{deptCode}||'%'
+	</select>
+	
+	<!-- 单独条件分页查询语句-选择用户时选择部门(输入条件为空)，列出部门下的用户，要用Like -->
+	<select id="queryListPageUser" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+				select t.employ_code  as "salesmanCode",
+		               t.salesman_cname as "salesmanCname",
+		               t.tel            as "Tel",
+		               t.dept_code as "deptCode"
+				from salesman t
+				where t.valid_ind = '1'
+					and	t.dept_code like #{deptCode}||'%'
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 选择经办人-条件查询总数据量 -->
+	<select id="queryListPageUserByCodeOrNameCount" parameterType="map" resultType="long">
+		select count(1)
+		  from t_emp_cde t
+		 where 1=1
+		 and t.c_status!='121002'
+		   and t.c_dpt_cde like #{deptCode} || '%'
+		   <if test=" salesmanCname != null and salesmanCname !='' ">
+		   and (t.c_emp_cnm like '%' || #{salesmanCname} || '%' or t.c_emp_cde like '%' || #{salesmanCname} || '%')
+		   </if>
+	</select>
+	
+    <!-- 选择经办人-部门非空，核心新增渠道界面选经办人时就只加了c_dpt_cde条件 -->
+	<select id="queryListPageUserByCodeOrName" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+				select t.c_emp_cnm || '(' || t.c_emp_cde || ')' as "salesmanCname", 
+				       t.c_emp_cde as "employCode", t.c_tel as "Tel", 
+				       t.c_dpt_cde as "deptCode",
+				       decode(t.c_status, '121001', '在职', '121002', '离司', '121003', '待岗', '其他') as "statusName"
+				  from t_emp_cde t
+				 where 1=1
+				   and t.c_status!='121002'
+				   and t.c_dpt_cde like #{deptCode} || '%'
+				   <if test=" salesmanCname != null and salesmanCname !='' ">
+				   and (t.c_emp_cnm like '%' || #{salesmanCname} || '%' or t.c_emp_cde like '%' || #{salesmanCname} || '%')
+				   </if>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 根据部门代码查询部门名称 ,只返回一个结果-->
+    <select id="queryDeptNameByDeptCode"  parameterType="java.lang.String" resultType="java.lang.String">
+		select t.dept_simple_name as "deptName"
+		  from department t
+		 where t.valid_ind = '1' 
+		   and t.dept_code = #{deptCode}
+	</select>
+	
+	<!-- 根据部门代码查询部门名称 ,只返回一个结果,查询核心的数据，选择经办人使用-->
+    <select id="queryDeptNameFromCore"  parameterType="java.lang.String" resultType="java.lang.String">
+		select t.c_dpt_abr as "deptName"
+		  from t_department t
+		 where 1=1 
+		   and t.c_dpt_cde = #{deptCode}
+	</select>
+	
+	<select id="queryParentDeptByUser"  parameterType="map" resultMap="BaseResultMap">
+		select d.parent_dept_code as "deptCode",
+		       (select de.dept_code||de.dept_simple_name
+		          from department de
+		         where de.dept_code = d.parent_dept_code) as "deptName"
+		  from department d
+		 where d.valid_ind = '1'
+		 and d.dept_code = #{deptCode}
+		 order by d.dept_code
+	</select>
+	
+	<select id="queryDeptLevelInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select 
+		  t.dept_level as "deptLevel",
+      	  t.dept_code deptCode,
+          t.dept_cname deptName,
+      	  t.dept_simple_name deptSimpleName
+		from department t
+		where 1 = 1
+		  and t.valid_ind = '1'
+		  and t.dept_code = #{deptCode}
+	</select>
+	
+	<select id="queryDeptNameByUser"  parameterType="map" resultMap="BaseResultMap">
+		select d.dept_code as "deptCode",
+			   d.dept_simple_name as "deptName",
+			   d.parent_dept_code as "parentDeptCode"
+		  from department d
+		 where d.valid_ind = '1' 
+		 and d.dept_code = #{deptCode}
+		 order by d.dept_code
+	</select>
+
+	<select id="queryDeptTreeByUser"  parameterType="map" resultMap="BaseResultMap">
+		select d.dept_code as "id",
+			   d.dept_simple_name as "text",
+			   d.parent_dept_code as "pid",
+			   d.dept_code as "departCode"
+		  from department d
+		 where d.valid_ind = '1'
+		 and d.dept_code = #{deptCode}
+	</select>
+	
+	<select id="queryLowerDeptByUser"  parameterType="map" resultMap="BaseResultMap">
+		select d.dept_code as "deptCode",
+			   d.dept_code||d.dept_simple_name as "deptName",
+			   d.parent_dept_code as "parentDeptCode"
+		  from department d 
+		 where d.valid_ind = '1'
+		   and d.inter_code like f_get_inter_dept(#{deptCode,jdbcType=VARCHAR}) || '%'
+		   and length(d.inter_code) = #{deptLength}
+		 order by d.dept_code
+	</select>
+	
+	<!-- 自定义SQL，通过机构级别查询子机构   -->
+	<select id="queryDeptByDeptLevel" parameterType="map" resultMap="BaseResultMap">
+	      select t.dept_code as "id",
+	         t.dept_simple_name as "text",
+	         t.parent_dept_code as "pid",
+	         t.dept_code as "departCode"
+	      from department t
+	      where 1=1
+	      and t.valid_ind = '1'
+	        <if test=" deptLevel != null and deptLevel !='' ">
+	           and t.dept_level = #{deptLevel}
+	        </if>
+	    order by t.dept_code
+	</select> 
+	
+	<select id="queryLowerDeptLeveFourByUser" parameterType="map" resultMap="BaseResultMap" >
+	   select t.market_dept as "deptCode" , 
+			  t.market_dept||t.market_name as "deptName" , 
+			  t.city_dept as "parentDeptCode"
+			  from department_level t 
+			 where t.city_dept = #{deptCode} 
+			 and t.valid_ind = '1'
+			 order by t.market_dept
+	</select>
+	
+	<!-- 单独条件分页查询语句-选择用户 -->
+	<select id="queryChildCompany" parameterType="map" resultMap="BaseResultMap">
+	select d.dept_code as "deptCode",
+		   d.dept_simple_name as "deptName"
+		   from department d
+		 where d.valid_ind = 1 
+		 <!-- and to_number(d.dept_code) &gt;= 1
+		 and to_number(d.dept_code) &lt;= 31 -->
+		 and length(d.dept_code) = 2 
+		 and d.dept_level = 1 
+		 order by d.dept_code
+	</select>
+	
+	<!-- 根据用户代码查询部门代码 -->
+	<select id="getDeptCodeByUser" parameterType="map" resultType="java.lang.String">
+		select t.dept_code as "deptCode"
+		  from salesman t
+		 where t.salesman_code = #{salesmanCode}
+	</select>
+	
+	<!-- 根据条件查询所有省分公司 -->
+	<select id="queryDeptByAll" parameterType="map" resultMap="BaseResultMap" >
+		<choose>
+			<when test="endpoint !=null and endpoint != '' and startpoint != null and startpoint != ''" >
+				select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"  /> 
+				  from department t 
+				<where>
+					t.valid_ind = '1'
+					<if test="parentDept !=null and parentDept != ''" >
+						and t.parent_dept_code = #{parentDept}
+					</if>
+				</where> 
+				order by t.dept_code
+				) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+			</when>
+			<otherwise>
+				select count(1) "count"
+				  from department t
+				<where>
+					t.valid_ind = '1'
+					<if test="parentDept !=null and parentDept != ''" >
+						and t.parent_dept_code = #{parentDept}
+					</if>
+				</where> 
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="queryGroupByCityOrMarket" parameterType="map" resultMap="BaseResultMap" >
+		<choose>
+			<when test="endpoint !=null and endpoint != '' and startpoint != null and startpoint != ''" >
+				select * from (
+			select a.*,rownum rn from (
+				select d.dept_level "deptLevel",
+				       d.parent_dept_code "parentDeptCode",
+				       d.dept_code "deptCode",
+				       d.dept_simple_name "deptCname",
+				       g.group_code "groupCode",
+				       g.group_type "groupType",
+				       g.group_name "groupName"
+				  from group_main g
+				 inner join department d
+				    on d.dept_code = g.dept_code
+				   and d.valid_ind = '1'
+				<where>
+					g.valid_ind = '1'
+					<if test="deptName !=null and deptName != ''" >
+						and d.parent_dept_code = #{deptName}
+					</if>
+					<if test="deptMarket !=null and deptMarket != ''" >
+						and d.dept_code = #{deptMarket}
+					</if>
+				</where>
+				order by g.group_code
+				) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+			</when>
+			<otherwise>
+				select count(1) "count"
+				  from group_main g
+				 inner join department d
+				    on d.dept_code = g.dept_code
+				   and d.valid_ind = '1'
+				 <where>
+					g.valid_ind = '1'
+					<if test="deptName !=null and deptName != ''" >
+						and d.parent_dept_code = #{deptName}
+					</if>
+					<if test="deptMarket !=null and deptMarket != ''" >
+						and d.dept_code = #{deptMarket}
+					</if>
+				</where>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="queryGroupUserByCityOrMarket" parameterType="map" resultMap="BaseResultMap" >
+		<choose>
+			<when test="endpoint !=null and endpoint != '' and startpoint != null and startpoint != ''" >
+				select * from (
+			select a.*,rownum rn from (
+				select d.dept_level "deptLevel",
+				       d.parent_dept_code "parentDeptCode",
+				       d.dept_code "deptCode",
+				       d.dept_simple_name "deptCname",
+				       g.group_code "groupCode",
+				       g.group_type "groupType",
+				       g.group_name "groupName",
+				       sa.salesman_code "salesmanCode",
+				       sa.employ_code "employCode",
+				       sa.salesman_cname "salesmanCname"
+				  from group_main g
+				 inner join department d
+				    on d.dept_code = g.dept_code
+				 inner join salesman sa 
+				         on g.group_code = sa.group_code
+				        and sa.valid_ind = '1'
+				   and d.valid_ind = '1'
+				 <where>
+					g.valid_ind = '1'
+					<if test="deptName !=null and deptName != ''" >
+						and d.parent_dept_code = #{deptName}
+					</if>
+					<if test="deptMarket !=null and deptMarket != ''" >
+						and d.dept_code = #{deptMarket}
+					</if>
+				</where>
+				order by g.group_code
+				) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+			</when>
+			<otherwise>
+				select count(1) "count"
+				  from group_main g
+				 inner join department d
+				    on d.dept_code = g.dept_code
+				 inner join salesman sa 
+				         on g.group_code = sa.group_code
+				        and sa.valid_ind = '1'
+				   and d.valid_ind = '1'
+				 <where>
+					g.valid_ind = '1'
+					<if test="deptName !=null and deptName != ''" >
+						and d.parent_dept_code = #{deptName}
+					</if>
+					<if test="deptMarket !=null and deptMarket != ''" >
+						and d.dept_code = #{deptMarket}
+					</if>
+				</where>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 选择机构时，自动生成虚拟机构的代码和名称 -->
+	<select id="execProcedureDept" parameterType="map" statementType="CALLABLE" >
+		<![CDATA[ 
+          { call p_get_dept_virtual(
+           #{parentCode, mode=IN, jdbcType=VARCHAR},
+           #{deptCode, mode=OUT, jdbcType=VARCHAR},
+           #{deptName, mode=OUT, jdbcType=VARCHAR},
+           #{interCode, mode=OUT, jdbcType=VARCHAR}
+           )} 
+        ]]> 
+	</select>
+	
+</mapper>

@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>销售渠道协议到期预警邮件</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div id="content">
+<div style="background-color:#E5ECF9;font-size: 12px;color: #15428B;font-weight: bold;font-family: 宋体;" align="left">
+<table width="100%">
+	   <tr>
+         <td colspan="2" style="vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: center;">
+                                  销售渠道协议到期预警邮件
+         </td>
+       </tr>
+       
+	   <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   渠道编码：
+         </td>
+         <td>           
+          ${channelCode}
+         </td>
+       </tr>
+       
+       <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   渠道名称：
+         </td>
+         <td>           
+          ${channelName}
+         </td>
+       </tr>
+       
+       <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   协议号：
+         </td>
+         <td>           
+          ${conferCode}
+         </td>
+       </tr>
+       
+       <tr>
+       <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   预警信息：
+         </td>
+         <td>
+                                  该渠道的合作协议即将于${endDate}(${endDay}天后)到期，请尽快通知相关人员与合作渠道联系，取得新的资质证明并在系统中重新录入期限。
+         </td>
+       </tr>
+       
+       <tr id="show" >
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                    预警报告：
+         </td>
+         <td>
+                                    阳光总在风雨后，让我们携手为美好的明天加油！！！         
+         </td>
+       </tr>
+       
+       </tr>
+         <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   报告日期：
+         </td>
+         <td>           
+          ${reportDate}
+         </td>
+       </tr>
+       <tr>
+         <td width="10%">                
+         </td>
+         <td>           
+                  本邮件为销售支持平台自动发送，请勿回复！
+         </td>
+       </tr>
+     </table>
+
+</div>
+</body>
+</html>
+
+ 

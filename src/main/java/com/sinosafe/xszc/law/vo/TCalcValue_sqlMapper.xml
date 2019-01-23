@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TCalcValue" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SERNO" property="serno" javaType="java.lang.Double" jdbcType="INTEGER" />
+		<result column="RANK_CODE_1" property="rankCode1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE_2" property="rankCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE_5" property="rankCode5" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE_3" property="rankCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RANK_CODE_4" property="rankCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_4" property="deptCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OBJECT_TYPE" property="objectType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_5" property="deptCode5" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_1" property="deptCode1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TEAM_CODE_5" property="teamCode5" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="START_DATE" property="startDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TEAM_CODE_4" property="teamCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OBJECT_VALUE" property="objectValue" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEAM_CODE_1" property="teamCode1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEAM_CODE_3" property="teamCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEAM_CODE_2" property="teamCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OBJECT_CODE" property="objectCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PERSON_CODE" property="personCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TCalcValue">
+		<id column="SERNO" property="serno" javaType="java.lang.Double" jdbcType="INTEGER" />
+		<result column="RANK_CODE_1" property="rankCode1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE_2" property="rankCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE_5" property="rankCode5" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_ID" property="channelId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_CODE_3" property="rankCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="END_DATE" property="endDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RANK_CODE_4" property="rankCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_ID" property="versionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_4" property="deptCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OBJECT_TYPE" property="objectType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_5" property="deptCode5" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_1" property="deptCode1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="LAST_OPT" property="lastOpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OPT_DATE" property="optDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TEAM_CODE_5" property="teamCode5" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="START_DATE" property="startDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TEAM_CODE_4" property="teamCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OBJECT_VALUE" property="objectValue" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEAM_CODE_1" property="teamCode1" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEAM_CODE_3" property="teamCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TEAM_CODE_2" property="teamCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="OBJECT_CODE" property="objectCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PERSON_CODE" property="personCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		RANK_CODE_1,
+		RANK_CODE_2,
+		RANK_CODE_5,
+		CHANNEL_ID,
+		RANK_CODE_3,
+		END_DATE,
+		RANK_CODE_4,
+		VERSION_ID,
+		DEPT_CODE_4,
+		OBJECT_TYPE,
+		DEPT_CODE_5,
+		DEPT_CODE_1,
+		DEPT_CODE_2,
+		DEPT_CODE_3,
+		SERNO,
+		LAST_OPT,
+		STAT_MONTH,
+		OPT_DATE,
+		TEAM_CODE_5,
+		START_DATE,
+		TEAM_CODE_4,
+		OBJECT_VALUE,
+		TEAM_CODE_1,
+		TEAM_CODE_3,
+		TEAM_CODE_2,
+		OBJECT_CODE,
+		PERSON_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		RANK_CODE_1 as "rankCode1",
+		RANK_CODE_2 as "rankCode2",
+		RANK_CODE_5 as "rankCode5",
+		CHANNEL_ID as "channelId",
+		RANK_CODE_3 as "rankCode3",
+		END_DATE as "endDate",
+		RANK_CODE_4 as "rankCode4",
+		VERSION_ID as "versionId",
+		DEPT_CODE_4 as "deptCode4",
+		OBJECT_TYPE as "objectType",
+		DEPT_CODE_5 as "deptCode5",
+		DEPT_CODE_1 as "deptCode1",
+		DEPT_CODE_2 as "deptCode2",
+		DEPT_CODE_3 as "deptCode3",
+		SERNO as "serno",
+		LAST_OPT as "lastOpt",
+		STAT_MONTH as "statMonth",
+		OPT_DATE as "optDate",
+		TEAM_CODE_5 as "teamCode5",
+		START_DATE as "startDate",
+		TEAM_CODE_4 as "teamCode4",
+		OBJECT_VALUE as "objectValue",
+		TEAM_CODE_1 as "teamCode1",
+		TEAM_CODE_3 as "teamCode3",
+		TEAM_CODE_2 as "teamCode2",
+		OBJECT_CODE as "objectCode",
+		PERSON_CODE as "personCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{rankCode1,jdbcType=VARCHAR},
+ 		#{rankCode2,jdbcType=VARCHAR},
+ 		#{rankCode5,jdbcType=VARCHAR},
+ 		#{channelId,jdbcType=VARCHAR},
+ 		#{rankCode3,jdbcType=VARCHAR},
+ 		#{endDate,jdbcType=DATE},
+ 		#{rankCode4,jdbcType=VARCHAR},
+ 		#{versionId,jdbcType=VARCHAR},
+ 		#{deptCode4,jdbcType=VARCHAR},
+ 		#{objectType,jdbcType=VARCHAR},
+ 		#{deptCode5,jdbcType=VARCHAR},
+ 		#{deptCode1,jdbcType=VARCHAR},
+ 		#{deptCode2,jdbcType=VARCHAR},
+ 		#{deptCode3,jdbcType=VARCHAR},
+ 		#{serno,jdbcType=INTEGER},
+ 		#{lastOpt,jdbcType=VARCHAR},
+ 		#{statMonth,jdbcType=VARCHAR},
+ 		#{optDate,jdbcType=DATE},
+ 		#{teamCode5,jdbcType=VARCHAR},
+ 		#{startDate,jdbcType=DATE},
+ 		#{teamCode4,jdbcType=VARCHAR},
+ 		#{objectValue,jdbcType=VARCHAR},
+ 		#{teamCode1,jdbcType=VARCHAR},
+ 		#{teamCode3,jdbcType=VARCHAR},
+ 		#{teamCode2,jdbcType=VARCHAR},
+ 		#{objectCode,jdbcType=VARCHAR},
+ 		#{personCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="rankCode1 != null and rankCode1 != ''">
+			and RANK_CODE_1 = #{rankCode1,jdbcType=VARCHAR}
+		</if>
+		<if test="rankCode2 != null and rankCode2 != ''">
+			and RANK_CODE_2 = #{rankCode2,jdbcType=VARCHAR}
+		</if>
+		<if test="rankCode5 != null and rankCode5 != ''">
+			and RANK_CODE_5 = #{rankCode5,jdbcType=VARCHAR}
+		</if>
+		<if test="channelId != null and channelId != ''">
+			and CHANNEL_ID = #{channelId,jdbcType=VARCHAR}
+		</if>
+		<if test="rankCode3 != null and rankCode3 != ''">
+			and RANK_CODE_3 = #{rankCode3,jdbcType=VARCHAR}
+		</if>
+		<if test="endDate != null and endDate != ''">
+			and END_DATE = #{endDate,jdbcType=DATE}
+		</if>
+		<if test="rankCode4 != null and rankCode4 != ''">
+			and RANK_CODE_4 = #{rankCode4,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode4 != null and deptCode4 != ''">
+			and DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR}
+		</if>
+		<if test="objectType != null and objectType != ''">
+			and OBJECT_TYPE = #{objectType,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode5 != null and deptCode5 != ''">
+			and DEPT_CODE_5 = #{deptCode5,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode1 != null and deptCode1 != ''">
+			and DEPT_CODE_1 = #{deptCode1,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode2 != null and deptCode2 != ''">
+			and DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode3 != null and deptCode3 != ''">
+			and DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR}
+		</if>
+		<if test="serno != null and serno != ''">
+			and SERNO = #{serno,jdbcType=INTEGER}
+		</if>
+		<if test="lastOpt != null and lastOpt != ''">
+			and LAST_OPT = #{lastOpt,jdbcType=VARCHAR}
+		</if>
+		<if test="statMonth != null and statMonth != ''">
+			and STAT_MONTH = #{statMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="optDate != null and optDate != ''">
+			and OPT_DATE = #{optDate,jdbcType=DATE}
+		</if>
+		<if test="teamCode5 != null and teamCode5 != ''">
+			and TEAM_CODE_5 = #{teamCode5,jdbcType=VARCHAR}
+		</if>
+		<if test="startDate != null and startDate != ''">
+			and START_DATE = #{startDate,jdbcType=DATE}
+		</if>
+		<if test="teamCode4 != null and teamCode4 != ''">
+			and TEAM_CODE_4 = #{teamCode4,jdbcType=VARCHAR}
+		</if>
+		<if test="objectValue != null and objectValue != ''">
+			and OBJECT_VALUE = #{objectValue,jdbcType=VARCHAR}
+		</if>
+		<if test="teamCode1 != null and teamCode1 != ''">
+			and TEAM_CODE_1 = #{teamCode1,jdbcType=VARCHAR}
+		</if>
+		<if test="teamCode3 != null and teamCode3 != ''">
+			and TEAM_CODE_3 = #{teamCode3,jdbcType=VARCHAR}
+		</if>
+		<if test="teamCode2 != null and teamCode2 != ''">
+			and TEAM_CODE_2 = #{teamCode2,jdbcType=VARCHAR}
+		</if>
+		<if test="objectCode != null and objectCode != ''">
+			and OBJECT_CODE = #{objectCode,jdbcType=VARCHAR}
+		</if>
+		<if test="personCode != null and personCode != ''">
+			and PERSON_CODE = #{personCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TCalcValue" >
+    insert into T_CALC_VALUE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_CALC_VALUE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+    delete from T_CALC_VALUE
+    where SERNO = #{serno,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_CALC_VALUE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_CALC_VALUE
+	<set>
+	<if test="rankCode1 != null and rankCode1 != ''">
+		RANK_CODE_1 = #{rankCode1,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode2 != null and rankCode2 != ''">
+		RANK_CODE_2 = #{rankCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode5 != null and rankCode5 != ''">
+		RANK_CODE_5 = #{rankCode5,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode3 != null and rankCode3 != ''">
+		RANK_CODE_3 = #{rankCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="endDate != null and endDate != ''">
+		END_DATE = #{endDate,jdbcType=DATE},
+	</if>
+  	<if test="rankCode4 != null and rankCode4 != ''">
+		RANK_CODE_4 = #{rankCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		VERSION_ID = #{versionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode4 != null and deptCode4 != ''">
+		DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="objectType != null and objectType != ''">
+		OBJECT_TYPE = #{objectType,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode5 != null and deptCode5 != ''">
+		DEPT_CODE_5 = #{deptCode5,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode1 != null and deptCode1 != ''">
+		DEPT_CODE_1 = #{deptCode1,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+   	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+  	<if test="teamCode5 != null and teamCode5 != ''">
+		TEAM_CODE_5 = #{teamCode5,jdbcType=VARCHAR},
+	</if>
+  	<if test="startDate != null and startDate != ''">
+		START_DATE = #{startDate,jdbcType=DATE},
+	</if>
+  	<if test="teamCode4 != null and teamCode4 != ''">
+		TEAM_CODE_4 = #{teamCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="objectValue != null and objectValue != ''">
+		OBJECT_VALUE = #{objectValue,jdbcType=VARCHAR},
+	</if>
+  	<if test="teamCode1 != null and teamCode1 != ''">
+		TEAM_CODE_1 = #{teamCode1,jdbcType=VARCHAR},
+	</if>
+  	<if test="teamCode3 != null and teamCode3 != ''">
+		TEAM_CODE_3 = #{teamCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="teamCode2 != null and teamCode2 != ''">
+		TEAM_CODE_2 = #{teamCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="objectCode != null and objectCode != ''">
+		OBJECT_CODE = #{objectCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="personCode != null and personCode != ''">
+		PERSON_CODE = #{personCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_CALC_VALUE
+		set 
+			RANK_CODE_1 = #{rankCode1,jdbcType=VARCHAR},
+  			RANK_CODE_2 = #{rankCode2,jdbcType=VARCHAR},
+  			RANK_CODE_5 = #{rankCode5,jdbcType=VARCHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			RANK_CODE_3 = #{rankCode3,jdbcType=VARCHAR},
+  			END_DATE = #{endDate,jdbcType=DATE},
+  			RANK_CODE_4 = #{rankCode4,jdbcType=VARCHAR},
+  			VERSION_ID = #{versionId,jdbcType=VARCHAR},
+  			DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR},
+  			OBJECT_TYPE = #{objectType,jdbcType=VARCHAR},
+  			DEPT_CODE_5 = #{deptCode5,jdbcType=VARCHAR},
+  			DEPT_CODE_1 = #{deptCode1,jdbcType=VARCHAR},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+  			DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+   			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+  			OPT_DATE = #{optDate,jdbcType=DATE},
+  			TEAM_CODE_5 = #{teamCode5,jdbcType=VARCHAR},
+  			START_DATE = #{startDate,jdbcType=DATE},
+  			TEAM_CODE_4 = #{teamCode4,jdbcType=VARCHAR},
+  			OBJECT_VALUE = #{objectValue,jdbcType=VARCHAR},
+  			TEAM_CODE_1 = #{teamCode1,jdbcType=VARCHAR},
+  			TEAM_CODE_3 = #{teamCode3,jdbcType=VARCHAR},
+  			TEAM_CODE_2 = #{teamCode2,jdbcType=VARCHAR},
+  			OBJECT_CODE = #{objectCode,jdbcType=VARCHAR},
+  			PERSON_CODE = #{personCode,jdbcType=VARCHAR}
+  		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TCalcValue" >
+	update T_CALC_VALUE
+	<set>
+	<if test="rankCode1 != null and rankCode1 != ''">
+		RANK_CODE_1 = #{rankCode1,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode2 != null and rankCode2 != ''">
+		RANK_CODE_2 = #{rankCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode5 != null and rankCode5 != ''">
+		RANK_CODE_5 = #{rankCode5,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelId != null and channelId != ''">
+		CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankCode3 != null and rankCode3 != ''">
+		RANK_CODE_3 = #{rankCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="endDate != null and endDate != ''">
+		END_DATE = #{endDate,jdbcType=DATE},
+	</if>
+  	<if test="rankCode4 != null and rankCode4 != ''">
+		RANK_CODE_4 = #{rankCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="versionId != null and versionId != ''">
+		VERSION_ID = #{versionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode4 != null and deptCode4 != ''">
+		DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="objectType != null and objectType != ''">
+		OBJECT_TYPE = #{objectType,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode5 != null and deptCode5 != ''">
+		DEPT_CODE_5 = #{deptCode5,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode1 != null and deptCode1 != ''">
+		DEPT_CODE_1 = #{deptCode1,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+   	<if test="lastOpt != null and lastOpt != ''">
+		LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="optDate != null and optDate != ''">
+		OPT_DATE = #{optDate,jdbcType=DATE},
+	</if>
+  	<if test="teamCode5 != null and teamCode5 != ''">
+		TEAM_CODE_5 = #{teamCode5,jdbcType=VARCHAR},
+	</if>
+  	<if test="startDate != null and startDate != ''">
+		START_DATE = #{startDate,jdbcType=DATE},
+	</if>
+  	<if test="teamCode4 != null and teamCode4 != ''">
+		TEAM_CODE_4 = #{teamCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="objectValue != null and objectValue != ''">
+		OBJECT_VALUE = #{objectValue,jdbcType=VARCHAR},
+	</if>
+  	<if test="teamCode1 != null and teamCode1 != ''">
+		TEAM_CODE_1 = #{teamCode1,jdbcType=VARCHAR},
+	</if>
+  	<if test="teamCode3 != null and teamCode3 != ''">
+		TEAM_CODE_3 = #{teamCode3,jdbcType=VARCHAR},
+	</if>
+  	<if test="teamCode2 != null and teamCode2 != ''">
+		TEAM_CODE_2 = #{teamCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="objectCode != null and objectCode != ''">
+		OBJECT_CODE = #{objectCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="personCode != null and personCode != ''">
+		PERSON_CODE = #{personCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TCalcValue" >
+		update T_CALC_VALUE
+		set 
+			RANK_CODE_1 = #{rankCode1,jdbcType=VARCHAR},
+  			RANK_CODE_2 = #{rankCode2,jdbcType=VARCHAR},
+  			RANK_CODE_5 = #{rankCode5,jdbcType=VARCHAR},
+  			CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+  			RANK_CODE_3 = #{rankCode3,jdbcType=VARCHAR},
+  			END_DATE = #{endDate,jdbcType=DATE},
+  			RANK_CODE_4 = #{rankCode4,jdbcType=VARCHAR},
+  			VERSION_ID = #{versionId,jdbcType=VARCHAR},
+  			DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR},
+  			OBJECT_TYPE = #{objectType,jdbcType=VARCHAR},
+  			DEPT_CODE_5 = #{deptCode5,jdbcType=VARCHAR},
+  			DEPT_CODE_1 = #{deptCode1,jdbcType=VARCHAR},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+  			DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+   			LAST_OPT = #{lastOpt,jdbcType=VARCHAR},
+  			STAT_MONTH = #{statMonth,jdbcType=VARCHAR},
+  			OPT_DATE = #{optDate,jdbcType=DATE},
+  			TEAM_CODE_5 = #{teamCode5,jdbcType=VARCHAR},
+  			START_DATE = #{startDate,jdbcType=DATE},
+  			TEAM_CODE_4 = #{teamCode4,jdbcType=VARCHAR},
+  			OBJECT_VALUE = #{objectValue,jdbcType=VARCHAR},
+  			TEAM_CODE_1 = #{teamCode1,jdbcType=VARCHAR},
+  			TEAM_CODE_3 = #{teamCode3,jdbcType=VARCHAR},
+  			TEAM_CODE_2 = #{teamCode2,jdbcType=VARCHAR},
+  			OBJECT_CODE = #{objectCode,jdbcType=VARCHAR},
+  			PERSON_CODE = #{personCode,jdbcType=VARCHAR}
+  		where SERNO = #{serno,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_List" />
+	from T_CALC_VALUE
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_List" />
+	from T_CALC_VALUE
+	where SERNO = #{serno,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_CALC_VALUE <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.TCalcValue" resultType="long">
+	select count(1)
+	from T_CALC_VALUE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_CALC_VALUE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_CALC_VALUE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_CALC_VALUE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_CALC_VALUE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_CALC_VALUE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_CALC_VALUE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

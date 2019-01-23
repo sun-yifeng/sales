@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.review.vo.ReviewScore" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SCORE_ID" property="scoreId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAR_INSURE_RATE" property="carInsureRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STAND_FEE" property="standFee" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="STAND_FEE_THIS_MONTH" property="standFeeThisMonth" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NAME" property="salsmanName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AVAGAGE_OUTPUT_RATE" property="avagageOutputRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_FEE" property="claimFee" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="REINSURE_CLAIM_RATE" property="reinsureClaimRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MANAGER_FLAG" property="managerFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="TATOL_GROUP_RATE" property="tatolGroupRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SCORE" property="score" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TATOL_PREM_RATE" property="tatolPremRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="CONFIRM_STATUS" property="confirmStatus" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANGE_COST_RATE" property="changeCostRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DAY_MANAGE_RATE" property="dayManageRate" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAND_FEE_SCHEDULE" property="standFeeSchedule" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.review.vo.ReviewScore">
+		<id column="SCORE_ID" property="scoreId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CAR_INSURE_RATE" property="carInsureRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STAND_FEE" property="standFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="STAND_FEE_THIS_MONTH" property="standFeeThisMonth" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NAME" property="salsmanName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AVAGAGE_OUTPUT_RATE" property="avagageOutputRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CLAIM_FEE" property="claimFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="REINSURE_CLAIM_RATE" property="reinsureClaimRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MANAGER_FLAG" property="managerFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="TATOL_GROUP_RATE" property="tatolGroupRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SCORE" property="score" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TATOL_PREM_RATE" property="tatolPremRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CONFIRM_STATUS" property="confirmStatus" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANGE_COST_RATE" property="changeCostRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DAY_MANAGE_RATE" property="dayManageRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="STAND_FEE_SCHEDULE" property="standFeeSchedule" jdbcType="DOUBLE" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询列 -->
+	<sql id="Base_Column_List" >
+		t.CONFIRM_USER,
+		t.DEPT_CODE_FOUR,
+		t.SALESMAN_CODE "salesmanCode",
+  		t.SALESMAN_NAME "SALESMAN_NAME",
+		t.VALID_IND,
+		t.GROUP_NAME,
+		t.DEPT_CODE_TWO,
+		t.MANAGER_FLAG,
+		t.CALC_MONTH,
+		to_char(t.TATOL_GROUP_RATE*100,'fm9999999999999990.00') || '%' as "tatolGroupRate",
+		to_char(t.CONFIRM_DATE,'yyyy-MM-dd HH24:MI:SS') as "confirmDate",
+		t.SALESMAN_CODE,
+		t.DEPT_CODE_THREE||t.DEPT_NAME_THREE "DEPT_NAME_THREE",
+		t.DEPT_CODE_TWO||t.DEPT_NAME_TWO "DEPT_NAME_TWO",
+		t.DEPT_CODE_THREE,
+		decode(t.CONFIRM_STATUS,0,'待确认',1,'已确认') as "confirmStatus",
+		t.DEPT_CODE_FOUR||t.DEPT_NAME_FOUR "DEPT_NAME_FOUR",
+		t.SCORE_ID,
+		t.RANK_NAME,
+		t.RANK_CODE,
+		t.GROUP_CODE,
+		decode(t.CAR_INSURE_RATE,null,'---',to_char(t.CAR_INSURE_RATE*100,'fm9999999999999990.00') || '%') as "carInsurRate",
+		decode(t.DAY_MANAGE_RATE,null,'---',to_char(t.DAY_MANAGE_RATE*100,'fm9999999999999990.00') || '%') as "dayManageRate",
+		decode(t.AVAGAGE_OUTPUT_RATE,null,'---',to_char(t.AVAGAGE_OUTPUT_RATE*100,'fm9999999999999990.00') || '%') as "avagageOutputRate",
+		decode(t.CHANGE_COST_RATE,null,'---',to_char(t.CHANGE_COST_RATE*100,'fm9999999999999990.00') || '%') as "changeCostRate",
+		nvl(to_char(t.STAND_FEE,'fm9999999999999990.00'),'---') as "standFee",
+		nvl(to_char(t.STAND_FEE_THIS_MONTH,'fm9999999999999990.00'),'---') as "standFeeThisMonth",
+		nvl(to_char(t.CLAIM_FEE,'fm9999999999999990.00'),'---') as "claimFee",
+		decode(t.REINSURE_CLAIM_RATE,null,'---',to_char(t.REINSURE_CLAIM_RATE*100,'fm9999999999999990.00') || '%') as "reinsureClaimRate",
+		decode(t.TATOL_PREM_RATE,null,'---',to_char(t.TATOL_PREM_RATE*100,'fm9999999999999990.00') || '%') as "tatolPremRate",
+		decode(t.SCORE,null,'---',to_char(t.SCORE,'fm9999999999999990.00')) as "score",
+		decode(t.STAND_FEE_SCHEDULE,null,'---',to_char(t.STAND_FEE_SCHEDULE,'fm9999999999999990.00')) as "standFeeSchedule",
+		t.CREATED_USER,
+		t.CREATED_DATE,
+		t.UPDATED_DATE,
+		t.UPDATED_USER,
+		nvl(to_char(t3.NORM_PREMIUM*10000,'fm9999999999999990.00'),'---') as "normPremium"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		CONFIRM_USER as "confirmUser",
+		CREATED_USER as "createdUser",
+		CAR_INSURE_RATE as "carInsureRate",
+		UPDATED_DATE as "updatedDate",
+		STAND_FEE as "standFee",
+		STAND_FEE_THIS_MONTH as "standFeeThisMonth",
+		DEPT_CODE_FOUR as "deptCodeFour",
+		SALESMAN_NAME as "salsmanName",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		AVAGAGE_OUTPUT_RATE as "avagageOutputRate",
+		GROUP_NAME as "groupName",
+		CLAIM_FEE as "claimFee",
+		REINSURE_CLAIM_RATE as "reinsureClaimRate",
+		DEPT_CODE_TWO as "deptCodeTwo",
+		MANAGER_FLAG as "managerFlag",
+		CALC_MONTH as "calcMonth",
+		TATOL_GROUP_RATE as "tatolGroupRate",
+		CONFIRM_DATE as "confirmDate",
+		UPDATED_USER as "updatedUser",
+		SALESMAN_CODE as "salesmanCode",
+		SCORE as "score",
+		DEPT_NAME_THREE as "deptNameThree",
+		DEPT_NAME_TWO as "deptNameTwo",
+		DEPT_CODE_THREE as "deptCodeThree",
+		TATOL_PREM_RATE as "tatolPremRate",
+		CONFIRM_STATUS as "confirmStatus",
+		DEPT_NAME_FOUR as "deptNameFour",
+		SCORE_ID as "scoreId",
+		RANK_NAME as "rankName",
+		CHANGE_COST_RATE as "changeCostRate",
+		RANK_CODE as "rankCode",
+		DAY_MANAGE_RATE as "dayManageRate",
+		GROUP_CODE as "groupCode",
+		LINE_CODE as "lineCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{confirmUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{carInsureRate,jdbcType=DOUBLE},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{standFee,jdbcType=DOUBLE},
+ 		#{deptCodeFour,jdbcType=VARCHAR},
+ 		#{salsmanName,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{avagageOutputRate,jdbcType=DOUBLE},
+ 		#{groupName,jdbcType=VARCHAR},
+ 		#{claimFee,jdbcType=DOUBLE},
+ 		#{reinsureClaimRate,jdbcType=DOUBLE},
+ 		#{deptCodeTwo,jdbcType=VARCHAR},
+ 		#{managerFlag,jdbcType=CHAR},
+ 		#{calcMonth,jdbcType=INTEGER},
+ 		#{tatolGroupRate,jdbcType=DOUBLE},
+ 		#{confirmDate,jdbcType=DATE},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{score,jdbcType=DOUBLE},
+ 		#{deptNameThree,jdbcType=VARCHAR},
+ 		#{deptNameTwo,jdbcType=VARCHAR},
+ 		#{deptCodeThree,jdbcType=VARCHAR},
+ 		#{tatolPremRate,jdbcType=DOUBLE},
+ 		#{confirmStatus,jdbcType=CHAR},
+ 		#{deptNameFour,jdbcType=VARCHAR},
+ 		#{scoreId,jdbcType=VARCHAR},
+ 		#{rankName,jdbcType=VARCHAR},
+ 		#{changeCostRate,jdbcType=DOUBLE},
+ 		#{rankCode,jdbcType=VARCHAR},
+ 		#{dayManageRate,jdbcType=DOUBLE},
+ 		#{groupCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="confirmUser != null and confirmUser != ''">
+			and t.CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and t.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="carInsureRate != null and carInsureRate != ''">
+			and t.CAR_INSURE_RATE = #{carInsureRate,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and t.UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="standFee != null and standFee != ''">
+			and t.STAND_FEE = #{standFee,jdbcType=DOUBLE}
+		</if>
+		<if test="deptCodeFour != null and deptCodeFour != ''">
+			and t.DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and t.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and t.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="avagageOutputRate != null and avagageOutputRate != ''">
+			and t.AVAGAGE_OUTPUT_RATE = #{avagageOutputRate,jdbcType=DOUBLE}
+		</if>
+		<if test="claimFee != null and claimFee != ''">
+			and t.CLAIM_FEE = #{claimFee,jdbcType=DOUBLE}
+		</if>
+		<if test="reinsureClaimRate != null and reinsureClaimRate != ''">
+			and t.REINSURE_CLAIM_RATE = #{reinsureClaimRate,jdbcType=DOUBLE}
+		</if>
+		<if test="deptCodeTwo != null and deptCodeTwo != ''">
+			and t.DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="managerFlag != null and managerFlag != ''">
+			and t.MANAGER_FLAG = #{managerFlag,jdbcType=CHAR}
+		</if>
+		<if test="calcMonth != null and calcMonth != ''">
+			and t.CALC_MONTH = #{calcMonth,jdbcType=INTEGER}
+		</if>
+		<if test="tatolGroupRate != null and tatolGroupRate != ''">
+			and t.TATOL_GROUP_RATE = #{tatolGroupRate,jdbcType=DOUBLE}
+		</if>
+		<if test="confirmDate != null and confirmDate != ''">
+			and t.CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and t.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="score != null and score != ''">
+			and t.SCORE = #{score,jdbcType=DOUBLE}
+		</if>
+		<if test="deptNameThree != null and deptNameThree != ''">
+			and t.DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameTwo != null and deptNameTwo != ''">
+			and t.DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeThree != null and deptCodeThree != ''">
+			and t.DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR}
+		</if>
+		<if test="tatolPremRate != null and tatolPremRate != ''">
+			and t.TATOL_PREM_RATE = #{tatolPremRate,jdbcType=DOUBLE}
+		</if>
+		<if test="confirmStatus != null and confirmStatus != ''">
+			and t.CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR}
+		</if>
+		<if test="deptNameFour != null and deptNameFour != ''">
+			and t.DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR}
+		</if>
+		<if test="scoreId != null and scoreId != ''">
+			and t.SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+		</if>
+		<if test="rankName != null and rankName != ''">
+			and t.RANK_NAME = #{rankName,jdbcType=VARCHAR}
+		</if>
+		<if test="changeCostRate != null and changeCostRate != ''">
+			and t.CHANGE_COST_RATE = #{changeCostRate,jdbcType=DOUBLE}
+		</if>
+		<if test="rankCode != null and rankCode != ''">
+			and t.RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="dayManageRate != null and dayManageRate != ''">
+			and t.DAY_MANAGE_RATE = #{dayManageRate,jdbcType=DOUBLE}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and t.GROUP_CODE like trim(#{groupCode,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and t.GROUP_NAME like trim(#{groupName,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and t.SALESMAN_CODE like trim(#{salesmanCode,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="salsmanName != null and salsmanName != ''">
+			and t.SALESMAN_NAME like trim(#{salsmanName,jdbcType=VARCHAR}) || '%'
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.review.vo.ReviewScore" >
+    insert into REVIEW_SCORE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REVIEW_SCORE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!--确认评分-->
+	<update id="confirmScoreByPrimaryKey"  parameterType="map">
+		update REVIEW_SCORE set 
+		confirm_Status = #{confirmStatus,jdbcType=CHAR},
+		confirm_User = #{confirmUser,jdbcType=VARCHAR},
+		confirm_Date = to_date(#{confirmDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss')
+		where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</update>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from REVIEW_SCORE
+    where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</delete>
+
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REVIEW_SCORE
+	<set>
+	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="carInsureRate != null and carInsureRate != ''">
+		CAR_INSURE_RATE = #{carInsureRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="standFee != null and standFee != ''">
+		STAND_FEE = #{standFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="salsmanName != null and salsmanName != ''">
+		SALESMAN_NAME = #{salsmanName,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="avagageOutputRate != null and avagageOutputRate != ''">
+		AVAGAGE_OUTPUT_RATE = #{avagageOutputRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimFee != null and claimFee != ''">
+		CLAIM_FEE = #{claimFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="reinsureClaimRate != null and reinsureClaimRate != ''">
+		REINSURE_CLAIM_RATE = #{reinsureClaimRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="managerFlag != null and managerFlag != ''">
+		MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="tatolGroupRate != null and tatolGroupRate != ''">
+		TATOL_GROUP_RATE = #{tatolGroupRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="score != null and score != ''">
+		SCORE = #{score,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="tatolPremRate != null and tatolPremRate != ''">
+		TATOL_PREM_RATE = #{tatolPremRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+   	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="changeCostRate != null and changeCostRate != ''">
+		CHANGE_COST_RATE = #{changeCostRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="dayManageRate != null and dayManageRate != ''">
+		DAY_MANAGE_RATE = #{dayManageRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REVIEW_SCORE
+		set 
+			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CAR_INSURE_RATE = #{carInsureRate,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STAND_FEE = #{standFee,jdbcType=DOUBLE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			SALESMAN_NAME = #{salsmanName,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			AVAGAGE_OUTPUT_RATE = #{avagageOutputRate,jdbcType=DOUBLE},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			CLAIM_FEE = #{claimFee,jdbcType=DOUBLE},
+  			REINSURE_CLAIM_RATE = #{reinsureClaimRate,jdbcType=DOUBLE},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+  			CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+  			TATOL_GROUP_RATE = #{tatolGroupRate,jdbcType=DOUBLE},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			SCORE = #{score,jdbcType=DOUBLE},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			TATOL_PREM_RATE = #{tatolPremRate,jdbcType=DOUBLE},
+  			CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+   			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			CHANGE_COST_RATE = #{changeCostRate,jdbcType=DOUBLE},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			DAY_MANAGE_RATE = #{dayManageRate,jdbcType=DOUBLE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.review.vo.ReviewScore" >
+	update REVIEW_SCORE
+	<set>
+	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="carInsureRate != null and carInsureRate != ''">
+		CAR_INSURE_RATE = #{carInsureRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="standFee != null and standFee != ''">
+		STAND_FEE = #{standFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="salsmanName != null and salsmanName != ''">
+		SALESMAN_NAME = #{salsmanName,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="avagageOutputRate != null and avagageOutputRate != ''">
+		AVAGAGE_OUTPUT_RATE = #{avagageOutputRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="claimFee != null and claimFee != ''">
+		CLAIM_FEE = #{claimFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="reinsureClaimRate != null and reinsureClaimRate != ''">
+		REINSURE_CLAIM_RATE = #{reinsureClaimRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="managerFlag != null and managerFlag != ''">
+		MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="tatolGroupRate != null and tatolGroupRate != ''">
+		TATOL_GROUP_RATE = #{tatolGroupRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="score != null and score != ''">
+		SCORE = #{score,jdbcType=DOUBLE},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="tatolPremRate != null and tatolPremRate != ''">
+		TATOL_PREM_RATE = #{tatolPremRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+   	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="changeCostRate != null and changeCostRate != ''">
+		CHANGE_COST_RATE = #{changeCostRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="dayManageRate != null and dayManageRate != ''">
+		DAY_MANAGE_RATE = #{dayManageRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.review.vo.ReviewScore" >
+		update REVIEW_SCORE
+		set 
+			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CAR_INSURE_RATE = #{carInsureRate,jdbcType=DOUBLE},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STAND_FEE = #{standFee,jdbcType=DOUBLE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			SALESMAN_NAME = #{salsmanName,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			AVAGAGE_OUTPUT_RATE = #{avagageOutputRate,jdbcType=DOUBLE},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			CLAIM_FEE = #{claimFee,jdbcType=DOUBLE},
+  			REINSURE_CLAIM_RATE = #{reinsureClaimRate,jdbcType=DOUBLE},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+  			CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+  			TATOL_GROUP_RATE = #{tatolGroupRate,jdbcType=DOUBLE},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			SCORE = #{score,jdbcType=DOUBLE},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			TATOL_PREM_RATE = #{tatolPremRate,jdbcType=DOUBLE},
+  			CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+   			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			CHANGE_COST_RATE = #{changeCostRate,jdbcType=DOUBLE},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			DAY_MANAGE_RATE = #{dayManageRate,jdbcType=DOUBLE},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REVIEW_SCORE
+	where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REVIEW_SCORE
+	where SCORE_ID = #{scoreId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REVIEW_SCORE t <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.review.vo.ReviewScore" resultType="long">
+	select count(1)
+	from REVIEW_SCORE <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_SCORE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_SCORE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_SCORE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REVIEW_SCORE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REVIEW_SCORE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 分页查询 (评分)-->
+    <select id="queryListPageScoreCount" parameterType="map" resultType="java.lang.Long">
+         select count(1)
+           from t_law_salesman t1
+           left join salesman t2
+             on t1.salesman_code = t2.salesman_code
+            and t2.valid_ind = '1'
+           left join t_law_rank_def t3
+             on t3.rank_code = t1.rank_code
+            and t3.valid_ind = '1'
+            and t3.version_id = t1.version_id
+           left join review_rank t4
+             on t4.salesman_code = t1.salesman_code
+            and t4.calc_month = t1.calc_month
+            and t4.valid_ind = '1'
+           left join t_law_rank_def t12
+             on t12.rank_code = t4.recommend_rank
+           left join review_salary t5
+             on t5.salesman_code = t1.salesman_code
+            and t5.calc_month = t1.calc_month
+            and t5.valid_ind = '1'
+           left join department t6
+             on t6.dept_code = t1.dept_code
+            and t6.valid_ind = '1'
+           left join t_law_calc_extra t8
+             on t1.salesman_code = t8.sales_code
+            and t8.calc_month = t1.calc_month
+           left join review_score t9
+             on t9.salesman_code = t1.salesman_code
+            and t9.calc_month = t1.calc_month
+           left join group_main t10
+             on t2.group_code = t10.group_code
+            and t10.valid_ind = '1'
+           left join review_rank t11
+             on t11.salesman_code = t1.salesman_code
+            and t11.calc_month = t1.calc_month
+           left join (select t11.sales_code sales_code, max(t11.entry_date) entry_date, max(t11.leave_date) leave_date
+                        from group_menber t11
+                       group by t11.sales_code) t13
+             on t13.sales_code = t1.salesman_code
+           left join department t14
+             on substr(t2.dept_code, 1, 4) = t14.dept_code
+            and t14.valid_ind = '1'
+           left join department t15
+             on t2.dept_code = t15.dept_code
+            and t15.valid_ind = '1'
+        where 1 = 1
+        <if test="managerFlag != null and managerFlag != ''">
+          and t1.manager_flag = #{managerFlag,jdbcType=VARCHAR}
+        </if>
+        <if test="calcMonth != null and calcMonth != ''">
+          and t1.calc_month = #{calcMonth,jdbcType=VARCHAR}
+        </if>
+        <if test="deptCodeTwo != null and deptCodeTwo != ''">
+          and t1.dept_code = #{deptCodeTwo,jdbcType=VARCHAR}
+        </if>
+        <if test="deptCodeThree != null and deptCodeThree != ''">
+          and substr(t2.dept_code, 1, 4) = #{deptCodeThree,jdbcType=VARCHAR}
+        </if>
+        <if test="deptCodeFour != null and deptCodeFour != ''">
+          and t2.dept_code = #{deptCodeFour,jdbcType=VARCHAR}
+        </if>
+        <if test="salsmanName != null and salsmanName != ''">
+          and t2.salesman_cname like  '%' || trim(#{salsmanName,jdbcType=VARCHAR}) || '%'
+        </if>
+        <if test="salesmanCode != null and salesmanCode != ''">
+          and t2.employ_code like  '%' || trim(#{salesmanCode,jdbcType=VARCHAR}) || '%'
+        </if>
+    </select>
+	
+	<!-- 分页查询 (评分) -->
+	<select id="queryListPageScore" parameterType="map" resultType="map">
+	select * from (
+		select a.*,rownum rn from (
+		  <![CDATA[
+			select 
+			       t1.dept_code  as "deptCode",
+			       t1.calc_month as "calcMonth",
+			       t2.salesman_code as "salesCode",
+			       t6.dept_code || t6.dept_simple_name as "deptNameTwo",
+			       t14.dept_code || t14.dept_simple_name as "deptNameThree",
+			       t15.dept_code || t15.dept_simple_name as "deptNameFour",
+			       case
+			         when t1.manager_flag = '0' then
+			          '客户经理'
+			         when t1.manager_flag = '1' then
+			          '团队经理'
+			       end as "managerFlag",
+			       t2.employ_code as "employNo",
+			       t2.salesman_cname as "salesName",
+			       decode(t2.trytou, 1, '是', 0, '否', '其他') as "tryOut",
+			       to_char(t2.contract_date, 'yyyy-mm-dd') as "contractDate",
+			       to_char(t2.entry_date, 'yyyy-mm-dd') as "entryDate",
+			       t3.rank_name as "rankName",
+			       to_char(t2.front_date, 'yyyy-mm-dd') as "frontDate",
+			       to_char(t10.found_date, 'yyyy-mm-dd') as "groupFoundDate",
+			       to_char(t13.entry_date, 'yyyy-mm-dd') as "groupEntryDate",
+			       to_char(t13.leave_date, 'yyyy-mm-dd') as "groupLeaveDate",
+			       decode(t11.review_result, 'S', '升级', 'J', '降级', 'W', '维持', 'T', '淘汰') "reviewResult",
+			       t12.rank_name as "rankNameRec",
+			       t9.group_name as "groupName",
+			       case
+			         when t1.manager_flag = '0' then
+			          to_char(t8.a001, 'fm9999999999999990.0000')
+			         when t1.manager_flag = '1' then
+			          to_char(t8.a101, 'fm9999999999999990.0000')
+			       end as "frontMonth",
+			       to_char(t3.norm_premium, 'fm9999999999999990.00') as "normPremium",
+			       to_char(t3.base_salary, 'fm9999999999999990.00') as "baseSalary",
+			       to_char(t3.cacl_salary, 'fm9999999999999990.00') as "caclSalary",
+			       to_char(t8.a102, 'fm9999999999999990.00') as "groupPrmGot",
+			       to_char(t8.a103, 'fm9999999999999990.00') as "groupPrmSta",
+			       case
+			         when t1.manager_flag = '0' then
+			          to_char(t8.a004, 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' then
+			          to_char(t8.a104, 'fm9999999999999990.00')
+			       end as "yearGot",
+			       case
+			         when t1.manager_flag = '0' then
+			          to_char(t8.a005, 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' then
+			          to_char(t8.a105, 'fm9999999999999990.00')
+			       end as "yearSta",
+			       case
+			         when t1.manager_flag = '0' and t8.a001 <> 0 then
+			          to_char((t8.a005 / t8.a001) * 12, 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' and t8.a101 <> 0 then
+			          to_char((t8.a105 / t8.a101) * 12, 'fm9999999999999990.00')
+			       end as "scheduleStan",
+			       case
+			         when t1.manager_flag = '0' and t8.a001 <> 0 then
+			          to_char((t8.a005 / t8.a001) * 12 / (t3.norm_premium * 10000), 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' and t8.a101 <> 0 then
+			          to_char((t8.a105 / t8.a101) * 12 / (t3.norm_premium * 10000), 'fm9999999999999990.00')
+			       end as "scheduleRate",
+			       case
+			         when t1.manager_flag = '0' then
+			          to_char(t8.a011, 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' then
+			          to_char(t8.a109, 'fm9999999999999990.00')
+			       end as "thisYearClm",
+			       case
+			         when t1.manager_flag = '0' then
+			          to_char(t8.a012, 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' then
+			          to_char(t8.a110, 'fm9999999999999990.00')
+			       end as "thisYearPro",
+			       case
+			         when t1.manager_flag = '0' then
+			          to_char(t8.A014, 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' then
+			          to_char(t8.A113, 'fm9999999999999990.00')
+			       end as "twelevMonthClm",
+			       case
+			         when t1.manager_flag = '0' then
+			          to_char(t8.A015, 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' then
+			          to_char(t8.A114, 'fm9999999999999990.00')
+			       end as "twelevMonthPro",
+			       case
+			         when t1.manager_flag = '0' and t8.a011 <> 0 then
+			          to_char(round(t8.A014 / t8.A015, 6), 'fm9999999999999990.00')
+			         when t1.manager_flag = '1' and t8.A114 <> 0 then
+			          to_char(round(t8.A113 / t8.A114, 6), 'fm9999999999999990.00')
+			       end as "twelevMonthRate",
+			       t9.score_id as "scoreId",
+			       t9.confirm_status as "confirmStatus",
+			       to_char(t9.confirm_date, 'yyyy-mm-dd') as "confirmDate",
+			       to_char(t9.score, 'fm9999999999999990.00') as "score",
+			       to_char(t5.salary_fixed, 'fm9999999999999990.00') as "salaryFixed",
+			       to_char(t5.salary_perform, 'fm9999999999999990.00') as "salaryPerform",
+			       to_char(t5.salary_base, 'fm9999999999999990.00') as "salaryBase",
+			       to_char(t5.salary_total, 'fm9999999999999990.00') as "salaryTotal"
+			  from t_law_salesman t1
+			  left join salesman t2
+			    on t1.salesman_code = t2.salesman_code
+			   and t2.valid_ind = '1'
+			  left join t_law_rank_def t3
+			    on t3.rank_code = t1.rank_code
+			   and t3.valid_ind = '1'
+			   and t3.version_id = t1.version_id
+			  left join review_rank t4
+			    on t4.salesman_code = t1.salesman_code
+			   and t4.calc_month = t1.calc_month
+			   and t4.valid_ind = '1'
+			  left join t_law_rank_def t12
+			    on t12.rank_code = t4.recommend_rank
+			  left join review_salary t5
+			    on t5.salesman_code = t1.salesman_code
+			   and t5.calc_month = t1.calc_month
+			   and t5.valid_ind = '1'
+			  left join department t6
+			    on t6.dept_code = t1.dept_code
+			   and t6.valid_ind = '1'
+			  left join t_law_calc_extra t8
+			    on t1.salesman_code = t8.sales_code
+			   and t8.calc_month = t1.calc_month
+			  left join review_score t9
+			    on t9.salesman_code = t1.salesman_code
+			   and t9.calc_month = t1.calc_month
+			  left join group_main t10
+			    on t2.group_code = t10.group_code
+			   and t10.valid_ind = '1'
+			  left join review_rank t11
+			    on t11.salesman_code = t1.salesman_code
+			   and t11.calc_month = t1.calc_month
+			  left join (select t11.sales_code sales_code, max(t11.entry_date) entry_date, max(t11.leave_date) leave_date
+			               from group_menber t11
+			              group by t11.sales_code) t13
+			    on t13.sales_code = t1.salesman_code
+			  left join department t14
+			    on substr(t2.dept_code, 1, 4) = t14.dept_code
+			   and t14.valid_ind = '1'
+			  left join department t15
+			    on t2.dept_code = t15.dept_code
+			   and t15.valid_ind = '1'
+	       ]]>
+	       where 1 = 1
+	       <if test="managerFlag != null and managerFlag != ''">
+             and t1.manager_flag = #{managerFlag,jdbcType=VARCHAR}
+           </if>
+	       <if test="calcMonth != null and calcMonth != ''">
+             and t1.calc_month = #{calcMonth,jdbcType=VARCHAR}
+           </if>
+	       <if test="deptCodeTwo != null and deptCodeTwo != ''">
+             and t1.dept_code = #{deptCodeTwo,jdbcType=VARCHAR}
+           </if>
+	       <if test="deptCodeThree != null and deptCodeThree != ''">
+             and substr(t2.dept_code, 1, 4) = #{deptCodeThree,jdbcType=VARCHAR}
+           </if>
+	       <if test="deptCodeFour != null and deptCodeFour != ''">
+             and t2.dept_code = #{deptCodeFour,jdbcType=VARCHAR}
+           </if>
+	       <if test="salsmanName != null and salsmanName != ''">
+             and t2.salesman_cname like  '%' || trim(#{salsmanName,jdbcType=VARCHAR}) || '%'
+           </if>
+	       <if test="salesmanCode != null and salesmanCode != ''">
+             and t2.employ_code like  '%' || trim(#{salesmanCode,jdbcType=VARCHAR}) || '%'
+           </if>
+	       order by t1.dept_code, t1.manager_flag, t2.salesman_code
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询实收（标准）保费  -->
+    <select id="queryStandardPremiumCount" parameterType="map" resultType="long">
+       select count(1)
+         from T_LAW_MIS_GOT_PRM t
+         left join department d
+          on t.c_dept_cde = d.dept_code
+          and d.valid_ind = '1'
+         where 1=1
+          and t.c_dept_cde != '00'
+        <if test="deptCodeTwo != null and deptCodeTwo != ''">
+          and t.c_dept_cde = #{deptCodeTwo,jdbcType=VARCHAR}
+        </if>
+        <if test="groupName != null and groupName != ''">
+          and pkg_law_belong.f_sale_group(t.c_dept_cde, substr(t.c_sls_cde1, 1, 9), t.sign_date) like '%' || trim(#{groupName,jdbcType=VARCHAR}) || '%'
+        </if>
+        <if test="employNo != null and employNo != ''">
+          and t.c_sls_cde1 like '%' || trim(#{employNo,jdbcType=VARCHAR}) || '%'
+        </if>
+           and ( <![CDATA[
+             (t.t_pay_tm >= to_date(#{gotBgn1,jdbcType=VARCHAR}|| '00:00:00','yyyy-mm-dd hh24:mi:ss') and t.t_pay_tm <= to_date(#{gotEnd1,jdbcType=VARCHAR}||' 23:59:59','yyyy-mm-dd hh24:mi:ss') and t.t_insrnc_bgn_tm < to_date(#{insEnd1,jdbcType=VARCHAR}||' 23:59:59','yyyy-mm-dd hh24:mi:ss'))
+           or
+             (t.t_pay_tm <= to_date(#{gotEnd2,jdbcType=VARCHAR}|| '23:59:59','yyyy-mm-dd hh24:mi:ss') and t.t_insrnc_bgn_tm >= to_date(#{insBgn2,jdbcType=VARCHAR}|| '00:00:00','yyyy-mm-dd hh24:mi:ss') and t.t_insrnc_bgn_tm <= to_date(#{insEnd2,jdbcType=VARCHAR}|| '23:59:59','yyyy-mm-dd hh24:mi:ss'))
+          ]]>)  
+    </select>
+	
+	<!-- 查询实收（标准）保费  -->
+	<select id="queryStandardPremium" parameterType="map" resultType="map">
+		select * from (
+			select a.*,rownum rn from (
+					select d.dept_simple_name as "deptNameTwo",
+					       t.c_ply_no as "policyNo",
+					       t.endorse_no as "endorseNo",
+					       t.c_sls_cde1 as "salesman",
+					       pkg_law_belong.f_ply_group(t.c_dept_cde,substr(t.c_sls_cde1, 1, 9),t.sign_date) as "groupName",
+					       t.c_busi_oria as "busOrigin",
+					       decode(t.c_busi_line,'925004','电话直销','925005','网销业务','925006','渠道重客','925007','其他业务','925008','信用保证险','925009','创新业务','') as "lineName",
+					       t.c_prod_no as "productNo",
+					       to_char(t.sign_date, 'yyyy-mm-dd') as "signDate",
+					       to_char(t.t_udr_date, 'yyyy-mm-dd') as "udrDate",
+					       to_char(t.t_pay_tm, 'yyyy-mm-dd') as "paymentDate",
+					       to_char(t.t_insrnc_bgn_tm, 'yyyy-mm-dd') as "insuranceStart",
+					       to_char(t.t_insrnc_end_tm, 'yyyy-mm-dd') as "insuranceEnd",
+					       t.c_cmpny_agt_cde as "channelCode",
+					       t.c_cha_nme as "channelName",
+					       t.c_vhl_name as "car",
+					       to_char(nvl(t.n_rate_vehl,1), 'fm9999999999999990.00') as "carRate",
+					       to_char(nvl(t.n_rate_line,1), 'fm9999999999999990.00') as "busLineRate",
+					       to_char(nvl(t.n_rate_prod,1), 'fm9999999999999990.00') as "productRate",
+					       to_char(nvl(t.n_rate_chan,1), 'fm9999999999999990.00') as "channelRate",
+					       to_char(nvl(t.n_prem_got,0), 'fm9999999999999990.00') as "realPremium",
+					       to_char(nvl(t.n_prem_stan,0), 'fm9999999999999990.00') as "standardPremium",
+					       to_char(nvl(t.n_rate_orig,1), 'fm9999999999999990.00') as "busOriginRate",
+					       to_char(t.stat_month, 'yyyy-mm-dd') as "statisticMonth",
+					       to_char(t.created_date, 'yyyy-mm-dd hh24:mi:ss') as "createdDate"
+						  from T_LAW_MIS_GOT_PRM t
+						  left join department d
+						    on t.c_dept_cde = d.dept_code
+						    and d.valid_ind = '1'
+						  where 1=1
+						    and t.c_dept_cde != '00'
+				         <if test="deptCodeTwo != null and deptCodeTwo != ''">
+							and t.c_dept_cde = #{deptCodeTwo,jdbcType=VARCHAR}
+						 </if>
+				         <if test="groupName != null and groupName != ''">
+							and pkg_law_belong.f_sale_group(t.c_dept_cde, substr(t.c_sls_cde1, 1, 9), t.sign_date) like '%' || trim(#{groupName,jdbcType=VARCHAR}) || '%'
+						 </if>
+						 <if test="employNo != null and employNo != ''">
+							and t.c_sls_cde1 like '%' || trim(#{employNo,jdbcType=VARCHAR}) || '%'
+						 </if>
+							and ( <![CDATA[
+			                    (t.t_pay_tm >= to_date(#{gotBgn1,jdbcType=VARCHAR}|| '00:00:00','yyyy-mm-dd hh24:mi:ss') and t.t_pay_tm <= to_date(#{gotEnd1,jdbcType=VARCHAR}||' 23:59:59','yyyy-mm-dd hh24:mi:ss') and t.t_insrnc_bgn_tm < to_date(#{insEnd1,jdbcType=VARCHAR}||' 23:59:59','yyyy-mm-dd hh24:mi:ss'))
+			                  or
+			                    (t.t_pay_tm <= to_date(#{gotEnd2,jdbcType=VARCHAR}|| '23:59:59','yyyy-mm-dd hh24:mi:ss') and t.t_insrnc_bgn_tm >= to_date(#{insBgn2,jdbcType=VARCHAR}|| '00:00:00','yyyy-mm-dd hh24:mi:ss') and t.t_insrnc_bgn_tm <= to_date(#{insEnd2,jdbcType=VARCHAR}|| '23:59:59','yyyy-mm-dd hh24:mi:ss'))
+			                 ]]>)  
+					     ) a where rownum &lt;= #{endpoint}
+			) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询赔付率清单  -->
+	<select id="queryClmRateList" parameterType="map" resultType="map">
+		select * from (
+			select a.*,rownum rn from (
+			<![CDATA[
+				select t2.dept_simple_name as "deptNameTwo",
+				       t1.c_ply_no as "policyNo",
+				       t1.c_sls_cde1 as "salesman",
+				       pkg_law_belong.f_ply_group(t1.c_dept_cde,substr(t1.c_sls_cde1, 1, 9),t1.t_udr_date) as "groupName",
+				       to_char(t1.yj_ri, 'fm9999999999999990.00') as "yjPrm",
+				       to_char(t1.wj_ri, 'fm9999999999999990.00') as "wjPrm",
+				       to_char(t1.manqi * nvl(t1.rate, 1), 'fm9999999999999990.00') as "manQi",
+				       to_char(t1.t_insrnc_bgn_tm, 'yyyy-mm-dd') as "bgnDate",
+				       to_char(t1.t_insrnc_end_tm, 'yyyy-mm-dd') as "endDate",
+				       to_char(t1.t_udr_date, 'yyyy-mm-dd') as "udrDate",
+				       to_char(t1.created_date, 'yyyy-mm-dd hh24:mi:ss') as "createdDate"
+				  from t_law_mis_pro_clm t1
+				  left join department t2
+				    on t1.c_dept_cde = t2.dept_code
+				 where t1.c_dept_cde <> '00'
+             ]]>
+		         <if test="deptCodeTwo != null and deptCodeTwo != ''">
+					and t1.c_dept_cde = #{deptCodeTwo,jdbcType=VARCHAR}
+				 </if>
+		         <if test="groupName != null and groupName != ''">
+					and pkg_law_belong.f_clm_group(t1.c_dept_cde, substr(t1.c_sls_cde1, 1, 9), t1.t_udr_date) like '%' || trim(#{groupName,jdbcType=VARCHAR}) || '%'
+				 </if>
+				 <if test="employNo != null and employNo != ''">
+					and t1.c_sls_cde1 like '%' || trim(#{employNo,jdbcType=VARCHAR}) || '%'
+				 </if>
+				 <![CDATA[
+					and t1.t_insrnc_bgn_tm >= to_date(#{calcBgn,jdbcType=VARCHAR}|| '00:00:00','yyyy-mm-dd hh24:mi:ss') 
+	                and t1.t_insrnc_bgn_tm <= to_date(#{calcEnd,jdbcType=VARCHAR}||' 23:59:59','yyyy-mm-dd hh24:mi:ss') 
+	             ]]>    
+			     ) a where rownum &lt;= #{endpoint}
+			) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询赔付率清单  -->
+    <select id="queryClmRateListCount" parameterType="map" resultType="long">
+       <![CDATA[
+	     select count(1)
+	      from t_law_mis_pro_clm t1
+	      left join department t2
+	        on t1.c_dept_cde = t2.dept_code
+	     where t1.c_dept_cde <> '00'
+        ]]>
+        <if test="deptCodeTwo != null and deptCodeTwo != ''">
+           and t1.c_dept_cde = #{deptCodeTwo,jdbcType=VARCHAR}
+        </if>
+        <if test="groupName != null and groupName != ''">
+           and pkg_law_belong.f_clm_group(t1.c_dept_cde, substr(t1.c_sls_cde1, 1, 9), t1.t_udr_date) like '%' || trim(#{groupName,jdbcType=VARCHAR}) || '%'
+        </if>
+        <if test="employNo != null and employNo != ''">
+           and t1.c_sls_cde1 like '%' || trim(#{employNo,jdbcType=VARCHAR}) || '%'
+        </if>
+        <![CDATA[
+           and t1.t_insrnc_bgn_tm >= to_date(#{calcBgn,jdbcType=VARCHAR}|| '00:00:00','yyyy-mm-dd hh24:mi:ss') 
+           and t1.t_insrnc_bgn_tm <= to_date(#{calcEnd,jdbcType=VARCHAR}||' 23:59:59','yyyy-mm-dd hh24:mi:ss') 
+        ]]>    
+    </select>
+	
+</mapper>

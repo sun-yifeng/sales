@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.review.vo.ReviewSalary" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="SALARY_ID" property="salaryId" javaType="java.lang.String" jdbcType="VARCHAR" />
+ 		<result column="COMPANY_DATE" property="companyDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALARY_BENEFIT" property="salaryBenefit" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALARY_PERFORM" property="salaryPerform" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SALARY_TOTAL" property="salaryTotal" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="POSITION_DATE" property="positionDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NAME" property="salesmanName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MANAGER_FLAG" property="managerFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="POSITION" property="position" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALARY_BASE" property="salaryBase" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BIZ_LINE_NAME" property="bizLineName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIZ_LINE_CODE" property="bizLineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_STATUS" property="confirmStatus" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALARY_FIXED" property="salaryFixed" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.review.vo.ReviewSalary">
+		<id column="SALARY_ID" property="salaryId" javaType="java.lang.String" jdbcType="VARCHAR" />
+ 		<result column="COMPANY_DATE" property="companyDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALARY_BENEFIT" property="salaryBenefit" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CONFIRM_USER" property="confirmUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALARY_PERFORM" property="salaryPerform" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SALARY_TOTAL" property="salaryTotal" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_FOUR" property="deptCodeFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="POSITION_DATE" property="positionDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_TWO" property="deptCodeTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALESMAN_NAME" property="salesmanName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MANAGER_FLAG" property="managerFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CALC_MONTH" property="calcMonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="POSITION" property="position" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_DATE" property="confirmDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALARY_BASE" property="salaryBase" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="BIZ_LINE_NAME" property="bizLineName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_THREE" property="deptNameThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_TWO" property="deptNameTwo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_THREE" property="deptCodeThree" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BIZ_LINE_CODE" property="bizLineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CONFIRM_STATUS" property="confirmStatus" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME_FOUR" property="deptNameFour" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RANK_NAME" property="rankName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SALARY_FIXED" property="salaryFixed" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="RANK_CODE" property="rankCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="GROUP_CODE" property="groupCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		SALARY_ID,
+		CONFIRM_USER,
+		CREATED_USER,
+		UPDATED_DATE,
+		DEPT_CODE_FOUR,
+		VALID_IND,
+		CREATED_DATE,
+		RANK_CODE,
+		RANK_NAME,
+		GROUP_CODE,
+		SALESMAN_CODE,
+		GROUP_NAME,
+		DEPT_CODE_TWO,
+		SALESMAN_CODE||SALESMAN_NAME "SALESMAN_NAME",
+		MANAGER_FLAG,
+		CALC_MONTH,
+		POSITION,
+		BIZ_LINE_NAME,
+		DEPT_CODE_THREE||DEPT_NAME_THREE "DEPT_NAME_THREE",
+		DEPT_CODE_TWO||DEPT_NAME_TWO "DEPT_NAME_TWO",
+		DEPT_CODE_THREE,
+		BIZ_LINE_CODE,
+		decode(CONFIRM_STATUS,0,'待确认',1,'已确认') as "confirmStatus",
+		DEPT_CODE_FOUR||DEPT_NAME_FOUR "DEPT_NAME_FOUR",
+		UPDATED_USER,
+		to_char(CONFIRM_DATE,'yyyy-MM-dd HH24:MI:SS') as "confirmDate",
+		to_char(COMPANY_DATE, 'yyyy-mm-dd') as "companyDate",
+		to_char(POSITION_DATE, 'yyyy-mm-dd') as "positionDate",
+		to_char(SALARY_FIXED, 'fm9999999999999990.00') as "salaryFixed",
+		to_char(SALARY_PERFORM, 'fm9999999999999990.00') as "salaryPerform",
+		to_char(SALARY_BENEFIT, 'fm9999999999999990.00') as "salaryBenefit",
+		to_char(SALARY_BASE, 'fm9999999999999990.00') as "salaryBase",
+		to_char(SALARY_TOTAL, 'fm9999999999999990.00') as "salaryTotal"
+	</sql>
+	
+	<sql id="User_Base_Column_List" >
+		t1.SALARY_ID,
+		t1.CONFIRM_USER,
+		t1.CREATED_USER,
+		t1.UPDATED_DATE,
+		t1.DEPT_CODE_FOUR,
+		t1.VALID_IND,
+		t1.CREATED_DATE,
+		t1.RANK_CODE,
+		t1.RANK_NAME,
+		t1.GROUP_CODE,
+		t1.SALESMAN_CODE,
+		t1.GROUP_NAME,
+		t1.DEPT_CODE_TWO,
+		t1.SALESMAN_CODE||t1.SALESMAN_NAME "SALESMAN_NAME",
+		t1.MANAGER_FLAG,
+		t1.CALC_MONTH,
+		t1.POSITION,
+		t1.BIZ_LINE_NAME,
+		t1.DEPT_CODE_THREE||t1.DEPT_NAME_THREE "DEPT_NAME_THREE",
+		t1.DEPT_CODE_TWO||t1.DEPT_NAME_TWO "DEPT_NAME_TWO",
+		t1.DEPT_CODE_THREE,
+		t1.BIZ_LINE_CODE,
+		t1.line_code as "lineCode",
+		decode(t1.CONFIRM_STATUS,0,'待确认',1,'已确认') as "confirmStatus",
+		t1.DEPT_CODE_FOUR||t1.DEPT_NAME_FOUR "DEPT_NAME_FOUR",
+		t1.UPDATED_USER,
+		to_char(t1.CONFIRM_DATE,'yyyy-MM-dd HH24:MI:SS') as "confirmDate",
+		to_char(t1.COMPANY_DATE, 'yyyy-mm-dd') as "companyDate",
+		to_char(t1.POSITION_DATE, 'yyyy-mm-dd') as "positionDate",
+		to_char(t1.SALARY_FIXED, 'fm9999999999999990.00') as "salaryFixed",
+		to_char(t1.SALARY_PERFORM, 'fm9999999999999990.00') as "salaryPerform",
+		to_char(t1.SALARY_BENEFIT, 'fm9999999999999990.00') as "salaryBenefit",
+		to_char(t1.SALARY_BASE, 'fm9999999999999990.00') as "salaryBase",
+		to_char(t1.SALARY_TOTAL, 'fm9999999999999990.00') as "salaryTotal"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		SALARY_ID as "salaryId",
+		COMPANY_DATE as "companyDate",
+		SALARY_BENEFIT as "salaryBenefit",
+		CONFIRM_USER as "confirmUser",
+		SALARY_PERFORM as "salaryPerform",
+		SALARY_TOTAL as "salaryTotal",
+		CREATED_USER as "createdUser",
+		UPDATED_DATE as "updatedDate",
+		DEPT_CODE_FOUR as "deptCodeFour",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		POSITION_DATE as "positionDate",
+		SALESMAN_CODE as "salesmanCode",
+		GROUP_NAME as "groupName",
+		DEPT_CODE_TWO as "deptCodeTwo",
+		SALESMAN_NAME as "salesmanName",
+		MANAGER_FLAG as "managerFlag",
+		CALC_MONTH as "calcMonth",
+		POSITION as "position",
+		CONFIRM_DATE as "confirmDate",
+		UPDATED_USER as "updatedUser",
+		SALARY_BASE as "salaryBase",
+		BIZ_LINE_NAME as "bizLineName",
+		DEPT_NAME_THREE as "deptNameThree",
+		DEPT_NAME_TWO as "deptNameTwo",
+		DEPT_CODE_THREE as "deptCodeThree",
+		BIZ_LINE_CODE as "bizLineCode",
+		CONFIRM_STATUS as "confirmStatus",
+		DEPT_NAME_FOUR as "deptNameFour",
+		RANK_NAME as "rankName",
+		SALARY_FIXED as "salaryFixed",
+		RANK_CODE as "rankCode",
+		GROUP_CODE as "groupCode",
+		LINE_CODE as "lineCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{salaryId,jdbcType=VARCHAR},
+ 		#{companyDate,jdbcType=DATE},
+ 		#{salaryBenefit,jdbcType=DOUBLE},
+ 		#{confirmUser,jdbcType=VARCHAR},
+ 		#{salaryPerform,jdbcType=DOUBLE},
+ 		#{salaryTotal,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{deptCodeFour,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{positionDate,jdbcType=DATE},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{groupName,jdbcType=VARCHAR},
+ 		#{deptCodeTwo,jdbcType=VARCHAR},
+ 		#{salesmanName,jdbcType=VARCHAR},
+ 		#{managerFlag,jdbcType=CHAR},
+ 		#{calcMonth,jdbcType=INTEGER},
+ 		#{position,jdbcType=VARCHAR},
+ 		#{confirmDate,jdbcType=DATE},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{salaryBase,jdbcType=DOUBLE},
+ 		#{bizLineName,jdbcType=VARCHAR},
+ 		#{deptNameThree,jdbcType=VARCHAR},
+ 		#{deptNameTwo,jdbcType=VARCHAR},
+ 		#{deptCodeThree,jdbcType=VARCHAR},
+ 		#{bizLineCode,jdbcType=VARCHAR},
+ 		#{confirmStatus,jdbcType=CHAR},
+ 		#{deptNameFour,jdbcType=VARCHAR},
+ 		#{rankName,jdbcType=VARCHAR},
+ 		#{salaryFixed,jdbcType=DOUBLE},
+ 		#{rankCode,jdbcType=VARCHAR},
+ 		#{groupCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="salaryId != null and salaryId != ''">
+			and SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+		</if>
+		<if test="companyDate != null and companyDate != ''">
+			and COMPANY_DATE = #{companyDate,jdbcType=DATE}
+		</if>
+		<if test="salaryBenefit != null and salaryBenefit != ''">
+			and SALARY_BENEFIT = #{salaryBenefit,jdbcType=DOUBLE}
+		</if>
+		<if test="confirmUser != null and confirmUser != ''">
+			and CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR}
+		</if>
+		<if test="salaryPerform != null and salaryPerform != ''">
+			and SALARY_PERFORM = #{salaryPerform,jdbcType=DOUBLE}
+		</if>
+		<if test="salaryTotal != null and salaryTotal != ''">
+			and SALARY_TOTAL = #{salaryTotal,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptCodeFour != null and deptCodeFour != ''">
+			and DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="positionDate != null and positionDate != ''">
+			and POSITION_DATE = #{positionDate,jdbcType=DATE}
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and GROUP_NAME = #{groupName,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeTwo != null and deptCodeTwo != ''">
+			and DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="managerFlag != null and managerFlag != ''">
+			and MANAGER_FLAG = #{managerFlag,jdbcType=CHAR}
+		</if>
+		<if test="calcMonth != null and calcMonth != ''">
+			and CALC_MONTH = #{calcMonth,jdbcType=INTEGER}
+		</if>
+		<if test="position != null and position != ''">
+			and POSITION = #{position,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmDate != null and confirmDate != ''">
+			and CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="salaryBase != null and salaryBase != ''">
+			and SALARY_BASE = #{salaryBase,jdbcType=DOUBLE}
+		</if>
+		<if test="bizLineName != null and bizLineName != ''">
+			and BIZ_LINE_NAME = #{bizLineName,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameThree != null and deptNameThree != ''">
+			and DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameTwo != null and deptNameTwo != ''">
+			and DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeThree != null and deptCodeThree != ''">
+			and DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR}
+		</if>
+		<if test="bizLineCode != null and bizLineCode != ''">
+			and BIZ_LINE_CODE = #{bizLineCode,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmStatus != null and confirmStatus != ''">
+			and CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR}
+		</if>
+		<if test="deptNameFour != null and deptNameFour != ''">
+			and DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR}
+		</if>
+		<if test="rankName != null and rankName != ''">
+			and RANK_NAME = #{rankName,jdbcType=VARCHAR}
+		</if>
+		<if test="salaryFixed != null and salaryFixed != ''">
+			and SALARY_FIXED = #{salaryFixed,jdbcType=DOUBLE}
+		</if>
+		<if test="rankCode != null and rankCode != ''">
+			and RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<!-- 查询条件 -->
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE like trim(#{salesmanCode,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="salesmanName != null and salesmanName != ''">
+			and SALESMAN_NAME like trim(#{salesmanName,jdbcType=VARCHAR}) || '%'
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="User_Base_Where_Sql">
+		<where>
+		<if test="salaryId != null and salaryId != ''">
+			and t1.SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+		</if>
+		<if test="companyDate != null and companyDate != ''">
+			and t1.COMPANY_DATE = #{companyDate,jdbcType=DATE}
+		</if>
+		<if test="salaryBenefit != null and salaryBenefit != ''">
+			and t1.SALARY_BENEFIT = #{salaryBenefit,jdbcType=DOUBLE}
+		</if>
+		<if test="confirmUser != null and confirmUser != ''">
+			and t1.CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR}
+		</if>
+		<if test="salaryPerform != null and salaryPerform != ''">
+			and t1.SALARY_PERFORM = #{salaryPerform,jdbcType=DOUBLE}
+		</if>
+		<if test="salaryTotal != null and salaryTotal != ''">
+			and t1.SALARY_TOTAL = #{salaryTotal,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and t1.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and t1.UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptCodeFour != null and deptCodeFour != ''">
+			and t1.DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and t1.VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and t1.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="positionDate != null and positionDate != ''">
+			and t1.POSITION_DATE = #{positionDate,jdbcType=DATE}
+		</if>
+		<if test="groupName != null and groupName != ''">
+			and t1.GROUP_NAME = #{groupName,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeTwo != null and deptCodeTwo != ''">
+			and t1.DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="managerFlag != null and managerFlag != ''">
+			and t1.MANAGER_FLAG = #{managerFlag,jdbcType=CHAR}
+		</if>
+		<if test="calcMonth != null and calcMonth != ''">
+			and t1.CALC_MONTH = #{calcMonth,jdbcType=INTEGER}
+		</if>
+		<if test="position != null and position != ''">
+			and t1.POSITION = #{position,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmDate != null and confirmDate != ''">
+			and t1.CONFIRM_DATE = #{confirmDate,jdbcType=DATE}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and t1.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="salaryBase != null and salaryBase != ''">
+			and t1.SALARY_BASE = #{salaryBase,jdbcType=DOUBLE}
+		</if>
+		<if test="bizLineName != null and bizLineName != ''">
+			and t1.BIZ_LINE_NAME = #{bizLineName,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameThree != null and deptNameThree != ''">
+			and t1.DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR}
+		</if>
+		<if test="deptNameTwo != null and deptNameTwo != ''">
+			and t1.DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCodeThree != null and deptCodeThree != ''">
+			and t1.DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR}
+		</if>
+		<if test="bizLineCode != null and bizLineCode != ''">
+			and t1.BIZ_LINE_CODE = #{bizLineCode,jdbcType=VARCHAR}
+		</if>
+		<if test="confirmStatus != null and confirmStatus != ''">
+			and t1.CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR}
+		</if>
+		<if test="deptNameFour != null and deptNameFour != ''">
+			and t1.DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR}
+		</if>
+		<if test="rankName != null and rankName != ''">
+			and t1.RANK_NAME = #{rankName,jdbcType=VARCHAR}
+		</if>
+		<if test="salaryFixed != null and salaryFixed != ''">
+			and t1.SALARY_FIXED = #{salaryFixed,jdbcType=DOUBLE}
+		</if>
+		<if test="rankCode != null and rankCode != ''">
+			and t1.RANK_CODE = #{rankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="groupCode != null and groupCode != ''">
+			and t1.GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lineCode != null and lineCode != ''">
+			and t1.line_code = #{lineCode,jdbcType=VARCHAR}
+		</if>
+		<!-- 查询条件 -->
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and t1.SALESMAN_CODE like trim(#{salesmanCode,jdbcType=VARCHAR}) || '%'
+		</if>
+		<if test="salesmanName != null and salesmanName != ''">
+			and t1.SALESMAN_NAME like trim(#{salesmanName,jdbcType=VARCHAR}) || '%'
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.review.vo.ReviewSalary" >
+    insert into REVIEW_SALARY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REVIEW_SALARY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from REVIEW_SALARY
+    where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</delete>
+	
+	<!--确认薪酬-->
+	<update id="confirmSalaryByPrimaryKey"  parameterType="map">
+		update REVIEW_SALARY set 
+		confirm_Status = #{confirmStatus,jdbcType=CHAR},
+		confirm_User = #{confirmUser,jdbcType=VARCHAR},
+		confirm_Date = to_date(#{confirmDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss')
+		where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</update>
+	
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REVIEW_SALARY
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REVIEW_SALARY
+	<set>
+ 	<if test="companyDate != null and companyDate != ''">
+		COMPANY_DATE = #{companyDate,jdbcType=DATE},
+	</if>
+  	<if test="salaryBenefit != null and salaryBenefit != ''">
+		SALARY_BENEFIT = #{salaryBenefit,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="salaryPerform != null and salaryPerform != ''">
+		SALARY_PERFORM = #{salaryPerform,jdbcType=DOUBLE},
+	</if>
+  	<if test="salaryTotal != null and salaryTotal != ''">
+		SALARY_TOTAL = #{salaryTotal,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="positionDate != null and positionDate != ''">
+		POSITION_DATE = #{positionDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanName != null and salesmanName != ''">
+		SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+	</if>
+  	<if test="managerFlag != null and managerFlag != ''">
+		MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="position != null and position != ''">
+		POSITION = #{position,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="salaryBase != null and salaryBase != ''">
+		SALARY_BASE = #{salaryBase,jdbcType=DOUBLE},
+	</if>
+  	<if test="bizLineName != null and bizLineName != ''">
+		BIZ_LINE_NAME = #{bizLineName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="bizLineCode != null and bizLineCode != ''">
+		BIZ_LINE_CODE = #{bizLineCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="salaryFixed != null and salaryFixed != ''">
+		SALARY_FIXED = #{salaryFixed,jdbcType=DOUBLE},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REVIEW_SALARY
+		set 
+ 			COMPANY_DATE = #{companyDate,jdbcType=DATE},
+  			SALARY_BENEFIT = #{salaryBenefit,jdbcType=DOUBLE},
+  			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			SALARY_PERFORM = #{salaryPerform,jdbcType=DOUBLE},
+  			SALARY_TOTAL = #{salaryTotal,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			POSITION_DATE = #{positionDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+  			MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+  			CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+  			POSITION = #{position,jdbcType=VARCHAR},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			SALARY_BASE = #{salaryBase,jdbcType=DOUBLE},
+  			BIZ_LINE_NAME = #{bizLineName,jdbcType=VARCHAR},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			BIZ_LINE_CODE = #{bizLineCode,jdbcType=VARCHAR},
+  			CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			SALARY_FIXED = #{salaryFixed,jdbcType=DOUBLE},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.review.vo.ReviewSalary" >
+	update REVIEW_SALARY
+	<set>
+ 	<if test="companyDate != null and companyDate != ''">
+		COMPANY_DATE = #{companyDate,jdbcType=DATE},
+	</if>
+  	<if test="salaryBenefit != null and salaryBenefit != ''">
+		SALARY_BENEFIT = #{salaryBenefit,jdbcType=DOUBLE},
+	</if>
+  	<if test="confirmUser != null and confirmUser != ''">
+		CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="salaryPerform != null and salaryPerform != ''">
+		SALARY_PERFORM = #{salaryPerform,jdbcType=DOUBLE},
+	</if>
+  	<if test="salaryTotal != null and salaryTotal != ''">
+		SALARY_TOTAL = #{salaryTotal,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCodeFour != null and deptCodeFour != ''">
+		DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="positionDate != null and positionDate != ''">
+		POSITION_DATE = #{positionDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupName != null and groupName != ''">
+		GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeTwo != null and deptCodeTwo != ''">
+		DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="salesmanName != null and salesmanName != ''">
+		SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+	</if>
+  	<if test="managerFlag != null and managerFlag != ''">
+		MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+	</if>
+  	<if test="calcMonth != null and calcMonth != ''">
+		CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+	</if>
+  	<if test="position != null and position != ''">
+		POSITION = #{position,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmDate != null and confirmDate != ''">
+		CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="salaryBase != null and salaryBase != ''">
+		SALARY_BASE = #{salaryBase,jdbcType=DOUBLE},
+	</if>
+  	<if test="bizLineName != null and bizLineName != ''">
+		BIZ_LINE_NAME = #{bizLineName,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameThree != null and deptNameThree != ''">
+		DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptNameTwo != null and deptNameTwo != ''">
+		DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCodeThree != null and deptCodeThree != ''">
+		DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+	</if>
+  	<if test="bizLineCode != null and bizLineCode != ''">
+		BIZ_LINE_CODE = #{bizLineCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="confirmStatus != null and confirmStatus != ''">
+		CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+	</if>
+  	<if test="deptNameFour != null and deptNameFour != ''">
+		DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+	</if>
+  	<if test="rankName != null and rankName != ''">
+		RANK_NAME = #{rankName,jdbcType=VARCHAR},
+	</if>
+  	<if test="salaryFixed != null and salaryFixed != ''">
+		SALARY_FIXED = #{salaryFixed,jdbcType=DOUBLE},
+	</if>
+  	<if test="rankCode != null and rankCode != ''">
+		RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="groupCode != null and groupCode != ''">
+		GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.review.vo.ReviewSalary" >
+		update REVIEW_SALARY
+		set 
+ 			COMPANY_DATE = #{companyDate,jdbcType=DATE},
+  			SALARY_BENEFIT = #{salaryBenefit,jdbcType=DOUBLE},
+  			CONFIRM_USER = #{confirmUser,jdbcType=VARCHAR},
+  			SALARY_PERFORM = #{salaryPerform,jdbcType=DOUBLE},
+  			SALARY_TOTAL = #{salaryTotal,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_FOUR = #{deptCodeFour,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			POSITION_DATE = #{positionDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+  			DEPT_CODE_TWO = #{deptCodeTwo,jdbcType=VARCHAR},
+  			SALESMAN_NAME = #{salesmanName,jdbcType=VARCHAR},
+  			MANAGER_FLAG = #{managerFlag,jdbcType=CHAR},
+  			CALC_MONTH = #{calcMonth,jdbcType=INTEGER},
+  			POSITION = #{position,jdbcType=VARCHAR},
+  			CONFIRM_DATE = #{confirmDate,jdbcType=DATE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			SALARY_BASE = #{salaryBase,jdbcType=DOUBLE},
+  			BIZ_LINE_NAME = #{bizLineName,jdbcType=VARCHAR},
+  			DEPT_NAME_THREE = #{deptNameThree,jdbcType=VARCHAR},
+  			DEPT_NAME_TWO = #{deptNameTwo,jdbcType=VARCHAR},
+  			DEPT_CODE_THREE = #{deptCodeThree,jdbcType=VARCHAR},
+  			BIZ_LINE_CODE = #{bizLineCode,jdbcType=VARCHAR},
+  			CONFIRM_STATUS = #{confirmStatus,jdbcType=CHAR},
+  			DEPT_NAME_FOUR = #{deptNameFour,jdbcType=VARCHAR},
+  			RANK_NAME = #{rankName,jdbcType=VARCHAR},
+  			SALARY_FIXED = #{salaryFixed,jdbcType=DOUBLE},
+  			RANK_CODE = #{rankCode,jdbcType=VARCHAR},
+  			GROUP_CODE = #{groupCode,jdbcType=VARCHAR}
+  		where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REVIEW_SALARY
+	where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REVIEW_SALARY
+	where SALARY_ID = #{salaryId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REVIEW_SALARY <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.review.vo.ReviewSalary" resultType="long">
+	select count(1)
+	from REVIEW_SALARY <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="User_Base_Column_List" />
+		from REVIEW_SALARY t1 left join salesman t2 on t1.SALESMAN_CODE= t2.SALESMAN_CODE
+		<include refid="User_Base_Where_Sql" />
+		and t1.DEPT_CODE_FOUR like '${curDeptCode}%'
+		order by t1.manager_flag,t1.salesman_code
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryListPageCount" parameterType="map" resultType="long">
+		select 
+		count(1)
+		from REVIEW_SALARY t1 left join salesman t2 on t1.SALESMAN_CODE= t2.SALESMAN_CODE
+		<include refid="User_Base_Where_Sql" />
+		and t1.DEPT_CODE_FOUR like '${curDeptCode}%'
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+		select * from (
+			select a.*,rownum rn from (
+			select 
+			<include refid="Base_Column_List"/>
+			from REVIEW_SALARY
+			<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_SALARY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_SALARY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REVIEW_SALARY
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REVIEW_SALARY <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

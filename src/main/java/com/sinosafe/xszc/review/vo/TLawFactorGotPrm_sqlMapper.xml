@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.review.vo.TLawFactorGotPrm" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Double" jdbcType="INTEGER" />
+		<result column="C_BSNS_TYPE" property="cBsnsType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_SLS_CDE" property="cSlsCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_DEPT_CDE" property="cDeptCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="N_AGENT_RATE" property="nAgentRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_FEE" property="nFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="C_PROD_NO" property="cProdNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_CHA_TYPE" property="cChaType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_VHL_NAME" property="cVhlName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_INSRNC_BGN_TM" property="tInsrncBgnTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CALC_DATE" property="calcDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_PLY_NO" property="cPlyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_INTER_CDE" property="cInterCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_PROD_RATE" property="nProdRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="N_BUSI_RATE" property="nBusiRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_GOT_PRM" property="nGotPrm" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SALESMAN_LEADER" property="salesmanLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_VHL_RATE" property="nVhlRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CALC_FLAG" property="calcFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_CMPNY_AGT_CDE" property="cCmpnyAgtCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_CHA_NME" property="cChaNme" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="T_INSRNC_END_TM" property="tInsrncEndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_PAY_TM" property="tPayTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="N_PRM" property="nPrm" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="C_BUIS_TYPE" property="cBuisType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.review.vo.TLawFactorGotPrm">
+		<id column="PK_ID" property="pkId" javaType="java.lang.Double" jdbcType="INTEGER" />
+		<result column="C_BSNS_TYPE" property="cBsnsType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_SLS_CDE" property="cSlsCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_DEPT_CDE" property="cDeptCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="N_AGENT_RATE" property="nAgentRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_FEE" property="nFee" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="C_PROD_NO" property="cProdNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_CHA_TYPE" property="cChaType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_VHL_NAME" property="cVhlName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_INSRNC_BGN_TM" property="tInsrncBgnTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CALC_DATE" property="calcDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SALESMAN_CODE" property="salesmanCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_PLY_NO" property="cPlyNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_INTER_CDE" property="cInterCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_PROD_RATE" property="nProdRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="N_BUSI_RATE" property="nBusiRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_GOT_PRM" property="nGotPrm" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="SALESMAN_LEADER" property="salesmanLeader" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_VHL_RATE" property="nVhlRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="STAT_MONTH" property="statMonth" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CALC_FLAG" property="calcFlag" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="C_CMPNY_AGT_CDE" property="cCmpnyAgtCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_CHA_NME" property="cChaNme" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="T_INSRNC_END_TM" property="tInsrncEndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="T_PAY_TM" property="tPayTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="N_PRM" property="nPrm" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="C_BUIS_TYPE" property="cBuisType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		C_BSNS_TYPE,
+		C_SLS_CDE,
+		C_DEPT_CDE,
+		PK_ID,
+		N_AGENT_RATE,
+		CREATED_USER,
+		N_FEE,
+		C_PROD_NO,
+		C_CHA_TYPE,
+		C_VHL_NAME,
+		UPDATED_DATE,
+		T_INSRNC_BGN_TM,
+		CREATED_DATE,
+		CALC_DATE,
+		SALESMAN_CODE,
+		C_PLY_NO,
+		C_INTER_CDE,
+		N_PROD_RATE,
+		N_BUSI_RATE,
+		UPDATED_USER,
+		N_GOT_PRM,
+		SALESMAN_LEADER,
+		N_VHL_RATE,
+		STAT_MONTH,
+		CALC_FLAG,
+		C_CMPNY_AGT_CDE,
+		C_CHA_NME,
+		T_INSRNC_END_TM,
+		T_PAY_TM,
+		N_PRM,
+		C_BUIS_TYPE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		C_BSNS_TYPE as "cBsnsType",
+		C_SLS_CDE as "cSlsCde",
+		C_DEPT_CDE as "cDeptCde",
+		PK_ID as "pkId",
+		N_AGENT_RATE as "nAgentRate",
+		CREATED_USER as "createdUser",
+		N_FEE as "nFee",
+		C_PROD_NO as "cProdNo",
+		C_CHA_TYPE as "cChaType",
+		C_VHL_NAME as "cVhlName",
+		UPDATED_DATE as "updatedDate",
+		T_INSRNC_BGN_TM as "tInsrncBgnTm",
+		CREATED_DATE as "createdDate",
+		CALC_DATE as "calcDate",
+		SALESMAN_CODE as "salesmanCode",
+		C_PLY_NO as "cPlyNo",
+		C_INTER_CDE as "cInterCde",
+		N_PROD_RATE as "nProdRate",
+		N_BUSI_RATE as "nBusiRate",
+		UPDATED_USER as "updatedUser",
+		N_GOT_PRM as "nGotPrm",
+		SALESMAN_LEADER as "salesmanLeader",
+		N_VHL_RATE as "nVhlRate",
+		STAT_MONTH as "statMonth",
+		CALC_FLAG as "calcFlag",
+		C_CMPNY_AGT_CDE as "cCmpnyAgtCde",
+		C_CHA_NME as "cChaNme",
+		T_INSRNC_END_TM as "tInsrncEndTm",
+		T_PAY_TM as "tPayTm",
+		N_PRM as "nPrm",
+		C_BUIS_TYPE as "cBuisType"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{cBsnsType,jdbcType=VARCHAR},
+ 		#{cSlsCde,jdbcType=VARCHAR},
+ 		#{cDeptCde,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{nAgentRate,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{nFee,jdbcType=DOUBLE},
+ 		#{cProdNo,jdbcType=VARCHAR},
+ 		#{cChaType,jdbcType=VARCHAR},
+ 		#{cVhlName,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{tInsrncBgnTm,jdbcType=DATE},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{calcDate,jdbcType=DATE},
+ 		#{salesmanCode,jdbcType=VARCHAR},
+ 		#{cPlyNo,jdbcType=VARCHAR},
+ 		#{cInterCde,jdbcType=VARCHAR},
+ 		#{nProdRate,jdbcType=DOUBLE},
+ 		#{nBusiRate,jdbcType=DOUBLE},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{nGotPrm,jdbcType=DOUBLE},
+ 		#{salesmanLeader,jdbcType=VARCHAR},
+ 		#{nVhlRate,jdbcType=DOUBLE},
+ 		#{statMonth,jdbcType=DATE},
+ 		#{calcFlag,jdbcType=CHAR},
+ 		#{cCmpnyAgtCde,jdbcType=VARCHAR},
+ 		#{cChaNme,jdbcType=VARCHAR},
+ 		#{tInsrncEndTm,jdbcType=DATE},
+ 		#{tPayTm,jdbcType=DATE},
+ 		#{nPrm,jdbcType=DOUBLE},
+ 		#{cBuisType,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="cBsnsType != null and cBsnsType != ''">
+			and C_BSNS_TYPE = #{cBsnsType,jdbcType=VARCHAR}
+		</if>
+		<if test="cSlsCde != null and cSlsCde != ''">
+			and C_SLS_CDE = #{cSlsCde,jdbcType=VARCHAR}
+		</if>
+		<if test="cDeptCde != null and cDeptCde != ''">
+			and C_DEPT_CDE = #{cDeptCde,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="nAgentRate != null and nAgentRate != ''">
+			and N_AGENT_RATE = #{nAgentRate,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="nFee != null and nFee != ''">
+			and N_FEE = #{nFee,jdbcType=DOUBLE}
+		</if>
+		<if test="cProdNo != null and cProdNo != ''">
+			and C_PROD_NO = #{cProdNo,jdbcType=VARCHAR}
+		</if>
+		<if test="cChaType != null and cChaType != ''">
+			and C_CHA_TYPE = #{cChaType,jdbcType=VARCHAR}
+		</if>
+		<if test="cVhlName != null and cVhlName != ''">
+			and C_VHL_NAME = #{cVhlName,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="tInsrncBgnTm != null and tInsrncBgnTm != ''">
+			and T_INSRNC_BGN_TM = #{tInsrncBgnTm,jdbcType=DATE}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="calcDate != null and calcDate != ''">
+			and CALC_DATE = #{calcDate,jdbcType=DATE}
+		</if>
+		<if test="salesmanCode != null and salesmanCode != ''">
+			and SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR}
+		</if>
+		<if test="cPlyNo != null and cPlyNo != ''">
+			and C_PLY_NO = #{cPlyNo,jdbcType=VARCHAR}
+		</if>
+		<if test="cInterCde != null and cInterCde != ''">
+			and C_INTER_CDE = #{cInterCde,jdbcType=VARCHAR}
+		</if>
+		<if test="nProdRate != null and nProdRate != ''">
+			and N_PROD_RATE = #{nProdRate,jdbcType=DOUBLE}
+		</if>
+		<if test="nBusiRate != null and nBusiRate != ''">
+			and N_BUSI_RATE = #{nBusiRate,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="nGotPrm != null and nGotPrm != ''">
+			and N_GOT_PRM = #{nGotPrm,jdbcType=DOUBLE}
+		</if>
+		<if test="salesmanLeader != null and salesmanLeader != ''">
+			and SALESMAN_LEADER = #{salesmanLeader,jdbcType=VARCHAR}
+		</if>
+		<if test="nVhlRate != null and nVhlRate != ''">
+			and N_VHL_RATE = #{nVhlRate,jdbcType=DOUBLE}
+		</if>
+		<if test="statMonth != null and statMonth != ''">
+			and STAT_MONTH = to_date(#{statMonth,jdbcType=VARCHAR},'yyyymm')
+		</if>
+		<if test="calcFlag != null and calcFlag != ''">
+			and CALC_FLAG = #{calcFlag,jdbcType=CHAR}
+		</if>
+		<if test="cCmpnyAgtCde != null and cCmpnyAgtCde != ''">
+			and C_CMPNY_AGT_CDE = #{cCmpnyAgtCde,jdbcType=VARCHAR}
+		</if>
+		<if test="cChaNme != null and cChaNme != ''">
+			and C_CHA_NME = #{cChaNme,jdbcType=VARCHAR}
+		</if>
+		<if test="tInsrncEndTm != null and tInsrncEndTm != ''">
+			and T_INSRNC_END_TM = #{tInsrncEndTm,jdbcType=DATE}
+		</if>
+		<if test="tPayTm != null and tPayTm != ''">
+			and T_PAY_TM = #{tPayTm,jdbcType=DATE}
+		</if>
+		<if test="nPrm != null and nPrm != ''">
+			and N_PRM = #{nPrm,jdbcType=DOUBLE}
+		</if>
+		<if test="cBuisType != null and cBuisType != ''">
+			and C_BUIS_TYPE = #{cBuisType,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.review.vo.TLawFactorGotPrm" >
+    insert into T_LAW_FACTOR_GOT_PRM (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_LAW_FACTOR_GOT_PRM (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+    delete from T_LAW_FACTOR_GOT_PRM
+    where PK_ID = #{pkId,jdbcType=INTEGER}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_LAW_FACTOR_GOT_PRM
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_LAW_FACTOR_GOT_PRM
+	<set>
+	<if test="cBsnsType != null and cBsnsType != ''">
+		C_BSNS_TYPE = #{cBsnsType,jdbcType=VARCHAR},
+	</if>
+  	<if test="cSlsCde != null and cSlsCde != ''">
+		C_SLS_CDE = #{cSlsCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="cDeptCde != null and cDeptCde != ''">
+		C_DEPT_CDE = #{cDeptCde,jdbcType=VARCHAR},
+	</if>
+   	<if test="nAgentRate != null and nAgentRate != ''">
+		N_AGENT_RATE = #{nAgentRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="nFee != null and nFee != ''">
+		N_FEE = #{nFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="cProdNo != null and cProdNo != ''">
+		C_PROD_NO = #{cProdNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="cChaType != null and cChaType != ''">
+		C_CHA_TYPE = #{cChaType,jdbcType=VARCHAR},
+	</if>
+  	<if test="cVhlName != null and cVhlName != ''">
+		C_VHL_NAME = #{cVhlName,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="tInsrncBgnTm != null and tInsrncBgnTm != ''">
+		T_INSRNC_BGN_TM = #{tInsrncBgnTm,jdbcType=DATE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="calcDate != null and calcDate != ''">
+		CALC_DATE = #{calcDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="cPlyNo != null and cPlyNo != ''">
+		C_PLY_NO = #{cPlyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="cInterCde != null and cInterCde != ''">
+		C_INTER_CDE = #{cInterCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="nProdRate != null and nProdRate != ''">
+		N_PROD_RATE = #{nProdRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="nBusiRate != null and nBusiRate != ''">
+		N_BUSI_RATE = #{nBusiRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="nGotPrm != null and nGotPrm != ''">
+		N_GOT_PRM = #{nGotPrm,jdbcType=DOUBLE},
+	</if>
+  	<if test="salesmanLeader != null and salesmanLeader != ''">
+		SALESMAN_LEADER = #{salesmanLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="nVhlRate != null and nVhlRate != ''">
+		N_VHL_RATE = #{nVhlRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=DATE},
+	</if>
+  	<if test="calcFlag != null and calcFlag != ''">
+		CALC_FLAG = #{calcFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cCmpnyAgtCde != null and cCmpnyAgtCde != ''">
+		C_CMPNY_AGT_CDE = #{cCmpnyAgtCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="cChaNme != null and cChaNme != ''">
+		C_CHA_NME = #{cChaNme,jdbcType=VARCHAR},
+	</if>
+  	<if test="tInsrncEndTm != null and tInsrncEndTm != ''">
+		T_INSRNC_END_TM = #{tInsrncEndTm,jdbcType=DATE},
+	</if>
+  	<if test="tPayTm != null and tPayTm != ''">
+		T_PAY_TM = #{tPayTm,jdbcType=DATE},
+	</if>
+  	<if test="nPrm != null and nPrm != ''">
+		N_PRM = #{nPrm,jdbcType=DOUBLE},
+	</if>
+  	<if test="cBuisType != null and cBuisType != ''">
+		C_BUIS_TYPE = #{cBuisType,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_LAW_FACTOR_GOT_PRM
+		set 
+			C_BSNS_TYPE = #{cBsnsType,jdbcType=VARCHAR},
+  			C_SLS_CDE = #{cSlsCde,jdbcType=VARCHAR},
+  			C_DEPT_CDE = #{cDeptCde,jdbcType=VARCHAR},
+   			N_AGENT_RATE = #{nAgentRate,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			N_FEE = #{nFee,jdbcType=DOUBLE},
+  			C_PROD_NO = #{cProdNo,jdbcType=VARCHAR},
+  			C_CHA_TYPE = #{cChaType,jdbcType=VARCHAR},
+  			C_VHL_NAME = #{cVhlName,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			T_INSRNC_BGN_TM = #{tInsrncBgnTm,jdbcType=DATE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CALC_DATE = #{calcDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			C_PLY_NO = #{cPlyNo,jdbcType=VARCHAR},
+  			C_INTER_CDE = #{cInterCde,jdbcType=VARCHAR},
+  			N_PROD_RATE = #{nProdRate,jdbcType=DOUBLE},
+  			N_BUSI_RATE = #{nBusiRate,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			N_GOT_PRM = #{nGotPrm,jdbcType=DOUBLE},
+  			SALESMAN_LEADER = #{salesmanLeader,jdbcType=VARCHAR},
+  			N_VHL_RATE = #{nVhlRate,jdbcType=DOUBLE},
+  			STAT_MONTH = #{statMonth,jdbcType=DATE},
+  			CALC_FLAG = #{calcFlag,jdbcType=CHAR},
+  			C_CMPNY_AGT_CDE = #{cCmpnyAgtCde,jdbcType=VARCHAR},
+  			C_CHA_NME = #{cChaNme,jdbcType=VARCHAR},
+  			T_INSRNC_END_TM = #{tInsrncEndTm,jdbcType=DATE},
+  			T_PAY_TM = #{tPayTm,jdbcType=DATE},
+  			N_PRM = #{nPrm,jdbcType=DOUBLE},
+  			C_BUIS_TYPE = #{cBuisType,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.review.vo.TLawFactorGotPrm" >
+	update T_LAW_FACTOR_GOT_PRM
+	<set>
+	<if test="cBsnsType != null and cBsnsType != ''">
+		C_BSNS_TYPE = #{cBsnsType,jdbcType=VARCHAR},
+	</if>
+  	<if test="cSlsCde != null and cSlsCde != ''">
+		C_SLS_CDE = #{cSlsCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="cDeptCde != null and cDeptCde != ''">
+		C_DEPT_CDE = #{cDeptCde,jdbcType=VARCHAR},
+	</if>
+   	<if test="nAgentRate != null and nAgentRate != ''">
+		N_AGENT_RATE = #{nAgentRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="nFee != null and nFee != ''">
+		N_FEE = #{nFee,jdbcType=DOUBLE},
+	</if>
+  	<if test="cProdNo != null and cProdNo != ''">
+		C_PROD_NO = #{cProdNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="cChaType != null and cChaType != ''">
+		C_CHA_TYPE = #{cChaType,jdbcType=VARCHAR},
+	</if>
+  	<if test="cVhlName != null and cVhlName != ''">
+		C_VHL_NAME = #{cVhlName,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="tInsrncBgnTm != null and tInsrncBgnTm != ''">
+		T_INSRNC_BGN_TM = #{tInsrncBgnTm,jdbcType=DATE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="calcDate != null and calcDate != ''">
+		CALC_DATE = #{calcDate,jdbcType=DATE},
+	</if>
+  	<if test="salesmanCode != null and salesmanCode != ''">
+		SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="cPlyNo != null and cPlyNo != ''">
+		C_PLY_NO = #{cPlyNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="cInterCde != null and cInterCde != ''">
+		C_INTER_CDE = #{cInterCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="nProdRate != null and nProdRate != ''">
+		N_PROD_RATE = #{nProdRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="nBusiRate != null and nBusiRate != ''">
+		N_BUSI_RATE = #{nBusiRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="nGotPrm != null and nGotPrm != ''">
+		N_GOT_PRM = #{nGotPrm,jdbcType=DOUBLE},
+	</if>
+  	<if test="salesmanLeader != null and salesmanLeader != ''">
+		SALESMAN_LEADER = #{salesmanLeader,jdbcType=VARCHAR},
+	</if>
+  	<if test="nVhlRate != null and nVhlRate != ''">
+		N_VHL_RATE = #{nVhlRate,jdbcType=DOUBLE},
+	</if>
+  	<if test="statMonth != null and statMonth != ''">
+		STAT_MONTH = #{statMonth,jdbcType=DATE},
+	</if>
+  	<if test="calcFlag != null and calcFlag != ''">
+		CALC_FLAG = #{calcFlag,jdbcType=CHAR},
+	</if>
+  	<if test="cCmpnyAgtCde != null and cCmpnyAgtCde != ''">
+		C_CMPNY_AGT_CDE = #{cCmpnyAgtCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="cChaNme != null and cChaNme != ''">
+		C_CHA_NME = #{cChaNme,jdbcType=VARCHAR},
+	</if>
+  	<if test="tInsrncEndTm != null and tInsrncEndTm != ''">
+		T_INSRNC_END_TM = #{tInsrncEndTm,jdbcType=DATE},
+	</if>
+  	<if test="tPayTm != null and tPayTm != ''">
+		T_PAY_TM = #{tPayTm,jdbcType=DATE},
+	</if>
+  	<if test="nPrm != null and nPrm != ''">
+		N_PRM = #{nPrm,jdbcType=DOUBLE},
+	</if>
+  	<if test="cBuisType != null and cBuisType != ''">
+		C_BUIS_TYPE = #{cBuisType,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.review.vo.TLawFactorGotPrm" >
+		update T_LAW_FACTOR_GOT_PRM
+		set 
+			C_BSNS_TYPE = #{cBsnsType,jdbcType=VARCHAR},
+  			C_SLS_CDE = #{cSlsCde,jdbcType=VARCHAR},
+  			C_DEPT_CDE = #{cDeptCde,jdbcType=VARCHAR},
+   			N_AGENT_RATE = #{nAgentRate,jdbcType=DOUBLE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			N_FEE = #{nFee,jdbcType=DOUBLE},
+  			C_PROD_NO = #{cProdNo,jdbcType=VARCHAR},
+  			C_CHA_TYPE = #{cChaType,jdbcType=VARCHAR},
+  			C_VHL_NAME = #{cVhlName,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			T_INSRNC_BGN_TM = #{tInsrncBgnTm,jdbcType=DATE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CALC_DATE = #{calcDate,jdbcType=DATE},
+  			SALESMAN_CODE = #{salesmanCode,jdbcType=VARCHAR},
+  			C_PLY_NO = #{cPlyNo,jdbcType=VARCHAR},
+  			C_INTER_CDE = #{cInterCde,jdbcType=VARCHAR},
+  			N_PROD_RATE = #{nProdRate,jdbcType=DOUBLE},
+  			N_BUSI_RATE = #{nBusiRate,jdbcType=DOUBLE},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			N_GOT_PRM = #{nGotPrm,jdbcType=DOUBLE},
+  			SALESMAN_LEADER = #{salesmanLeader,jdbcType=VARCHAR},
+  			N_VHL_RATE = #{nVhlRate,jdbcType=DOUBLE},
+  			STAT_MONTH = #{statMonth,jdbcType=DATE},
+  			CALC_FLAG = #{calcFlag,jdbcType=CHAR},
+  			C_CMPNY_AGT_CDE = #{cCmpnyAgtCde,jdbcType=VARCHAR},
+  			C_CHA_NME = #{cChaNme,jdbcType=VARCHAR},
+  			T_INSRNC_END_TM = #{tInsrncEndTm,jdbcType=DATE},
+  			T_PAY_TM = #{tPayTm,jdbcType=DATE},
+  			N_PRM = #{nPrm,jdbcType=DOUBLE},
+  			C_BUIS_TYPE = #{cBuisType,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_FACTOR_GOT_PRM
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.Double" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_FACTOR_GOT_PRM
+	where PK_ID = #{pkId,jdbcType=INTEGER}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_FACTOR_GOT_PRM <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.review.vo.TLawFactorGotPrm" resultType="long">
+	select count(1)
+	from T_LAW_FACTOR_GOT_PRM <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_FACTOR_GOT_PRM
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 导出标准保费 -->
+	<select id="exportStandFee" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_FACTOR_GOT_PRM
+		<include refid="Base_Where_Sql"/>
+		) a
+	) 
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_FACTOR_GOT_PRM
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_FACTOR_GOT_PRM
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_FACTOR_GOT_PRM
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_FACTOR_GOT_PRM
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_FACTOR_GOT_PRM <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.UmDepartment" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="DPT_CDE" property="dptCde" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="TAXRGST_NO" property="taxrgstNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_REL_CDE" property="dptRelCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_CNM" property="dptCnm" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BNSRGST_NO" property="bnsrgstNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPARTMENT_MRK" property="departmentMrk" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DPT_CADDR" property="dptCaddr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CTCT_CDE" property="ctctCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_ABR" property="dptAbr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RPT_ADDR" property="rptAddr" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSPRMT_NO" property="insprmtNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RPT_TEL" property="rptTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_DPT_LEVL" property="nDptLevl" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="ZIP_CDE" property="zipCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_EADDR" property="dptEaddr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_SERNO" property="dptSerno" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_DPT_ENM" property="cDptEnm" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LCN_ABR" property="lcnAbr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INTER_CDE" property="interCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FND_TM" property="fndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_SNR_DPT" property="cSnrDpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ALARM_MRK" property="alarmMrk" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CONS_TEL" property="consTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ABD_TM" property="abdTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.UmDepartment">
+		<id column="DPT_CDE" property="dptCde" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="TAXRGST_NO" property="taxrgstNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_REL_CDE" property="dptRelCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_CNM" property="dptCnm" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BNSRGST_NO" property="bnsrgstNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPARTMENT_MRK" property="departmentMrk" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DPT_CADDR" property="dptCaddr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CTCT_CDE" property="ctctCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_ABR" property="dptAbr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RPT_ADDR" property="rptAddr" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INSPRMT_NO" property="insprmtNo" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RPT_TEL" property="rptTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FAX" property="fax" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="N_DPT_LEVL" property="nDptLevl" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="ZIP_CDE" property="zipCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_EADDR" property="dptEaddr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DPT_SERNO" property="dptSerno" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="C_DPT_ENM" property="cDptEnm" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LCN_ABR" property="lcnAbr" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="INTER_CDE" property="interCde" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FND_TM" property="fndTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="C_SNR_DPT" property="cSnrDpt" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ALARM_MRK" property="alarmMrk" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CONS_TEL" property="consTel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ABD_TM" property="abdTm" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		TAXRGST_NO,
+		DPT_REL_CDE,
+		DPT_CNM,
+		CREATED_USER,
+		BNSRGST_NO,
+		UPDATED_DATE,
+		DEPARTMENT_MRK,
+		VALID_IND,
+		DPT_CADDR,
+		to_char(CREATED_DATE, 'yyyy-mm-dd hh:mm:ss') as "CREATED_DATE",
+	    CTCT_CDE,
+		DPT_ABR,
+		RPT_ADDR,
+		DPT_CDE,
+		TEL,
+		INSPRMT_NO,
+		RPT_TEL,
+		FAX,
+		N_DPT_LEVL,
+		ZIP_CDE,
+		UPDATED_USER,
+		DPT_EADDR,
+		DPT_SERNO,
+		C_DPT_ENM,
+		LCN_ABR,
+		INTER_CDE,
+		FND_TM,
+		C_SNR_DPT,
+		ALARM_MRK,
+		CONS_TEL,
+		ABD_TM
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		TAXRGST_NO as "taxrgstNo",
+		DPT_REL_CDE as "dptRelCde",
+		DPT_CNM as "dptCnm",
+		CREATED_USER as "createdUser",
+		BNSRGST_NO as "bnsrgstNo",
+		UPDATED_DATE as "updatedDate",
+		DEPARTMENT_MRK as "departmentMrk",
+		VALID_IND as "validInd",
+		DPT_CADDR as "dptCaddr",
+		to_char(CREATED_DATE, 'yyyy-mm-dd') as "createdDate",
+		CTCT_CDE as "ctctCde",
+		DPT_ABR as "dptAbr",
+		RPT_ADDR as "rptAddr",
+		DPT_CDE as "dptCde",
+		TEL as "tel",
+		INSPRMT_NO as "insprmtNo",
+		RPT_TEL as "rptTel",
+		FAX as "fax",
+		N_DPT_LEVL as "nDptLevl",
+		ZIP_CDE as "zipCde",
+		UPDATED_USER as "updatedUser",
+		DPT_EADDR as "dptEaddr",
+		DPT_SERNO as "dptSerno",
+		C_DPT_ENM as "cDptEnm",
+		LCN_ABR as "lcnAbr",
+		INTER_CDE as "interCde",
+		FND_TM as "fndTm",
+		C_SNR_DPT as "cSnrDpt",
+		ALARM_MRK as "alarmMrk",
+		CONS_TEL as "consTel",
+		ABD_TM as "abdTm"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{taxrgstNo,jdbcType=VARCHAR},
+ 		#{dptRelCde,jdbcType=VARCHAR},
+ 		#{dptCnm,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{bnsrgstNo,jdbcType=VARCHAR},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{departmentMrk,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{dptCaddr,jdbcType=VARCHAR},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{ctctCde,jdbcType=VARCHAR},
+ 		#{dptAbr,jdbcType=VARCHAR},
+ 		#{rptAddr,jdbcType=VARCHAR},
+ 		#{dptCde,jdbcType=VARCHAR},
+ 		#{tel,jdbcType=VARCHAR},
+ 		#{insprmtNo,jdbcType=VARCHAR},
+ 		#{rptTel,jdbcType=VARCHAR},
+ 		#{fax,jdbcType=VARCHAR},
+ 		#{nDptLevl,jdbcType=INTEGER},
+ 		#{zipCde,jdbcType=VARCHAR},
+ 		#{updatedUser,jdbcType=VARCHAR},
+ 		#{dptEaddr,jdbcType=VARCHAR},
+ 		#{dptSerno,jdbcType=VARCHAR},
+ 		#{cDptEnm,jdbcType=VARCHAR},
+ 		#{lcnAbr,jdbcType=VARCHAR},
+ 		#{interCde,jdbcType=VARCHAR},
+ 		#{fndTm,jdbcType=DATE},
+ 		#{cSnrDpt,jdbcType=VARCHAR},
+ 		#{alarmMrk,jdbcType=CHAR},
+ 		#{consTel,jdbcType=VARCHAR},
+ 		#{abdTm,jdbcType=DATE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="taxrgstNo != null">
+			and TAXRGST_NO = #{taxrgstNo,jdbcType=VARCHAR}
+		</if>
+		<if test="dptRelCde != null">
+			and DPT_REL_CDE = #{dptRelCde,jdbcType=VARCHAR}
+		</if>
+		<if test="dptCnm != null">
+			and DPT_CNM = #{dptCnm,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="bnsrgstNo != null">
+			and BNSRGST_NO = #{bnsrgstNo,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="departmentMrk != null">
+			and DEPARTMENT_MRK = #{departmentMrk,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != '' ">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="dptCaddr != null">
+			and DPT_CADDR = #{dptCaddr,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="ctctCde != null">
+			and CTCT_CDE = #{ctctCde,jdbcType=VARCHAR}
+		</if>
+		<if test="dptAbr != null and dptAbr !='' ">
+			and DPT_ABR = #{dptAbr,jdbcType=VARCHAR}
+		</if>
+		<if test="rptAddr != null">
+			and RPT_ADDR = #{rptAddr,jdbcType=VARCHAR}
+		</if>
+		<if test="dptCde != null and dptCde !='' ">
+			and DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+		</if>
+		<if test="tel != null">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="insprmtNo != null">
+			and INSPRMT_NO = #{insprmtNo,jdbcType=VARCHAR}
+		</if>
+		<if test="rptTel != null">
+			and RPT_TEL = #{rptTel,jdbcType=VARCHAR}
+		</if>
+		<if test="fax != null">
+			and FAX = #{fax,jdbcType=VARCHAR}
+		</if>
+		<if test="nDptLevl != null and nDptLevl !='' ">
+			and N_DPT_LEVL &lt;= #{nDptLevl,jdbcType=INTEGER}
+		</if>
+		<if test="zipCde != null">
+			and ZIP_CDE = #{zipCde,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="dptEaddr != null">
+			and DPT_EADDR = #{dptEaddr,jdbcType=VARCHAR}
+		</if>
+		<if test="dptSerno != null">
+			and DPT_SERNO = #{dptSerno,jdbcType=VARCHAR}
+		</if>
+		<if test="cDptEnm != null">
+			and C_DPT_ENM = #{cDptEnm,jdbcType=VARCHAR}
+		</if>
+		<if test="lcnAbr != null">
+			and LCN_ABR = #{lcnAbr,jdbcType=VARCHAR}
+		</if>
+		<if test="interCde != null">
+			and INTER_CDE = #{interCde,jdbcType=VARCHAR}
+		</if>
+		<if test="fndTm != null">
+			and FND_TM = #{fndTm,jdbcType=DATE}
+		</if>
+		<if test="cSnrDpt != null">
+			and C_SNR_DPT = #{cSnrDpt,jdbcType=VARCHAR}
+		</if>
+		<if test="alarmMrk != null">
+			and ALARM_MRK = #{alarmMrk,jdbcType=CHAR}
+		</if>
+		<if test="consTel != null">
+			and CONS_TEL = #{consTel,jdbcType=VARCHAR}
+		</if>
+		<if test="abdTm != null">
+			and ABD_TM = #{abdTm,jdbcType=DATE}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.UmDepartment" >
+    insert into UM_DEPARTMENT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into UM_DEPARTMENT (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from UM_DEPARTMENT
+    where DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from UM_DEPARTMENT
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update UM_DEPARTMENT
+	<set>
+	<if test="taxrgstNo != null">
+		TAXRGST_NO = #{taxrgstNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptRelCde != null">
+		DPT_REL_CDE = #{dptRelCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptCnm != null">
+		DPT_CNM = #{dptCnm,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="bnsrgstNo != null">
+		BNSRGST_NO = #{bnsrgstNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="departmentMrk != null">
+		DEPARTMENT_MRK = #{departmentMrk,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="dptCaddr != null">
+		DPT_CADDR = #{dptCaddr,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="ctctCde != null">
+		CTCT_CDE = #{ctctCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptAbr != null">
+		DPT_ABR = #{dptAbr,jdbcType=VARCHAR},
+	</if>
+  	<if test="rptAddr != null">
+		RPT_ADDR = #{rptAddr,jdbcType=VARCHAR},
+	</if>
+   	<if test="tel != null">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="insprmtNo != null">
+		INSPRMT_NO = #{insprmtNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="rptTel != null">
+		RPT_TEL = #{rptTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="fax != null">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="nDptLevl != null">
+		N_DPT_LEVL = #{nDptLevl,jdbcType=INTEGER},
+	</if>
+  	<if test="zipCde != null">
+		ZIP_CDE = #{zipCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptEaddr != null">
+		DPT_EADDR = #{dptEaddr,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptSerno != null">
+		DPT_SERNO = #{dptSerno,jdbcType=VARCHAR},
+	</if>
+  	<if test="cDptEnm != null">
+		C_DPT_ENM = #{cDptEnm,jdbcType=VARCHAR},
+	</if>
+  	<if test="lcnAbr != null">
+		LCN_ABR = #{lcnAbr,jdbcType=VARCHAR},
+	</if>
+  	<if test="interCde != null">
+		INTER_CDE = #{interCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="fndTm != null">
+		FND_TM = #{fndTm,jdbcType=DATE},
+	</if>
+  	<if test="cSnrDpt != null">
+		C_SNR_DPT = #{cSnrDpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="alarmMrk != null">
+		ALARM_MRK = #{alarmMrk,jdbcType=CHAR},
+	</if>
+  	<if test="consTel != null">
+		CONS_TEL = #{consTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="abdTm != null">
+		ABD_TM = #{abdTm,jdbcType=DATE}
+	</if>
+  	</set>
+	where DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update UM_DEPARTMENT
+		set 
+			TAXRGST_NO = #{taxrgstNo,jdbcType=VARCHAR},
+  			DPT_REL_CDE = #{dptRelCde,jdbcType=VARCHAR},
+  			DPT_CNM = #{dptCnm,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			BNSRGST_NO = #{bnsrgstNo,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPARTMENT_MRK = #{departmentMrk,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			DPT_CADDR = #{dptCaddr,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CTCT_CDE = #{ctctCde,jdbcType=VARCHAR},
+  			DPT_ABR = #{dptAbr,jdbcType=VARCHAR},
+  			RPT_ADDR = #{rptAddr,jdbcType=VARCHAR},
+   			TEL = #{tel,jdbcType=VARCHAR},
+  			INSPRMT_NO = #{insprmtNo,jdbcType=VARCHAR},
+  			RPT_TEL = #{rptTel,jdbcType=VARCHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			N_DPT_LEVL = #{nDptLevl,jdbcType=INTEGER},
+  			ZIP_CDE = #{zipCde,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			DPT_EADDR = #{dptEaddr,jdbcType=VARCHAR},
+  			DPT_SERNO = #{dptSerno,jdbcType=VARCHAR},
+  			C_DPT_ENM = #{cDptEnm,jdbcType=VARCHAR},
+  			LCN_ABR = #{lcnAbr,jdbcType=VARCHAR},
+  			INTER_CDE = #{interCde,jdbcType=VARCHAR},
+  			FND_TM = #{fndTm,jdbcType=DATE},
+  			C_SNR_DPT = #{cSnrDpt,jdbcType=VARCHAR},
+  			ALARM_MRK = #{alarmMrk,jdbcType=CHAR},
+  			CONS_TEL = #{consTel,jdbcType=VARCHAR},
+  			ABD_TM = #{abdTm,jdbcType=DATE}
+  		where DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.UmDepartment" >
+	update UM_DEPARTMENT
+	<set>
+	<if test="taxrgstNo != null">
+		TAXRGST_NO = #{taxrgstNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptRelCde != null">
+		DPT_REL_CDE = #{dptRelCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptCnm != null">
+		DPT_CNM = #{dptCnm,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="bnsrgstNo != null">
+		BNSRGST_NO = #{bnsrgstNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="departmentMrk != null">
+		DEPARTMENT_MRK = #{departmentMrk,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="dptCaddr != null">
+		DPT_CADDR = #{dptCaddr,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="ctctCde != null">
+		CTCT_CDE = #{ctctCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptAbr != null">
+		DPT_ABR = #{dptAbr,jdbcType=VARCHAR},
+	</if>
+  	<if test="rptAddr != null">
+		RPT_ADDR = #{rptAddr,jdbcType=VARCHAR},
+	</if>
+   	<if test="tel != null">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="insprmtNo != null">
+		INSPRMT_NO = #{insprmtNo,jdbcType=VARCHAR},
+	</if>
+  	<if test="rptTel != null">
+		RPT_TEL = #{rptTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="fax != null">
+		FAX = #{fax,jdbcType=VARCHAR},
+	</if>
+  	<if test="nDptLevl != null">
+		N_DPT_LEVL = #{nDptLevl,jdbcType=INTEGER},
+	</if>
+  	<if test="zipCde != null">
+		ZIP_CDE = #{zipCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptEaddr != null">
+		DPT_EADDR = #{dptEaddr,jdbcType=VARCHAR},
+	</if>
+  	<if test="dptSerno != null">
+		DPT_SERNO = #{dptSerno,jdbcType=VARCHAR},
+	</if>
+  	<if test="cDptEnm != null">
+		C_DPT_ENM = #{cDptEnm,jdbcType=VARCHAR},
+	</if>
+  	<if test="lcnAbr != null">
+		LCN_ABR = #{lcnAbr,jdbcType=VARCHAR},
+	</if>
+  	<if test="interCde != null">
+		INTER_CDE = #{interCde,jdbcType=VARCHAR},
+	</if>
+  	<if test="fndTm != null">
+		FND_TM = #{fndTm,jdbcType=DATE},
+	</if>
+  	<if test="cSnrDpt != null">
+		C_SNR_DPT = #{cSnrDpt,jdbcType=VARCHAR},
+	</if>
+  	<if test="alarmMrk != null">
+		ALARM_MRK = #{alarmMrk,jdbcType=CHAR},
+	</if>
+  	<if test="consTel != null">
+		CONS_TEL = #{consTel,jdbcType=VARCHAR},
+	</if>
+  	<if test="abdTm != null">
+		ABD_TM = #{abdTm,jdbcType=DATE}
+	</if>
+  	</set>
+	where DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.UmDepartment" >
+		update UM_DEPARTMENT
+		set 
+			TAXRGST_NO = #{taxrgstNo,jdbcType=VARCHAR},
+  			DPT_REL_CDE = #{dptRelCde,jdbcType=VARCHAR},
+  			DPT_CNM = #{dptCnm,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			BNSRGST_NO = #{bnsrgstNo,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPARTMENT_MRK = #{departmentMrk,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			DPT_CADDR = #{dptCaddr,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CTCT_CDE = #{ctctCde,jdbcType=VARCHAR},
+  			DPT_ABR = #{dptAbr,jdbcType=VARCHAR},
+  			RPT_ADDR = #{rptAddr,jdbcType=VARCHAR},
+   			TEL = #{tel,jdbcType=VARCHAR},
+  			INSPRMT_NO = #{insprmtNo,jdbcType=VARCHAR},
+  			RPT_TEL = #{rptTel,jdbcType=VARCHAR},
+  			FAX = #{fax,jdbcType=VARCHAR},
+  			N_DPT_LEVL = #{nDptLevl,jdbcType=INTEGER},
+  			ZIP_CDE = #{zipCde,jdbcType=VARCHAR},
+  			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			DPT_EADDR = #{dptEaddr,jdbcType=VARCHAR},
+  			DPT_SERNO = #{dptSerno,jdbcType=VARCHAR},
+  			C_DPT_ENM = #{cDptEnm,jdbcType=VARCHAR},
+  			LCN_ABR = #{lcnAbr,jdbcType=VARCHAR},
+  			INTER_CDE = #{interCde,jdbcType=VARCHAR},
+  			FND_TM = #{fndTm,jdbcType=DATE},
+  			C_SNR_DPT = #{cSnrDpt,jdbcType=VARCHAR},
+  			ALARM_MRK = #{alarmMrk,jdbcType=CHAR},
+  			CONS_TEL = #{consTel,jdbcType=VARCHAR},
+  			ABD_TM = #{abdTm,jdbcType=DATE}
+  		where DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from UM_DEPARTMENT
+	where DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from UM_DEPARTMENT
+	where DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+		select count(1)
+		from UM_DEPARTMENT
+		where 1=1
+		<if test="taxrgstNo != null">
+			and TAXRGST_NO = #{taxrgstNo,jdbcType=VARCHAR}
+		</if>
+		<if test="dptRelCde != null">
+			and DPT_REL_CDE = #{dptRelCde,jdbcType=VARCHAR}
+		</if>
+		<if test="dptCnm != null">
+			and DPT_CNM = #{dptCnm,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="bnsrgstNo != null">
+			and BNSRGST_NO = #{bnsrgstNo,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="departmentMrk != null">
+			and DEPARTMENT_MRK = #{departmentMrk,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != '' ">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="dptCaddr != null">
+			and DPT_CADDR = #{dptCaddr,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="ctctCde != null">
+			and CTCT_CDE = #{ctctCde,jdbcType=VARCHAR}
+		</if>
+		<if test="dptAbr != null and dptAbr !='' ">
+			and DPT_ABR = #{dptAbr,jdbcType=VARCHAR}
+		</if>
+		<if test="rptAddr != null">
+			and RPT_ADDR = #{rptAddr,jdbcType=VARCHAR}
+		</if>
+		<if test="dptCde != null and dptCde !='' ">
+			and DPT_CDE = #{dptCde,jdbcType=VARCHAR}
+		</if>
+		<if test="tel != null">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="insprmtNo != null">
+			and INSPRMT_NO = #{insprmtNo,jdbcType=VARCHAR}
+		</if>
+		<if test="rptTel != null">
+			and RPT_TEL = #{rptTel,jdbcType=VARCHAR}
+		</if>
+		<if test="fax != null">
+			and FAX = #{fax,jdbcType=VARCHAR}
+		</if>
+		<if test="nDptLevl != null and nDptLevl !='' ">
+			and N_DPT_LEVL &lt;= #{nDptLevl,jdbcType=INTEGER}
+		</if>
+		<if test="zipCde != null">
+			and ZIP_CDE = #{zipCde,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="dptEaddr != null">
+			and DPT_EADDR = #{dptEaddr,jdbcType=VARCHAR}
+		</if>
+		<if test="dptSerno != null">
+			and DPT_SERNO = #{dptSerno,jdbcType=VARCHAR}
+		</if>
+		<if test="cDptEnm != null">
+			and C_DPT_ENM = #{cDptEnm,jdbcType=VARCHAR}
+		</if>
+		<if test="lcnAbr != null">
+			and LCN_ABR = #{lcnAbr,jdbcType=VARCHAR}
+		</if>
+		<if test="interCde != null">
+			and INTER_CDE = #{interCde,jdbcType=VARCHAR}
+		</if>
+		<if test="fndTm != null">
+			and FND_TM = #{fndTm,jdbcType=DATE}
+		</if>
+		<if test="cSnrDpt != null">
+			and C_SNR_DPT = #{cSnrDpt,jdbcType=VARCHAR}
+		</if>
+		<if test="alarmMrk != null">
+			and ALARM_MRK = #{alarmMrk,jdbcType=CHAR}
+		</if>
+		<if test="consTel != null">
+			and CONS_TEL = #{consTel,jdbcType=VARCHAR}
+		</if>
+		<if test="abdTm != null">
+			and ABD_TM = #{abdTm,jdbcType=DATE}
+		</if>
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.UmDepartment" resultType="long">
+	select count(1)
+	from UM_DEPARTMENT 
+	<include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from UM_DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from UM_DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from UM_DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from UM_DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from UM_DEPARTMENT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from UM_DEPARTMENT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from UM_DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageVo" parameterType="map" resultMap="BaseResultVo">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from UM_DEPARTMENT
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from UM_DEPARTMENT <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from UM_DEPARTMENT
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 自定义SQL，查询所有机构，加载速度慢   -->
+	<select id="queryAll" parameterType="map" resultType="map">
+		select t.c_dpt_cde as "id",
+	       t.c_dpt_abr as "text",
+	       t.c_snr_dpt as "pid",
+	       t.c_crt_cde as "departCode"
+	    from sale_department t
+	    where 1=1
+        and t.valid_ind = '1'
+		order by t.c_dpt_cde
+	</select>
+	
+	<!-- 自定义SQL，通过父机构查询子机构   -->
+	<select id="queryDeptByParentCode" parameterType="map" resultType="map">
+	    select t.c_dpt_cde as "id",
+		       t.c_dpt_abr as "text",
+		       t.c_snr_dpt as "pid",
+		       t.c_dpt_cde as "departCode"
+		    from sale_department t
+		    where 1=1
+	        and t.valid_ind = '1'
+	        <if test=" parentCode != null and parentCode !='' ">
+	           and t.c_snr_dpt = #{parentCode}
+	        </if>
+			order by t.c_dpt_cde
+	</select>
+	
+	<select id="queryHrAll" parameterType="map" resultType="map">
+		select DEPARTMENT_ID as "id",DEPARTMENT_ATTR_NAME as "text",SUPER_DEPARTMENT_ID as "pid",DEPARTMENT_CODE as "departCode" from hr_department_information 
+		<if test="id != null">
+			where SUPER_DEPARTMENT_ID = #{id}
+		</if>
+		 order by department_code
+	</select>
+	
+	<!-- 查询用户所在行政机构的父机构代码 -->
+	<select id="queryPidByUserCode" parameterType="map" resultType="map">
+		select hd.super_department_id as "pid" 
+	     from HR_USER_DEPARTMENT hu,
+	          hr_department_information hd
+	    where hu.companyid = hd.department_code and hu.email=#{loginUserCode}
+	</select>
+	
+	<!-- 查询用户所在行政机构的分公司信息 -->
+	<select id="queryHrDepartByUserCode" parameterType="map" resultType="map">
+	     select DEPARTMENT_ID as "id",DEPARTMENT_ATTR_NAME as "text",SUPER_DEPARTMENT_ID as "pid",DEPARTMENT_CODE as "departCode" from hr_department_information where department_Code in(
+	     	select substr(companyid,0,14) 
+		     from HR_USER_DEPARTMENT hu,
+		          hr_department_information hd
+		    where hu.companyid = hd.department_code and hu.email=#{loginUserCode})
+	</select>
+	
+	<!-- 查询当前用户所拥有的业务机构信息 -->
+	<select id="queryDeptCodeByUserCode" parameterType="map" resultType="map">
+		select distinct substr(d.dept_code,0,2) as "deptCode" from um_user_dept d where d.user_code = #{loginUserCode} and d.VALID_IND = '1'
+	</select>
+	
+	
+	<!-- 查询当前用户所拥有的业务机构信息 -->
+	<select id="queryDepartByDeptCode" parameterType="list" resultType="map">
+		select DPT_CDE as "id",DPT_ABR as "text",C_SNR_DPT as "pid" 
+		from um_department where VALID_IND = '1' and dpt_cde 
+		in(<foreach collection="list" item="dptId" separator=",">#{dptId}</foreach>)
+	</select>
+	
+</mapper>

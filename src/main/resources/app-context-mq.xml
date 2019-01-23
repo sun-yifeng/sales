@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- MQ -->
+	<bean id="connectionFactory" class="com.ibm.mq.jms.MQQueueConnectionFactory">
+		<!--0表示绑定方式，1表示客户机方式 -->
+		<property name="transportType" value="1" />
+		<!-- MQ服务器地址 -->
+		<property name="hostName" value="10.1.101.193" />
+		<!-- MQ服务器监听端口 -->
+		<property name="port" value="1414" />
+		<!-- 字符编码 -->
+		<property name="CCSID" value="1381" />
+		<!-- 队列管理器 -->
+		<property name="queueManager" value="QM_EXCEPTION" />
+		<!-- 服务器连接通道 -->
+		<property name="channel" value="EXCEPTION_CHANNEL"></property>
+	</bean>
+	<!--队列 -->
+	<bean id="queue" class="com.ibm.mq.jms.MQQueue">
+		<property name="baseQueueName" value="Q1" />
+	</bean>
+	<!-- jms对象模版 -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate102">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="queue" />
+	</bean>
+	<!-- 发送消息服务对象 -->
+	<bean id="expMQService"
+		class="com.hf.framework.exception.service.mq.ExpMessageProducer">
+		<property name="jmsTemplate" ref="jmsTemplate"></property>
+	</bean>
+</beans>

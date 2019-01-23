@@ -1,0 +1,26 @@
+select substr(t.dept_code,0,2) as "分公司代码",
+       d2.dept_simple_name as "分公司名称",
+       t.dept_code as "机构代码",
+       d1.dept_simple_name as "机构名称",
+       t.salesman_code as "业务员代码"，
+       t.employ_code as "业务员工号",
+       t.certify_no as "业务员身份证",
+       t1.employ_code as "销售助理工号",
+       t1.certiry_no as "销售助理身份证",
+       decode(t.salesman_flag,'0','后台','1','前台') as "前后台",
+       case
+         when t.certify_no is null then '身份证为空'
+         when (select count(1) from tmp_sales tmp where tmp.salesman_code<>t.salesman_code and tmp.certify_no = t.certify_no)>0 then '和其他业务员重复'
+         when pkg_credit_chk.f_check_idcard(t.certify_no)=0 then '身份证有误'
+         when t.certify_no = t1.certiry_no then '和销售助理身份证重复'
+         end as "异常信息"
+  from salesman t
+  left join department d1
+    on t.dept_code = d1.dept_code
+  left join department d2
+    on substr(t.dept_code,0,2) = d2.dept_code
+  left join salesman_virtual t1
+    on t.certify_no = t1.certiry_no
+ where t.valid_ind = '1'
+ and t.employ_code in (select distinct tmp.sales_code from tmp_salesman tmp)
+ order by t.dept_code,t.salesman_code;

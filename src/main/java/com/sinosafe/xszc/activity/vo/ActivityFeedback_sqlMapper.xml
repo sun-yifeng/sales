@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.activity.vo.ActivityFeedback" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="FEEDBACK_ID" property="feedbackId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_USER" property="feedbackUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTIVITY_ID" property="activityId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_CONTENT" property="feedbackContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROCESSOR" property="processor" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_CONTENT" property="processContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_DATE" property="feedbackDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="PROCESS_DATE" property="processDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		
+  	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.activity.vo.ActivityFeedback">
+		<id column="FEEDBACK_ID" property="feedbackId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_USER" property="feedbackUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTIVITY_ID" property="activityId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_CONTENT" property="feedbackContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="PROCESSOR" property="processor" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="TEL" property="tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PROCESS_CONTENT" property="processContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FEEDBACK_DATE" property="feedbackDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="PROCESS_DATE" property="processDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+  	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		DEPT_CODE,
+		FEEDBACK_USER,
+		CREATED_USER,
+		ACTIVITY_ID,
+		UPDATED_DATE,
+		STATUS,
+		VALID_IND,
+		CREATED_DATE,
+		TEL,
+		FEEDBACK_DATE,
+		FEEDBACK_ID
+	</sql>
+	
+	
+	<sql id="Base_Column_List2" >
+		UPDATED_USER,
+		DEPT_CODE,
+		CREATED_USER,
+		ACTIVITY_ID,
+		UPDATED_DATE,
+		STATUS,
+		VALID_IND,
+		CREATED_DATE,
+		FEEDBACK_ID
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		t.UPDATED_USER as "updatedUser",
+		t.FEEDBACK_USER as "feedbackUser",
+		t.CREATED_USER as "createdUser",
+		t.ACTIVITY_ID as "activityId",
+		t.FEEDBACK_CONTENT as "feedbackContent",
+		t.UPDATED_DATE as "updatedDate",
+		decode(t.status,'1','未反馈','2','草稿','3','已反馈') as "status",
+		t.PROCESSOR as "processor",
+		t.VALID_IND as "validInd",
+		t.CREATED_DATE as "createdDate",
+		t.TEL as "tel",
+		t.DEPT_CODE as "deptCode",
+		t.PROCESS_CONTENT as "processContent",
+		to_char(t.FEEDBACK_DATE, 'yyyy-mm-dd hh24:mi:ss') as "feedbackDate",
+		t.PROCESS_DATE as "processDate",
+		t.FEEDBACK_ID as "feedbackId",
+		(select b.dept_simple_name from department b where b.dept_code = t.dept_code and rownum = 1) "deptName"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{feedbackUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{activityId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{tel,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{feedbackId,jdbcType=VARCHAR}
+ 	</sql>
+ 	
+	<!-- 写入操作的SQL 自用 -->
+	<sql id="Insert_Base_values2">
+		#{updatedUser,jdbcType=VARCHAR},
+		#{deptCode,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{activityId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{status,jdbcType=CHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{feedbackId,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackUser != null and feedbackUser != ''">
+			and FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="activityId != null and activityId != ''">
+			and ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackContent != null and feedbackContent != ''">
+			and FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+		</if>
+		<if test="processor != null and processor != ''">
+			and PROCESSOR = #{processor,jdbcType=DATE}
+		</if>
+			and VALID_IND = '1'
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="tel != null and tel != ''">
+			and TEL = #{tel,jdbcType=VARCHAR}
+		</if>
+		<if test="processContent != null and processContent != ''">
+			and PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackDate != null and feedbackDate != ''">
+			and FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE}
+		</if>
+		<if test="processDate != null and processDate != ''">
+			and PROCESS_DATE = #{processDate,jdbcType=VARCHAR}
+		</if>
+		<if test="feedbackId != null and feedbackId != ''">
+			and FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.activity.vo.ActivityFeedback" >
+    insert into ACTIVITY_FEEDBACK (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into ACTIVITY_FEEDBACK (
+		<include refid="Base_Column_List2" />
+    )
+	values (
+		<include refid="Insert_Base_values2" />
+    )
+	</insert>
+	
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ACTIVITY_FEEDBACK
+    where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from ACTIVITY_FEEDBACK
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update ACTIVITY_FEEDBACK
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackUser != null and feedbackUser != ''">
+		FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="activityId != null and activityId != ''">
+		ACTIVITY_ID = #{activityId,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackContent != null and feedbackContent != ''">
+		FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+	</if>
+	
+	UPDATED_DATE = sysdate,
+	
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="processor != null and processor != ''">
+		PROCESSOR = #{processor,jdbcType=DATE},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="processContent != null and processContent != ''">
+		PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackDate != null and feedbackDate != ''">
+		FEEDBACK_DATE = to_date(#{feedbackDate},'yyyy-mm-dd hh24:mi:ss'),
+	</if>
+  	<if test="processDate != null and processDate != ''">
+		PROCESS_DATE = #{processDate,jdbcType=VARCHAR},
+	</if>
+   	</set>
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update ACTIVITY_FEEDBACK
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			ACTIVITY_ID = #{activityId,jdbcType=VARCHAR},
+  			FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			PROCESSOR = #{processor,jdbcType=DATE},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+  			FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE},
+  			PROCESS_DATE = #{processDate,jdbcType=VARCHAR},
+   		where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.activity.vo.ActivityFeedback" >
+	update ACTIVITY_FEEDBACK
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackUser != null and feedbackUser != ''">
+		FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="activityId != null and activityId != ''">
+		ACTIVITY_ID = #{activityId,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackContent != null and feedbackContent != ''">
+		FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+	</if>
+		UPDATED_DATE = sysdate,
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="processor != null and processor != ''">
+		PROCESSOR = #{processor,jdbcType=DATE},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="processContent != null and processContent != ''">
+		PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackDate != null and feedbackDate != ''">
+		FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE},
+	</if>
+  	<if test="processDate != null and processDate != ''">
+		PROCESS_DATE = #{processDate,jdbcType=VARCHAR},
+	</if>
+   	</set>
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.activity.vo.ActivityFeedback" >
+		update ACTIVITY_FEEDBACK
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			ACTIVITY_ID = #{activityId,jdbcType=VARCHAR},
+  			FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			STATUS = #{status,jdbcType=CHAR},
+  			PROCESSOR = #{processor,jdbcType=DATE},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			TEL = #{tel,jdbcType=VARCHAR},
+  			PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+  			FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE},
+  			PROCESS_DATE = #{processDate,jdbcType=VARCHAR},
+   		where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from ACTIVITY_FEEDBACK
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from ACTIVITY_FEEDBACK
+	where FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from ACTIVITY_FEEDBACK <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.activity.vo.ActivityFeedback" resultType="long">
+	select count(1)
+	from ACTIVITY_FEEDBACK <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultType="java.util.HashMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List_JavaName"/>
+		from ACTIVITY_FEEDBACK t
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from ACTIVITY_FEEDBACK
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from ACTIVITY_FEEDBACK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from ACTIVITY_FEEDBACK
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from ACTIVITY_FEEDBACK
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from ACTIVITY_FEEDBACK <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<update id="updateByActivityId" parameterType="map" >
+	update ACTIVITY_FEEDBACK
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackUser != null and feedbackUser != ''">
+		FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="activityId != null and activityId != ''">
+		ACTIVITY_ID = #{activityId,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackContent != null and feedbackContent != ''">
+		FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR},
+	</if>
+	
+		UPDATED_DATE = sysdate,
+	
+  	<if test="status != null and status != ''">
+		STATUS = #{status,jdbcType=CHAR},
+	</if>
+  	<if test="processor != null and processor != ''">
+		PROCESSOR = #{processor,jdbcType=DATE},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="tel != null and tel != ''">
+		TEL = #{tel,jdbcType=VARCHAR},
+	</if>
+  	<if test="processContent != null and processContent != ''">
+		PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR},
+	</if>
+  	<if test="feedbackDate != null and feedbackDate != ''">
+		FEEDBACK_DATE = to_date(#{feedbackDate},'yyyy-mm-dd hh24:mi:ss'),
+	</if>
+  	<if test="processDate != null and processDate != ''">
+		PROCESS_DATE = #{processDate,jdbcType=VARCHAR},
+	</if>
+   	</set>
+	where ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+	</update>
+	
+</mapper>

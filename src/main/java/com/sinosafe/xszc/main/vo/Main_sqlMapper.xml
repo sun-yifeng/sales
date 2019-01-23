@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.main.vo.MainResource" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="RESOURCE_ID" property="resourceId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RESOURCE_NAME" property="resourceName" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RESOURCE_TYPE" property="resourceType" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MENU_INDEX" property="menuIndex" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SYS_CODE" property="sysCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="URL" property="url" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RESOURCE_CSS" property="resourceCss" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RESOURCE_ICON" property="resourceIcon" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.main.vo.MainResource">
+		<id column="RESOURCE_ID" property="resourceId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RESOURCE_NAME" property="resourceName" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RESOURCE_TYPE" property="resourceType" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="MENU_INDEX" property="menuIndex" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SYS_CODE" property="sysCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="URL" property="url" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RESOURCE_CSS" property="resourceCss" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="RESOURCE_ICON" property="resourceIcon" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_USER,
+		RESOURCE_NAME,
+		RESOURCE_ID,
+		UPDATED_DATE,
+		RESOURCE_TYPE,
+		MENU_INDEX,
+		VALID_IND,
+		CREATED_DATE,
+		SYS_CODE,
+		URL,
+		PARENT_ID,
+		RESOURCE_CSS,
+		RESOURCE_ICON
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_USER as "createdUser",
+		RESOURCE_NAME as "resourceName",
+		RESOURCE_ID as "resourceId",
+		UPDATED_DATE as "updatedDate",
+		RESOURCE_TYPE as "resourceType",
+		MENU_INDEX as "menuIndex",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		SYS_CODE as "sysCode",
+		URL as "url",
+		PARENT_ID as "parentId",
+		RESOURCE_CSS as "resourceCss",
+		RESOURCE_ICON as "resourceIcon"
+	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="resourceName != null and resourceName != ''">
+			and RESOURCE_NAME = #{resourceName,jdbcType=VARCHAR}
+		</if>
+		<if test="resourceId != null and resourceId != ''">
+			and RESOURCE_ID = #{resourceId,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="resourceType != null and resourceType != ''">
+			and RESOURCE_TYPE = #{resourceType,jdbcType=INTEGER}
+		</if>
+		<if test="menuIndex != null">
+			and MENU_INDEX = #{menuIndex,jdbcType=INTEGER}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="sysCode != null and sysCode != ''">
+			and SYS_CODE = #{sysCode,jdbcType=VARCHAR}
+		</if>
+		<if test="url != null and url != ''">
+			and URL = #{url,jdbcType=VARCHAR}
+		</if>
+		<if test="parentId != null and parentId != ''">
+			and PARENT_ID = #{parentId,jdbcType=VARCHAR}
+		</if>
+		order by MENU_INDEX
+		</where>
+	</sql>
+	
+	<!-- 根据用户查询系统管理员 -->
+	<select id="querySysManager" parameterType="map" resultType="long">
+		select count(1) 
+		from um_admin t where t.user_code = #{userCode} 
+		and t.sys_code = #{sysCode} 
+		and t.admin_level = '1'
+		and t.valid_ind = 1
+	</select>
+	
+	<!-- 根据用户查询系统用户  -->
+	<select id="querySysUser" parameterType="map" resultType="long">
+		select count(1)
+		from um_system_user
+		where um_system_user.sys_code = #{sysCode}
+		and um_system_user.user_code = #{userCode}
+		and um_system_user.valid_ind = 1
+	</select>
+	
+	<!-- 根据用户编码查询对应的角色所有的菜单  -->
+	<select id="querySysUserMenus" parameterType="map" resultType="map">
+		select distinct um_resource.resource_id as "resourceId",
+	       um_resource.resource_name as "resourceName",
+	       um_resource.resource_type as "resourceType",
+	       um_resource.sys_code as "sysCode",
+	       um_resource.parent_id as "parentId",
+	       um_resource.url as "url",
+	       um_resource.menu_index as "menuIndex",
+	       um_resource.valid_ind as "validInd",
+	       um_resource.resource_css as "resourceCss",
+	       um_resource.resource_icon as "resourceIcon"
+		from um_system_user,
+	       um_sys_user_role,
+	       um_role_resource,
+	       um_resource
+		where um_system_user.sys_user_id = um_sys_user_role.sys_user_id
+	       and um_sys_user_role.role_code = um_role_resource.role_code
+	       and um_resource.resource_id = um_role_resource.resource_id
+	       and um_system_user.user_code= #{userCode}
+	       and um_resource.sys_code = #{sysCode}
+	       and um_resource.resource_type = 1
+	       and um_resource.valid_ind = 1
+	       and um_role_resource.valid_ind = 1
+	       and um_sys_user_role.valid_ind = 1
+	     order by um_resource.menu_index
+	</select>
+	
+	<!-- 系统管理员查询对应的所有系统菜单 -->
+	<select id="querySystemMenus" parameterType="map" resultType="map">
+		 select distinct um_resource.resource_id   as "resourceId",
+		                 um_resource.resource_name as "resourceName",
+		                 um_resource.resource_type as "resourceType",
+		                 um_resource.sys_code      as "sysCode",
+		                 um_resource.parent_id     as "parentId",
+		                 um_resource.url           as "url",
+		                 um_resource.menu_index    as "menuIndex",
+		                 um_resource.valid_ind     as "validInd",
+		                 um_resource.resource_css  as "resourceCss",
+		                 um_resource.resource_icon as "resourceIcon"
+		   from um_admin, um_resource
+		  where um_admin.sys_code = um_resource.sys_code
+		    and um_resource.sys_code = #{sysCode}
+		    and um_admin.user_code = #{userCode}
+		    and um_resource.resource_type = 1
+		    and um_admin.admin_level = '1'
+		    and um_resource.valid_ind = 1
+		  order by um_resource.menu_index
+	</select>
+	
+	<!-- ***************************** 待办工作提醒开始  ***************************** -->
+	<!--未处理人员数量  -->
+	<select id="findSalesmanCount" parameterType="map" resultType="long">
+		select count(1)
+		 	from salesman t
+		 left join salesman_category sc 
+		 	on t.position_category_name = sc.category_name 
+		where 1=1
+		  and t.valid_ind = '1'
+		  and t.process_status != '2'
+		  and t.status = '1'
+		  and t.salesman_flag = '1'
+		  and t.salesman_flag = '1'
+		  and t.employ_code is not null
+		  <if test="xbFilter != null and xbFilter != ''">
+			 <if test="xbFilter=='true'">
+				and sc.valid_status != '0'
+			 </if>
+		  </if>
+		<if test="deptCode != null and deptCode != ''">
+		  and t.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+		</if>
+	</select>
+	
+	<!-- 中介机构的许可证将于七日内到期数量  -->
+	<select id="findMediumCount" parameterType="map" resultType="long">
+		select count(1)
+		  from (
+				select distinct t1.channel_code,
+				      t1.BUSINESS_LINE as lineCode,
+				      t1.MEDIUM_CNAME  as channelName
+				  from (select t11.channel_code,
+				               t11.dept_code,
+				               t11.BUSINESS_LINE,
+				               t12.MEDIUM_CNAME,
+				               t12.expire_date
+				          from channel_main t11, channel_medium_detail t12
+				         where t11.valid_ind = '1'
+				           and t12.valid_ind = '1'
+				           and t11.channel_code = t12.channel_code) t1
+				  left join channel_confer t2
+				    on t1.channel_code = t2.channel_code
+				 where 1 = 1
+				   and t2.valid_ind = '1'
+				   and t2.valid_date in (select max(t.valid_date) from channel_confer t where t2.confer_id = t.confer_id)
+		           and t1.expire_date between sysdate and sysdate + 7
+		           <if test="deptCode != null and deptCode != ''">
+		  		        and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+				   </if>
+				   <if test="lineCode != null and lineCode != ''">
+						and t1.BUSINESS_LINE like '%${lineCode}%'
+				   </if>
+				   <if test="channelName != null and channelName != ''">
+						and t1.MEDIUM_CNAME LIKE '%${channelName}%'  
+				   </if>
+		         )
+	</select>
+	
+	<!-- 个人代理人执业证书将于七日内到期数量  -->
+	<select id="findAgentCount" parameterType="map" resultType="long">
+		select count(1)
+		  from (select distinct t1.channel_code              as channelCode,
+		                        t1.channel_name              as channelName,
+		                        t1.dept_code                 as deptCode,
+		                        t1.business_line             as lineCode,
+		                        t1.license_no                as licence,
+		                        t1.license_valid_date        as licenseValidDate,
+		                        t1.license_expire_date       as licenseExpireDate,
+		                        t1.business_no               as businessNo,
+		                        t1.business_valid_date       as businessValidDate,
+		                        t1.business_expire_date      as businessExpireDate,
+		                        t1.qualification_no          as qualificationNo,
+		                        t1.qualification_valid_date  as qualificationValidDate,
+		                        t1.qualification_expire_date as qualificationExpireDate
+		          from (select t11.channel_code,
+		                       t11.dept_code,
+		                       t11.business_line,
+		                       t12.license_no,
+		                       t12.channel_name,
+		                       t12.license_valid_date,
+		                       t12.license_expire_date,
+		                       t12.business_no,
+		                       t12.business_valid_date,
+		                       t12.business_expire_date,
+		                       t12.qualification_no,
+		                       t12.qualification_valid_date,
+		                       t12.qualification_expire_date
+		                  from channel_main t11, channel_agent_detail t12
+		                 where t11.valid_ind = '1'
+		                   and t12.valid_ind = '1'
+		                   and t11.channel_code = t12.channel_code) t1
+		          left join channel_confer t2
+		            on t1.channel_code = t2.channel_code
+		         where 1 = 1
+		           and t2.valid_ind = '1'
+		           and t2.valid_date in
+		               (select max(t.valid_date)
+		                  from channel_confer t
+		                 where t2.confer_id = t.confer_id)
+		           and (t1.qualification_expire_date between trunc(sysdate) and sysdate + 7)
+		           <if test="deptCode != null and deptCode != ''">
+				  	   and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+				   </if>
+				   <if test="lineCode != null and lineCode != ''">
+					   and t1.business_line like '%${lineCode}%'
+				   </if>
+				   <if test="channelName != null and channelName != ''">
+					   and t1.channel_name LIKE '%${channelName}%'  
+				   </if>
+		        )
+	</select>
+	
+	<!-- 中介机构的协议即将于七日内到期数量  -->
+	<select id="findConferMediumCount" parameterType="map" resultType="long">
+		select count(1)
+		  from (select distinct t2.confer_id     as conferId,
+		                        t1.channel_code  as channelCode,
+		                        t1.medium_cname  as channelname,
+		                        t1.dept_code     as deptcode,
+		                        t1.business_line as linecode,
+		                        t2.valid_date    as validdate,
+		                        t2.expire_date   as expiredate
+		          from (select t11.channel_code,
+		                       t11.dept_code,
+		                       t11.business_line,
+		                       t12.medium_cname
+		                  from channel_main t11, channel_medium_detail t12
+		                 where t11.valid_ind = '1'
+		                   and t12.valid_ind = '1'
+		                   and t11.channel_code = t12.channel_code) t1
+		          left join channel_confer t2
+		            on t1.channel_code = t2.channel_code
+		         where 1 = 1
+		           and t2.valid_ind = '1'
+		           and t2.valid_date in
+		               (select max(t.valid_date)
+		                  from channel_confer t
+		                 where t2.confer_id = t.confer_id)
+		           and t2.expire_date between sysdate and sysdate + 7
+		           <if test="deptCode != null and deptCode != ''">
+		  		        and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+				   </if>
+				   <if test="lineCode != null and lineCode != ''">
+						and t1.business_line like '%${lineCode}%'
+				   </if>
+				   <if test="channelName != null and channelName != ''">
+						and t1.medium_cname LIKE '%${channelName}%'  
+				   </if>
+		          )
+	</select>
+	
+	<!-- 个人代理人的协议即将于七日内到期数量  -->
+	<select id="findConferAgentCount" parameterType="map" resultType="long">
+		select count(1)
+		  from (select distinct t2.confer_id     as conferId,
+		                        t1.channel_code  as channelCode,
+		                        t1.channel_name  as channelname,
+		                        t1.dept_code     as deptcode,
+		                        t1.business_line as linecode,
+		                        t2.valid_date    as validdate,
+		                        t2.expire_date   as expiredate
+		          from (select t11.channel_code,
+		                       t11.dept_code,
+		                       t11.business_line,
+		                       t12.channel_name
+		                  from channel_main t11,channel_agent_detail t12
+		                 where t11.valid_ind = '1'
+		                   and t12.valid_ind = '1'
+		                   and t11.channel_code = t12.channel_code) t1
+		          left join channel_confer t2
+		            on t1.channel_code = t2.channel_code
+		         where 1 = 1
+		           and t2.valid_ind = '1'
+		           and t2.valid_date in
+		               (select max(t.valid_date)
+		                  from channel_confer t
+		                 where t2.confer_id = t.confer_id)
+		           and t2.expire_date between sysdate and sysdate + 7
+		           <if test="deptCode != null and deptCode != ''">
+				  	   and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+				   </if>
+				   <if test="lineCode != null and lineCode != ''">
+					   and t1.business_line like '%${lineCode}%'
+				   </if>
+				   <if test="channelName != null and channelName != ''">
+					   and t1.channel_name LIKE '%${channelName}%'  
+				   </if>
+		        )
+	</select>
+	
+	<!-- 公告提醒数量  -->
+	<select id="findNoticeCount" parameterType="map" resultType="long">
+		select count(1)
+		  from notice_feedback t
+		 where t.valid_ind = '1'
+		   and t.status = #{status, jdbcType=VARCHAR}
+		   and t.dept_code = #{deptCode, jdbcType=VARCHAR}
+		   and t.role_code = #{roleCode, jdbcType=VARCHAR}
+		<!--    and 
+		   <foreach collection="nrl" index="index" item="nrlValue" open="(" separator=" or " close=")">  
+		       t.business_line = #{nrlValue,jdbcType=VARCHAR}
+		   </foreach>   -->
+	</select>
+	<!-- ***************************** 待办工作提醒结束 ***************************** -->
+	
+	<!-- ***************************** 待办工作提醒列表查询开始 ***************************** -->
+	<!--公告待反馈列表-->
+	<select id="findNoticeTipList" parameterType="map" resultType="map">
+		select t1.dept_code as "deptCode",
+		       t3.DEPT_SIMPLE_NAME as "deptName",
+		       t1.tiltle as "title",
+		       t1.content as "content",
+		       t1.publish_date as "publishDate"
+		  from notice t1
+		 inner join notice_feedback t2
+		    on t1.notic_id = t2.notice_id
+		  left join department t3
+		    on t2.dept_code = t3.dept_code
+		 where t2.valid_ind = '1'
+		   and t2.status= #{status,jdbcType=VARCHAR}
+		   and t2.dept_code = #{deptCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!--中介机构许可证到期列表开始-->
+	<select id="queryMediumValidList" parameterType="map" resultType="map">
+	 select *
+		  from (select tc.deptCode || '-' || de.dept_simple_name as deptCode,
+		               tc.channelCode,
+		               tc.channelName,
+		               tc.lineCode,
+		               tc.licence,
+		               tc.validDate,
+		               tc.expireDate,
+		               rownum rn
+		          from (select distinct t1.channel_code  as channelCode,
+		                                t1.MEDIUM_CNAME  as channelName,
+		                                t1.dept_code     as deptCode,
+		                                t1.BUSINESS_LINE as lineCode,
+		                                t1.LICENCE       as licence,
+		                                t1.VALID_DATE    as validDate,
+		                                t1.expire_date   as expireDate
+		                  from (select t11.channel_code,
+		                               t11.dept_code,
+		                               t11.BUSINESS_LINE,
+		                               t12.LICENCE,
+		                               t12.VALID_DATE,
+		                               t12.expire_date,
+		                               t12.MEDIUM_CNAME
+		                          from channel_main t11, channel_medium_detail t12
+		                         where t11.valid_ind = '1'
+		                           and t12.valid_ind = '1'
+		                           and t11.channel_code = t12.channel_code) t1
+		                  left join channel_confer t2
+		                    on t1.channel_code = t2.channel_code
+		                 where 1 = 1
+		                   and t2.valid_ind = '1'
+		                   and t2.valid_date in
+		                       (select max(t.valid_date)
+		                          from channel_confer t
+		                         where t2.confer_id = t.confer_id)
+		                   and t1.expire_date between sysdate and sysdate + 7
+		                   <if test="deptCode != null and deptCode != ''">
+							  and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+						   </if>
+						   <if test="lineCode != null and lineCode != ''">
+							  and t1.BUSINESS_LINE like '%${lineCode}%'
+						   </if>
+						   <if test="channelName != null and channelName != ''">
+								and t1.MEDIUM_CNAME LIKE '%${channelName}%'  
+						   </if>
+		                ) tc
+		         inner join department de
+		            on tc.deptCode = de.dept_code
+		         where rownum &lt;= #{endpoint}) rt
+		 where rn &gt;= #{startpoint}
+	</select>
+	<!--中介机构许可证到期列表结束-->
+	
+	
+	<!--个人代理人执业证书将于七日内到期的列表-->
+	<select id="queryAgentValidList" parameterType="map" resultType="map">
+	 select *
+		  from (select 
+		       tc.deptCode || '-' || de.dept_simple_name as deptCode,
+		       tc.channelCode,
+		       tc.channelName,
+		       tc.lineCode,
+		       tc.licence,
+		       tc.licenseValidDate,
+		       tc.licenseExpireDate,
+		       tc.businessNo,
+		       tc.businessValidDate,
+		       tc.businessExpireDate,
+		       tc.qualificationNo,
+		       tc.qualificationValidDate,
+		       tc.qualificationExpireDate,
+		       rownum rn
+		  from (select distinct t1.channel_code     as channelCode,
+		               t1.channel_name              as channelName,
+		               t1.dept_code                 as deptCode,
+		               t1.business_line             as lineCode,
+		               t1.license_no                as licence,
+		               t1.license_valid_date        as licenseValidDate,
+		               t1.license_expire_date       as licenseExpireDate,
+		               t1.business_no              as businessNo,
+		               t1.business_valid_date       as businessValidDate,
+		               t1.business_expire_date      as businessExpireDate,
+		               t1.qualification_no          as qualificationNo,
+		               t1.qualification_valid_date  as qualificationValidDate,
+		               t1.qualification_expire_date as qualificationExpireDate
+		          from (select t11.channel_code,
+		                       t11.dept_code,
+		                       t11.business_line,
+		                       t12.license_no,
+		                       t12.channel_name,
+		                       t12.license_valid_date,
+		                       t12.license_expire_date,
+		                       t12.business_no,
+		                       t12.business_valid_date,
+		                       t12.business_expire_date,
+		                       t12.qualification_no,
+		                       t12.qualification_valid_date,
+		                       t12.qualification_expire_date
+		                  from channel_main t11, channel_agent_detail t12
+		                 where t11.valid_ind = '1'
+		                   and t12.valid_ind = '1'
+		                   and t11.channel_code = t12.channel_code) t1
+		          left join channel_confer t2
+		            on t1.channel_code = t2.channel_code
+		         where 1 = 1
+		           and t2.valid_ind = '1'
+		           and t2.valid_date in
+		               (select max(t.valid_date)
+		                  from channel_confer t
+		                 where t2.confer_id = t.confer_id)
+		           and (t1.qualification_expire_date between trunc(sysdate) and sysdate + 7)
+		               <if test="deptCode != null and deptCode != ''">
+							and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+					   </if>
+				       <if test="lineCode != null and lineCode != ''">
+							and t1.business_line like '%${lineCode}%'
+					   </if>
+					   <if test="channelName != null and channelName != ''">
+						    and t1.channel_name LIKE '%${channelName}%'  
+					   </if>
+		              ) tc
+		 inner join department de
+		    on tc.deptCode = de.dept_code 
+		    where rownum &lt;= #{endpoint}) rt
+		 where rn &gt;= #{startpoint}
+	</select>
+	<!--个人代理人个人代理人的资格证或展业证将于七日内到期的渠道结束-->
+	
+	<!--中介机构协议过期列表查询开始-->
+	<select id="queryMediumConferValidList" parameterType="map" resultType="map">
+	 select *
+	   from (select tc.deptCode || '-' || de.dept_simple_name as deptCode,
+	                tc.channelCode,
+	                tc.channelName,
+	                tc.lineCode,
+	                tc.conferId,
+	                tc.validDate,
+	                tc.expireDate,
+	                rownum rn
+	           from (select distinct t2.confer_id     as conferId,
+	                                 t1.channel_code  as channelCode,
+	                                 t1.medium_cname  as channelname,
+	                                 t1.dept_code     as deptcode,
+	                                 t1.business_line as linecode,
+	                                 t2.valid_date    as validdate,
+	                                 t2.expire_date   as expiredate
+	                   from (select t11.channel_code,
+	                                t11.dept_code,
+	                                t11.business_line,
+	                                t12.medium_cname
+	                           from channel_main t11, channel_medium_detail t12
+	                          where t11.valid_ind = '1'
+	                            and t12.valid_ind = '1'
+	                            and t11.channel_code = t12.channel_code) t1
+	                   left join channel_confer t2
+	                     on t1.channel_code = t2.channel_code
+	                  where 1 = 1
+	                    and t2.valid_ind = '1'
+	                    and t2.valid_date in
+	                        (select max(t.valid_date)
+	                           from channel_confer t
+	                          where t2.confer_id = t.confer_id)
+	                    and t2.expire_date between sysdate and sysdate + 7
+	                   <if test="deptCode != null and deptCode != ''">
+		  		        and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+					   </if>
+					   <if test="lineCode != null and lineCode != ''">
+							and t1.business_line like '%${lineCode}%'
+					   </if>
+					   <if test="channelName != null and channelName != ''">
+							and t1.medium_cname LIKE '%${channelName}%'  
+					   </if>
+	                    ) tc
+	          inner join department de
+	             on tc.deptCode = de.dept_code
+	          where rownum &lt;= #{endpoint}) rt
+		 where rn &gt;= #{startpoint}
+	</select>
+	<!--中介机构协议过期列表查询结束-->
+	
+	<!--个人代理人协议到期列表-开始-->
+	<select id="queryAgentConferValidList" parameterType="map" resultType="map">
+		select *
+		   from (select tc.deptCode || '-' || de.dept_simple_name as deptCode,
+		                tc.channelCode,
+		                tc.channelName,
+		                tc.lineCode,
+		                tc.conferId,
+		                tc.validDate,
+		                tc.expireDate,
+		                rownum rn
+		           from (select distinct t2.confer_id     as conferId,
+		                                 t1.channel_code  as channelCode,
+		                                 t1.channel_name  as channelname,
+		                                 t1.dept_code     as deptcode,
+		                                 t1.business_line as linecode,
+		                                 t2.valid_date    as validdate,
+		                                 t2.expire_date   as expiredate
+		                   from (select t11.channel_code,
+		                                t11.dept_code,
+		                                t11.business_line,
+		                                t12.channel_name
+		                           from channel_main t11, channel_agent_detail t12
+		                          where t11.valid_ind = '1'
+		                            and t12.valid_ind = '1'
+		                            and t11.channel_code = t12.channel_code) t1
+		                   left join channel_confer t2
+		                     on t1.channel_code = t2.channel_code
+		                  where 1 = 1
+		                    and t2.valid_ind = '1'
+		                    and t2.valid_date in
+		                        (select max(t.valid_date)
+		                           from channel_confer t
+		                          where t2.confer_id = t.confer_id)
+		                    and t2.expire_date between sysdate and sysdate + 7
+		                    <if test="deptCode != null and deptCode != ''">
+								and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+						    </if>
+					        <if test="lineCode != null and lineCode != ''">
+								and t1.business_line like '%${lineCode}%'
+						    </if>
+						    <if test="channelName != null and channelName != ''">
+							    and t1.channel_name LIKE '%${channelName}%'  
+						    </if>
+		                    ) tc
+		          inner join department de
+		             on tc.deptCode = de.dept_code
+		         where rownum &lt;= #{endpoint}) rt
+		 where rn &gt;= #{startpoint}
+	</select>
+	<!--个人代理人协议到期列表-结束-->
+	
+	<!-- 系统提示信息 ,未配置职级及业务线的销售人员 -->
+	<select id="findSalesmanTipList" parameterType="map" resultType="map">
+		select *
+		    from (select t1.dept_code as deptCode,
+				       t1.salesman_cname,
+				       t1.salesman_code,
+				       t1.age,
+				       t1.tel,
+				       t1.marry,
+				       t1.party,
+				       t1.title_type,
+				       t1.sex,
+				       t1.process_status as processStatus,
+				       decode(t1.status,'1','在职','2','离职','3','离退休','4','不在职','') "status",
+				       decode(t1.salesman_type,'1','正式员工','2','试用员工','3','实习员工','6','待岗','7','内退员工',
+				              '8','离退休','9','内退员工','10','挂靠员工','11','顶岗实习','12','离职','13','其它','14','返聘') "salesmanType",
+				       t1.last_line,
+				       b.line_name "businessLine",
+				       t1.trytou,
+				       t1.magor,
+				       t1.title,
+				       t1.dept_extend,
+				       t1.education,
+				       t1.evaluate,
+				       t1.group_code,
+				       t1.employ_code as employCode,
+				       to_char(t1.entry_date, 'yyyy-mm-dd') entry_date,
+				       t1.business_no,
+				       t1.certify_no,
+				       to_char(t1.birthday, 'yyyy-mm-dd') birthday,
+				       to_char(t1.regular_date, 'yyyy-mm-dd') regular_date,
+				       to_char(t1.contract_date,'yyyy-mm-dd') contract_date,
+				       t1.position,
+				       t1.salesman_flag "salesmanFlag",
+				       t2.group_name "groupName",
+				       t3.rank_name "rankName",
+				       rownum rn
+				  from salesman t1
+				  left join group_main t2
+				    on t1.group_code = t2.group_code
+				    and t1.valid_ind = '1'
+				  left join business_line b
+				    on t1.business_line = b.line_code
+				  left join t_law_rank_def t3
+				    on  t1.sale_rank = t3.rank_code
+				    and t1.sale_rank is not null
+				    and t3.valid_ind = '1'
+				  left join salesman_category sc 
+				  	on t1.position_category_name = sc.category_name
+		           where 1 = 1
+		              and t1.valid_ind = '1'
+					  and t1.process_status != '2'
+					  and t1.status = '1'
+					  and t1.salesman_flag = '1'
+					  and t1.employ_code is not null
+					  <if test="xbFilter != null and xbFilter != ''">
+							<if test="xbFilter=='true'">
+								and sc.valid_status != '0'
+							</if>
+					  </if>
+					  <if test="deptCode != null and deptCode != ''">
+					     and t1.dept_code like #{deptCode, jdbcType=VARCHAR}||'%'
+					  </if>
+		              and rownum &lt;= #{endpoint}) rt
+		 where rn &gt;= #{startpoint}
+	</select>
+
+	<select id="findEmployThreeNotice" parameterType="map" resultType="map">
+		select *
+			from (
+			select 
+		   t.SALESMAN_CNAME as "salesmanCname",
+	       t.EMPLOY_CODE as "employCode",
+	       t.RANK_NAME as "rankName",
+	       t.STAND_FEE as "standFee",
+	       t.entry_date as "entryDate",
+	       t.REGULAR_DATE as "regularDate",
+	       rownum rn
+		 from(
+			select 
+	       s.SALESMAN_CNAME,
+	       s.EMPLOY_CODE,
+	       rs.RANK_NAME,
+	       rs.STAND_FEE,
+	       s.entry_date,
+	       s.REGULAR_DATE
+		from salesman s left join review_score rs on s.salesman_code = rs.salesman_code
+		where 1=1
+		<![CDATA[ and sysdate >= add_months(s.entry_date,3) 
+		and sysdate <= add_months(s.entry_date,6) ]]>
+		and s.salesman_type = '2' 
+		and rs.stand_fee >=600000 
+		and rs.manager_flag = '0'
+		and s.valid_ind = '1' 
+		and rs.valid_ind = '1'
+		and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm') 
+		<if test="employCode != null and employCode != ''">
+			and s.employ_code = #{employCode, jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="deptCode !=null and deptCode != ''">
+			and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+		</if>
+		union 
+		   select s.SALESMAN_CNAME,
+		       s.EMPLOY_CODE,
+		       rs.RANK_NAME,
+		       rs.STAND_FEE,
+		       s.entry_date,
+		       s.REGULAR_DATE
+		  from salesman s
+		  left join review_score rs on s.salesman_code = rs.salesman_code
+		 where 1 = 1
+		  <![CDATA[  and sysdate >= add_months(s.entry_date, 3)
+		   and sysdate <= add_months(s.entry_date, 6) ]]>
+		   and s.salesman_type = '2'
+		   and rs.stand_fee >= 4000000
+		   and rs.manager_flag = '1'
+		   and s.valid_ind = '1'
+		   and rs.valid_ind = '1'
+		   and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm')
+		   <if test="employCode != null and employCode != ''">
+				and s.employ_code = #{employCode, jdbcType=VARCHAR}
+			</if>
+			<if test="salesmanCname != null and salesmanCname != ''">
+				and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="deptCode !=null and deptCode != ''">
+				and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+			</if>
+			) t where 1=1 
+			and rownum &lt;= #{endpoint}) rt
+		where rn &gt;= #{startpoint}
+		
+	</select>
+	
+	
+	<select id="findEmployThreeNoticeCount" parameterType="map" resultType="long">
+		select count(1) from
+			(
+				select 
+	       s.SALESMAN_CNAME as "salesmanCname",
+	       s.EMPLOY_CODE as "employCode",
+	       rs.RANK_NAME as "rankName",
+	       rs.STAND_FEE as "standFee",
+	       s.entry_date as "entryDate",
+	       s.REGULAR_DATE as "regularDate"
+		from salesman s left join review_score rs on s.salesman_code = rs.salesman_code
+		where 1=1
+		<![CDATA[ and sysdate >= add_months(s.entry_date,3) 
+		and sysdate <= add_months(s.entry_date,6) ]]>
+		and s.salesman_type = '2' 
+		and rs.stand_fee >=600000 
+		and rs.manager_flag = '0'
+		and s.valid_ind = '1' 
+		and rs.valid_ind = '1'
+		and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm') 
+		<if test="employCode != null and employCode != ''">
+				and s.employ_code = #{employCode, jdbcType=VARCHAR}
+			</if>
+			<if test="salesmanCname != null and salesmanCname != ''">
+				and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="deptCode !=null and deptCode != ''">
+				and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+			</if>
+		union 
+	   
+		   select s.SALESMAN_CNAME as "salesmanCname",
+		       s.EMPLOY_CODE as "employCode",
+		       rs.RANK_NAME as "rankName",
+		       rs.STAND_FEE as "standFee",
+		       s.entry_date as "entryDate",
+		       s.REGULAR_DATE as "regularDate"
+		  from salesman s
+		  left join review_score rs on s.salesman_code = rs.salesman_code
+		 where 1 = 1
+		  <![CDATA[  and sysdate >= add_months(s.entry_date, 3)
+		   and sysdate <= add_months(s.entry_date, 6) ]]>
+		   and s.salesman_type = '2'
+		   and rs.stand_fee >= 4000000
+		   and rs.manager_flag = '1'
+		   and s.valid_ind = '1'
+		   and rs.valid_ind = '1'
+		   and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm')
+		   <if test="employCode != null and employCode != ''">
+				and s.employ_code = #{employCode, jdbcType=VARCHAR}
+			</if>
+			<if test="salesmanCname != null and salesmanCname != ''">
+				and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="deptCode !=null and deptCode != ''">
+				and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+			</if>
+			)		
+	</select>
+	
+	<select id="findEmploySixNotice" parameterType="map" resultType="map">
+		select * from (
+			select 
+		   t.SALESMAN_CNAME as "salesmanCname",
+	       t.EMPLOY_CODE as "employCode",
+	       t.RANK_NAME as "rankName",
+	       t.STAND_FEE as "standFee",
+	       t.MANAGER_FLAG as "managerFlag",
+	       t.entry_date as "entryDate",
+	       t.REGULAR_DATE as "regularDate",
+	       rownum rn
+		 from (
+			select 
+	       s.SALESMAN_CNAME,
+	       s.EMPLOY_CODE,
+	       rs.RANK_NAME,
+	       rs.STAND_FEE,
+	       rs.MANAGER_FLAG,
+	       s.entry_date,
+	       s.REGULAR_DATE
+		from salesman s left join review_score rs on s.salesman_code = rs.salesman_code
+		where 1=1
+		<![CDATA[
+		and sysdate >= add_months(s.entry_date,6) ]]>
+		and s.salesman_type = '2' 
+		and rs.manager_flag = '0'
+		and s.valid_ind = '1' 
+		and rs.valid_ind = '1'
+		and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm')
+		<if test="employCode != null and employCode != ''">
+			and s.employ_code = #{employCode, jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="deptCode !=null and deptCode != ''">
+			and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+		</if> 
+		
+			union 
+	   
+		   select s.SALESMAN_CNAME,
+		       s.EMPLOY_CODE,
+		       rs.RANK_NAME,
+		       rs.STAND_FEE,
+		       rs.MANAGER_FLAG,
+		       s.entry_date,
+		       s.REGULAR_DATE
+		  from salesman s
+		  left join review_score rs on s.salesman_code = rs.salesman_code
+		 where 1 = 1
+		  <![CDATA[
+		   and sysdate >= add_months(s.entry_date, 6) ]]>
+		   and s.salesman_type = '2'
+		   and rs.manager_flag = '1'
+		   and s.valid_ind = '1'
+		   and rs.valid_ind = '1'
+		   and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm')
+		   <if test="employCode != null and employCode != ''">
+				and s.employ_code = #{employCode, jdbcType=VARCHAR}
+			</if>
+			<if test="salesmanCname != null and salesmanCname != ''">
+				and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="deptCode !=null and deptCode != ''">
+				and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+			</if>
+			) t	where 1=1 
+			and rownum &lt;= #{endpoint}) rt
+		where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="findEmploySixNoticeCount" parameterType="map" resultType="long">
+		select count(1) from
+			(select 
+	       s.SALESMAN_CNAME as "salesmanCname",
+	       s.EMPLOY_CODE as "employCode",
+	       rs.RANK_NAME as "rankName",
+	       rs.STAND_FEE as "standFee",
+	       rs.MANAGER_FLAG as "managerFlag",
+	       s.entry_date as "entryDate",
+	       s.REGULAR_DATE as "regularDate"
+		from salesman s left join review_score rs on s.salesman_code = rs.salesman_code
+		where 1=1
+		<![CDATA[
+		and sysdate >= add_months(s.entry_date,6) ]]>
+		and s.salesman_type = '2' 
+		and rs.manager_flag = '0'
+		and s.valid_ind = '1' 
+		and rs.valid_ind = '1' 
+		and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm')
+		<if test="employCode != null and employCode != ''">
+				and s.employ_code = #{employCode, jdbcType=VARCHAR}
+			</if>
+			<if test="salesmanCname != null and salesmanCname != ''">
+				and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="deptCode !=null and deptCode != ''">
+				and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+			</if>
+	union 
+   
+	   select s.SALESMAN_CNAME as "salesmanCname",
+	       s.EMPLOY_CODE as "employCode",
+	       rs.RANK_NAME as "rankName",
+	       rs.STAND_FEE as "standFee",
+	       rs.MANAGER_FLAG as "managerFlag",
+	       s.entry_date as "entryDate",
+	       s.REGULAR_DATE as "regularDate"
+	  from salesman s
+	  left join review_score rs on s.salesman_code = rs.salesman_code
+	 where 1 = 1
+	  <![CDATA[
+	   and sysdate >= add_months(s.entry_date, 6) ]]>
+	   and s.salesman_type = '2'
+	   and rs.manager_flag = '1'
+	   and s.valid_ind = '1'
+	   and rs.valid_ind = '1'
+	   and rs.CALC_MONTH = to_char(add_months(sysdate,-1),'yyyymm')
+	   <if test="employCode != null and employCode != ''">
+				and s.employ_code = #{employCode, jdbcType=VARCHAR}
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and s.salesman_cname like #{salesmanCname, jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="deptCode !=null and deptCode != ''">
+			and s.dept_code like #{deptCode, jdbcType=VARCHAR} || '%' 
+		</if>
+	   )
+	   
+	</select>
+	<!--销售人员未处理结束-->
+	
+	<!-- ***************************** 待办工作提醒列表查询结束 ***************************** -->
+	
+</mapper>

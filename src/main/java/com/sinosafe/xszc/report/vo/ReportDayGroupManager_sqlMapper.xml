@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.report.vo.ReportDayGroupManager" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REPORT_DAY" property="reportDay" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PAST_YEARS" property="pastYears" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PK_ID" property="pkId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="DAY_SIGN" property="daySign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="EMPLOY_MODE" property="employMode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM_PLAN_RATE" property="premiumPlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_UNIT" property="deptUnit" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="YEAR_STANDART_PLAN" property="yearStandartPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTH_SIGN" property="monthSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="YEAR_SIGN" property="yearSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="YEAR_PREMIUM_PLAN" property="yearPremiumPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="EMPLOY_TYPE" property="employType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.report.vo.ReportDayGroupManager">
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="REPORT_DAY" property="reportDay" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PAST_YEARS" property="pastYears" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="PK_ID" property="pkId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+ 		<result column="DAY_SIGN" property="daySign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="EMPLOY_MODE" property="employMode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PREMIUM_PLAN_RATE" property="premiumPlanRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="PARENT_DEPT" property="parentDept" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_UNIT" property="deptUnit" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="YEAR_STANDART_PLAN" property="yearStandartPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="MONTH_SIGN" property="monthSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="YEAR_SIGN" property="yearSign" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="YEAR_PREMIUM_PLAN" property="yearPremiumPlan" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 		<result column="EMPLOY_TYPE" property="employType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMPLOY_CODE" property="employCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		REPORT_DAY,
+		PAST_YEARS,
+		PK_ID,
+		DAY_SIGN,
+		EMPLOY_MODE,
+		PREMIUM_PLAN_RATE,
+		CREATED_USER,
+		PARENT_DEPT,
+		DEPT_CODE,
+		DEPT_NAME,
+		DEPT_UNIT,
+		YEAR_STANDART_PLAN,
+		MONTH_SIGN,
+		YEAR_SIGN,
+		UPDATED_DATE,
+		CREATED_DATE,
+		YEAR_PREMIUM_PLAN,
+		EMPLOY_TYPE,
+		EMPLOY_CODE
+	</sql>
+	
+	<sql id="Use_Base_Column_List" >
+		REPORT_DAY,
+		PAST_YEARS,
+		to_char(DAY_SIGN, 'fm99999999999990.00') as "daySign",
+		EMPLOY_MODE,
+		to_char(PREMIUM_PLAN_RATE*100, 'fm99999999999990.00')  || '%' as "premiumPlanRate",
+		PARENT_DEPT,
+		DEPT_CODE,
+		DEPT_NAME,
+		DEPT_UNIT,
+		to_char(YEAR_STANDART_PLAN, 'fm99999999999990.00') as "yearStandartPlan",
+		to_char(MONTH_SIGN, 'fm99999999999990.00') as "monthSign",
+		to_char(YEAR_SIGN, 'fm99999999999990.00') as "yearSign",
+		to_char(YEAR_PREMIUM_PLAN, 'fm99999999999990.00') as "yearPremiumPlan",
+		EMPLOY_TYPE,
+		EMPLOY_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		REPORT_DAY as "reportDay",
+		PAST_YEARS as "pastYears",
+		PK_ID as "pkId",
+		DAY_SIGN as "daySign",
+		EMPLOY_MODE as "employMode",
+		PREMIUM_PLAN_RATE as "premiumPlanRate",
+		CREATED_USER as "createdUser",
+		PARENT_DEPT as "parentDept",
+		DEPT_CODE as "deptCode",
+		DEPT_NAME as "deptName",
+		DEPT_UNIT as "deptUnit",
+		YEAR_STANDART_PLAN as "yearStandartPlan",
+		MONTH_SIGN as "monthSign",
+		YEAR_SIGN as "yearSign",
+		UPDATED_DATE as "updatedDate",
+		CREATED_DATE as "createdDate",
+		YEAR_PREMIUM_PLAN as "yearPremiumPlan",
+		EMPLOY_TYPE as "employType",
+		EMPLOY_CODE as "employCode"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{reportDay,jdbcType=VARCHAR},
+ 		#{pastYears,jdbcType=DOUBLE},
+ 		#{pkId,jdbcType=INTEGER},
+ 		#{daySign,jdbcType=DOUBLE},
+ 		#{employMode,jdbcType=VARCHAR},
+ 		#{premiumPlanRate,jdbcType=DOUBLE},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{parentDept,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{deptName,jdbcType=VARCHAR},
+ 		#{deptUnit,jdbcType=VARCHAR},
+ 		#{yearStandartPlan,jdbcType=DOUBLE},
+ 		#{monthSign,jdbcType=DOUBLE},
+ 		#{yearSign,jdbcType=DOUBLE},
+ 		#{updatedDate,jdbcType=DATE},
+ 		#{createdDate,jdbcType=DATE},
+ 		#{yearPremiumPlan,jdbcType=DOUBLE},
+ 		#{employType,jdbcType=VARCHAR},
+ 		#{employCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="reportDay != null">
+			and REPORT_DAY = #{reportDay,jdbcType=VARCHAR}
+		</if>
+		<if test="pastYears != null">
+			and PAST_YEARS = #{pastYears,jdbcType=DOUBLE}
+		</if>
+		<if test="pkId != null">
+			and PK_ID = #{pkId,jdbcType=INTEGER}
+		</if>
+		<if test="daySign != null">
+			and DAY_SIGN = #{daySign,jdbcType=DOUBLE}
+		</if>
+		<if test="employMode != null and employMode != '' ">
+			and EMPLOY_MODE like '%' || #{employMode,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="premiumPlanRate != null">
+			and PREMIUM_PLAN_RATE = #{premiumPlanRate,jdbcType=DOUBLE}
+		</if>
+		<if test="createdUser != null">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="parentDept != null and parentDept != '' ">
+			and PARENT_DEPT like #{parentDept,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="deptCode != null and deptCode != '' ">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="deptName != null and deptName != '' ">
+			and DEPT_NAME like #{deptName,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="deptUnit != null and deptUnit != '' ">
+			and DEPT_UNIT = #{deptUnit,jdbcType=VARCHAR}
+		</if>
+		<if test="yearStandartPlan != null">
+			and YEAR_STANDART_PLAN = #{yearStandartPlan,jdbcType=DOUBLE}
+		</if>
+		<if test="monthSign != null">
+			and MONTH_SIGN = #{monthSign,jdbcType=DOUBLE}
+		</if>
+		<if test="yearSign != null">
+			and YEAR_SIGN = #{yearSign,jdbcType=DOUBLE}
+		</if>
+		<if test="updatedDate != null">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="createdDate != null">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="yearPremiumPlan != null">
+			and YEAR_PREMIUM_PLAN = #{yearPremiumPlan,jdbcType=DOUBLE}
+		</if>
+		<if test="employType != null and employType != '' ">
+			and EMPLOY_TYPE like '%'|| #{employType,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="employCode != null and employCode != '' ">
+			and EMPLOY_CODE like '%'||#{employCode,jdbcType=VARCHAR} || '%'
+		</if>
+		</where>
+	</sql>
+	
+	<sql id="Use_Base_Where_Sql">
+		<where>
+		<if test="reportDay != null and reportDay != ''">
+			and REPORT_DAY = #{reportDay,jdbcType=VARCHAR}
+		</if>
+		<if test="employMode != null and employMode != '' ">
+			and EMPLOY_MODE like #{employMode,jdbcType=VARCHAR} || '%'
+		</if>
+		<choose>
+		   <when test="deptCode != null and deptCode !='' ">
+		      and DEPT_CODE like f_get_inter_dept(#{deptCode,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <when test="parentDept != null and parentDept !='' ">
+		      and PARENT_DEPT like f_get_inter_dept(#{parentDept,jdbcType=VARCHAR}) || '%'
+		   </when>
+		   <otherwise></otherwise>
+		</choose>
+		<if test="deptName != null and deptName != '' ">
+			and DEPT_NAME like #{deptName,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="deptUnit != null and deptUnit != '' ">
+			and DEPT_UNIT = #{deptUnit,jdbcType=VARCHAR}
+		</if>
+		<if test="employType != null and employType != '' ">
+			and EMPLOY_TYPE like '%'|| #{employType,jdbcType=VARCHAR} || '%'
+		</if>
+		<if test="employCode != null and employCode != '' ">
+			and EMPLOY_CODE like '%'||#{employCode,jdbcType=VARCHAR} || '%'
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.report.vo.ReportDayGroupManager" >
+    insert into REPORT_DAY_GROUP_MANAGER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REPORT_DAY_GROUP_MANAGER (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REPORT_DAY_GROUP_MANAGER
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+
+
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REPORT_DAY_GROUP_MANAGER t 
+	   <!--inner join department de on t.dept_code = de.inter_code-->
+		<include refid="Use_Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.report.vo.ReportDayGroupManager" resultType="long">
+	select count(1)
+	from REPORT_DAY_GROUP_MANAGER <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Use_Base_Column_List"/>
+		from REPORT_DAY_GROUP_MANAGER t 
+	   <!--inner join department de on t.dept_code = de.inter_code-->
+		<include refid="Use_Base_Where_Sql"/>
+		order by t.parent_dept,t.employ_code desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询并导出Excel语句,注意下面语句中的查询字段不可以更改顺序不可修改，否则将导致导出数据混乱 -->
+	<select id="queryListToExcel" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select rownum rn,a.* from (
+		select nvl(de.dept_simple_name,' ') DEPT_NAME,nvl(DEPT_UNIT,' ') DEPT_UNIT,
+		nvl(EMPLOY_MODE,' ') EMPLOY_MODE,nvl(EMPLOY_TYPE,' ') EMPLOY_TYPE,
+		nvl(EMPLOY_CODE,' ') EMPLOY_CODE,
+		nvl(YEAR_STANDART_PLAN,0) YEAR_STANDART_PLAN,
+		nvl(YEAR_PREMIUM_PLAN,0) YEAR_PREMIUM_PLAN,
+		nvl(DAY_SIGN,0) DAY_SIGN,nvl(MONTH_SIGN,0) MONTH_SIGN,
+		nvl(YEAR_SIGN,0) YEAR_SIGN,nvl(PREMIUM_PLAN_RATE,0) PREMIUM_PLAN_RATE
+		from REPORT_DAY_GROUP_MANAGER t 
+	   inner join department de on t.dept_code = de.inter_code
+		<include refid="Use_Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_DAY_GROUP_MANAGER
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_DAY_GROUP_MANAGER <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageVo" parameterType="map" resultMap="BaseResultVo">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REPORT_DAY_GROUP_MANAGER
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REPORT_DAY_GROUP_MANAGER <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REPORT_DAY_GROUP_MANAGER
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+</mapper>

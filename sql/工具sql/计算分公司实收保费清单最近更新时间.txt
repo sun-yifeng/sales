@@ -1,0 +1,7 @@
+declare
+begin
+    for c_update in (select t.c_dept_cde deptcode,max(t.created_date) createdate from t_law_mis_got_prm t group by t.c_dept_cde) loop
+       update t_law_define t1 set t1.last_update_tm = c_update.createdate where t1.dept_code = c_update.deptcode;
+      end loop;
+      commit;
+  end;

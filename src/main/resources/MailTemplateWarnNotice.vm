@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title>公告相关部门邮件提醒</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div id="content">
+<div style="background-color:#E5ECF9;font-size: 12px;color: #15428B;font-weight: bold;font-family: 宋体;" align="left">  
+<table width="100%">
+	   <tr>
+         <td colspan="2" style="vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: center;">
+                                  公告相关部门邮件提醒
+         </td>
+       </tr>
+	   
+	   <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   公告号：
+         </td>
+         <td>           
+          ${systemNumber}
+         </td>
+       </tr>
+       
+       <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   公告标题：
+         </td>
+         <td>           
+          ${systemName}
+         </td>
+       </tr>
+
+       <tr>
+       <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                    系统IP：
+         </td>
+         <td>
+           ${systemIp}
+         </td>
+       </tr>
+
+       <tr id="show" >
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                    发布机构：
+         </td>
+         <td>
+          ${reportUser}         
+         </td>
+       </tr>
+       </tr>
+       
+       <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   操作人员：
+         </td>
+         <td>           
+          ${reportUserIp}
+         </td>
+       </tr>
+	   
+	   <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   提示信息：
+         </td>
+         <td>           
+          你有未处理的公告，请及时登录销售支持系统进行反馈！！！ 
+         </td>
+       </tr>
+	   
+	   <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                    友情提示：
+         </td>
+         <td>           
+          阳光总在风雨后，让我们携手为美好的明天加油！！！ 
+         </td>
+       </tr>
+	   
+	   <tr>
+         <td width="10%" style="background-color: #CBDCED;vertical-align: top;white-space: nowrap;color: #15428B;font-size: 12px;text-align: right;">
+                                   报告日期：
+         </td>
+         <td>           
+          ${reportDate} 
+         </td>
+       </tr>
+     </table>
+
+</div>
+</body>
+</html>
+
+ 

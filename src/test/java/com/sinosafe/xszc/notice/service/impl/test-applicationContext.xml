@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		
+	<!-- 
+		此配置为Junit使用：
+		1.去掉Spring的组件扫描，在此文件引入cfg.properties，框架是用Filter加载到上下文的，不能使用Junit。
+		2.去掉了DAO的引入，引入DAO的配置app-context-persistent.xml在此文件中。 
+	-->	
+
+	<context:property-placeholder location="classpath:cfg.properties" />
+
+	<!-- 使用注解方式进行依赖注入 @Autowired,自动装配 -->
+	<context:annotation-config />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${com.hf.framework.datasource.driver}"></property>
+		<property name="jdbcUrl" value="${com.hf.framework.datasource.url}"></property>
+		<property name="user" value="${com.hf.framework.datasource.username}"></property>
+		<property name="password" value="${com.hf.framework.datasource.password}"></property>
+		<property name="initialPoolSize" value="${com.hf.framework.datasource.initialPoolSize}"></property>
+		<property name="maxIdleTime" value="${com.hf.framework.datasource.maxIdleTime}"></property>
+		<property name="maxPoolSize" value="${com.hf.framework.datasource.maxPoolSize}"></property>
+		<property name="minPoolSize" value="${com.hf.framework.datasource.minPoolSize}"></property>
+	</bean>
+
+	<!-- sql session factory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:com/sinosafe/xszc/sqlmapper/MyBatis-Config.xml"></property>
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 公共Dao配置 -->
+	<bean id="baseDao" class="com.hf.framework.dao.CommonDaoImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="nameSpace" value="com.hf.framework.dao.CommonDao"></property>
+	</bean>
+
+    <!-- 事务管理器 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 事务拦截方法  -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="process*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+    
+    <!-- 事务拦截路径  -->
+	<aop:config>
+		<aop:pointcut id="serviceMethods" expression="execution(* com.sinosafe.xszc.channel.service.*Impl.*(..))" />
+		<aop:advisor pointcut-ref="serviceMethods" advice-ref="txAdvice" />
+	</aop:config>
+	
+	<bean id="mailService" class="com.sinosafe.xszc.channel.service.impl.TestMailService" />
+	<!-- Junit使用的Bean  -->
+	<bean id="noticeService" class="com.sinosafe.xszc.notice.service.impl.NoticeServiceImpl" />
+	<bean id="umService" class="com.hf.framework.um.service.UmServiceImpl" >
+		<property name="dao" ref="baseDao" ></property>
+		<property name="sysCode" value="xszc" ></property>
+	</bean>
+</beans>

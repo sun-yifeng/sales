@@ -1,0 +1,36 @@
+select 
+       substr(t1.dept_code,0,2) as "分公司代码",
+       d1.dept_simple_name as "分公司名称",
+       d2.dept_code as "支公司代码",
+       d2.dept_simple_name as "支公司名称",
+       t.channel_code as "个代编码",
+       t.channel_name as "个代名称",
+       t.certify_no as "身份证号码",
+       t3.salesman_code as "业务员代码",
+       t3.employ_code as "业务员工号",
+       t3.certify_no as "业务员身份证号",
+       t4.employ_code as "销售助理工号",
+       t4.certiry_no as "销售助理身份证",
+       case 
+         when t.certify_no is null then '身份证为空'
+         when pkg_credit_chk.f_check_idcard(t.certify_no)=0 then '身份证有误'
+         when (select count(1) from tmp_agent tmp where tmp.channel_code <> t.channel_code and tmp.certify_no = t.certify_no) > 1 then '和个代身份证重复'
+         when t.certify_no = t3.certify_no or t.certify_no = t4.certiry_no then '和业务员或者销售助理身份证重复'
+        end as "异常信息"                  
+  from channel_agent_detail t
+  left join channel_main t1
+    on t.channel_code = t1.channel_code
+  left join department d1
+    on d1.dept_code = substr(t1.dept_code,0,2)
+  left join department d2
+    on d2.dept_code = t1.dept_code
+  left join salesman t3
+    on t.certify_no = t3.certify_no
+  left join salesman_virtual t4
+    on t.certify_no = t4.certiry_no
+ where t.valid_ind = '1'
+   and t1.channel_flag = '1'
+   and t1.dept_code not like '00%'
+ order by t1.dept_code,t.certify_no;
+ 
+

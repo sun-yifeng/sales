@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.main.vo.UserAccessRecord" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="MODEL_CHILD_CLASS_CODE" property="modelChildClassCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="ACTION_DATE" property="actionDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="MODEL_CLASS" property="modelClass" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="USER_CODE" property="userCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTION_IP" property="actionIp" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACCESS_TYPE" property="accessType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MODEL_CLASS_CODE" property="modelClassCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="ACTION_URL" property="actionUrl" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MODEL_CHILD_CLASS" property="modelChildClass" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTION_LABEL" property="actionLabel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="USER_REALNAME" property="userRealName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.main.vo.UserAccessRecord">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="MODEL_CHILD_CLASS_CODE" property="modelChildClassCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="ACTION_DATE" property="actionDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="MODEL_CLASS" property="modelClass" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="USER_CODE" property="userCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTION_IP" property="actionIp" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACCESS_TYPE" property="accessType" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MODEL_CLASS_CODE" property="modelClassCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="ACTION_URL" property="actionUrl" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="MODEL_CHILD_CLASS" property="modelChildClass" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="ACTION_LABEL" property="actionLabel" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="USER_REALNAME" property="userRealName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		MODEL_CHILD_CLASS_CODE,
+		LINE_CODE,
+		PK_ID,
+		ACTION_DATE,
+		MODEL_CLASS,
+		USER_CODE,
+		ACTION_IP,
+		DEPT_CODE,
+		ACCESS_TYPE,
+		MODEL_CLASS_CODE,
+		VALID_IND,
+		ACTION_URL,
+		MODEL_CHILD_CLASS,
+		ACTION_LABEL,
+		USER_REALNAME
+	</sql>
+	
+	<sql id="User_Base_Column_List" >
+		t1.MODEL_CHILD_CLASS_CODE,
+		t1.LINE_CODE,
+		t1.PK_ID,
+		t1.ACTION_DATE,
+		t1.MODEL_CLASS,
+		t1.USER_CODE,
+		t1.ACTION_IP,
+		t1.DEPT_CODE,
+		t1.ACCESS_TYPE,
+		t1.MODEL_CLASS_CODE,
+		t1.VALID_IND,
+		t1.ACTION_URL,
+		t1.MODEL_CHILD_CLASS,
+		t1.ACTION_LABEL,
+		t1.USER_REALNAME,
+		t2.dept_simple_name as "deptName"
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		MODEL_CHILD_CLASS_CODE as "modelChildClassCode",
+		LINE_CODE as "lineCode",
+		PK_ID as "pkId",
+		ACTION_DATE as "actionDate",
+		MODEL_CLASS as "modelClass",
+		USER_CODE as "userCode",
+		ACTION_IP as "actionIp",
+		DEPT_CODE as "deptCode",
+		ACCESS_TYPE as "accessType",
+		MODEL_CLASS_CODE as "modelClassCode",
+		VALID_IND as "validInd",
+		ACTION_URL as "actionUrl",
+		MODEL_CHILD_CLASS as "modelChildClass",
+		ACTION_LABEL as "actionLabel",
+		USER_REALNAME as "userRealName"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{modelChildClassCode,jdbcType=VARCHAR},
+ 		#{lineCode,jdbcType=VARCHAR},
+ 		#{pkId,jdbcType=VARCHAR},
+ 		to_date(#{actionDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+ 		#{modelClass,jdbcType=VARCHAR},
+ 		#{userCode,jdbcType=VARCHAR},
+ 		#{actionIp,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{accessType,jdbcType=VARCHAR},
+ 		#{modelClassCode,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{actionUrl,jdbcType=VARCHAR},
+ 		#{modelChildClass,jdbcType=VARCHAR},
+ 		#{actionLabel,jdbcType=VARCHAR},
+ 		#{userRealName,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="modelChildClassCode != null and modelChildClassCode != ''">
+			and MODEL_CHILD_CLASS_CODE = #{modelChildClassCode,jdbcType=VARCHAR}
+		</if>
+		<if test="lineCode != null and lineCode != ''">
+			and LINE_CODE = #{lineCode,jdbcType=VARCHAR}
+		</if>
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=VARCHAR}
+		</if>
+		<if test="modelClass != null and modelClass != ''">
+			and MODEL_CLASS = #{modelClass,jdbcType=VARCHAR}
+		</if>
+		<if test="userCode != null and userCode != ''">
+			and USER_CODE = #{userCode,jdbcType=VARCHAR}
+		</if>
+		<if test="actionIp != null and actionIp != ''">
+			and ACTION_IP = #{actionIp,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="accessType != null and accessType != ''">
+			and ACCESS_TYPE = #{accessType,jdbcType=VARCHAR}
+		</if>
+		<if test="modelClassCode != null and modelClassCode != ''">
+			and MODEL_CLASS_CODE = #{modelClassCode,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="actionUrl != null and actionUrl != ''">
+			and ACTION_URL = #{actionUrl,jdbcType=VARCHAR}
+		</if>
+		<if test="modelChildClass != null and modelChildClass != ''">
+			and MODEL_CHILD_CLASS = #{modelChildClass,jdbcType=VARCHAR}
+		</if>
+		<if test="actionLabel != null and actionLabel != ''">
+			and ACTION_LABEL = #{actionLabel,jdbcType=VARCHAR}
+		</if>
+		<if test="userRealName != null and userRealName != ''">
+			and USER_REALNAME = #{userRealName,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.main.vo.UserAccessRecord" >
+    insert into USER_ACCESS_RECORD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into USER_ACCESS_RECORD (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from USER_ACCESS_RECORD
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from USER_ACCESS_RECORD
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update USER_ACCESS_RECORD
+	<set>
+	<if test="modelChildClassCode != null and modelChildClassCode != ''">
+		MODEL_CHILD_CLASS_CODE = #{modelChildClassCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lineCode != null and lineCode != ''">
+		LINE_CODE = #{lineCode,jdbcType=VARCHAR},
+	</if>
+   	<if test="actionDate != null and actionDate != ''">
+		ACTION_DATE = to_date(#{actionDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+	</if>
+  	<if test="modelClass != null and modelClass != ''">
+		MODEL_CLASS = #{modelClass,jdbcType=VARCHAR},
+	</if>
+  	<if test="userCode != null and userCode != ''">
+		USER_CODE = #{userCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="actionIp != null and actionIp != ''">
+		ACTION_IP = #{actionIp,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="accessType != null and accessType != ''">
+		ACCESS_TYPE = #{accessType,jdbcType=VARCHAR},
+	</if>
+  	<if test="modelClassCode != null and modelClassCode != ''">
+		MODEL_CLASS_CODE = #{modelClassCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="actionUrl != null and actionUrl != ''">
+		ACTION_URL = #{actionUrl,jdbcType=VARCHAR},
+	</if>
+  	<if test="modelChildClass != null and modelChildClass != ''">
+		MODEL_CHILD_CLASS = #{modelChildClass,jdbcType=VARCHAR},
+	</if>
+  	<if test="actionLabel != null and actionLabel != ''">
+		ACTION_LABEL = #{actionLabel,jdbcType=VARCHAR}
+	</if>
+  	<if test="userRealName != null and userRealName != ''">
+		USER_REALNAME = #{userRealName,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update USER_ACCESS_RECORD
+		set 
+			MODEL_CHILD_CLASS_CODE = #{modelChildClassCode,jdbcType=VARCHAR},
+  			LINE_CODE = #{lineCode,jdbcType=VARCHAR},
+   			ACTION_DATE = to_date(#{actionDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+  			MODEL_CLASS = #{modelClass,jdbcType=VARCHAR},
+  			USER_CODE = #{userCode,jdbcType=VARCHAR},
+  			ACTION_IP = #{actionIp,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			ACCESS_TYPE = #{accessType,jdbcType=VARCHAR},
+  			MODEL_CLASS_CODE = #{modelClassCode,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			ACTION_URL = #{actionUrl,jdbcType=VARCHAR},
+  			MODEL_CHILD_CLASS = #{modelChildClass,jdbcType=VARCHAR},
+  			ACTION_LABEL = #{actionLabel,jdbcType=VARCHAR},
+  			USER_REALNAME = #{userRealName,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.main.vo.UserAccessRecord" >
+	update USER_ACCESS_RECORD
+	<set>
+	<if test="modelChildClassCode != null and modelChildClassCode != ''">
+		MODEL_CHILD_CLASS_CODE = #{modelChildClassCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="lineCode != null and lineCode != ''">
+		LINE_CODE = #{lineCode,jdbcType=VARCHAR},
+	</if>
+   	<if test="actionDate != null and actionDate != ''">
+		ACTION_DATE = to_date(#{actionDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+	</if>
+  	<if test="modelClass != null and modelClass != ''">
+		MODEL_CLASS = #{modelClass,jdbcType=VARCHAR},
+	</if>
+  	<if test="userCode != null and userCode != ''">
+		USER_CODE = #{userCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="actionIp != null and actionIp != ''">
+		ACTION_IP = #{actionIp,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="accessType != null and accessType != ''">
+		ACCESS_TYPE = #{accessType,jdbcType=VARCHAR},
+	</if>
+  	<if test="modelClassCode != null and modelClassCode != ''">
+		MODEL_CLASS_CODE = #{modelClassCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="actionUrl != null and actionUrl != ''">
+		ACTION_URL = #{actionUrl,jdbcType=VARCHAR},
+	</if>
+  	<if test="modelChildClass != null and modelChildClass != ''">
+		MODEL_CHILD_CLASS = #{modelChildClass,jdbcType=VARCHAR},
+	</if>
+  	<if test="actionLabel != null and actionLabel != ''">
+		ACTION_LABEL = #{actionLabel,jdbcType=VARCHAR},
+	</if>
+  	<if test="userRealName != null and userRealName != ''">
+		USER_REALNAME = #{actionLabel,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.main.vo.UserAccessRecord" >
+		update USER_ACCESS_RECORD
+		set 
+			MODEL_CHILD_CLASS_CODE = #{modelChildClassCode,jdbcType=VARCHAR},
+  			LINE_CODE = #{lineCode,jdbcType=VARCHAR},
+   			ACTION_DATE = to_date(#{actionDate,jdbcType=VARCHAR},'yyyy-MM-dd HH24:mi:ss'),
+  			MODEL_CLASS = #{modelClass,jdbcType=VARCHAR},
+  			USER_CODE = #{userCode,jdbcType=VARCHAR},
+  			ACTION_IP = #{actionIp,jdbcType=VARCHAR},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			ACCESS_TYPE = #{accessType,jdbcType=VARCHAR},
+  			MODEL_CLASS_CODE = #{modelClassCode,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			ACTION_URL = #{actionUrl,jdbcType=VARCHAR},
+  			MODEL_CHILD_CLASS = #{modelChildClass,jdbcType=VARCHAR},
+  			ACTION_LABEL = #{actionLabel,jdbcType=VARCHAR}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from USER_ACCESS_RECORD
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from USER_ACCESS_RECORD
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from USER_ACCESS_RECORD <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.main.vo.UserAccessRecord" resultType="long">
+	select count(1)
+	from USER_ACCESS_RECORD <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="User_Base_Column_List"/>
+		from USER_ACCESS_RECORD t1 left join department t2 on t1.dept_code=t2.dept_code 
+		where 1=1 
+		 <if test="actionDate != null and actionDate != ''">
+			 and to_char(t1.action_date,'yyyyMM') = #{actionDate,jdbcType=VARCHAR}
+		 </if>
+		 <if test="accessType != null and accessType != ''">
+		 	<if test="accessType==1 ">
+		 		 and t1.access_type &lt;&gt;'页面'
+		 	</if>
+		 	<if test="accessType==2 ">
+		 		 and t1.access_type='页面'
+		 	</if>
+		 </if>
+		 order by t1.ACTION_DATE desc
+		) a where rownum &lt;= #{endpoint} 
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryListPageCount" parameterType="map" resultType="long">
+  	    select count(1) count from USER_ACCESS_RECORD t1 left join department t2 on t1.dept_code=t2.dept_code 
+		where 1=1 
+		 <if test="actionDate != null and actionDate != ''">
+			and to_char(t1.action_date,'yyyyMM') = #{actionDate,jdbcType=VARCHAR}
+		 </if>
+		 order by t1.ACTION_DATE desc
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from USER_ACCESS_RECORD
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from USER_ACCESS_RECORD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from USER_ACCESS_RECORD
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+			select * from (
+				select a.*,rownum rn from (
+					select 
+					<include refid="Base_Column_List"/>
+					from USER_ACCESS_RECORD
+					<include refid="Base_Where_Sql"/>
+				) a where rownum &lt;= #{endpoint}
+			) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from USER_ACCESS_RECORD <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 数据访问统计查询语句 -->
+	<select id="queryDataVisitReport" parameterType="map" resultType="map">
+		     select t1.model_class as "modelClass", count(1)  as "count"
+			  from USER_ACCESS_RECORD t1
+			 where model_class <![CDATA[<>]]> 'null'
+			   and access_type <![CDATA[<>]]> '页面'
+			   <if test="actionDate != null and actionDate != ''">
+					and to_char(t1.action_date,'yyyymm') = #{actionDate,jdbcType=VARCHAR}
+			   </if>
+			 group by t1.model_class
+			 order by count(1) desc
+	</select>
+	
+	<!-- 页面访问统计查询语句 -->
+	<select id="queryPageVisitReport" parameterType="map" resultType="map">
+		     select t1.model_class as "modelClass", count(1) as "count"
+			  from USER_ACCESS_RECORD t1
+			 where model_class <![CDATA[<>]]> 'null'
+			   and access_type = '页面'
+			   <if test="actionDate != null and actionDate != ''">
+					and to_char(t1.action_date,'yyyymm') = #{actionDate,jdbcType=VARCHAR}
+		       </if>
+			 group by t1.model_class
+			 order by count(1) desc
+	</select>
+	
+	<!-- 用户访问统计查询语句 -->
+	<select id="queryUserVisitReport" parameterType="map" resultType="map">
+		     select t1.model_class as "modelClass", t1.user_realname  as "realName", count(1) as "count"
+			  from USER_ACCESS_RECORD t1 where 
+			  model_class <![CDATA[<>]]> 'null' 
+			  <if test="realName != null and realName != ''">
+			      and t1.user_realname like '%'||#{realName,jdbcType=VARCHAR}||'%'
+		      </if>
+		      <if test="actionDate != null and actionDate != ''">
+					and to_char(t1.action_date,'yyyymm') = #{actionDate,jdbcType=VARCHAR}
+			  </if>
+			 group by t1.user_realname, t1.model_class
+			 order by user_realname, count(1) desc, model_class
+	</select>
+	
+	<!-- 统计‘用户访问统计查询语句’查询多少条 -->
+	<select id="queryUserVisitReportCount" parameterType="map" resultType="long">
+		      select count(1) count from (
+			     select t1.model_class as "modelClass", t1.user_realname  as "realName", count(1) as "count"
+				  from USER_ACCESS_RECORD t1 where 
+				  model_class <![CDATA[<>]]> 'null' 
+				  <if test="realName != null and realName != ''">
+				      and t1.user_realname like '%'||#{realName,jdbcType=VARCHAR}||'%'
+			      </if>
+				 group by t1.user_realname, t1.model_class
+				 order by user_realname, count(1) desc, model_class
+			  )
+	</select>
+</mapper>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TLawRuleConfig" >
+	<insert id="insertLawRuleConfig" parameterType="map">
+		insert into t_law_define_config(
+			VERSION_ID,
+			SALARY_RATE,
+			LEVEL_RATE,
+			IS_CLIENT_MANAGER_CHECK,
+			WORKING_AGE_BEGIN,
+			SUBSIDY_SUM,
+			TEMP_EMP_SALARY_RATE,
+			IS_WORKING_AGE,	
+			IS_AREA,
+			PASS_COUNT_MONTH,
+			CREATED_USER,
+			CREATED_DATE,
+			UPDATED_USER,
+			UPDATED_DATE,
+			VALID_IND)
+		values(
+			#{versionId,jdbcType=VARCHAR},
+			#{salaryCalPinDu,jdbcType=VARCHAR},
+			#{levelCalPindu,jdbcType=VARCHAR},
+			#{clientManagerKaoHe,jdbcType=CHAR},
+			to_date(#{workingAgeCalBegin,jdbcType=DATE},'yyyy/mm/dd'),
+			#{salesDirectorBuTie,jdbcType=DOUBLE},
+			#{tmpEmploySalaryRate,jdbcType=DOUBLE},
+			#{isWorkingAge,jdbcType=CHAR},
+			#{isArea,jdbcType=CHAR},
+			#{passCountMonth,jdbcType=VARCHAR},
+			#{createdUser,jdbcType=VARCHAR},
+			sysdate,
+			#{updatedUser,jdbcType=VARCHAR},
+			sysdate,
+			'1'
+		)
+	</insert>
+	
+	<update id="updateLawRuleConfig" parameterType="map">
+		update t_law_define_config set
+			SALARY_RATE = #{salaryCalPinDu,jdbcType=VARCHAR},
+			LEVEL_RATE = #{levelCalPindu,jdbcType=VARCHAR},
+			IS_CLIENT_MANAGER_CHECK = #{clientManagerKaoHe,jdbcType=CHAR},
+			WORKING_AGE_BEGIN = to_date(#{workingAgeCalBegin,jdbcType=DATE},'yyyy/mm/dd'),
+			SUBSIDY_SUM = #{salesDirectorBuTie,jdbcType=DOUBLE},
+			TEMP_EMP_SALARY_RATE = #{tmpEmploySalaryRate,jdbcType=DOUBLE},
+			IS_WORKING_AGE = #{isWorkingAge,jdbcType=CHAR},
+			PASS_COUNT_MONTH = #{passCountMonth,jdbcType=VARCHAR},
+			IS_AREA = #{isArea,jdbcType=CHAR},
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+			UPDATED_DATE = sysdate
+		where
+			version_id = #{versionId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="selectCountByVersionId" parameterType="java.lang.String" resultType="long">
+		select count(1) from t_law_define_config t
+		 where
+		 t.VALID_IND = '1'
+		 and t.version_id = #{versionId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 根据版本号version_id查询其他配置项 -->
+	<select id="selectAreaConfigByVersionId" parameterType="java.lang.String" resultType="com.sinosafe.xszc.law.vo.TLawRuleConfig">
+		select 
+			t.SALARY_RATE as "salaryCalPinDu",
+		 	t.LEVEL_RATE as "levelCalPindu",
+		 	t.IS_CLIENT_MANAGER_CHECK as "clientManagerKaoHe",
+		 	t.WORKING_AGE_BEGIN as "workingAgeCalBegin",
+		 	t.SUBSIDY_SUM as "salesDirectorBuTie",
+		 	t.TEMP_EMP_SALARY_RATE as "tmpEmploySalaryRate",
+		 	t.IS_WORKING_AGE as "isWorkingAge",
+		 	t.IS_AREA as "isArea",
+		 	t.PASS_COUNT_MONTH as "passCountMonth",
+		 	
+		 	t.CREATED_USER as "createdUser",
+		 	t.CREATED_DATE as "createdDate",
+		 	t.UPDATED_USER as "updatedUser",
+		 	t.UPDATED_DATE as "updatedDate",
+		 	t.VALID_IND as "validInd",
+		 	t.CONFIG_NAME as "configName",
+		 	t.CONFIG_VALUE as "configValue",
+		 	t.VERSION_ID as "versionId"
+		from t_law_define_config t
+		where
+		t.VALID_IND = '1'
+		and	t.version_id = #{versionId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryCountByVersionId" parameterType="java.lang.String" resultType="long">
+		select count(1) from t_law_define_permission t
+		 where
+		 t.VALID_IND = '1'
+		 and t.version_id = #{versionId,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="updateLawRulePermission" parameterType="map">
+		update t_law_define_permission set
+		  	sales_sys_switch = #{salesSysSwitch,jdbcType=CHAR},  
+			sales_imp_switch = #{salesImpSwitch,jdbcType=CHAR}, 
+			sales_check_switch = #{salesCheckSwitch,jdbcType=CHAR},
+			sales_exp_switch = #{salesExpSwitch,jdbcType=CHAR},  
+			sales_reg_switch = #{salesRegSwitch,jdbcType=CHAR}, 
+			group_sys_switch = #{groupSysSwitch,jdbcType=CHAR},
+			group_imp_switch = #{groupImpSwitch,jdbcType=CHAR}, 
+			group_check_switch = #{groupCheckSwitch,jdbcType=CHAR},
+			group_exp_switch = #{groupExpSwitch,jdbcType=CHAR}, 
+			group_reg_switch = #{groupRegSwitch,jdbcType=CHAR},  
+			insurance_switch = #{insuranceSwitch,jdbcType=CHAR},
+			motor_switch = #{motorSwitch,jdbcType=CHAR},   
+			channel_switch = #{channelSwitch,jdbcType=CHAR}, 
+			business_switch = #{businessSwitch,jdbcType=CHAR}, 
+			area_switch = #{areaSwitch,jdbcType=CHAR},
+			updated_user = #{updatedUser,jdbcType=VARCHAR},      
+			updated_date = sysdate
+	     where
+	       valid_ind = '1' 
+		   and version_id = #{versionId,jdbcType=VARCHAR}
+	</update>
+		
+	<insert id="insertLawRulePermission" parameterType="map">
+		insert into t_law_define_permission
+		(
+			version_id,        
+			sales_sys_switch,  
+			sales_imp_switch, 
+			sales_check_switch,
+			sales_exp_switch,  
+			sales_reg_switch,  
+			group_sys_switch,  
+			group_imp_switch,  
+			group_check_switch,
+			group_exp_switch,  
+			group_reg_switch,  
+			insurance_switch,
+			motor_switch,   
+			channel_switch, 
+			business_switch,
+			area_switch,    
+			created_user,      
+			created_date,      
+			updated_user,      
+			updated_date,      
+			valid_ind)
+		 values(
+		     #{versionId,jdbcType=VARCHAR},	
+		     #{salesSysSwitch,jdbcType=CHAR},
+		     #{salesImpSwitch,jdbcType=CHAR},
+		     #{salesCheckSwitch,jdbcType=CHAR},
+		     #{salesExpSwitch,jdbcType=CHAR},
+		     #{salesRegSwitch,jdbcType=CHAR},
+		     #{groupSysSwitch,jdbcType=CHAR},
+		     #{groupImpSwitch,jdbcType=CHAR},
+		     #{groupCheckSwitch,jdbcType=CHAR},
+		     #{groupExpSwitch,jdbcType=CHAR},
+		     #{groupRegSwitch,jdbcType=CHAR},
+		     #{insuranceSwitch,jdbcType=CHAR},
+		     #{motorSwitch,jdbcType=CHAR},
+		     #{channelSwitch,jdbcType=CHAR},
+		     #{businessSwitch,jdbcType=CHAR},
+		     #{areaSwitch,jdbcType=CHAR},
+		     #{createdUser,jdbcType=VARCHAR},
+			 sysdate,
+			 #{updatedUser,jdbcType=VARCHAR},
+			 sysdate,
+			 '1'		 	
+		 	)
+	</insert>
+	
+	<select id="selectButtonStatus" parameterType="java.lang.String" resultType="com.sinosafe.xszc.law.vo.TLawRuleConfig">
+		select 
+		    t.version_id as "versionId",
+		    t.sales_sys_switch as "salesSysSwitch", 
+		    t.sales_imp_switch as "salesImpSwitch", 
+		    t.sales_check_switch as "salesCheckSwitch", 
+		    t.sales_exp_switch as "salesExpSwitch", 
+		    t.sales_reg_switch as "salesRegSwitch",
+		    t.group_sys_switch as "groupSysSwitch",
+		    t.group_imp_switch as "groupImpSwitch",
+		    t.group_check_switch as "groupCheckSwitch",
+		    t.group_exp_switch as "groupExpSwitch",
+		    t.group_reg_switch as "groupRegSwitch",
+		    t.insurance_switch as "insuranceSwitch",
+		    t.motor_switch as "motorSwitch",
+		    t.channel_switch as "channelSwitch",
+		    t.business_switch as "businessSwitch",
+		    t.area_switch as "areaSwitch"
+		  from t_law_define_permission t where t.valid_ind = '1'
+		  and t.version_id = #{versionId,jdbcType=VARCHAR}  		
+	</select>
+	<select id="queryFactorImpCount" parameterType="map" resultType="long">
+		select count(1)
+		  from t_law_factor_imp t
+		 where t.valid_ind = '1'
+		   and t.item_status = '1'
+		   and t.item_type = #{itemType,jdbcType=VARCHAR}
+		   and t.version_id = #{versionId,jdbcType=VARCHAR}
+	</select>
+</mapper>

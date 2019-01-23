@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.partner.vo.Confer">
+
+	<!-- 查询详细信息-->
+	<select id="selectEnterpriseByPK" parameterType="java.lang.String" resultType="map">
+		select t1.confer_id as "conferId",
+		       t1.extend_confer_code as "extendConferCode",
+		       t1.confer_code as "conferCode",
+		       t1.confer_type as "conferType",
+		       decode(t1.confer_type, upper('b'), '代理协议', upper('q'), '经纪协议', upper('h'), '互联网服务协议', '') as "conferTypeName",
+		       t1.dept_code as "deptCode",
+		       t1.dept_code || '-' || t3.dept_simple_name as "deptCname",
+		       t1.channel_code as "channelCode",
+		       t2.medium_cname as "mediumCname",
+		       to_char(t1.sign_date,'yyyy-mm-dd') as "signDate",
+		       to_char(t1.valid_date,'yyyy-mm-dd') as "validDate",
+		       to_char(t1.expire_date,'yyyy-mm-dd') as "expireDate",
+		       t1.calclate_flag as "calclateFlag",
+		       t1.calclate_period as "calclatePeriod",
+		       t1.remark as "remark"
+		  from channel_confer t1
+		 inner join channel_medium_detail t2
+		    on t1.channel_code = t2.channel_code
+		  left join department t3
+		    on t1.dept_code = t3.dept_code
+		 where 1 = 1
+		   and t1.confer_code = #{conferCode,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 查询详细信息-->
+	<select id="selectIndividualByPK" parameterType="java.lang.String" resultType="map">
+		select t1.confer_id as "conferId",
+		       t1.extend_confer_code as "extendConferCode",
+		       t1.confer_code as "conferCode",
+		       t1.confer_type as "conferType",
+		       decode(t1.confer_type, upper('b'), '代理协议', upper('q'), '经纪协议', upper('h'), '互联网服务协议', '') as "conferTypeName",
+		       t1.dept_code as "deptCode",
+		       t1.dept_code || '-' || t3.dept_simple_name as "deptCname",
+		       t1.channel_code as "channelCode",
+		       t2.channel_name as "channelName",
+		       to_char(t1.sign_date,'yyyy-mm-dd') as "signDate",
+		       to_char(t1.valid_date,'yyyy-mm-dd') as "validDate",
+		       to_char(t1.expire_date,'yyyy-mm-dd') as "expireDate",
+		       t1.calclate_flag as "calclateFlag",
+		       t1.calclate_period as "calclatePeriod",
+		       t1.remark as "remark"
+		  from channel_confer t1
+		 inner join channel_agent_detail t2
+		    on t1.channel_code = t2.channel_code
+		  left join department t3
+		    on t1.dept_code = t3.dept_code
+		 where 1 = 1
+		   and t1.confer_code = #{conferCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 查询条件 -->
+	<sql id="Base_Where_Sql">
+		<where>
+		    1 = 1
+			and t1.valid_ind = '1'
+			and t1.channel_code = #{channelCode1,jdbcType=VARCHAR}
+			<if test="conferId != null and conferId != ''">			      
+				and t1.confer_id like trim(#{conferId,jdbcType=VARCHAR})||'%'
+			</if>
+			<if test="conferType != null and conferType != ''">
+				and t1.confer_type = #{conferType,jdbcType=VARCHAR}
+			</if>
+			<if test="signDate != null and signDate != ''">
+				and trunc(t1.sign_date) = trunc(to_date(#{signDate,jdbcType=VARCHAR}, 'yyyy-mm-dd'))
+			</if>
+		</where>
+	</sql>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+         select count(1)
+			from channel_confer t1
+			  left join channel_medium_detail t2
+			    on t2.channel_code = t1.channel_code
+			  left join department t3
+			    on t1.dept_code = t3.dept_code
+		<include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 条件分页查询语句 -->
+	<select id="queryListPage" parameterType="map" resultType="map">
+		select * from (
+			select a.*,rownum rn from (
+				select t1.confer_id as "conferId",
+				       t1.channel_code as "channelCode",
+				       t1.dept_code as "deptCode",
+				       t1.extend_confer_code as "extendConferCode",
+				       t1.confer_code as "conferCode",
+				       t2.medium_cname as "mediumCname",
+				       t3.dept_simple_name as "deptSimpleName",
+				       to_char(t1.sign_date, 'yyyy-mm-dd') as "signDate",
+				       to_char(t1.valid_date, 'yyyy-mm-dd') as "validDate",
+				       to_char(t1.expire_date, 'yyyy-mm-dd') as "expireDate",
+				       t1.calclate_period as "calclatePeriod",
+				       t1.approve_flag as "approveFlag",
+				       t1.confer_type as "conferType",
+				       decode(t1.confer_type, upper('b'), '代理协议', upper('q'), '经纪协议', upper('h'), '互联网服务协议', '') as "conferTypeName"
+				  from channel_confer t1
+				  left join channel_medium_detail t2
+				    on t2.channel_code = t1.channel_code
+				  left join department t3
+				    on t1.dept_code = t3.dept_code
+				<include refid="Base_Where_Sql" />
+					order by t1.expire_date desc
+		) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+
+</mapper>

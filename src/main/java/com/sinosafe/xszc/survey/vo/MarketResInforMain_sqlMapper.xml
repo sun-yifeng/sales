@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.survey.vo.MarketResInforMain" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AGENCY_MEASURES_CP" property="agencyMeasuresCp" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="SAME_INDUS_PREMIUM_ID" property="sameIndusPremiumId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_CHANNEL" property="agencyMeasuresChannel" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SISM" property="agencyMeasuresSism" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SIP" property="agencyMeasuresSip" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SIP" property="agencyInfluenceSip" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="SAME_INDUS_TELE_SALES" property="sameIndusTeleSales" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_CP" property="agencyInfluenceCp" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SISM" property="agencyInfluenceSism" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SD" property="agencyInfluenceSd" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="SAME_INDUS_SERV_MEASURES" property="sameIndusServMeasures" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_BANK" property="channelBank" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_CHANNEL" property="agencyInfluenceChannel" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="INSERT_MONTH" property="insertMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SUPERVISE_DYNAMIC" property="superviseDynamic" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CHANNEL_PREMIUM_ID" property="channelPremiumId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SITS" property="agencyInfluenceSits" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SITS" property="agencyMeasuresSits" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="LOCAL_MARKET_ID" property="localMarketId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AGENCY_MEASURES_LM" property="agencyMeasuresLm" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_LM" property="agencyInfluenceLm" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CONVENTIONAL" property="channelConventional" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CHANNEL_VIP" property="channelVip" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SD" property="agencyMeasuresSd" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="OTHERS" property="others" jdbcType="CLOB" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.survey.vo.MarketResInforMain">
+		<id column="PK_ID" property="pkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+ 		<result column="UPDATE_DATE" property="updateDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AGENCY_MEASURES_CP" property="agencyMeasuresCp" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="SAME_INDUS_PREMIUM_ID" property="sameIndusPremiumId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_CHANNEL" property="agencyMeasuresChannel" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SISM" property="agencyMeasuresSism" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SIP" property="agencyMeasuresSip" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SIP" property="agencyInfluenceSip" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="SAME_INDUS_TELE_SALES" property="sameIndusTeleSales" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_CP" property="agencyInfluenceCp" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SISM" property="agencyInfluenceSism" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SD" property="agencyInfluenceSd" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="SAME_INDUS_SERV_MEASURES" property="sameIndusServMeasures" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_BANK" property="channelBank" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_CHANNEL" property="agencyInfluenceChannel" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="INSERT_MONTH" property="insertMonth" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SUPERVISE_DYNAMIC" property="superviseDynamic" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CHANNEL_PREMIUM_ID" property="channelPremiumId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_SITS" property="agencyInfluenceSits" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SITS" property="agencyMeasuresSits" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="LOCAL_MARKET_ID" property="localMarketId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AGENCY_MEASURES_LM" property="agencyMeasuresLm" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="AGENCY_INFLUENCE_LM" property="agencyInfluenceLm" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CONVENTIONAL" property="channelConventional" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="CHANNEL_VIP" property="channelVip" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="UPDATE_USER" property="updateUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="AGENCY_MEASURES_SD" property="agencyMeasuresSd" jdbcType="CLOB" javaType="java.lang.String" />
+ 		<result column="OTHERS" property="others" jdbcType="CLOB" javaType="java.lang.String" />
+ 	</resultMap>
+
+<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		PK_ID,
+		UPDATE_DATE,
+		AGENCY_MEASURES_CP,
+		SAME_INDUS_PREMIUM_ID,
+		AGENCY_MEASURES_CHANNEL,
+		AGENCY_MEASURES_SISM,
+		t.VALID_IND,
+		AGENCY_MEASURES_SIP,
+		CREATE_USER,
+		AGENCY_INFLUENCE_SIP,
+		SAME_INDUS_TELE_SALES,
+		AGENCY_INFLUENCE_CP,
+		AGENCY_INFLUENCE_SISM,
+		AGENCY_INFLUENCE_SD,
+		SAME_INDUS_SERV_MEASURES,
+		DEPT_CODE,
+		CHANNEL_BANK,
+		AGENCY_INFLUENCE_CHANNEL,
+		INSERT_MONTH,
+		SUPERVISE_DYNAMIC,
+		CHANNEL_PREMIUM_ID,
+		AGENCY_INFLUENCE_SITS,
+		AGENCY_MEASURES_SITS,
+		LOCAL_MARKET_ID,
+		CREATE_DATE,
+		AGENCY_MEASURES_LM,
+		AGENCY_INFLUENCE_LM,
+		CHANNEL_CONVENTIONAL,
+		CHANNEL_VIP,
+		UPDATE_USER,
+		AGENCY_MEASURES_SD,
+		OTHERS
+	</sql>
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="User_Base_Column_List" >
+		PK_ID,
+		UPDATE_DATE,
+		AGENCY_MEASURES_CP,
+		SAME_INDUS_PREMIUM_ID,
+		AGENCY_MEASURES_CHANNEL,
+		AGENCY_MEASURES_SISM,
+		t.VALID_IND,
+		AGENCY_MEASURES_SIP,
+		CREATE_USER,
+		AGENCY_INFLUENCE_SIP,
+		SAME_INDUS_TELE_SALES,
+		AGENCY_INFLUENCE_CP,
+		AGENCY_INFLUENCE_SISM,
+		AGENCY_INFLUENCE_SD,
+		SAME_INDUS_SERV_MEASURES,
+		de.dept_simple_name as DEPT_CODE,
+		CHANNEL_BANK,
+		AGENCY_INFLUENCE_CHANNEL,
+		INSERT_MONTH,
+		SUPERVISE_DYNAMIC,
+		CHANNEL_PREMIUM_ID,
+		AGENCY_INFLUENCE_SITS,
+		AGENCY_MEASURES_SITS,
+		LOCAL_MARKET_ID,
+		CREATE_DATE,
+		AGENCY_MEASURES_LM,
+		AGENCY_INFLUENCE_LM,
+		CHANNEL_CONVENTIONAL,
+		CHANNEL_VIP,
+		UPDATE_USER,
+		AGENCY_MEASURES_SD,
+		OTHERS
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		PK_ID as "pkId",
+		UPDATE_DATE as "updateDate",
+		AGENCY_MEASURES_CP as "agencyMeasuresCp",
+		SAME_INDUS_PREMIUM_ID as "sameIndusPremiumId",
+		AGENCY_MEASURES_CHANNEL as "agencyMeasuresChannel",
+		AGENCY_MEASURES_SISM as "agencyMeasuresSism",
+		VALID_IND as "validInd",
+		AGENCY_MEASURES_SIP as "agencyMeasuresSip",
+		CREATE_USER as "createUser",
+		AGENCY_INFLUENCE_SIP as "agencyInfluenceSip",
+		SAME_INDUS_TELE_SALES as "sameIndusTeleSales",
+		AGENCY_INFLUENCE_CP as "agencyInfluenceCp",
+		AGENCY_INFLUENCE_SISM as "agencyInfluenceSism",
+		AGENCY_INFLUENCE_SD as "agencyInfluenceSd",
+		SAME_INDUS_SERV_MEASURES as "sameIndusServMeasures",
+		DEPT_CODE as "deptCode",
+		CHANNEL_BANK as "channelBank",
+		AGENCY_INFLUENCE_CHANNEL as "agencyInfluenceChannel",
+		INSERT_MONTH as "insertMonth",
+		SUPERVISE_DYNAMIC as "superviseDynamic",
+		CHANNEL_PREMIUM_ID as "channelPremiumId",
+		AGENCY_INFLUENCE_SITS as "agencyInfluenceSits",
+		AGENCY_MEASURES_SITS as "agencyMeasuresSits",
+		LOCAL_MARKET_ID as "localMarketId",
+		CREATE_DATE as "createDate",
+		AGENCY_MEASURES_LM as "agencyMeasuresLm",
+		AGENCY_INFLUENCE_LM as "agencyInfluenceLm",
+		CHANNEL_CONVENTIONAL as "channelConventional",
+		CHANNEL_VIP as "channelVip",
+		UPDATE_USER as "updateUser",
+		AGENCY_MEASURES_SD as "agencyMeasuresSd",
+		OTHERS as "others"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{pkId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{agencyMeasuresCp,jdbcType=CLOB},
+ 		#{sameIndusPremiumId,jdbcType=VARCHAR},
+ 		#{agencyMeasuresChannel,jdbcType=CLOB},
+ 		#{agencyMeasuresSism,jdbcType=CLOB},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{agencyMeasuresSip,jdbcType=CLOB},
+ 		#{createUser,jdbcType=VARCHAR},
+ 		#{agencyInfluenceSip,jdbcType=CLOB},
+ 		#{sameIndusTeleSales,jdbcType=CLOB},
+ 		#{agencyInfluenceCp,jdbcType=CLOB},
+ 		#{agencyInfluenceSism,jdbcType=CLOB},
+ 		#{agencyInfluenceSd,jdbcType=CLOB},
+ 		#{sameIndusServMeasures,jdbcType=CLOB},
+ 		#{deptCode,jdbcType=VARCHAR},
+ 		#{channelBank,jdbcType=CLOB},
+ 		#{agencyInfluenceChannel,jdbcType=CLOB},
+ 		#{insertMonth,jdbcType=VARCHAR},
+ 		#{superviseDynamic,jdbcType=CLOB},
+ 		#{channelPremiumId,jdbcType=VARCHAR},
+ 		#{agencyInfluenceSits,jdbcType=CLOB},
+ 		#{agencyMeasuresSits,jdbcType=CLOB},
+ 		#{localMarketId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{agencyMeasuresLm,jdbcType=CLOB},
+ 		#{agencyInfluenceLm,jdbcType=CLOB},
+ 		#{channelConventional,jdbcType=CLOB},
+ 		#{channelVip,jdbcType=CLOB},
+ 		#{updateUser,jdbcType=VARCHAR},
+ 		#{agencyMeasuresSd,jdbcType=CLOB},
+ 		#{others,jdbcType=CLOB}
+ 	</sql>
+	
+	<sql id="User_Base_Where_Sql">
+		<where>
+			t.VALID_IND = '1'
+			and de.VALID_IND = '1'
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="deptName != null  and deptName !='' ">
+			and de.DEPT_CODE = #{deptName,jdbcType=VARCHAR}
+		</if>
+		<if test="parentDept != null and parentDept !='' ">
+			and de.parent_dept_code = #{parentDept,jdbcType=VARCHAR}
+		</if>
+		<!-- 如果部门代码为空，不显示记录 -->
+		<if test="deptCode == null or deptCode == '' " >
+			and 1=2
+		</if>
+		<!-- 如果部门代码非空，则显示记录 -->
+		<if test="deptCode != null and deptCode != '' ">
+		   <choose>
+		     <when test="deptCode == '00' ">and 2=2</when>
+		     <otherwise> and de.dept_code like #{deptCode,jdbcType=VARCHAR}||'%' </otherwise>
+		   </choose>  
+		</if>
+		<if test="insertMonth != null and insertMonth != ''">
+			and INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+			t.VALID_IND = 1
+		<if test="pkId != null and pkId != ''">
+			and PK_ID = #{pkId,jdbcType=VARCHAR}
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			and UPDATE_DATE = #{updateDate,jdbcType=DATE}
+		</if>
+		<if test="agencyMeasuresCp != null and agencyMeasuresCp != ''">
+			and AGENCY_MEASURES_CP = #{agencyMeasuresCp,jdbcType=CLOB}
+		</if>
+		<if test="sameIndusPremiumId != null and sameIndusPremiumId != ''">
+			and SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR}
+		</if>
+		<if test="agencyMeasuresChannel != null and agencyMeasuresChannel != ''">
+			and AGENCY_MEASURES_CHANNEL = #{agencyMeasuresChannel,jdbcType=CLOB}
+		</if>
+		<if test="agencyMeasuresSism != null and agencyMeasuresSism != ''">
+			and AGENCY_MEASURES_SISM = #{agencyMeasuresSism,jdbcType=CLOB}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="agencyMeasuresSip != null and agencyMeasuresSip != ''">
+			and AGENCY_MEASURES_SIP = #{agencyMeasuresSip,jdbcType=CLOB}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and CREATE_USER = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="agencyInfluenceSip != null and agencyInfluenceSip != ''">
+			and AGENCY_INFLUENCE_SIP = #{agencyInfluenceSip,jdbcType=CLOB}
+		</if>
+		<if test="sameIndusTeleSales != null and sameIndusTeleSales != ''">
+			and SAME_INDUS_TELE_SALES = #{sameIndusTeleSales,jdbcType=CLOB}
+		</if>
+		<if test="agencyInfluenceCp != null and agencyInfluenceCp != ''">
+			and AGENCY_INFLUENCE_CP = #{agencyInfluenceCp,jdbcType=CLOB}
+		</if>
+		<if test="agencyInfluenceSism != null and agencyInfluenceSism != ''">
+			and AGENCY_INFLUENCE_SISM = #{agencyInfluenceSism,jdbcType=CLOB}
+		</if>
+		<if test="agencyInfluenceSd != null and agencyInfluenceSd != ''">
+			and AGENCY_INFLUENCE_SD = #{agencyInfluenceSd,jdbcType=CLOB}
+		</if>
+		<if test="sameIndusServMeasures != null and sameIndusServMeasures != ''">
+			and SAME_INDUS_SERV_MEASURES = #{sameIndusServMeasures,jdbcType=CLOB}
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and t.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="channelBank != null and channelBank != ''">
+			and CHANNEL_BANK = #{channelBank,jdbcType=CLOB}
+		</if>
+		<if test="agencyInfluenceChannel != null and agencyInfluenceChannel != ''">
+			and AGENCY_INFLUENCE_CHANNEL = #{agencyInfluenceChannel,jdbcType=CLOB}
+		</if>
+		<if test="insertMonth != null and insertMonth != ''">
+			and INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR}
+		</if>
+		<if test="superviseDynamic != null and superviseDynamic != ''">
+			and SUPERVISE_DYNAMIC = #{superviseDynamic,jdbcType=CLOB}
+		</if>
+		<if test="channelPremiumId != null and channelPremiumId != ''">
+			and CHANNEL_PREMIUM_ID = #{channelPremiumId,jdbcType=VARCHAR}
+		</if>
+		<if test="agencyInfluenceSits != null and agencyInfluenceSits != ''">
+			and AGENCY_INFLUENCE_SITS = #{agencyInfluenceSits,jdbcType=CLOB}
+		</if>
+		<if test="agencyMeasuresSits != null and agencyMeasuresSits != ''">
+			and AGENCY_MEASURES_SITS = #{agencyMeasuresSits,jdbcType=CLOB}
+		</if>
+		<if test="localMarketId != null and localMarketId != ''">
+			and LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR}
+		</if>
+		<if test="createDate != null and createDate != ''">
+			and CREATE_DATE = #{createDate,jdbcType=DATE}
+		</if>
+		<if test="agencyMeasuresLm != null and agencyMeasuresLm != ''">
+			and AGENCY_MEASURES_LM = #{agencyMeasuresLm,jdbcType=CLOB}
+		</if>
+		<if test="agencyInfluenceLm != null and agencyInfluenceLm != ''">
+			and AGENCY_INFLUENCE_LM = #{agencyInfluenceLm,jdbcType=CLOB}
+		</if>
+		<if test="channelConventional != null and channelConventional != ''">
+			and CHANNEL_CONVENTIONAL = #{channelConventional,jdbcType=CLOB}
+		</if>
+		<if test="channelVip != null and channelVip != ''">
+			and CHANNEL_VIP = #{channelVip,jdbcType=CLOB}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		<if test="agencyMeasuresSd != null and agencyMeasuresSd != ''">
+			and AGENCY_MEASURES_SD = #{agencyMeasuresSd,jdbcType=CLOB}
+		</if>
+		<if test="others != null and others != ''">
+			and OTHERS = #{others,jdbcType=CLOB}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforMain" >
+    insert into MARKET_RES_INFOR_MAIN t(
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into MARKET_RES_INFOR_MAIN (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MARKET_RES_INFOR_MAIN
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from MARKET_RES_INFOR_MAIN
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update MARKET_RES_INFOR_MAIN
+	<set>
+ 	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="agencyMeasuresCp != null and agencyMeasuresCp != ''">
+		AGENCY_MEASURES_CP = #{agencyMeasuresCp,jdbcType=CLOB},
+	</if>
+  	<if test="sameIndusPremiumId != null and sameIndusPremiumId != ''">
+		SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyMeasuresChannel != null and agencyMeasuresChannel != ''">
+		AGENCY_MEASURES_CHANNEL = #{agencyMeasuresChannel,jdbcType=CLOB},
+	</if>
+  	<if test="agencyMeasuresSism != null and agencyMeasuresSism != ''">
+		AGENCY_MEASURES_SISM = #{agencyMeasuresSism,jdbcType=CLOB},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="agencyMeasuresSip != null and agencyMeasuresSip != ''">
+		AGENCY_MEASURES_SIP = #{agencyMeasuresSip,jdbcType=CLOB},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyInfluenceSip != null and agencyInfluenceSip != ''">
+		AGENCY_INFLUENCE_SIP = #{agencyInfluenceSip,jdbcType=CLOB},
+	</if>
+  	<if test="sameIndusTeleSales != null and sameIndusTeleSales != ''">
+		SAME_INDUS_TELE_SALES = #{sameIndusTeleSales,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceCp != null and agencyInfluenceCp != ''">
+		AGENCY_INFLUENCE_CP = #{agencyInfluenceCp,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceSism != null and agencyInfluenceSism != ''">
+		AGENCY_INFLUENCE_SISM = #{agencyInfluenceSism,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceSd != null and agencyInfluenceSd != ''">
+		AGENCY_INFLUENCE_SD = #{agencyInfluenceSd,jdbcType=CLOB},
+	</if>
+  	<if test="sameIndusServMeasures != null and sameIndusServMeasures != ''">
+		SAME_INDUS_SERV_MEASURES = #{sameIndusServMeasures,jdbcType=CLOB},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelBank != null and channelBank != ''">
+		CHANNEL_BANK = #{channelBank,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceChannel != null and agencyInfluenceChannel != ''">
+		AGENCY_INFLUENCE_CHANNEL = #{agencyInfluenceChannel,jdbcType=CLOB},
+	</if>
+  	<if test="insertMonth != null and insertMonth != ''">
+		INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="superviseDynamic != null and superviseDynamic != ''">
+		SUPERVISE_DYNAMIC = #{superviseDynamic,jdbcType=CLOB},
+	</if>
+  	<if test="channelPremiumId != null and channelPremiumId != ''">
+		CHANNEL_PREMIUM_ID = #{channelPremiumId,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyInfluenceSits != null and agencyInfluenceSits != ''">
+		AGENCY_INFLUENCE_SITS = #{agencyInfluenceSits,jdbcType=CLOB},
+	</if>
+  	<if test="agencyMeasuresSits != null and agencyMeasuresSits != ''">
+		AGENCY_MEASURES_SITS = #{agencyMeasuresSits,jdbcType=CLOB},
+	</if>
+  	<if test="localMarketId != null and localMarketId != ''">
+		LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="agencyMeasuresLm != null and agencyMeasuresLm != ''">
+		AGENCY_MEASURES_LM = #{agencyMeasuresLm,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceLm != null and agencyInfluenceLm != ''">
+		AGENCY_INFLUENCE_LM = #{agencyInfluenceLm,jdbcType=CLOB},
+	</if>
+  	<if test="channelConventional != null and channelConventional != ''">
+		CHANNEL_CONVENTIONAL = #{channelConventional,jdbcType=CLOB},
+	</if>
+  	<if test="channelVip != null and channelVip != ''">
+		CHANNEL_VIP = #{channelVip,jdbcType=CLOB},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyMeasuresSd != null and agencyMeasuresSd != ''">
+		AGENCY_MEASURES_SD = #{agencyMeasuresSd,jdbcType=CLOB},
+	</if>
+  	<if test="others != null and others != ''">
+		OTHERS = #{others,jdbcType=CLOB}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update MARKET_RES_INFOR_MAIN
+		set 
+ 			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			AGENCY_MEASURES_CP = #{agencyMeasuresCp,jdbcType=CLOB},
+  			SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR},
+  			AGENCY_MEASURES_CHANNEL = #{agencyMeasuresChannel,jdbcType=CLOB},
+  			AGENCY_MEASURES_SISM = #{agencyMeasuresSism,jdbcType=CLOB},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			AGENCY_MEASURES_SIP = #{agencyMeasuresSip,jdbcType=CLOB},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			AGENCY_INFLUENCE_SIP = #{agencyInfluenceSip,jdbcType=CLOB},
+  			SAME_INDUS_TELE_SALES = #{sameIndusTeleSales,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_CP = #{agencyInfluenceCp,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_SISM = #{agencyInfluenceSism,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_SD = #{agencyInfluenceSd,jdbcType=CLOB},
+  			SAME_INDUS_SERV_MEASURES = #{sameIndusServMeasures,jdbcType=CLOB},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			CHANNEL_BANK = #{channelBank,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_CHANNEL = #{agencyInfluenceChannel,jdbcType=CLOB},
+  			INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+  			SUPERVISE_DYNAMIC = #{superviseDynamic,jdbcType=CLOB},
+  			CHANNEL_PREMIUM_ID = #{channelPremiumId,jdbcType=VARCHAR},
+  			AGENCY_INFLUENCE_SITS = #{agencyInfluenceSits,jdbcType=CLOB},
+  			AGENCY_MEASURES_SITS = #{agencyMeasuresSits,jdbcType=CLOB},
+  			LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			AGENCY_MEASURES_LM = #{agencyMeasuresLm,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_LM = #{agencyInfluenceLm,jdbcType=CLOB},
+  			CHANNEL_CONVENTIONAL = #{channelConventional,jdbcType=CLOB},
+  			CHANNEL_VIP = #{channelVip,jdbcType=CLOB},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+  			AGENCY_MEASURES_SD = #{agencyMeasuresSd,jdbcType=CLOB},
+  			OTHERS = #{others,jdbcType=CLOB}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforMain" >
+	update MARKET_RES_INFOR_MAIN
+	<set>
+ 	<if test="updateDate != null and updateDate != ''">
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+	</if>
+  	<if test="agencyMeasuresCp != null and agencyMeasuresCp != ''">
+		AGENCY_MEASURES_CP = #{agencyMeasuresCp,jdbcType=CLOB},
+	</if>
+  	<if test="sameIndusPremiumId != null and sameIndusPremiumId != ''">
+		SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyMeasuresChannel != null and agencyMeasuresChannel != ''">
+		AGENCY_MEASURES_CHANNEL = #{agencyMeasuresChannel,jdbcType=CLOB},
+	</if>
+  	<if test="agencyMeasuresSism != null and agencyMeasuresSism != ''">
+		AGENCY_MEASURES_SISM = #{agencyMeasuresSism,jdbcType=CLOB},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="agencyMeasuresSip != null and agencyMeasuresSip != ''">
+		AGENCY_MEASURES_SIP = #{agencyMeasuresSip,jdbcType=CLOB},
+	</if>
+  	<if test="createUser != null and createUser != ''">
+		CREATE_USER = #{createUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyInfluenceSip != null and agencyInfluenceSip != ''">
+		AGENCY_INFLUENCE_SIP = #{agencyInfluenceSip,jdbcType=CLOB},
+	</if>
+  	<if test="sameIndusTeleSales != null and sameIndusTeleSales != ''">
+		SAME_INDUS_TELE_SALES = #{sameIndusTeleSales,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceCp != null and agencyInfluenceCp != ''">
+		AGENCY_INFLUENCE_CP = #{agencyInfluenceCp,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceSism != null and agencyInfluenceSism != ''">
+		AGENCY_INFLUENCE_SISM = #{agencyInfluenceSism,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceSd != null and agencyInfluenceSd != ''">
+		AGENCY_INFLUENCE_SD = #{agencyInfluenceSd,jdbcType=CLOB},
+	</if>
+  	<if test="sameIndusServMeasures != null and sameIndusServMeasures != ''">
+		SAME_INDUS_SERV_MEASURES = #{sameIndusServMeasures,jdbcType=CLOB},
+	</if>
+  	<if test="deptCode != null and deptCode != ''">
+		DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelBank != null and channelBank != ''">
+		CHANNEL_BANK = #{channelBank,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceChannel != null and agencyInfluenceChannel != ''">
+		AGENCY_INFLUENCE_CHANNEL = #{agencyInfluenceChannel,jdbcType=CLOB},
+	</if>
+  	<if test="insertMonth != null and insertMonth != ''">
+		INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+	</if>
+  	<if test="superviseDynamic != null and superviseDynamic != ''">
+		SUPERVISE_DYNAMIC = #{superviseDynamic,jdbcType=CLOB},
+	</if>
+  	<if test="channelPremiumId != null and channelPremiumId != ''">
+		CHANNEL_PREMIUM_ID = #{channelPremiumId,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyInfluenceSits != null and agencyInfluenceSits != ''">
+		AGENCY_INFLUENCE_SITS = #{agencyInfluenceSits,jdbcType=CLOB},
+	</if>
+  	<if test="agencyMeasuresSits != null and agencyMeasuresSits != ''">
+		AGENCY_MEASURES_SITS = #{agencyMeasuresSits,jdbcType=CLOB},
+	</if>
+  	<if test="localMarketId != null and localMarketId != ''">
+		LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR},
+	</if>
+  	<if test="createDate != null and createDate != ''">
+		CREATE_DATE = #{createDate,jdbcType=DATE},
+	</if>
+  	<if test="agencyMeasuresLm != null and agencyMeasuresLm != ''">
+		AGENCY_MEASURES_LM = #{agencyMeasuresLm,jdbcType=CLOB},
+	</if>
+  	<if test="agencyInfluenceLm != null and agencyInfluenceLm != ''">
+		AGENCY_INFLUENCE_LM = #{agencyInfluenceLm,jdbcType=CLOB},
+	</if>
+  	<if test="channelConventional != null and channelConventional != ''">
+		CHANNEL_CONVENTIONAL = #{channelConventional,jdbcType=CLOB},
+	</if>
+  	<if test="channelVip != null and channelVip != ''">
+		CHANNEL_VIP = #{channelVip,jdbcType=CLOB},
+	</if>
+  	<if test="updateUser != null and updateUser != ''">
+		UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="agencyMeasuresSd != null and agencyMeasuresSd != ''">
+		AGENCY_MEASURES_SD = #{agencyMeasuresSd,jdbcType=CLOB},
+	</if>
+  	<if test="others != null and others != ''">
+		OTHERS = #{others,jdbcType=CLOB}
+	</if>
+  	</set>
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforMain" >
+		update MARKET_RES_INFOR_MAIN
+		set 
+ 			UPDATE_DATE = #{updateDate,jdbcType=DATE},
+  			AGENCY_MEASURES_CP = #{agencyMeasuresCp,jdbcType=CLOB},
+  			SAME_INDUS_PREMIUM_ID = #{sameIndusPremiumId,jdbcType=VARCHAR},
+  			AGENCY_MEASURES_CHANNEL = #{agencyMeasuresChannel,jdbcType=CLOB},
+  			AGENCY_MEASURES_SISM = #{agencyMeasuresSism,jdbcType=CLOB},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			AGENCY_MEASURES_SIP = #{agencyMeasuresSip,jdbcType=CLOB},
+  			CREATE_USER = #{createUser,jdbcType=VARCHAR},
+  			AGENCY_INFLUENCE_SIP = #{agencyInfluenceSip,jdbcType=CLOB},
+  			SAME_INDUS_TELE_SALES = #{sameIndusTeleSales,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_CP = #{agencyInfluenceCp,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_SISM = #{agencyInfluenceSism,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_SD = #{agencyInfluenceSd,jdbcType=CLOB},
+  			SAME_INDUS_SERV_MEASURES = #{sameIndusServMeasures,jdbcType=CLOB},
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+  			CHANNEL_BANK = #{channelBank,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_CHANNEL = #{agencyInfluenceChannel,jdbcType=CLOB},
+  			INSERT_MONTH = #{insertMonth,jdbcType=VARCHAR},
+  			SUPERVISE_DYNAMIC = #{superviseDynamic,jdbcType=CLOB},
+  			CHANNEL_PREMIUM_ID = #{channelPremiumId,jdbcType=VARCHAR},
+  			AGENCY_INFLUENCE_SITS = #{agencyInfluenceSits,jdbcType=CLOB},
+  			AGENCY_MEASURES_SITS = #{agencyMeasuresSits,jdbcType=CLOB},
+  			LOCAL_MARKET_ID = #{localMarketId,jdbcType=VARCHAR},
+  			CREATE_DATE = #{createDate,jdbcType=DATE},
+  			AGENCY_MEASURES_LM = #{agencyMeasuresLm,jdbcType=CLOB},
+  			AGENCY_INFLUENCE_LM = #{agencyInfluenceLm,jdbcType=CLOB},
+  			CHANNEL_CONVENTIONAL = #{channelConventional,jdbcType=CLOB},
+  			CHANNEL_VIP = #{channelVip,jdbcType=CLOB},
+  			UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+  			AGENCY_MEASURES_SD = #{agencyMeasuresSd,jdbcType=CLOB},
+  			OTHERS = #{others,jdbcType=CLOB}
+  		where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deleteByPkId"  parameterType="java.lang.String">
+	    update MARKET_RES_INFOR_MAIN set VALID_IND = '0'
+	     where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from MARKET_RES_INFOR_MAIN
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="User_Base_Column_List" />
+	from MARKET_RES_INFOR_MAIN t
+	inner join department de 
+  		on de.dept_code = t.dept_code
+	where PK_ID = #{pkId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from MARKET_RES_INFOR_MAIN t
+		inner join department de
+	         on t.dept_code = de.dept_code
+	<include refid="User_Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.survey.vo.MarketResInforMain" resultType="long">
+	select count(1)
+	from MARKET_RES_INFOR_MAIN <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="User_Base_Column_List"/>
+		from MARKET_RES_INFOR_MAIN t
+		 inner join department de
+       on de.dept_code = t.dept_code
+		<include refid="User_Base_Where_Sql" />
+		order by t.insert_month desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_MAIN
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_MAIN
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from MARKET_RES_INFOR_MAIN
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from MARKET_RES_INFOR_MAIN
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from MARKET_RES_INFOR_MAIN <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	
+</mapper>

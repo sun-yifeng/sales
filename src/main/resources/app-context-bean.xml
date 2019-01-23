@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+    					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    					
+	<!-- 启动对@AspectJ注解的支持 
+      <aop:aspectj-autoproxy/><bean id="GetRequestMap" class="com.sinosafe.xszc.util.GetRequestMap"/>
+	-->
+	
+    <!-- 业务系统配置对应的Bean对象描述 -->
+	<bean id="MainFrameService" class="com.sinosafe.xszc.main.service.impl.MainFrameServiceImpl" />
+	<bean id="ReportDayAgentChannelService" class="com.sinosafe.xszc.report.service.impl.ReportDayAgentChannelServiceImpl" />
+	<bean id="ReportGroupSaleService" class="com.sinosafe.xszc.report.service.impl.ReportGroupSaleServiceImpl" />
+	<bean id="ReportDaySaleTraceService" class="com.sinosafe.xszc.report.service.impl.ReportDaySaleTraceServiceImpl" />
+	<bean id="ReportWeekSaleTraceService" class="com.sinosafe.xszc.report.service.impl.ReportWeekSaleTraceServiceImpl" />
+	<bean id="ReportWeekAgentChannelService" class="com.sinosafe.xszc.report.service.impl.ReportWeekAgentChannelServiceImpl" />
+	<bean id="ReportDayTraceHebeiService" class="com.sinosafe.xszc.report.service.impl.ReportDayTraceHebeiServiceImpl" />
+	<bean id="ReportDayGroupManagerService" class="com.sinosafe.xszc.report.service.impl.ReportDayGroupManagerServiceImpl" />
+	<bean id="ReportFoundationMediumService" class="com.sinosafe.xszc.report.service.impl.ReportFoundationMediumServiceImpl" />
+	<bean id="ReportWeekGroupManagerService" class="com.sinosafe.xszc.report.service.impl.ReportWeekGroupManagerServiceImpl" />
+	<bean id="ReportMonthAgentInfoService" class="com.sinosafe.xszc.report.service.impl.ReportMonthAgentInfoServiceImpl" />
+	<bean id="ReportTotalAgentInfoService" class="com.sinosafe.xszc.report.service.impl.ReportTotalAgentInfoServiceImpl" />
+	<bean id="ReportTotalGroupMenberService" class="com.sinosafe.xszc.report.service.impl.ReportTotalGroupMenberServiceIpml" />
+	<bean id="ReportCommonExportService" class="com.sinosafe.xszc.report.service.impl.ReportCommonServiceImpl" />
+	
+	<bean id="MediumService" class="com.sinosafe.xszc.channel.service.impl.MediumServiceImpl" />
+	<bean id="MediumContectService" class="com.sinosafe.xszc.channel.service.impl.MediumContectServiceImpl" />
+	<bean id="DepartmentService" class="com.sinosafe.xszc.department.service.impl.DepartmentServiceImpl" />
+	<bean id="SalePlanChannelService" class="com.sinosafe.xszc.plan.service.impl.SalePlanChannelServiceImpl" />
+	<bean id="MediumNodeService" class="com.sinosafe.xszc.channel.service.impl.MediumNodeServiceImpl" />
+	<bean id="ReportMothGroupManagerService" class="com.sinosafe.xszc.report.service.impl.ReportMothGroupManagerServiceImpl" />
+	<bean id="ChannelMaintainService" class="com.sinosafe.xszc.channel.service.impl.ChannelMaintainServiceImpl" />
+	<bean id="MediumConferService" class="com.sinosafe.xszc.channel.service.impl.MediumConferServiceImpl" />
+ 	<bean id="ConferProductService" class="com.sinosafe.xszc.channel.service.impl.ConferProductServiceImpl" />
+ 	<bean id="SalePlanDeptService" class="com.sinosafe.xszc.plan.service.impl.SalePlanDeptServiceImpl" />
+ 	<bean id="ActivityService" class="com.sinosafe.xszc.activity.service.impl.ActivityServiceImpl"/>
+ 	<bean id="ChannelMainService" class="com.sinosafe.xszc.channel.service.impl.ChannelMainServiceImpl" />
+ 	<bean id="AgentService" class="com.sinosafe.xszc.channel.service.impl.AgentServiceImpl" />
+ 	<bean id="ChannelWarningService" class="com.sinosafe.xszc.channel.service.impl.ChannelWarningServiceImpl" />
+ 	<bean id="ChannelMailRecordService" class="com.sinosafe.xszc.channel.service.impl.ChannelMailRecordServiceImpl" />
+ 	<bean id="RecommenderService" class="com.sinosafe.xszc.channel.service.impl.RecommenderServiceImpl"/>
+ 	<bean id="MediumSalesmanService" class="com.sinosafe.xszc.channel.service.impl.MediumSalesmanServiceImpl"/>
+ 	
+ 	<bean id="MediumHistoryService" class="com.sinosafe.xszc.channel.service.impl.MediumHistoryServiceImpl" />
+ 	<bean id="AgentHistoryService" class="com.sinosafe.xszc.channel.service.impl.AgentHistoryServiceImpl" />
+ 	<bean id="ReportDayRemotePolicyService" class="com.sinosafe.xszc.report.service.impl.ReportDayRemotePolicyServiceImpl"/>
+ 	<bean id="ReportWeekRemotePolicyService" class="com.sinosafe.xszc.report.service.impl.ReportWeekRemotePolicyServiceImpl"/>
+ 	<bean id="ReportMonthRemotePolicyService" class="com.sinosafe.xszc.report.service.impl.ReportMonthRemotePolicyServiceImpl"/>
+ 	
+ 	<!--销售人员管理办法 start -->
+ 	<bean id="TLawOriginRateService" class="com.sinosafe.xszc.law.service.impl.TLawOriginRateServiceImpl" />
+ 	<bean id="TRankValueService" class="com.sinosafe.xszc.law.service.impl.TRankValueServiceImpl" />
+ 	<bean id="TCalcValueService" class="com.sinosafe.xszc.law.service.impl.TCalcValueServiceImpl" />
+ 	<bean id="TIndexFactorService" class="com.sinosafe.xszc.law.service.impl.TIndexFactorServiceImpl" />
+ 	<bean id="TIndexCalcService" class="com.sinosafe.xszc.law.service.impl.TIndexCalcServiceImpl" />
+ 	<bean id="TRankDefService" class="com.sinosafe.xszc.law.service.impl.TRankDefServiceImpl" />
+ 	<bean id="TRankFactorService" class="com.sinosafe.xszc.law.service.impl.TRankFactorServiceImpl" />
+ 	<bean id="LawDefineService" class="com.sinosafe.xszc.law.service.impl.LawDefineServiceImpl" />
+	<bean id="LawSpecifyService" class="com.sinosafe.xszc.law.service.impl.LawSpecifyServiceImpl" />
+	<bean id="LawFactorService" class="com.sinosafe.xszc.law.service.impl.LawFactorServiceImpl" />
+	<bean id="LawTargetService" class="com.sinosafe.xszc.law.service.impl.LawTargetServiceImpl" />
+	<bean id="TRankCalcService" class="com.sinosafe.xszc.law.service.impl.TRankCalcServiceImpl" />
+	<bean id="LawCostRateService" class="com.sinosafe.xszc.law.service.impl.LawCostRateServiceImpl" />
+	<bean id="TLawLineRateService" class="com.sinosafe.xszc.law.service.impl.TLawLineRateServiceImpl" />
+	<bean id="TLawProductRateService" class="com.sinosafe.xszc.law.service.impl.TLawProductRateServiceImpl" />
+	<bean id="LawRateService" class="com.sinosafe.xszc.law.service.impl.LawRateServiceImpl" />
+	<bean id="TLawFactorImpValueService" class="com.sinosafe.xszc.law.service.impl.TLawFactorImpValueServiceImpl" />
+	<bean id="LawDefineManualService" class="com.sinosafe.xszc.law.service.impl.LawDefineManualServiceImpl"/>
+	<bean id="LawDefineManualStepService" class="com.sinosafe.xszc.law.service.impl.LawDefineManualStepServiceImpl"/>
+ 	<!-- 销售人员管理办法 end -->
+ 	
+ 	<!-- 销售团队管理 start -->
+ 	<bean id="SalesmanEmployService" class="com.sinosafe.xszc.group.service.impl.SalesmanEmployServiceImpl"/>
+ 	<bean id="GroupChangeRecordService" class="com.sinosafe.xszc.group.service.impl.GroupChangeRecordServiceImpl"/>
+    <bean id="GroupLeaderRecordService" class="com.sinosafe.xszc.group.service.impl.GroupLeaderRecordServiceImpl"/>
+	<bean id="SalesmanVirtualService" class="com.sinosafe.xszc.group.service.impl.SalesmanVirtualServiceImpl"/>
+    <bean id="SalesmanService" class="com.sinosafe.xszc.group.service.impl.SalesmanServiceImpl"/>
+    <bean id="GroupMainService" class="com.sinosafe.xszc.group.service.impl.GroupMainServiceImpl"/>
+ 	<!--end -->
+ 	
+ 	<!-- 考核绩效管理 start -->
+ 	<bean id="ReviewSalaryService" class="com.sinosafe.xszc.review.service.impl.ReviewSalaryServiceImpl"/>
+ 	<bean id="ReviewRankService" class="com.sinosafe.xszc.review.service.impl.ReviewRankServiceImpl"/>
+ 	<bean id="ReviewScoreService" class="com.sinosafe.xszc.review.service.impl.ReviewScoreServiceImpl"/>
+ 	<bean id="ReviewRankHistoryService" class="com.sinosafe.xszc.review.service.impl.ReviewRankHistoryServiceImpl"/>
+ 	<bean id="LawCalcProceService" class="com.sinosafe.xszc.law.service.impl.LawCalcProceServiceImpl"/>
+ 	<bean id="NewYearRewardService" class="com.sinosafe.xszc.review.service.impl.NewYearRewardServiceImpl"/>
+ 	<!-- 考核绩效管理end -->
+ 	
+ 	<!-- 公告模块 -->
+ 	<bean id="NoticeService" class="com.sinosafe.xszc.notice.service.impl.NoticeServiceImpl" />
+ 	
+ 	<!-- 续保模块 -->
+ 	<bean id="RenewalService" class="com.sinosafe.xszc.renewal.service.impl.RenewalServiceImpl" />
+ 	<bean id="RenewalLevelService" class="com.sinosafe.xszc.renewal.service.impl.RenewalLevelServiceImpl" />
+ 	<bean id="RenewalAssignRecordService" class="com.sinosafe.xszc.renewal.service.impl.RenewalAssignRecordServiceImpl" />
+ 	
+ 	<!-- 销售计划模块 -->
+ 	<bean id="PlanMainService" class="com.sinosafe.xszc.plan.service.impl.PlanMainServiceImpl" />
+ 	
+ 	<!--下拉框模块CommonServericeImpl-->
+ 	<bean id="CommonServerice" class="com.sinosafe.xszc.common.service.impl.CommonServericeImpl" />
+ 	
+ 	<!-- 市场调研管理 SurveyServiceImpl -->
+ 	<bean id="SurveyService" class="com.sinosafe.xszc.survey.service.impl.SurveyServiceImpl" />
+ 	<bean id="MarketResInforMainService" class="com.sinosafe.xszc.survey.service.impl.MarketResInforMainServiceImpl" />
+ 	<bean id="MarketResInforChannelService" class="com.sinosafe.xszc.survey.service.impl.MarketResInforChannelServiceImpl" />
+ 	<bean id="MarketResInforLocalService" class="com.sinosafe.xszc.survey.service.impl.MarketResInforLocalServiceImpl" />
+ 	<bean id="MarketResInforPremiumService" class="com.sinosafe.xszc.survey.service.impl.MarketResInforPremiumServiceImpl" />
+ 	
+ 	<!-- 文件上传 -->
+ 	<bean id="UploadService" class="com.sinosafe.xszc.upload.service.impl.UploadServiceImpl"></bean>
+ 	
+ 	<!-- Session装填 -->
+ 	<bean id="SessionTimeoutProcessService" class="com.sinosafe.xszc.interceptor.service.impl.SessionTimeoutProcessServiceImpl" />
+ 	
+ 	<!-- 新销售计划功能 -->
+ 	<bean id="PlanMainNewService" class="com.sinosafe.xszc.planNew.service.impl.PlanMainServiceImpl" />
+ 	<bean id="SalePlanDetailService" class="com.sinosafe.xszc.planNew.service.impl.SalePlanDetailServiceImpl" />
+ 	
+ 	<!-- 访问记录 -->
+ 	<bean id="UserAccessRecordService" class="com.sinosafe.xszc.main.service.impl.UserAccessRecordServiceImpl" />
+ 	<bean id="UserHelpMsgService" class="com.sinosafe.xszc.main.service.impl.UserHelpMsgServiceImpl" />
+ 	<bean id="UserRoleService" class="com.sinosafe.xszc.main.service.impl.UserRoleServiceImpl"/>
+ 	
+ 	<!-- 电商渠道管理 -->
+ 	<bean id="EnterpriseService" class="com.sinosafe.xszc.partner.service.impl.EnterpriseServiceImpl" />
+ 	<bean id="IndividualService" class="com.sinosafe.xszc.partner.service.impl.IndividualServiceImpl" />
+ 	<bean id="ConferService" class="com.sinosafe.xszc.partner.service.impl.ConferServiceImpl" />
+ 	<bean id="ConferProductService1" class="com.sinosafe.xszc.partner.service.impl.ConferProductServiceImpl" />
+ 	
+  <!-- 权限开关 -->
+ 	<bean id="AuthService" class="com.sinosafe.xszc.auth.service.impl.AuthServiceImpl" />
+ 	
+</beans>

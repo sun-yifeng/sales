@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.dubbo.salesman.vo.Salesman">
+
+	<!-- 模糊查询业务员 -->
+	<select id="findSalesmanByMap" parameterType="map" resultType="map">
+		select t1.salesman_code as "salesmanCode",
+		t1.employ_code as "employCode",
+		t1.salesman_cname as "salesmanName",
+		t1.dept_code as "deptCode",
+		t2.dept_cname as
+		"deptName"
+		from salesman t1
+		left join department t2
+		on t1.dept_code = t2.dept_code
+		and t2.valid_ind = '1'
+		where t1.valid_ind = '1'
+		and t1.process_status = '2'
+		and rownum <![CDATA[<=2000]]>
+		<if test="employCode != null and employCode != ''">
+			and t1.employ_code like trim(#{employCode,jdbcType=CHAR})||'%'
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+			and t1.dept_code like trim(#{deptCode,jdbcType=CHAR})||'%'
+		</if>
+		<if test="salesmanName != null and salesmanName != ''">
+			and t1.salesman_cname like trim(#{salesmanName,jdbcType=CHAR})||'%'
+		</if>
+	</select>
+
+	<!-- 精确查询业务员 -->
+	<select id="findSalesmanByList" parameterType="java.util.List" resultType="map">
+		select t1.salesman_code as "salesmanCode",
+		t1.employ_code as "employCode",
+		t1.salesman_cname as "salesmanName",
+		t1.dept_code as "deptCode",
+		t2.dept_cname as
+		"deptName",
+		t1.status as "status",
+		t1.salesman_type as "salesmanType",
+		t1.process_status as "processStatus",
+		t1.salesman_flag as "salesmanFlag",
+		t1.position_category_name as "positionCategory",
+		t1.director as "director",
+		t1.sale_rank as "saleRank",
+		t1.group_code as "groupCode",
+		t1.evaluate as "evaluate",
+		t1.business_line as "businessLine"
+		from salesman t1
+		left join department t2
+		on t1.dept_code = t2.dept_code
+		and t2.valid_ind = '1'
+		where t1.valid_ind = '1'
+		and
+		t1.employ_code in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			trim(#{item,jdbcType=CHAR})
+		</foreach>
+	</select>
+
+	<!-- 查询HR人员的销售助理 -->
+	<select id="querySalesAssistant" parameterType="java.lang.String" resultType="map">
+		select t1.employ_name as "name",
+		t3.dept_cname as "deptCname",
+		t1.employ_code as "employCode",
+		to_char(t1.bgn_date, 'yyyy-MM-dd') as "enterDate",
+		to_char(t1.end_date, 'yyyy-MM-dd') as "endDate"
+		from salesman_virtual_record
+		t1
+		left join salesman t2
+		on t1.salesman_code = t2.salesman_code
+		left join department t3
+		on t1.dept_code = t3.dept_code
+		where t1.valid_ind = '1'
+		and t2.valid_ind = '1'
+		and t2.employ_code = #{employCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 根据业务员的工号查询个人代理人 -->
+	<select id="queryAllAgentByRecommender" parameterType="java.lang.String" resultType="map">
+		select t.channel_name, t.channel_code, t.dept_code, t.dept_name
+		from
+		channel_recommender_detail t
+		where t.valid_ind = '1'
+		and t.recommender_code = #{employCode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 根据业务员工号加证件号查询销售人员 -->
+	<select id="findSalesmanByEmployCodeCertifyNoNameMap" parameterType="map" resultType="map">
+		select t1.salesman_code as "salesmanCode",
+		t1.employ_code as "employCode",
+		t1.salesman_cname as "salesmanName",
+		t1.dept_code as "deptCode",
+		t2.dept_cname as
+		"deptName",
+		t1.status as "status",
+		t1.salesman_type as "salesmanType",
+		t1.process_status as "processStatus",
+		t1.salesman_flag as "salesmanFlag",
+		t1.position_category_name as "positionCategory",
+		t1.director as "director",
+		t1.sale_rank as "saleRank",
+		t1.group_code as "groupCode",
+		t1.evaluate as "evaluate",
+		t1.business_line as "businessLine"
+		from salesman t1
+		left join department t2
+		on t1.dept_code = t2.dept_code
+		and t2.valid_ind = '1'
+		where t1.valid_ind = '1'
+		<if test="employCode != null and employCode != ''">
+			and t1.employ_code = #{employCode,jdbcType=CHAR}
+		</if>
+		<if test="certifyNo != null and certifyNo != ''">
+			and t1.certify_no = #{certifyNo,jdbcType=CHAR}
+		</if>
+		<if test="salesmanCname != null and salesmanCname != ''">
+			and t1.salesman_cname = #{salesmanCname,jdbcType=CHAR}
+		</if>
+	</select>
+
+</mapper>

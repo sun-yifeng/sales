@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelWarning" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="WARNING_ID" property="warningId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SETTING_DATE" property="settingDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="WARING_DAY" property="waringDay" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelWarning">
+		<id column="WARNING_ID" property="warningId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="SETTING_DATE" property="settingDate" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="WARING_DAY" property="waringDay" jdbcType="INTEGER" javaType="java.lang.Double" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		WARNING_ID,
+		CREATED_DATE,
+		SETTING_DATE,
+		CREATED_USER,
+		CHANNEL_CODE,
+		EMAIL,
+		UPDATED_DATE,
+		WARING_DAY
+	</sql>
+	
+	<!-- 代理人预警管理页面 -->
+	<sql id="Base_Column_Lists" >
+		cw.UPDATED_USER,
+		cw.VALID_IND,
+		WARNING_ID,
+		cw.CREATED_DATE,
+		to_char(SETTING_DATE,'yyyy-mm-dd')SETTING_DATE,
+		cw.CREATED_USER,
+		cw.CHANNEL_CODE,
+		cw.EMAIL,
+		cw.UPDATED_DATE,
+		WARING_DAY
+	</sql>
+	
+	<!-- 中介预警管理页面 -->
+	<sql id="Base_Column_ListM" >
+		cw.UPDATED_USER,
+		cw.VALID_IND,
+		WARNING_ID,
+		cw.CREATED_DATE,
+		to_char(SETTING_DATE,'yyyy-mm-dd')SETTING_DATE,
+		cw.CREATED_USER,
+		cw.CHANNEL_CODE,
+		EMAIL,
+		cw.UPDATED_DATE,
+		WARING_DAY
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		WARNING_ID as "warningId",
+		CREATED_DATE as "createdDate",
+		SETTING_DATE as "settingDate",
+		CREATED_USER as "createdUser",
+		CHANNEL_CODE as "channelCode",
+		EMAIL as "email",
+		UPDATED_DATE as "updatedDate",
+		WARING_DAY as "waringDay"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		#{warningId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		sysdate,
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{email,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{waringDay,jdbcType=INTEGER}
+ 	</sql>
+
+		<!-- 主页面查询条件的sql -->
+	<sql id="Base_Where_Sqls">
+		
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="warningId != null and warningId != ''">
+			and WARNING_ID = #{warningId,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and cw.CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="dept_simple_name != null and dept_simple_name != ''">
+			and DEPT_SIMPLE_NAME = #{dept_simple_name,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="mediumCname != null and mediumCname != ''">
+			and MEDIUM_CNAME = #{mediumCname,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="warningId != null and warningId != ''">
+			and WARNING_ID = #{warningId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="settingDate != null and settingDate != ''">
+			and SETTING_DATE = #{settingDate,jdbcType=DATE}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="email != null and email != ''">
+			and EMAIL = #{email,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="waringDay != null and waringDay != ''">
+			and WARING_DAY = #{waringDay,jdbcType=INTEGER}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelWarning" >
+    insert into CHANNEL_WARNING (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_WARNING (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_WARNING
+    where WARNING_ID = #{warningId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_WARNING
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_WARNING
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+   	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="settingDate != null and settingDate != ''">
+		SETTING_DATE = #{settingDate,jdbcType=DATE},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="waringDay != null and waringDay != ''">
+		WARING_DAY = #{waringDay,jdbcType=INTEGER}
+	</if>
+  	</set>
+	where WARNING_ID = #{warningId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_WARNING cw
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+   			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			SETTING_DATE = #{settingDate,jdbcType=DATE},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			WARING_DAY = #{waringDay,jdbcType=INTEGER}
+  		where WARNING_ID = #{warningId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelWarning" >
+	update CHANNEL_WARNING
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="settingDate != null and settingDate != ''">
+		SETTING_DATE = #{settingDate,jdbcType=DATE},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="email != null and email != ''">
+		EMAIL = #{email,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="waringDay != null and waringDay != ''">
+		WARING_DAY = #{waringDay,jdbcType=INTEGER}
+	</if>
+  	</set>
+	where WARNING_ID = #{warningId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelWarning" >
+		update CHANNEL_WARNING
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			SETTING_DATE = sysdate,
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			EMAIL = #{email,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			WARING_DAY = #{waringDay,jdbcType=INTEGER}
+  		where WARNING_ID = #{warningId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_WARNING
+	where WARNING_ID = #{warningId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_WARNING
+	where WARNING_ID = #{warningId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 
+	<select id="queryCount" parameterType="map" resultType="long">
+		select count(1)
+		from CHANNEL_WARNING <include refid="Base_Where_Sql" />
+	</select> -->
+	
+	<!-- 根据传入的 finance_flag(0 机构 ， 1 代理人)查询数据的总数量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+			 select count(1)
+				from CHANNEL_WARNING cw
+				 inner join channel_main cm
+       				on cw.channel_code = cm.channel_code
+     			 where cm.finance_flag = '1'
+	</select>
+
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelWarning" resultType="long">
+	select count(1)
+	from CHANNEL_WARNING <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_WARNING
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_WARNING
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_WARNING
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_WARNING
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_WARNING
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_WARNING <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<!-- 分页查询个人代理预警表所有数据 -->
+	<select id="queryListPages" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+				select <include refid="Base_Column_Lists"/>,
+		       d.dept_code as "deptCode",
+		       d.dept_simple_name as "deptName",
+		       cad.channel_name as "channelName"
+		  from channel_warning cw
+		 inner join channel_main cm 
+		       on cw.channel_code = cm.channel_code
+		 inner join channel_agent_detail cad 
+		       on cw.channel_code = cad.channel_code
+		 inner join department d 
+		       on cm.dept_code = d.dept_code
+		 where cw.valid_ind = '1'
+		 	and d.valid_ind = '1'
+		<if test="channelFlag != null and channelFlag != ''">
+			and cm.channel_flag = #{channelFlag}
+		</if>
+		<if test="channelName != null and channelName != ''">
+			and cad.CHANNEL_NAME = #{channelName} 
+		</if>
+		 <if test="deptCode != null and deptCode != ''">
+	         and exists (
+		             select 1 from department dep 
+		             where d.dept_code = dep.dept_code and dep.dept_code = #{deptCode}
+		             ) 
+		</if>
+		<include refid="Base_Where_Sqls"/>
+		   order by cw.updated_date desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 分页查询中介预警表所有数据 -->
+	<select id="queryListPageM" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+				select <include refid="Base_Column_ListM"/>,
+		       d.dept_code as "deptCode",
+		       d.dept_simple_name as "deptName",
+		       cmd.MEDIUM_CNAME as "mediumCname"
+		  from channel_warning cw
+		 inner join channel_main cm 
+		       on cw.channel_code = cm.channel_code
+		 inner join channel_medium_detail cmd 
+		       on cw.channel_code = cmd.channel_code
+		 inner join department d 
+		       on cm.dept_code = d.dept_code
+		 where cw.valid_ind = '1'
+		 	   and d.valid_ind = '1'
+		 <if test="channelFlag != null and channelFlag != ''">
+			and cm.channel_flag = #{channelFlag}
+		</if>
+		<if test="mediumCname != null and mediumCname != ''">
+			and cmd.MEDIUM_CNAME like '%' || #{mediumCname} || '%'
+		</if>
+		 <if test="deptCode != null and deptCode != ''">
+	         and exists (
+	             select 1 from department dep 
+	             where d.dept_code = dep.dept_code and dep.dept_code like #{deptCode} || '%'
+             ) 
+		</if>
+		<include refid="Base_Where_Sqls"/>
+		   order by cw.updated_date desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询中介单条数据详情 -->
+	<select id="queryAgentWarningMedium" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_ListM"/>,
+		       d.dept_code as "deptCode",
+		       d.dept_simple_name as "deptName",
+		       cmd.MEDIUM_CNAME as "mediumCname"
+		  from channel_warning cw
+		 inner join channel_main cm 
+		       on cw.channel_code = cm.channel_code
+		 inner join channel_medium_detail cmd 
+		       on cw.channel_code = cmd.channel_code
+		 inner join department d 
+		       on cm.dept_code = d.dept_code
+		 where cw.valid_ind = '1'
+		<if test="channelFlag != null and channelFlag != ''">
+			and cm.channel_flag = #{channelFlag}
+		</if>
+		 <if test="warningId != null and warningId != ''">
+			and cw.warning_id = #{warningId}
+		</if>
+	</select>
+	
+	<!-- 根据传入的 finance_flag(0 机构 ， 1 代理人)查询数据的总数量 -->
+	<select id="queryCounts" parameterType="map" resultType="long">
+			 select count(1)
+				from CHANNEL_WARNING cw
+				 inner join channel_main cm on cw.channel_code = cm.channel_code
+       			 inner join department d on cm.dept_code = d.dept_code
+       			 inner join channel_medium_detail cmd on cw.channel_code = cmd.channel_code
+       				where cw.valid_ind = '1'
+       				and  d.valid_ind = '1'
+     	<if test="channelFlag != null and channelFlag != ''">
+			 and cm.channel_flag = #{channelFlag}
+		</if>
+		<if test="mediumCname != null and mediumCname != ''">
+			and cmd.MEDIUM_CNAME like '%' || #{mediumCname} || '%'
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+	         and exists (
+		             select 1 from department dep 
+		             where d.dept_code = dep.dept_code and dep.dept_code like #{deptCode} || '%'
+		             ) 
+		</if>
+	</select>
+	
+	<select id="queryAgentCounts" parameterType="map" resultType="long">
+			 select count(1)
+				from CHANNEL_WARNING cw
+				 inner join channel_main cm on cw.channel_code = cm.channel_code
+       			 inner join department d on cm.dept_code = d.dept_code
+       			 inner join channel_agent_detail cad on cw.channel_code = cad.channel_code
+       				where cw.valid_ind = '1'
+       				and  d.valid_ind = '1'
+     	<if test="channelFlag != null and channelFlag != ''">
+			 and cm.channel_flag = #{channelFlag}
+		</if>
+		<if test="channelName != null and channelName != ''">
+			and cad.CHANNEL_NAME = #{channelName} 
+		</if>
+		<if test="deptCode != null and deptCode != ''">
+	         and exists (
+		             select 1 from department dep 
+		             where d.dept_code = dep.dept_code and dep.dept_code like #{deptCode} || '%'
+		             ) 
+		</if>
+	</select>
+	
+	<!-- 查询单条数据详情 -->
+	<select id="queryAgentWarningDetail" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_Lists"/>,
+		       d.dept_code as "deptCode",
+		       d.dept_simple_name as "deptName",
+		       cad.channel_name as "channelName"
+		  from channel_warning cw
+		 inner join channel_main cm 
+		       on cw.channel_code = cm.channel_code
+		 inner join channel_agent_detail cad 
+		       on cw.channel_code = cad.channel_code
+		 inner join department d 
+		       on cm.dept_code = d.dept_code
+		 where cw.valid_ind = '1'
+		<if test="channelFlag != null and channelFlag != ''">
+			and cm.channel_flag = #{channelFlag}
+		</if>
+		 <if test="warningId != null and warningId != ''">
+			and cw.warning_id = #{warningId}
+		</if>
+	</select>
+	
+	<!--根据主键删除代理人预警信息-->
+	<update id="deleteById" parameterType="com.sinosafe.xszc.channel.vo.ChannelWarning" >
+		update channel_warning cw
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where cw.warning_id = #{warningId}
+	</update>
+	
+</mapper>

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.channel.vo.ChannelMailWarning" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="TASK_ID" property="taskId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SEND_DATE" property="sendDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RECIPIENTS" property="recipients" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEND_STATUS" property="sendStatus" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONFER_CODE" property="conferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_NAME" property="channelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_TYPE" property="taskType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEND_IP" property="ServerIP" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.channel.vo.ChannelMailWarning">
+		<id column="TASK_ID" property="taskId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="SEND_DATE" property="sendDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="RECIPIENTS" property="recipients" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEND_STATUS" property="sendStatus" jdbcType="CHAR" javaType="java.lang.String" />
+  		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CONFER_CODE" property="conferCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANNEL_NAME" property="channelName" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="TASK_TYPE" property="taskType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_LINE" property="businessLine" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="SEND_IP" property="ServerIP" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		VALID_IND,
+		SEND_DATE,
+		CREATED_DATE,
+		RECIPIENTS,
+		CREATED_USER,
+		CHANNEL_CODE,
+		SEND_STATUS,
+		TASK_ID,
+		UPDATED_DATE,
+		CONFER_CODE,
+		CHANNEL_NAME,
+		TASK_TYPE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VALID_IND as "validInd",
+		SEND_DATE as "sendDate",
+		CREATED_DATE as "createdDate",
+		RECIPIENTS as "recipients",
+		CREATED_USER as "createdUser",
+		CHANNEL_CODE as "channelCode",
+		SEND_STATUS as "sendStatus",
+		TASK_ID as "taskId",
+		UPDATED_DATE as "updatedDate",
+		CONFER_CODE as "conferCode",
+		CHANNEL_NAME as "channelName",
+		TASK_TYPE as "taskType"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		to_date(#{sendDate,jdbcType=VARCHAR},'yyyy/mm/dd hh24:mi:ss') - #{warmingDay},
+ 		sysdate,
+ 		<if test="recipients != null and recipients != ''">
+			#{recipients,jdbcType=VARCHAR},
+		</if>
+		<if test="recipients == null or recipients == ''">
+	 		nvl((select recipients from channel_mail_warning 
+	 			where channel_code = #{channelCode,jdbcType=VARCHAR} 
+	 			and confer_code is null and valid_ind = '1'
+	 			and task_type = '1' and rownum = 1),'luoyun6@sinosafe.com.cn'),
+ 		</if>
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{channelCode,jdbcType=VARCHAR},
+ 		#{sendStatus,jdbcType=CHAR},
+ 		#{taskId,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{conferCode,jdbcType=VARCHAR},
+ 		#{channelName,jdbcType=VARCHAR},
+ 		#{taskType,jdbcType=CHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="sendDate != null and sendDate != ''">
+			and SEND_DATE = #{sendDate,jdbcType=DATE}
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="recipients != null and recipients != ''">
+			and RECIPIENTS = #{recipients,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="sendStatus != null and sendStatus != ''">
+			and SEND_STATUS = #{sendStatus,jdbcType=CHAR}
+		</if>
+		<if test="taskId != null and taskId != ''">
+			and TASK_ID = #{taskId,jdbcType=VARCHAR}
+		</if>
+		<if test="taskType != null and taskType != ''">
+			and TASK_TYPE LIKE '%${taskType}%' 
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="conferCode != null and conferCode != ''">
+			and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMailWarning" >
+    insert into CHANNEL_MAIL_WARNING (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into CHANNEL_MAIL_WARNING (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CHANNEL_MAIL_WARNING
+    where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from CHANNEL_MAIL_WARNING
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update CHANNEL_MAIL_WARNING
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="sendDate != null and sendDate != ''">
+		SEND_DATE = #{sendDate,jdbcType=DATE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="recipients != null and recipients != ''">
+		RECIPIENTS = #{recipients,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="sendStatus != null and sendStatus != ''">
+		SEND_STATUS = #{sendStatus,jdbcType=CHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="conferCode != null and conferCode != ''">
+		CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update CHANNEL_MAIL_WARNING
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VALID_IND = #{validInd,jdbcType=CHAR},
+  			SEND_DATE = #{sendDate,jdbcType=DATE},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			RECIPIENTS = #{recipients,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+  			SEND_STATUS = #{sendStatus,jdbcType=CHAR},
+   			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+  		where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMailWarning" >
+	update CHANNEL_MAIL_WARNING
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="sendDate != null and sendDate != ''">
+		SEND_DATE = #{sendDate,jdbcType=DATE},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="recipients != null and recipients != ''">
+		RECIPIENTS = #{recipients,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="channelCode != null and channelCode != ''">
+		CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="sendStatus != null and sendStatus != ''">
+		SEND_STATUS = #{sendStatus,jdbcType=CHAR},
+	</if>
+   	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="conferCode != null and conferCode != ''">
+		CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MAIL_WARNING
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from CHANNEL_MAIL_WARNING
+	where TASK_ID = #{taskId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from CHANNEL_MAIL_WARNING <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMailWarning" resultType="long">
+	select count(1)
+	from CHANNEL_MAIL_WARNING <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIL_WARNING
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 手动预警邮件分页查询语句 -->
+	<select id="queryMailWarningListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		  <include refid="Mail_Warning_Column_List"/>     
+		  from CHANNEL_MAIL_WARNING t1
+		  left join channel_medium_detail t2 on t1.CHANNEL_CODE=t2.CHANNEL_CODE
+		  <include refid="Mail_Warning_Where_Sql"/>
+		 order by updated_date desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 手动预警邮件查询条件 -->
+	<sql id="Mail_Warning_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="validInd != null and validInd != ''">
+			and VALID_IND = #{validInd,jdbcType=CHAR}
+		</if>
+		<if test="startDate != null and startDate != ''">
+			and send_Date &gt;= to_date(#{startDate,jdbcType=VARCHAR},'yyyy-mm-dd') 
+		</if>
+		<if test="endDate != null and endDate != ''">
+			and send_Date &lt;= to_date(#{endDate,jdbcType=VARCHAR},'yyyy-mm-dd') + 1 
+		</if>
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="recipients != null and recipients != ''">
+			and RECIPIENTS LIKE '%${recipients}%'
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="channelCode != null and channelCode != ''">
+			and t1.CHANNEL_CODE = trim(#{channelCode,jdbcType=VARCHAR})
+		</if>
+		<if test="channelName != null and channelName != ''">
+			and CHANNEL_NAME LIKE '%' || trim(#{channelName,jdbcType=VARCHAR}) || '%'  
+		</if>
+		<if test="sendStatus != null and sendStatus != ''">
+			and SEND_STATUS = #{sendStatus,jdbcType=CHAR}
+		</if>
+		<if test="taskId != null and taskId != ''">
+			and TASK_ID = #{taskId,jdbcType=VARCHAR}
+		</if>
+		<if test="taskType != null and taskType != ''">
+			and TASK_TYPE LIKE '%${taskType}%' 
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="conferCode != null and conferCode != ''">
+			and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	<!-- 手动预警邮件查询字段 -->
+	<sql id="Mail_Warning_Column_List">
+	   t1.CHANNEL_CODE,
+	   t1.channel_name,
+	   t2.process_dept_code,
+	   t2.process_user_code,
+	   t1.confer_code,
+	   t1.recipients,
+	   t1.send_date,
+	   t1.send_status,
+	   t1.valid_ind,
+	   t1.created_user,
+	   t1.created_date,
+	   t1.updated_user,
+	   t1.updated_date,
+	   decode(t1.task_type,1,'渠道预警',3,'渠道协议预警',5,'渠道合同预警') as "task_type"
+	</sql>
+	
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIL_WARNING
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIL_WARNING
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from CHANNEL_MAIL_WARNING
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from CHANNEL_MAIL_WARNING
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from CHANNEL_MAIL_WARNING <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<update id="deleteById" parameterType="map" >
+		update CHANNEL_MAIL_WARNING
+		set VALID_IND = '0',
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where 1 = 1 
+		<if test="channelCode != null and channelCode != ''">
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="conferCode != null and conferCode != ''">
+			and CONFER_CODE = #{conferCode,jdbcType=VARCHAR}
+		</if>
+		<if test="taskType != null and taskType != ''">
+			and TASK_TYPE = #{taskType,jdbcType=CHAR}
+		</if>
+	</update>
+	
+	<!-- 修改渠道下协议的收件人（已经废除） -->
+	<update id="updateConferByChannelCode" parameterType="com.sinosafe.xszc.channel.vo.ChannelMailWarning" >
+		update CHANNEL_MAIL_WARNING
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			RECIPIENTS = #{recipients,jdbcType=VARCHAR},
+   			UPDATED_DATE = sysdate
+  		where 1 = 1
+			and CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+			and CONFER_CODE is not null
+			and valid_ind = '1'
+			and SEND_STATUS = '0'
+	</update>
+	
+	<!-- 取当天晚上需要发送邮件的记录，如果当天未发送或发送失败，7天内仍可以发送邮件 -->
+	<select id="queryTaskByNow" parameterType="map" resultMap="BaseResultMap">
+    select cmw.TASK_ID,
+           cmw.UPDATED_USER,
+           cmw.VALID_IND,
+           cmw.SEND_DATE,
+           cmw.CREATED_DATE,
+           cmw.RECIPIENTS,
+           cmw.CREATED_USER,
+           cmw.CHANNEL_CODE,
+           cmw.SEND_STATUS,
+           cmw.TASK_ID,
+           cmw.UPDATED_DATE,
+           cmw.CONFER_CODE,
+           cmw.TASK_TYPE,
+           case
+             when cm.channel_flag = '1' then
+              (select cad.channel_name from channel_agent_detail cad where cmw.channel_code = cad.channel_code)
+             when cm.channel_flag = '0' then
+              (select cmd.medium_cname from channel_medium_detail cmd where cmw.channel_code = cmd.channel_code)
+           end CHANNEL_NAME,
+           cm.dept_code,
+           cm.business_line
+      from CHANNEL_MAIL_WARNING cmw
+      inner join channel_main cm
+        on cmw.channel_code = cm.channel_code
+       and cm.valid_ind = '1'
+     where 1 = 1
+       and cmw.valid_ind = '1'
+       and cmw.send_status != '1'
+       and cmw.send_date between sysdate - 7 and sysdate + 1
+	</select>
+	
+	<!-- 取收件人的地址 -->
+	<select id="getMails" parameterType="map" resultMap="BaseResultMap">
+		select PKG_UTIL_MAIL.f_get_email(#{deptCode},#{businessLine}) as "mails" from dual
+	</select>
+	
+	<!-- 发送玩邮件之后，更新渠道的状态 -->
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.channel.vo.ChannelMailWarning" >
+		update CHANNEL_MAIL_WARNING
+		set 
+  		    RECIPIENTS = #{recipients,jdbcType=VARCHAR},
+  			SEND_STATUS = #{sendStatus,jdbcType=CHAR},
+   			SEND_IP = #{serverIP,jdbcType=CHAR},
+			UPDATED_USER = 'SYSTEM',
+   			UPDATED_DATE = sysdate
+  		where task_id = #{taskId,jdbcType=VARCHAR}
+	</update>
+</mapper>

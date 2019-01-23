@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.activity.vo.ActivityExpand" >
+	
+	<resultMap id="ActivityResultMap" type="java.util.HashMap">
+		<id column="ACTIVITY_ID" property="activityId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="FREQUENCY" property="frequency" jdbcType="CHAR" javaType="java.lang.String" />
+		<result column="CLIENT" property="client" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="END_DATE" property="endDate" jdbcType="DATE" javaType="java.lang.String" />
+		<result column="ATTEND" property="attend" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="BEGIN_DATE" property="beginDate" jdbcType="DATE" javaType="java.lang.String" />
+		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="ACTIVITY_PREMIUM" property="activityPremium" jdbcType="DOUBLE" javaType="java.lang.Double" />
+		<result column="ACTIVITY_MEMBER" property="activityMember" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="ACTIVITY_NAME" property="activityName" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.lang.String" />
+		<result column="STATUS" property="status" jdbcType="CHAR" javaType="java.lang.String" />
+		<result column="EXPECT" property="expect" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.lang.String" />
+		<result column="ACTIVITY_TARGET" property="activityTarget" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="PROJECT_USER" property="projectUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="UPLOAD_ID" property="uploadId" jdbcType="VARCHAR" javaType="java.lang.String" />
+	</resultMap>
+
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+			<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+			</if>
+			<if test="feedbackUser != null and feedbackUser != ''">
+			and FEEDBACK_USER = #{feedbackUser,jdbcType=VARCHAR}
+			</if>
+			<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+			</if>
+			<if test="activityId != null and activityId != ''">
+			and ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+			</if>
+			<if test="feedbackContent != null and feedbackContent != ''">
+			and FEEDBACK_CONTENT = #{feedbackContent,jdbcType=VARCHAR}
+			</if>
+			<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+			</if>
+			<if test="status != null and status != ''">
+			<![CDATA[and STATUS <> #{status,jdbcType=CHAR}]]>
+			</if>
+			<if test="processor != null and processor != ''">
+			and PROCESSOR = #{processor,jdbcType=DATE}
+			</if>
+			and VALID_IND = '1'
+			<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+			</if>
+			<if test="tel != null and tel != ''">
+			and TEL = #{tel,jdbcType=VARCHAR}
+			</if>
+			<if test="processContent != null and processContent != ''">
+			and PROCESS_CONTENT = #{processContent,jdbcType=VARCHAR}
+			</if>
+			<if test="feedbackDate != null and feedbackDate != ''">
+			and FEEDBACK_DATE = #{feedbackDate,jdbcType=DATE}
+			</if>
+			<if test="processDate != null and processDate != ''">
+			and PROCESS_DATE = #{processDate,jdbcType=VARCHAR}
+			</if>
+			<if test="feedbackId != null and feedbackId != ''">
+			and FEEDBACK_ID = #{feedbackId,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</sql>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryNoFeedbackCount" parameterType="map" resultType="long">
+	select count(1)
+		from ACTIVITY_FEEDBACK <include refid="Base_Where_Sql" />
+	</select>
+	
+	
+	<sql id="Query_Feedback_Where_Sql">
+		<where>
+			<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+			</if>
+			<if test="frequency != null and frequency != ''">
+			and FREQUENCY = #{frequency,jdbcType=CHAR}
+			</if>
+			<if test="client != null and client != ''">
+			and CLIENT = #{client,jdbcType=VARCHAR}
+			</if>
+			<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+			</if>
+			<if test="endDate != null and endDate != ''">
+			and END_DATE = to_date(#{endDate}||' 23:59:59','yyyy-mm-dd hh24:mi:ss')
+			</if>
+			<if test="attend != null and attend != ''">
+			and ATTEND = #{attend,jdbcType=VARCHAR}
+			</if>
+			<if test="beginDate != null and beginDate != ''">
+			and BEGIN_DATE = to_date(#{beginDate},'yyyy-mm-dd')
+			</if>
+			<if test="activityId != null and activityId != ''">
+			and ACTIVITY_ID = #{activityId,jdbcType=VARCHAR}
+			</if>
+			<if test="deptCode != null and deptCode != ''">
+			and exists (select 1
+			          from activity_receive_dept b
+			         where b.activity_id = a.activity_id
+			           and b.VALID_IND = '1'
+			           and b.dept_code = #{deptCode,jdbcType=VARCHAR}) 
+			</if>
+			<if test="activityPremium != null and activityPremium != ''">
+			and ACTIVITY_PREMIUM = #{activityPremium,jdbcType=DOUBLE}
+			</if>
+			<if test="activityMember != null and activityMember != ''">
+			and ACTIVITY_MEMBER = #{activityMember,jdbcType=VARCHAR}
+			</if>
+			<if test="activityName != null and activityName != ''">
+			and ACTIVITY_NAME = #{activityName,jdbcType=VARCHAR}
+			</if>
+			<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+			</if>
+			<if test="status != null and status != ''">
+			and STATUS = #{status,jdbcType=CHAR}
+			</if>
+			<if test="expect != null and expect != ''">
+			and EXPECT = #{expect,jdbcType=VARCHAR}
+			</if>
+			and VALID_IND = '1'
+			<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+			</if>
+			<if test="activityTarget != null and activityTarget != ''">
+			and ACTIVITY_TARGET = #{activityTarget,jdbcType=VARCHAR}
+			</if>
+			<if test="projectUser != null and projectUser != ''">
+			and PROJECT_USER = #{projectUser,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</sql>
+	
+	
+	<sql id="Activity_Column_List" >
+		UPDATED_USER,
+		FREQUENCY,
+		CLIENT,
+		CREATED_USER,
+		END_DATE,
+		ATTEND,
+		BEGIN_DATE,
+		ACTIVITY_ID,
+		DEPT_CODE,
+		ACTIVITY_MEMBER,
+		ACTIVITY_NAME,
+		UPDATED_DATE,
+		STATUS,
+		EXPECT,
+		VALID_IND,
+		CREATED_DATE,
+		ACTIVITY_TARGET,
+		PROJECT_USER,
+		(select b.status  from  activity_feedback b where b.activity_id = a.activity_id and b.dept_code = #{deptCode,jdbcType=VARCHAR})as "feedbackStatus",
+		(select decode(b.status,'1','1-未反馈','2','2-草稿','3','3-已完成反馈')  from  activity_feedback b where b.activity_id = a.activity_id and b.dept_code = #{deptCode,jdbcType=VARCHAR})as "feedbackStatusName",
+		decode(status,'0','0-草稿','1','1-已下发','2','2-活动结束') as "statusName",
+		(select upload_id from upload  where upload.main_id = a.activity_id and upload.module='05') UPLOAD_ID
+	</sql>
+	
+	
+	
+	<select id="queryFeedbackCount" parameterType="map" resultType="long">
+	select count(1)
+		from ACTIVITY a <include refid="Query_Feedback_Where_Sql" />
+	</select>
+	
+	<select id="queryFeedbackListPage" parameterType="map" resultMap="ActivityResultMap">
+	select * from (
+		select c.*,rownum rn from (
+		select 
+		<include refid="Activity_Column_List"/>
+		from ACTIVITY a
+		<include refid="Query_Feedback_Where_Sql"/>
+		order by created_date desc
+		) c where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryDept" parameterType="map" resultType="java.util.HashMap">
+		select dept_code "value", dept_code||'-'||dept_simple_name "name"
+		    from department a
+		   where a.parent_dept_code = #{deptCode,jdbcType=VARCHAR}
+		     and valid_ind = '1'
+		     order by dept_code
+	</select>
+	
+	<select id="queryIssuedDept" parameterType="map" resultType="java.util.HashMap">
+		select b.dept_code as "value",
+		       b.dept_code || '-' || b.dept_simple_name "name"
+		  from activity_receive_dept a, department b
+		 where a.activity_id = #{activityId,jdbcType=VARCHAR}
+		   and a.dept_code = b.dept_code
+		   order by b.dept_code
+	</select>
+	
+	
+</mapper>

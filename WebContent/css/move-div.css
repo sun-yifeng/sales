@@ -1,0 +1,22 @@
+
+
+/****************movediv-css********************/
+.movediv{ position: fixed; z-index: 99991; background: url(../img/poptitle.jpg) #6ea2db repeat-x; font-size:12px; width: 80%;  left: 25%; top: 20%;}
+.movediv_main{cursor: move; width: 100%; height: 30px; display: inline; position: absolute;}
+.movediv_div3{ display: inline; float: left; width: 81%;}
+.movediv_div3 span {line-height:30px; text-align:left; height:30px; color:#FFF; font-weight:bold; }
+.movediv_div4 { width: 20px; display: inline; float: right; line-height:30px; text-align:right; height:30px; position: relative; padding-top:0px; padding-top:5px\9; }
+.movediv_div4 a{color:#FFF; text-decoration:none; font-weight:bold; padding-right:3px;}
+.movediv_div4 a:hover {color:#ff0000;}
+.movediv_div2{ background-color:#ffffff; padding-bottom: 0px; position: relative; width: 100%; height:94%; top: 30px; margin: 0 auto; border-bottom:#6ea2db solid 1px; border-left:#6ea2db solid 1px; border-right:#6ea2db solid 1px; }
+.poptip{color:#666666; font-size:14px; font-weight:bold;}
+.smallpoptip{color:#666666; font-size:12px; font-weight:normal;}
+/*功能主按钮*/
+.popbutton_link,.popbutton_hover{ position:relative; margin:0; *padding:0px 0 0 15px!important; padding:1px 0 0 15px;  border:0; height:24px; line-height:22px; *line-height:22px;!important; line-height:24px\9; margin-right:50px; overflow:visible; }
+.popbutton_link div,.popbutton_hover div{ position:absolute; margin:0; padding:0; height:24px; width:14px; overflow:visible; right: -14px; top: 0px; _top:0;}
+.popbutton_link{background:url(../img/button.gif) left 0; color:#FFF;}
+.popbutton_hover{background:url(../img/button.gif) left 24px; color:#FFF;}
+.popbutton_link div{background:url(../img/button.gif) right 0;}
+.popbutton_hover div{background:url(../img/button.gif) right 24px;}
+/****************movediv-css********************/
+#bg{ display:none;  position: fixed;  top: 0%;  left: 0%;  width: 100%;  height: 100%;  background-color: black;  z-index:99990;  -moz-opacity: 0.7;  opacity:.70;  filter: alpha(opacity=70);}

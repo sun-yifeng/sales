@@ -1,0 +1,1183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.LawDefine" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="VERSION_ID" property="versionId" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VERSION_ENAME" property="versionEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FATHER_VERSION_ID" property="fatherVersionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEFINE_MEMO" property="defineMemo" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="VERSION_CNAME" property="versionCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="LAW_BGN_DATE" property="lawBgnDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="LAW_END_DATE" property="lawEndDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_STATUS" property="versionStatus" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="last_start_tm" property="lastStartTm" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="last_update_tm" property="lastUpdateTm" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.LawDefine">
+		<id column="VERSION_ID" property="versionId"  jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="VERSION_ENAME" property="versionEname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="FATHER_VERSION_ID" property="fatherversionId" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEFINE_MEMO" property="defineMemo" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="VERSION_CNAME" property="versionCname" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="LAW_BGN_DATE" property="lawBgnDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="LAW_END_DATE" property="lawEndDate" jdbcType="DATE" javaType="java.lang.String" />
+ 		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="LINE_CODE" property="lineCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="VERSION_STATUS" property="versionStatus" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_DATE,
+		VERSION_ENAME,
+		FATHER_VERSION_ID,
+		CREATED_USER,
+		DEFINE_MEMO,
+		VERSION_ID,
+		VERSION_CNAME,
+		UPDATED_DATE,
+		to_char(LAW_BGN_DATE,'yyyy-mm-dd') as "LAW_BGN_DATE",
+		to_char(LAW_END_DATE,'yyyy-mm-dd') as "LAW_END_DATE",
+		VALID_IND,
+		VERSION_STATUS,
+		decode(LINE_CODE,'925004','电话直销', '925005','网销业务','925006','渠道重客','925007','其他业务','925008','信用保证险','925009','创新','其他') as "LINE_CODE",
+		DEPT_CODE
+	</sql>
+	
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="User_Base_Column_List" >
+		t.UPDATED_USER,
+		to_char(t.CREATED_DATE,'yyyy-mm-dd hh24:mi:ss') as "createdDate",
+		t.VERSION_ENAME,
+		t.FATHER_VERSION_ID,
+		t.CREATED_USER,
+		t.DEFINE_MEMO,
+		t.VERSION_ID,
+		t.VERSION_CNAME,
+		t.VERSION_STATUS,
+		to_char(t.UPDATED_DATE,'yyyy-mm-dd hh24:mi:ss') as "updatedDate",
+		to_char(t.LAW_BGN_DATE,'yyyy-mm-dd') as "LAW_BGN_DATE",
+		to_char(t.LAW_END_DATE,'yyyy-mm-dd') as "LAW_END_DATE",
+		t.VALID_IND,
+		t.LINE_CODE,
+		t.dept_CODE,
+		to_char(t.last_start_tm,'yyyy-mm-dd hh24:mi:ss') as "last_start_tm",
+		to_char(t.last_update_tm,'yyyy-mm-dd hh24:mi:ss') as "last_update_tm"
+	</sql>
+		
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		VERSION_ENAME as "versionEname",
+		FATHER_VERSION_ID as "fatherVersionId",
+		CREATED_USER as "createdUser",
+		DEFINE_MEMO as "defineMemo",
+		VERSION_ID as "versionId",
+		VERSION_CNAME as "versionCname",
+		VERSION_STATUS as "versionStatus",
+		to_char(CREATED_DATE, 'yyyy-mm-dd') as "createdDate",
+		to_char(UPDATED_DATE, 'yyyy-mm-dd') as "updatedDate",
+		to_char(LAW_BGN_DATE, 'yyyy-mm-dd') as "lawBgnDate",
+		to_char(LAW_END_DATE, 'yyyy-mm-dd') as "lawEndDate",
+		LINE_CODE, as "lineCode"
+		DEPT_CODE as "deptCode"
+	</sql>
+	
+	<!-- 插入数据列Sql -->
+	<sql id="Insert_Base_Column_List" >
+		UPDATED_USER,
+		CREATED_DATE,
+		VERSION_ENAME,
+		FATHER_VERSION_ID,
+		CREATED_USER,
+		DEFINE_MEMO,
+		VERSION_ID,
+		VERSION_CNAME,
+		VERSION_STATUS,
+		UPDATED_DATE,
+		LAW_BGN_DATE,
+		LAW_END_DATE,
+		VALID_IND,
+		LINE_CODE,
+		DEPT_CODE
+	</sql>
+	
+	<!-- 插入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{versionEname,jdbcType=VARCHAR},
+ 		#{fatherVersionId,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{defineMemo,jdbcType=VARCHAR},
+ 		upper(#{versionId,jdbcType=VARCHAR}),
+ 		#{versionCname,jdbcType=VARCHAR},
+ 		#{versionStatus,jdbcType=VARCHAR},
+ 		sysdate,
+ 		to_date(#{lawBgnDate,jdbcType=DATE},'yyyy-MM-dd'),
+ 		to_date(#{lawEndDate,jdbcType=DATE},'yyyy-MM-dd'),
+ 		#{validInd,jdbcType=CHAR},
+ 		#{lineCode,jdbcType=VARCHAR},
+ 		#{deptCode,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="versionEname != null">
+			and VERSION_ENAME = #{versionEname,jdbcType=VARCHAR}
+		</if>
+		<if test="fatherVersionId != null">
+			and FATHER_VERSION_ID = #{fatherVersionId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="defineMemo != null">
+			and DEFINE_MEMO = #{defineMemo,jdbcType=VARCHAR}
+		</if>
+		<if test="versionId != null and versionId != ''">
+			and VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="versionCname != null and versionCname !='' ">
+			and VERSION_CNAME = #{versionCname,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="lawBgnDate != null">
+			and LAW_BGN_DATE = #{lawBgnDate,jdbcType=DATE}
+		</if>
+		<if test="lawEndDate != null">
+			and LAW_END_DATE = #{lawEndDate,jdbcType=DATE}
+		</if>
+		<if test="deptCode == '00'">
+			and 2=2
+		</if>
+		<if test="deptCode != null and deptCode != '' and deptCode != '00'">
+			and DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+		</if>
+		<if test="versionStatus != null and versionStatus != ''">
+			and VERSION_STATUS = #{versionStatus,jdbcType=VARCHAR}
+		</if>
+			and VALID_IND = 1
+		</where>
+	</sql>
+	
+	<!-- 查询条件, 查询基本法-->
+	<sql id="User_Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null">
+			and t.UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdDate != null">
+			and t.CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="versionEname != null">
+			and t.VERSION_ENAME = #{versionEname,jdbcType=VARCHAR}
+		</if>
+		<if test="fatherVersionId != null">
+			and t.FATHER_VERSION_ID = #{fatherVersionId,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null">
+			and t.CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="defineMemo != null">
+			and t.DEFINE_MEMO = #{defineMemo,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null">
+			and t.UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="lawBgnDate != null">
+			and t.LAW_BGN_DATE = #{lawBgnDate,jdbcType=DATE}
+		</if>
+		<if test="lawEndDate != null">
+			and t.LAW_END_DATE = #{lawEndDate,jdbcType=DATE}
+		</if>
+		<!-- 查询条件 -->
+		<if test="versionId != null and versionId != ''">
+			and t.VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		</if>
+		<if test="versionCname != null and versionCname !='' ">
+			and t.VERSION_CNAME = #{versionCname,jdbcType=VARCHAR}
+		</if>
+		<if test="lineCode != null and lineCode !='' ">
+			and t.line_code = #{lineCode,jdbcType=VARCHAR}
+		</if>
+		<if test="versionStatus != null and versionStatus != ''">
+			and VERSION_STATUS = #{versionStatus,jdbcType=VARCHAR}
+		</if>
+		<choose>
+			<when test="deptCode == '00'">
+				and 1=1
+			</when>
+			<when test="deptCode != null and deptCode != ''">
+				and t.DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+			</when>
+			<otherwise></otherwise>
+		</choose>
+			and t.VALID_IND = 1
+		</where>
+	</sql>
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.LawDefine" >
+    insert into T_LAW_DEFINE (
+		<include refid="Insert_Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_LAW_DEFINE (
+		<include refid="Insert_Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_LAW_DEFINE
+    where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_LAW_DEFINE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_LAW_DEFINE
+	<set>
+	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="versionEname != null">
+		VERSION_ENAME = #{versionEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="fatherVersionId != null">
+		FATHER_VERSION_ID = #{fatherVersionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="defineMemo != null">
+		DEFINE_MEMO = #{defineMemo,jdbcType=VARCHAR},
+	</if>
+   	<if test="versionCname != null">
+		VERSION_CNAME = #{versionCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+	</if>
+  	</set>
+	where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_LAW_DEFINE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			VERSION_ENAME = #{versionEname,jdbcType=VARCHAR},
+  			FATHER_VERSION_ID = #{fatherVersionId,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEFINE_MEMO = #{defineMemo,jdbcType=VARCHAR},
+   			VERSION_CNAME = #{versionCname,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			LAW_BGN_DATE = #{lawBgnDate,jdbcType=DATE},
+  			LAW_END_DATE = #{lawEndDate,jdbcType=DATE},
+  		where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.LawDefine" >
+	update T_LAW_DEFINE
+	<set>
+	<if test="updatedUser != null">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdDate != null">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="versionEname != null">
+		VERSION_ENAME = #{versionEname,jdbcType=VARCHAR},
+	</if>
+  	<if test="fatherVersionId != null">
+		FATHER_VERSION_ID = #{fatherVersionId,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="defineMemo != null">
+		DEFINE_MEMO = #{defineMemo,jdbcType=VARCHAR},
+	</if>
+   	<if test="versionCname != null">
+		VERSION_CNAME = #{versionCname,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+	</if>
+  	</set>
+	where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.LawDefine" >
+		update T_LAW_DEFINE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			VERSION_ENAME = #{versionEname,jdbcType=VARCHAR},
+  			FATHER_VERSION_ID = #{fatherVersionId,jdbcType=VARCHAR},
+  			DEFINE_MEMO = #{defineMemo,jdbcType=VARCHAR},
+   			VERSION_CNAME = #{versionCname,jdbcType=VARCHAR},
+   			LAW_BGN_DATE = to_date(#{lawBgnDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+   			LAW_END_DATE = to_date(#{lawEndDate,jdbcType=VARCHAR},'yyyy-mm-dd'),
+  			UPDATED_DATE = sysdate,
+  			DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+  		where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 启用/停用 -->
+	<update id="updateLawDefineByPK"  parameterType="map" >
+		update T_LAW_DEFINE
+		set 
+  			VERSION_STATUS = #{versionStatus,jdbcType=VARCHAR},
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate
+  		where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_DEFINE
+	where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryLawDefineByDeptCode" resultMap="BaseResultMap" parameterType="map" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_DEFINE
+	where DEPT_CODE = #{deptCode,jdbcType=VARCHAR} 
+	    <if test="lineCode != null">
+			and LINE_CODE = #{lineCode,jdbcType=VARCHAR} 
+		</if>
+	</select>
+	
+	<!-- 查询列表用于下拉框 -->
+	<select id="queryLawDefineForSelect" resultType="map" parameterType="map" >
+	    select VERSION_ID as "value",VERSION_CNAME as "text" 
+		  from T_LAW_DEFINE 
+		  where 1=1
+		    and valid_ind = '1'
+		    and version_status = '1' 
+            <if test="deptCode != null">
+			   and dept_Code = #{deptCode,jdbcType=VARCHAR} 
+		    </if>   
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="queryLawDefineInfo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select t1.dept_code as "deptCode",
+		       t2.dept_simple_name as "deptName",
+		       t1.line_code as "lineCode",
+		       to_char(t1.version_status) as "versionStatus",
+		       t1.VERSION_ID as "versionId",
+		       t1.version_cname as "versionCname",
+		       to_char(t1.law_bgn_date,'yyyy-mm-dd') as "lawBgnDate",
+		       to_char(t1.law_end_date,'yyyy-mm-dd') as "lawEndDate",
+		       t1.define_memo as "defineMemo"
+		  from t_law_define t1
+		  left join department t2
+		    on t2.valid_ind = '1'
+		   and t1.dept_code = t2.dept_code
+		  left join business_line t3
+		    on t2.valid_ind = '1'
+		   and t1.line_code = t3.line_code
+		 where t1.valid_ind = '1'
+		   and t1.VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_DEFINE
+	where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 销售人员管理办法版本代码是否存在(废除) -->
+	<select id="queryversionId" parameterType="map" resultType="long">
+       select count(1) from T_LAW_DEFINE WHERE VERSION_ID =  upper(#{versionId,jdbcType=VARCHAR})
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.LawDefine" resultType="long">
+	select count(1)
+	from T_LAW_DEFINE <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 是否有已经生效的基本法 -->
+	<select id="existValidVersion" parameterType="map" resultType="long">
+		select count(1)
+		  from t_law_define t2
+		 where 1 = 1
+		   and t2.valid_ind = '1'
+		   and t2.VERSION_ID = #{versionId,jdbcType=VARCHAR}
+		   and exists (select 1
+		          from t_law_define t1
+		         where t1.valid_ind = '1'
+		           and t1.dept_code = t2.dept_code
+		           and t1.line_code = t2.line_code
+		           and t1.version_status = #{versionStatus,jdbcType=VARCHAR})
+	</select>
+
+	<!-- 总数查询 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_DEFINE t <include refid="User_Base_Where_Sql" />
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_DEFINE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_DEFINE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPageVo" parameterType="map" resultMap="BaseResultVo">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_DEFINE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_DEFINE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_DEFINE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 删除基本法 -->
+	<update id="deleteById" parameterType="map" >
+		update T_LAW_DEFINE
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where VERSION_ID = #{versionId,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 查询版本CODE和名称，用于指标因素关系指定 -->
+	<select id="queryCodeAndName" parameterType="map" resultMap="BaseResultMap">
+		select tld.VERSION_ID as "versionId",
+		       tld.version_cname as "versionCname"
+		  from t_law_define tld
+		 where tld.valid_ind = '1'
+	</select>
+		
+	<!-- 管理办法内容分页查询 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="User_Base_Column_List"/>
+				from T_LAW_DEFINE t 
+				<include refid="User_Base_Where_Sql"/>
+<!-- 				<if test="lineCodeFix != null and lineCodeFix !='' "> -->
+<!-- 					and t.LINE_CODE  -->
+<!-- 					in<foreach item="lineCode" index="index" collection="lineCodeFix"  open="(" separator="," close=")"> -->
+<!-- 			            #{lineCode} -->
+<!-- 			        </foreach> -->
+<!-- 		        </if> -->
+				and t.dept_code like '${curDeptCode}%' 
+				order by t.dept_code,t.line_code
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询职级 -->
+	<select id="queryPageRank" parameterType="map" resultType="map">
+	select * from (
+		select a.*,rownum rn from (
+		   <!-- bng -->
+				select t1.pk_id as "pkId",
+				       t1.rank_code as "itemCode",
+				       t1.rank_name as "itemName",
+				       to_char(t1.norm_premium, 'fm99999999999990.00') as "normPremium",
+				       to_char(t1.base_salary, 'fm99999999999990.00') as "baseSalary",
+				       to_char(t1.cacl_salary, 'fm99999999999990.00') as "caclSalary",
+				       to_char(t1.base_rate, 'fm99999999999990.0000') as "baseRate",
+				       t2.SALERANK_CNAME as "mapRank",
+				       decode(t1.audit_flag,'0','不上报','1','要上报','') as "auditFlag",
+				       t1.item_status as "itemStatus",
+				       t1.personal_requirements "personalRequirements",
+				       t1.monthly_salary_standard "monthlySalaryStandard",
+				       t1.monthly_performance_standard "monthlyPerformanceStandard",
+				       t1.stat_flag "statFlag"
+				  from t_law_rank_def t1 left join salesman_rank t2 on t1.map_rank=t2.SALERANK_CODE
+				 where t1.valid_ind = '1'
+				   and t1.item_status = '1'
+				   and t1.version_id = #{versionId, jdbcType = VARCHAR}
+				   and t1.manager_flag = #{itemType, jdbcType = VARCHAR}
+				 order by t1.rank_code
+			<!-- end -->   
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 修改销售职级 -->
+	<update id="updateLawRank" parameterType="map" >
+		update t_law_rank_def t
+		   set t.norm_premium = to_number(#{normPremium, jdbcType = VARCHAR}), 
+		       t.base_salary = to_number(#{baseSalary, jdbcType = VARCHAR}),
+		       t.cacl_salary = to_number(#{caclSalary, jdbcType = VARCHAR}),
+		       <if test="baseRate != null and baseRate !='' ">
+		       t.base_rate = to_number(#{baseRate, jdbcType = VARCHAR}),
+		       </if>
+		       t.item_status = #{itemStatus, jdbcType = VARCHAR},
+		       t.last_opt = #{updatedUser, jdbcType = VARCHAR},
+		       <if test="personalRequirements!=null and personalRequirements!=''">
+		         t.personal_requirements = to_number(#{personalRequirements,jdbcType=VARCHAR}),
+		       </if>
+		       <if test="monthlySalaryStandard!=null and monthlySalaryStandard!=''" >
+		         t.monthly_salary_standard = to_number(#{monthlySalaryStandard,jdbcType=VARCHAR}),
+		       </if>
+		       <if test="monthlyPerformanceStandard!=null and monthlyPerformanceStandard!=''">
+		         t.monthly_performance_standard = to_number(#{monthlyPerformanceStandard,jdbcType=VARCHAR}),
+		       </if>
+		       t.opt_date = sysdate
+		 where t.pk_id = #{pkId, jdbcType = VARCHAR}
+	</update>
+	
+	<!-- 插入管理办法 -->
+	<insert id="insertLawVersion" parameterType="map" >
+		insert into t_law_define
+		  (version_id,
+		   version_cname,
+		   define_memo,
+		   valid_ind,
+		   law_bgn_date,
+		   law_end_date,
+		   line_code,
+		   dept_code,
+		   version_status,
+		   created_user,
+		   created_date,
+		   updated_user,
+		   updated_date) 
+		values(
+		   sys_guid(),
+		   f_get_law_name(#{deptCode, jdbcType = VARCHAR},#{lineCode, jdbcType = VARCHAR}),
+		   f_get_law_name(#{deptCode, jdbcType = VARCHAR},#{lineCode, jdbcType = VARCHAR}),
+		   '1',
+		   to_date(#{lawBgnDate, jdbcType = VARCHAR}, 'yyyy-mm-dd'),
+		   to_date(#{lawEndDate, jdbcType = VARCHAR}, 'yyyy-mm-dd'),
+		   #{lineCode, jdbcType = VARCHAR},
+		   #{deptCode, jdbcType = VARCHAR},
+		   #{versionStatus, jdbcType = VARCHAR},
+		   #{updatedUser, jdbcType = VARCHAR},
+		   sysdate,
+		   #{createdUser, jdbcType = VARCHAR},
+		   sysdate
+		  )
+	</insert>
+	
+	<!-- 修改管理办法 -->
+	<update id="updateLawVersion" parameterType="map" >
+		update t_law_define t
+		   set t.law_bgn_date = to_date(#{lawBgnDate, jdbcType = VARCHAR}, 'yyyy-mm-dd'),
+		       t.law_end_date = to_date(#{lawEndDate, jdbcType = VARCHAR}, 'yyyy-mm-dd'),
+		       t.version_status = #{versionStatus, jdbcType = VARCHAR},  
+		       t.updated_user = #{updatedUser, jdbcType = VARCHAR},
+		       t.updated_date = sysdate
+		 where t.version_id = #{versionId, jdbcType = VARCHAR}
+	</update>
+	
+	<!-- 生成基本法版本代码 -->
+	<select id="generateversionId" parameterType="map" statementType="CALLABLE" >
+		<![CDATA[ 
+          { call p_get_law_code(
+		           #{deptCode, mode=IN, jdbcType=VARCHAR},
+		           #{lineCode, mode=IN, jdbcType=VARCHAR},
+		           #{versionId, mode=OUT, jdbcType=VARCHAR},
+		           #{versionCname, mode=OUT, jdbcType=VARCHAR}
+           )} 
+        ]]> 
+	</select>
+	
+	<!-- 导入考核数据时查询导入因素 ,只查询出正在使用的导入因素 -->
+	<select id="queryImportList" parameterType="map" resultType="map">
+		    <!-- bng -->
+			select t.pk_id as "pkId",
+			       t.item_code as "itemCode",
+			       t.item_name as "itemName",
+			       t.item_type as "itemType",
+			       t.item_status as "itemStatus"
+			  from t_law_factor_imp t
+			 where t.valid_ind = '1'
+			   and t.item_status = '1' 
+			   and t.item_type = #{itemType,jdbcType = VARCHAR} 
+			   and t.version_id = #{versionId,jdbcType = VARCHAR} 
+			   order by t.item_code asc
+			<!-- end -->	   
+	</select>
+	
+	<!-- 查询系统因素 ，只查询出正在使用的 -->
+	<select id="queryPageFactor" parameterType="map" resultType="map">
+	select * from (
+		select a.*,rownum rn from (
+		    <!-- bng -->
+			select t.pk_id        as "pkId",
+			       t.item_code    as "itemCode", 
+			       t.item_name    as "itemName",
+			       t.item_status  as "itemStatus"
+			  from t_law_factor_sys t
+			 where 1=1
+			   and t.valid_ind = '1'
+			   and t.item_status = '1'
+			   and t.version_id = #{versionId, jdbcType = VARCHAR}
+			   and t.item_type = #{itemType, jdbcType = VARCHAR}
+			   order by t.item_code
+			<!-- end -->	   
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+		
+	<!-- 查询导入因素，只查询出正在使用的-->
+	<select id="queryPageImport" parameterType="map" resultType="map">
+	select * from (
+		select a.*,rownum rn from (
+		    <!-- bng -->
+			select t.pk_id as "pkId",
+			       t.item_code as "itemCode",
+			       t.item_name as "itemName",
+			       t.item_status as "itemStatus"
+			  from t_law_factor_imp t
+			 where 1=1
+			   and t.valid_ind = '1'
+			   and t.item_status = '1'
+			   and t.version_id = #{versionId, jdbcType = VARCHAR}
+			   and t.item_type = #{itemType, jdbcType = VARCHAR}
+			 order by t.item_code
+			<!-- end -->	   
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+		
+	<!-- 查询考核因素 , 只查询出正在使用的-->
+	<select id="queryPageExamine" parameterType="map" resultType="map">
+	select * from (
+		select a.*,rownum rn from (
+		    <!-- bng -->
+			select t.pk_id as "pkId",
+			       t.item_code as "itemCode",
+			       t.item_name as "itemName",
+			       t.item_status as "itemStatus"
+			  from t_law_factor_exa t
+			 where 1=1
+			   and t.valid_ind = '1'
+			   and t.item_status = '1'
+			   and t.version_id = #{versionId, jdbcType = VARCHAR}
+			   and t.item_type = #{itemType, jdbcType = VARCHAR}
+			 order by t.item_code
+			<!-- end -->	   
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>	
+	
+	<!-- 查询计算公式 ,只查询出正在使用的 -->
+	<select id="queryPageIndex" parameterType="map" resultType="map">
+	select * from (
+		select a.*,rownum rn from (
+		   <!-- bng -->
+		      select t1.pk_id as "pkId",
+		             t1.index_code as "itemCode",
+		             t1.index_name as "itemName",
+		             t1.ret as "calcFormula",
+		             nvl(t1.index_cond, '---') as "calcCondtion",
+		             t1.item_status as "itemStatus",
+		             t1.order_no "orderNo"
+		        from t_law_calc t1
+		       where t1.valid_ind = '1'
+		         and t1.item_status = '1'
+		         and t1.version_id = #{versionId, jdbcType = VARCHAR}
+		         and t1.item_type = #{itemType, jdbcType = VARCHAR}
+		       order by t1.order_no,t1.index_code, t1.ret
+			<!-- end -->   
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询考核规则，正在使用和停止使用的都查询出来 -->
+	<select id="queryPageReview" parameterType="map" resultType="map">
+	select * from (
+		select a.*,rownum rn from (
+		   <!-- bng -->
+			select t1.pk_id as "pkId",
+			       t1.version_id as "versionId",
+			       t1.calc_code as "itemCode",
+			       t1.calc_desc as "itemName",
+			       t1.calc_note as "calcFormula",
+			       nvl(t1.calc_cond, '---') as "calcCondtion",
+			       t1.item_status as "itemStatus"
+			  from t_law_calc_review t1
+			 where t1.valid_ind = '1'
+			   and t1.item_status = '1'
+			   and t1.version_id = #{versionId, jdbcType = VARCHAR}
+			   and t1.item_type = #{itemType, jdbcType = VARCHAR}
+			 order by t1.calc_code
+			<!-- end -->   
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 查询基本法是否允许团队长按客户经理考核 -->
+	<select id="queryBasicLaw" parameterType="java.lang.String" resultType="long">
+	      select t2.is_client_manager_check from t_law_define t1,t_law_define_config t2  
+		    where t1.version_id=t2.version_id
+		    and t1.valid_ind='1'
+		    and t2.valid_ind='1'
+		    and t1.version_status='1'
+		    and t1.dept_code=#{deptCode, jdbcType = VARCHAR}
+	</select>
+	
+	<!-- 查询基本法是否允许添加地域标识属性 -->
+	<select id="queryBasicLawArea" parameterType="java.lang.String" resultType="long">
+	      select t2.is_area from t_law_define t1,t_law_define_config t2  
+		    where t1.version_id=t2.version_id
+		    and t1.valid_ind='1'
+		    and t2.valid_ind='1'
+		    and t1.version_status='1'
+		    and t1.dept_code=#{deptCode, jdbcType = VARCHAR}
+	</select>
+	
+	<!-- 修改系统因素 -->
+	<update id="updateFactorSystem" parameterType="map" >
+		update t_law_factor_sys t
+		   set t.item_status = #{itemStatus, jdbcType = VARCHAR}, 
+		       t.item_name = #{itemName, jdbcType = VARCHAR}, 
+		       t.updated_user = #{updatedUser, jdbcType = VARCHAR}, 
+		       t.updated_date = sysdate
+		 where 1=1
+		   and t.item_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+	</update>
+	
+	<!-- 插入系统因素 -->
+	<insert id="insertFactorSystem" parameterType="map" >
+		insert into t_law_factor_sys
+		  (pk_id,
+		   item_code,
+		   item_name,
+		   valid_ind,
+		   item_type,
+		   version_id,
+		   item_status,
+		   created_user,
+		   created_date,
+		   updated_user,
+		   updated_date)
+		values
+		  (sys_guid(),
+		   #{itemCode, jdbcType = VARCHAR}, 
+		   #{itemName, jdbcType = VARCHAR}, 
+		   '1',
+		   #{itemType, jdbcType = VARCHAR}, 
+		   #{versionId, jdbcType = VARCHAR},
+		   '1', 
+		   #{createdUser, jdbcType = VARCHAR}, 
+		   sysdate, 
+		   #{updatedUser, jdbcType = VARCHAR}, 
+		   sysdate
+		   )
+	</insert>
+	
+	<!-- 修改导入因素 -->
+	<update id="updateFactorImport" parameterType="map" >
+		update t_law_factor_imp t
+		   set t.item_status = #{itemStatus, jdbcType = VARCHAR}, 
+		       t.item_name = #{itemName, jdbcType = VARCHAR},  
+		       t.updated_user = #{updatedUser, jdbcType = VARCHAR}, 
+		       t.updated_date = sysdate
+		 		 where 1=1
+		   and t.item_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+	</update>
+	
+	<!-- 插入导入因素 -->
+	<insert id="insertFactorImport" parameterType="map" >
+		insert into t_law_factor_imp
+		  (pk_id,
+		   item_code,
+		   item_name,
+		   valid_ind,
+		   item_type,
+		   version_id,
+		   item_status,
+		   created_user,
+		   created_date,
+		   updated_user,
+		   updated_date)
+		values
+		  (sys_guid(),
+		   #{itemCode, jdbcType = VARCHAR}, 
+		   #{itemName, jdbcType = VARCHAR}, 
+		   '1',
+		   #{itemType, jdbcType = VARCHAR}, 
+		   #{versionId, jdbcType = VARCHAR},
+		   '1', 
+		   #{createdUser, jdbcType = VARCHAR}, 
+		   sysdate, 
+		   #{updatedUser, jdbcType = VARCHAR}, 
+		   sysdate
+		   )
+	</insert>
+	
+	<!-- 修改考核因素 -->
+	<update id="updateFactorExamine" parameterType="map" >
+		update t_law_factor_exa t
+		   set t.item_status = #{itemStatus, jdbcType = VARCHAR}, 
+		       t.item_name = #{itemName, jdbcType = VARCHAR},  
+		       t.updated_user = #{updatedUser, jdbcType = VARCHAR}, 
+		       t.updated_date = sysdate
+		 where 1=1
+		   and t.item_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+	</update>
+	
+	<!-- 插入考核因素 -->
+	<insert id="insertFactorExamine" parameterType="map" >
+		insert into t_law_factor_exa
+		  (pk_id,
+		   item_code,
+		   item_name,
+		   valid_ind,
+		   item_type,
+		   version_id,
+		   item_status,
+		   created_user,
+		   created_date,
+		   updated_user,
+		   updated_date)
+		values
+		  (sys_guid(),
+		   #{itemCode, jdbcType = VARCHAR}, 
+		   #{itemName, jdbcType = VARCHAR}, 
+		   '1',
+		   #{itemType, jdbcType = VARCHAR}, 
+		   #{versionId, jdbcType = VARCHAR},
+		   '1', 
+		   #{createdUser, jdbcType = VARCHAR}, 
+		   sysdate, 
+		   #{updatedUser, jdbcType = VARCHAR}, 
+		   sysdate
+		   )
+	</insert>
+	
+	<!-- 查询已新增在的基本法 -->
+	<select id="queryDeptCodeList" parameterType="map" resultType="map">
+		select t.dept_code as "deptCode"
+		  from t_law_define t
+		 where t.valid_ind = '1'
+		   and t.version_status = '1'
+	</select>
+	
+	<!-- 查询某个分公司某个业务线是否已经存在基本法 -->
+	<select id="querylawCount" parameterType="map" resultType="long">
+		select count(1)
+		  from t_law_define t
+		 where 1=1
+		   and t.valid_ind = '1'
+		   and t.version_status = '1'
+		   and t.dept_code = #{deptCode, jdbcType = VARCHAR}
+		   and t.line_code = #{lineCode, jdbcType = VARCHAR}
+	</select>
+	
+	<!-- 查询某个因素是否存在 -->
+	<select id="existsFactorSystem" parameterType="map" resultType="long">
+		select count(1)
+		  from t_law_factor_sys t
+		 where 1 = 1
+		   and t.valid_ind = '1'
+		   and t.item_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+	</select>
+	
+	<!-- 查询某个因素是否存在 -->
+	<select id="existsFactorImport" parameterType="map" resultType="long">
+		select count(1)
+		  from t_law_factor_imp t
+		 where 1 = 1
+		   and t.valid_ind = '1'
+		   and t.item_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+	</select>
+	
+	<!-- 查询某个因素是否存在 -->
+	<select id="existsFactorExamine" parameterType="map" resultType="long">
+		select count(1)
+		  from t_law_factor_exa t
+		 where 1 = 1
+		   and t.valid_ind = '1'
+		   and t.item_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+	</select>
+	
+	<!-- 是否存在已经停止的计算公式-->
+	<select id="existsFormulaCalc" parameterType="map" resultType="java.lang.String">
+		select t.pk_id
+		  from t_law_calc t
+		 where 1 = 1
+		   and t.valid_ind = '1'
+		   and t.item_status = '0'
+		   and t.index_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+		   and rownum =1
+	</select>
+	
+	<!-- 是否存在一条已经停止的考核公式-->
+	<select id="existsFormulaReview" parameterType="map" resultType="java.lang.String">
+		select t.pk_id
+		  from t_law_calc_review t
+		 where 1 = 1
+		   and t.valid_ind = '1'
+		   and t.item_status = '0'
+		   and t.calc_code = #{itemCode, jdbcType = VARCHAR}
+		   and t.version_id = #{versionId, jdbcType = VARCHAR}
+		   and rownum = 1
+	</select>
+    
+    <!-- 修改计算公式 -->
+	<update id="updateLawIndex" parameterType="map" >
+		update t_law_calc t
+		   set t.ret = #{calcFormula, jdbcType = VARCHAR}, 
+		       t.index_cond = #{calcCondtion, jdbcType = VARCHAR}, 
+		       t.index_code = #{itemCode, jdbcType = VARCHAR}, 
+		       t.index_name = #{itemName, jdbcType = VARCHAR}, 
+		       t.item_status = #{itemStatus, jdbcType = VARCHAR}, 
+		       t.last_opt = #{updatedUser, jdbcType = VARCHAR}, 
+		       t.opt_date = sysdate,
+		       t.order_no = #{orderNo,jdbcType=VARCHAR}
+		 where 1=1
+		   and t.pk_id = #{pkId, jdbcType = VARCHAR}
+	</update>
+	
+	<!-- 插入计算公式 -->
+    <insert id="insertLawIndex" parameterType="map" >
+	    insert into t_law_calc
+	      (PK_ID,
+	       VERSION_ID,
+	       INDEX_CODE,
+	       COND_TYPE,
+	       RET,
+	       LAST_OPT,
+	       OPT_DATE,
+	       VALID_IND,
+	       ITEM_TYPE,
+	       INDEX_COND,
+	       ITEM_STATUS,
+	       INDEX_NAME,
+	       order_no)
+	    values
+	      (sys_guid(),
+	       #{versionId,jdbcType = VARCHAR},
+	       #{itemCode,jdbcType = VARCHAR},
+	       '1',
+	       #{calcFormula,jdbcType = VARCHAR},
+	       #{updatedUser,jdbcType = VARCHAR},
+	       sysdate,
+	       '1',
+	       #{itemType,jdbcType = VARCHAR},
+	       #{calcCondtion,jdbcType = VARCHAR},
+	       #{itemStatus,jdbcType = VARCHAR},
+	       #{itemName,jdbcType = VARCHAR},
+	       #{orderNo,jdbcType=VARCHAR}
+	       )
+    </insert>
+	
+	<!-- 插入考核公式 -->
+	<insert id="insertLawReview" parameterType="map" >
+	     insert into t_law_calc_review
+			  (pk_id,
+			   calc_code,
+			   calc_note,
+			   calc_cond,
+			   calc_desc,
+			   valid_ind,
+			   created_user,
+			   created_date,
+			   updated_user,
+			   updated_date,
+			   version_id,
+			   item_status,
+			   item_type)
+			values
+			  (sys_guid(),
+			   #{itemCode, jdbcType = VARCHAR}, 
+			   #{calcFormula, jdbcType = VARCHAR}, 
+			   #{calcCondtion, jdbcType = VARCHAR}, 
+			   #{itemName, jdbcType = VARCHAR}, 
+			   '1', 
+			   #{updatedUser, jdbcType = VARCHAR}, 
+			   sysdate, 
+			   #{updatedUser, jdbcType = VARCHAR}, 
+			   sysdate,
+			   #{versionId, jdbcType = VARCHAR},
+			   '1', 
+			   #{itemType, jdbcType = VARCHAR}
+			  )
+	</insert>
+	
+	<!-- 修改考核公式 -->
+	<update id="updateLawReview" parameterType="map" >
+		update T_LAW_CALC_REVIEW t
+		   set t.calc_note = #{calcFormula, jdbcType = VARCHAR}, 
+		       t.calc_cond = #{calcCondtion, jdbcType = VARCHAR}, 
+		       t.calc_code = #{itemCode, jdbcType = VARCHAR}, 
+		       t.calc_desc = #{itemName, jdbcType = VARCHAR}, 
+		       t.item_status = #{itemStatus, jdbcType = VARCHAR}, 
+		       t.updated_user = #{updatedUser, jdbcType = VARCHAR}, 
+		       t.updated_date = sysdate
+		 where t.pk_id = #{pkId, jdbcType = VARCHAR}
+	</update>
+	
+	<select id="manualCalculation" statementType="CALLABLE">
+	   <![CDATA[
+	     {
+	         CALL pkg_law_manual.run(
+	       		 #{versionId,mode=IN,jdbcType=VARCHAR},
+				 #{calcMonth,mode=IN,jdbcType=VARCHAR},
+				 #{deptCode,mode=IN,jdbcType=VARCHAR},
+				 #{lineCode,mode=IN,jdbcType=VARCHAR},
+				 #{username,mode=IN,jdbcType=VARCHAR},
+				 #{resultMsg,mode=OUT,jdbcType=VARCHAR}
+             )
+         }
+	   ]]>
+	</select>
+	
+	<!-- 管理办法其他配置项 -->
+    <select id="getConfigList" parameterType="map" resultMap="BaseResultMap">
+		select t.version_id as "versionId", t.config_name as "configName", t.config_value as "configValue"
+		  from t_law_define_config t
+		 where t.version_id = #{versionId, jdbcType = VARCHAR}
+		   and t.valid_ind = '1';
+    </select>
+    
+    <!-- 根据因素类型查询客户经理（团队经理）规则 -->
+	<select id="queryRules" parameterType="map" resultMap="BaseResultMap">
+		select 
+			t.item_code as "itemCode", 
+			t.item_name as "itemName"
+		from t_law_rule t
+		where 1=1
+		and t.VALID_IND = '1'
+		<if test="itemType != null and itemType != ''">
+			and t.item_type = #{itemType,jdbcType=VARCHAR}
+		</if>
+		order by t.item_code
+	</select>
+	
+	<!-- 验证公式 -->
+	<select id="validateFormula" parameterType="map" statementType="CALLABLE" >
+		<![CDATA[ 
+          { 
+          	{ #{result,jdbcType=VARCHAR, mode=OUT} = call pkg_law_validate.f_main(#{i_version_id,jdbcType=VARCHAR, mode=IN})
+           } 
+        ]]> 
+	</select>
+	
+</mapper>

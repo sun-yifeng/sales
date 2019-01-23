@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.law.vo.TLawCostRate" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="COST_RATE_ID" property="costRateId" javaType="java.lang.String" jdbcType="CHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_4" property="deptCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CHANNEL_CATEGORY" property="channelCategory" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_ORIGIN" property="businessOrigin" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_TYPE" property="businessType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHENNEL_CODE" property="chennelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COST_RATE" property="costRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.law.vo.TLawCostRate">
+		<id column="COST_RATE_ID" property="costRateId" javaType="java.lang.String" jdbcType="CHAR" />
+		<result column="UPDATED_USER" property="updatedUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_4" property="deptCode4" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="DEPT_CODE_2" property="deptCode2" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="DEPT_CODE_3" property="deptCode3" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="VALID_IND" property="validInd" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CREATED_DATE" property="createdDate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="CHANNEL_CATEGORY" property="channelCategory" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_ORIGIN" property="businessOrigin" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="BUSINESS_TYPE" property="businessType" jdbcType="CHAR" javaType="java.lang.String" />
+ 		<result column="CHENNEL_CODE" property="chennelCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="COST_RATE" property="costRate" jdbcType="DOUBLE" javaType="java.lang.Double" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		UPDATED_USER,
+		CREATED_USER,
+		DEPT_CODE_4,
+		UPDATED_DATE,
+		DEPT_CODE_2,
+		DEPT_CODE_3,
+		COST_RATE_ID,
+		VALID_IND,
+		CREATED_DATE,
+		CHANNEL_CATEGORY,
+		BUSINESS_ORIGIN,
+		BUSINESS_TYPE,
+		CHENNEL_CODE,
+		COST_RATE
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		UPDATED_USER as "updatedUser",
+		CREATED_USER as "createdUser",
+		DEPT_CODE_4 as "deptCode4",
+		UPDATED_DATE as "updatedDate",
+		DEPT_CODE_2 as "deptCode2",
+		DEPT_CODE_3 as "deptCode3",
+		COST_RATE_ID as "costRateId",
+		VALID_IND as "validInd",
+		CREATED_DATE as "createdDate",
+		CHANNEL_CATEGORY as "channelCategory",
+		BUSINESS_ORIGIN as "businessOrigin",
+		BUSINESS_TYPE as "businessType",
+		CHENNEL_CODE as "chennelCode",
+		COST_RATE as "costRate"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{updatedUser,jdbcType=VARCHAR},
+ 		#{createdUser,jdbcType=VARCHAR},
+ 		#{deptCode4,jdbcType=VARCHAR},
+ 		sysdate,
+ 		#{deptCode2,jdbcType=VARCHAR},
+ 		#{deptCode3,jdbcType=VARCHAR},
+ 		#{costRateId,jdbcType=CHAR},
+ 		#{validInd,jdbcType=CHAR},
+ 		sysdate,
+ 		#{channelCategory,jdbcType=CHAR},
+ 		#{businessOrigin,jdbcType=CHAR},
+ 		#{businessType,jdbcType=CHAR},
+ 		#{chennelCode,jdbcType=VARCHAR},
+ 		#{costRate,jdbcType=DOUBLE}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="updatedUser != null and updatedUser != ''">
+			and UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		</if>
+		<if test="createdUser != null and createdUser != ''">
+			and CREATED_USER = #{createdUser,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode4 != null and deptCode4 != ''">
+			and DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR}
+		</if>
+		<if test="updatedDate != null and updatedDate != ''">
+			and UPDATED_DATE = #{updatedDate,jdbcType=DATE}
+		</if>
+		<if test="deptCode2 != null and deptCode2 != ''">
+			and DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR}
+		</if>
+		<if test="deptCode3 != null and deptCode3 != ''">
+			and DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR}
+		</if>
+		<if test="costRateId != null and costRateId != ''">
+			and COST_RATE_ID = #{costRateId,jdbcType=CHAR}
+		</if>
+			and tlcr.VALID_IND = 1
+		<if test="createdDate != null and createdDate != ''">
+			and CREATED_DATE = #{createdDate,jdbcType=DATE}
+		</if>
+		<if test="channelCategory != null and channelCategory != ''">
+			and CHANNEL_CATEGORY = #{channelCategory,jdbcType=CHAR}
+		</if>
+		<if test="businessOrigin != null and businessOrigin != ''">
+			and BUSINESS_ORIGIN = #{businessOrigin,jdbcType=CHAR}
+		</if>
+		<if test="businessType != null and businessType != ''">
+			and BUSINESS_TYPE = #{businessType,jdbcType=CHAR}
+		</if>
+		<if test="chennelCode != null and chennelCode != ''">
+			and CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR}
+		</if>
+		<if test="costRate != null and costRate != ''">
+			and COST_RATE = #{costRate,jdbcType=DOUBLE}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.law.vo.TLawCostRate" >
+    insert into T_LAW_COST_RATE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into T_LAW_COST_RATE (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_LAW_COST_RATE
+    where COST_RATE_ID = #{costRateId,jdbcType=CHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from T_LAW_COST_RATE
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update T_LAW_COST_RATE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode4 != null and deptCode4 != ''">
+		DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+   	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="channelCategory != null and channelCategory != ''">
+		CHANNEL_CATEGORY = #{channelCategory,jdbcType=CHAR},
+	</if>
+  	<if test="businessOrigin != null and businessOrigin != ''">
+		BUSINESS_ORIGIN = #{businessOrigin,jdbcType=CHAR},
+	</if>
+  	<if test="businessType != null and businessType != ''">
+		BUSINESS_TYPE = #{businessType,jdbcType=CHAR},
+	</if>
+  	<if test="chennelCode != null and chennelCode != ''">
+		CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="costRate != null and costRate != ''">
+		COST_RATE = #{costRate,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where COST_RATE_ID = #{costRateId,jdbcType=CHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update T_LAW_COST_RATE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+  			DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR},
+  			UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+  			DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+  			DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+   			VALID_IND = #{validInd,jdbcType=CHAR},
+  			CREATED_DATE = #{createdDate,jdbcType=DATE},
+  			CHANNEL_CATEGORY = #{channelCategory,jdbcType=CHAR},
+  			BUSINESS_ORIGIN = #{businessOrigin,jdbcType=CHAR},
+  			BUSINESS_TYPE = #{businessType,jdbcType=CHAR},
+  			CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR},
+  			COST_RATE = #{costRate,jdbcType=DOUBLE}
+  		where COST_RATE_ID = #{costRateId,jdbcType=CHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.law.vo.TLawCostRate" >
+	update T_LAW_COST_RATE
+	<set>
+	<if test="updatedUser != null and updatedUser != ''">
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="createdUser != null and createdUser != ''">
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode4 != null and deptCode4 != ''">
+		DEPT_CODE_4 = #{deptCode4,jdbcType=VARCHAR},
+	</if>
+  	<if test="updatedDate != null and updatedDate != ''">
+		UPDATED_DATE = #{updatedDate,jdbcType=DATE},
+	</if>
+  	<if test="deptCode2 != null and deptCode2 != ''">
+		DEPT_CODE_2 = #{deptCode2,jdbcType=VARCHAR},
+	</if>
+  	<if test="deptCode3 != null and deptCode3 != ''">
+		DEPT_CODE_3 = #{deptCode3,jdbcType=VARCHAR},
+	</if>
+   	<if test="validInd != null and validInd != ''">
+		VALID_IND = #{validInd,jdbcType=CHAR},
+	</if>
+  	<if test="createdDate != null and createdDate != ''">
+		CREATED_DATE = #{createdDate,jdbcType=DATE},
+	</if>
+  	<if test="channelCategory != null and channelCategory != ''">
+		CHANNEL_CATEGORY = #{channelCategory,jdbcType=CHAR},
+	</if>
+  	<if test="businessOrigin != null and businessOrigin != ''">
+		BUSINESS_ORIGIN = #{businessOrigin,jdbcType=CHAR},
+	</if>
+  	<if test="businessType != null and businessType != ''">
+		BUSINESS_TYPE = #{businessType,jdbcType=CHAR},
+	</if>
+  	<if test="chennelCode != null and chennelCode != ''">
+		CHENNEL_CODE = #{chennelCode,jdbcType=VARCHAR},
+	</if>
+  	<if test="costRate != null and costRate != ''">
+		COST_RATE = #{costRate,jdbcType=DOUBLE}
+	</if>
+  	</set>
+	where COST_RATE_ID = #{costRateId,jdbcType=CHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.law.vo.TLawCostRate" >
+		update T_LAW_COST_RATE
+		set 
+			UPDATED_USER = #{updatedUser,jdbcType=VARCHAR},
+  			UPDATED_DATE = sysdate,
+  			COST_RATE = #{costRate,jdbcType=DOUBLE}
+  		where COST_RATE_ID = #{costRateId,jdbcType=CHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select dept4.DEPT_SIMPLE_NAME DEPT_CODE_4,
+			tlcr.UPDATED_DATE,
+			dept2.DEPT_SIMPLE_NAME DEPT_CODE_2,
+			dept3.DEPT_SIMPLE_NAME DEPT_CODE_3,
+			COST_RATE_ID,
+			decode(CHANNEL_CATEGORY,'01','经代','02','车商及其他','') CHANNEL_CATEGORY,
+			decode(BUSINESS_ORIGIN,'01','公司业务','02','非公司业务','') BUSINESS_ORIGIN,
+			decode(BUSINESS_TYPE,'01','营业车','02','营业货车','03','营业车（含其他非营业货车）',
+				'04','货车','05','货车（2吨以上）','06','货车（2吨以下）',
+				'07','其他货车','08','非营业客车','09','非营业客车（含皮卡及微货）',
+				'10','非营业货车','11','非营业车（含部分营业车）','12','所有车型','') BUSINESS_TYPE,
+			cmd.MEDIUM_CNAME CHENNEL_CODE,
+			COST_RATE
+		from T_LAW_COST_RATE tlcr 
+			left join CHANNEL_MEDIUM_DETAIL cmd 
+		on cmd.CHANNEL_CODE = tlcr.CHENNEL_CODE and cmd.VALID_IND = 1
+			left join DEPARTMENT dept2 
+		on dept2.DEPT_CODE = tlcr.DEPT_CODE_2 and dept2.VALID_IND = 1
+			left join DEPARTMENT dept3 
+		on dept3.DEPT_CODE = tlcr.DEPT_CODE_3 and dept3.VALID_IND = 1
+			left join DEPARTMENT dept4 
+		on dept4.DEPT_CODE = tlcr.DEPT_CODE_4 and dept4.VALID_IND = 1
+	where COST_RATE_ID = #{costRateId}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from T_LAW_COST_RATE
+	where COST_RATE_ID = #{costRateId,jdbcType=CHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from T_LAW_COST_RATE tlcr <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.law.vo.TLawCostRate" resultType="long">
+	select count(1)
+	from T_LAW_COST_RATE <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+			select dept4.DEPT_SIMPLE_NAME DEPT_CODE_4,
+			tlcr.UPDATED_DATE,
+			dept2.DEPT_SIMPLE_NAME DEPT_CODE_2,
+			dept3.DEPT_SIMPLE_NAME DEPT_CODE_3,
+			COST_RATE_ID,
+			decode(CHANNEL_CATEGORY,'01','经代','02','车商及其他','') CHANNEL_CATEGORY,
+			decode(BUSINESS_ORIGIN,'01','公司业务','02','非公司业务','') BUSINESS_ORIGIN,
+			decode(BUSINESS_TYPE,'01','营业车','02','营业货车','03','营业车（含其他非营业货车）',
+				'04','货车','05','货车（2吨以上）','06','货车（2吨以下）',
+				'07','其他货车','08','非营业客车','09','非营业客车（含皮卡及微货）',
+				'10','非营业货车','11','非营业车（含部分营业车）','12','所有车型','') BUSINESS_TYPE,
+			cmd.MEDIUM_CNAME CHENNEL_CODE,
+			COST_RATE
+		from T_LAW_COST_RATE tlcr 
+			left join CHANNEL_MEDIUM_DETAIL cmd 
+		on cmd.CHANNEL_CODE = tlcr.CHENNEL_CODE and cmd.VALID_IND = 1
+			left join DEPARTMENT dept2 
+		on dept2.DEPT_CODE = tlcr.DEPT_CODE_2 and dept2.VALID_IND = 1
+			left join DEPARTMENT dept3 
+		on dept3.DEPT_CODE = tlcr.DEPT_CODE_3 and dept3.VALID_IND = 1
+			left join DEPARTMENT dept4 
+		on dept4.DEPT_CODE = tlcr.DEPT_CODE_4 and dept4.VALID_IND = 1
+		<include refid="Base_Where_Sql"/>
+		order by tlcr.UPDATED_DATE desc
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_COST_RATE
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_COST_RATE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from T_LAW_COST_RATE
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from T_LAW_COST_RATE
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from T_LAW_COST_RATE <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+	
+	<update id="deleteById" parameterType="map" >
+		update T_LAW_COST_RATE
+		set VALID_IND = 0,
+		UPDATED_DATE = sysdate,
+		UPDATED_USER = #{updatedUser,jdbcType=VARCHAR}
+		where COST_RATE_ID = #{costRateId,jdbcType=VARCHAR}
+	</update>
+</mapper>

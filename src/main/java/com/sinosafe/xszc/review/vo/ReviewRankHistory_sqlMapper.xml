@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosafe.xszc.review.vo.ReviewRankHistory" >
+	<resultMap id="BaseResultMap" type="java.util.HashMap">
+		<id column="PKID" property="pkid" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="RANK_ID" property="rankId" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CHANGEUSER" property="changeuser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANGEDATE" property="changedate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AFTER_RANK" property="afterRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BEFORE_RANK" property="beforeRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+	
+	<resultMap id="BaseResultVo" type="com.sinosafe.xszc.review.vo.ReviewRankHistory">
+		<id column="PKID" property="pkid" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="RANK_ID" property="rankId" jdbcType="VARCHAR" javaType="java.lang.String" />
+  		<result column="CHANGEUSER" property="changeuser" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="CHANGEDATE" property="changedate" jdbcType="DATE" javaType="java.sql.Timestamp" />
+ 		<result column="AFTER_RANK" property="afterRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 		<result column="BEFORE_RANK" property="beforeRank" jdbcType="VARCHAR" javaType="java.lang.String" />
+ 	</resultMap>
+
+	<!-- 查询数据列Sql不转换成对应的Java命名 -->
+	<sql id="Base_Column_List" >
+		RANK_ID,
+		PKID,
+		CHANGEUSER,
+		CHANGEDATE,
+		AFTER_RANK,
+		BEFORE_RANK
+	</sql>
+	
+	<!-- 查询数据列Sql换成对应的Java命名 -->
+	<sql id="Base_Column_List_JavaName" >
+		RANK_ID as "rankId",
+		PKID as "pkid",
+		CHANGEUSER as "changeuser",
+		CHANGEDATE as "changedate",
+		AFTER_RANK as "afterRank",
+		BEFORE_RANK as "beforeRank"
+	</sql>
+	
+	<!-- 写入操作的SQL -->
+	<sql id="Insert_Base_values">
+		#{rankId,jdbcType=VARCHAR},
+ 		#{pkid,jdbcType=VARCHAR},
+ 		#{changeuser,jdbcType=VARCHAR},
+ 		#{changedate,jdbcType=DATE},
+ 		#{afterRank,jdbcType=VARCHAR},
+ 		#{beforeRank,jdbcType=VARCHAR}
+ 	</sql>
+	
+	<!-- 查询条件的sql -->
+	<sql id="Base_Where_Sql">
+		<where>
+		<if test="rankId != null and rankId != ''">
+			and RANK_ID = #{rankId,jdbcType=VARCHAR}
+		</if>
+		<if test="pkid != null and pkid != ''">
+			and PKID = #{pkid,jdbcType=VARCHAR}
+		</if>
+		<if test="changeuser != null and changeuser != ''">
+			and CHANGEUSER = #{changeuser,jdbcType=VARCHAR}
+		</if>
+		<if test="changedate != null and changedate != ''">
+			and CHANGEDATE = #{changedate,jdbcType=DATE}
+		</if>
+		<if test="afterRank != null and afterRank != ''">
+			and AFTER_RANK = #{afterRank,jdbcType=VARCHAR}
+		</if>
+		<if test="beforeRank != null and beforeRank != ''">
+			and BEFORE_RANK = #{beforeRank,jdbcType=VARCHAR}
+		</if>
+		</where>
+	</sql>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insertVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRankHistory" >
+    insert into REVIEW_RANK_HISTORY (
+		RANK_ID,
+		PKID,
+		CHANGEUSER,
+		CHANGEDATE,
+		AFTER_RANK,
+		BEFORE_RANK
+    )
+	values (
+		#{rankId,jdbcType=VARCHAR},
+ 		#{pkid,jdbcType=VARCHAR},
+ 		#{changeuser,jdbcType=VARCHAR},
+ 		#{changedate,jdbcType=DATE},
+ 		nvl(#{afterRank,jdbcType=VARCHAR},'---'),
+ 		#{beforeRank,jdbcType=VARCHAR}
+    )
+	</insert>
+	
+	<!-- 
+		insert操作给定的参数是java.util.Map<String,Object>类型的对象，
+		与<sql id="Insert_Base_values">中配置的列一致
+	-->
+	<insert id="insert" parameterType="map" >
+    insert into REVIEW_RANK_HISTORY (
+		<include refid="Base_Column_List" />
+    )
+	values (
+		<include refid="Insert_Base_values" />
+    )
+	</insert>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from REVIEW_RANK_HISTORY
+    where PKID = #{pkid,jdbcType=VARCHAR}
+	</delete>
+<!-- 
+	<delete id="deleteByDataKey" parameterType="long">
+    delete from REVIEW_RANK_HISTORY
+    where PK_SERIAL = #{data}
+	</delete>
+ -->
+	<update id="updateByPrimaryKeySelective" parameterType="map" >
+	update REVIEW_RANK_HISTORY
+	<set>
+	<if test="rankId != null and rankId != ''">
+		RANK_ID = #{rankId,jdbcType=VARCHAR},
+	</if>
+   	<if test="changeuser != null and changeuser != ''">
+		CHANGEUSER = #{changeuser,jdbcType=VARCHAR},
+	</if>
+  	<if test="changedate != null and changedate != ''">
+		CHANGEDATE = #{changedate,jdbcType=DATE},
+	</if>
+  	<if test="afterRank != null and afterRank != ''">
+		AFTER_RANK = #{afterRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="beforeRank != null and beforeRank != ''">
+		BEFORE_RANK = #{beforeRank,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PKID = #{pkid,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="map" >
+		update REVIEW_RANK_HISTORY
+		set 
+			RANK_ID = #{rankId,jdbcType=VARCHAR},
+   			CHANGEUSER = #{changeuser,jdbcType=VARCHAR},
+  			CHANGEDATE = #{changedate,jdbcType=DATE},
+  			AFTER_RANK = #{afterRank,jdbcType=VARCHAR},
+  			BEFORE_RANK = #{beforeRank,jdbcType=VARCHAR}
+  		where PKID = #{pkid,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKeySelectiveVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRankHistory" >
+	update REVIEW_RANK_HISTORY
+	<set>
+	<if test="rankId != null and rankId != ''">
+		RANK_ID = #{rankId,jdbcType=VARCHAR},
+	</if>
+   	<if test="changeuser != null and changeuser != ''">
+		CHANGEUSER = #{changeuser,jdbcType=VARCHAR},
+	</if>
+  	<if test="changedate != null and changedate != ''">
+		CHANGEDATE = #{changedate,jdbcType=DATE},
+	</if>
+  	<if test="afterRank != null and afterRank != ''">
+		AFTER_RANK = #{afterRank,jdbcType=VARCHAR},
+	</if>
+  	<if test="beforeRank != null and beforeRank != ''">
+		BEFORE_RANK = #{beforeRank,jdbcType=VARCHAR}
+	</if>
+  	</set>
+	where PKID = #{pkid,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKeyVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRankHistory" >
+		update REVIEW_RANK_HISTORY
+		set 
+			RANK_ID = #{rankId,jdbcType=VARCHAR},
+   			CHANGEUSER = #{changeuser,jdbcType=VARCHAR},
+  			CHANGEDATE = #{changedate,jdbcType=DATE},
+  			AFTER_RANK = #{afterRank,jdbcType=VARCHAR},
+  			BEFORE_RANK = #{beforeRank,jdbcType=VARCHAR}
+  		where PKID = #{pkid,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REVIEW_RANK_HISTORY
+	where PKID = #{pkid,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据Id查询一条数据 -->
+	<select id="selectByPrimaryKeyVo" resultMap="BaseResultVo" parameterType="java.lang.String" >
+    select <include refid="Base_Column_List" />
+	from REVIEW_RANK_HISTORY
+	where PKID = #{pkid,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 条件查询总数据量 -->
+	<select id="queryCount" parameterType="map" resultType="long">
+	select count(1)
+	from REVIEW_RANK_HISTORY <include refid="Base_Where_Sql" />
+	</select>
+	
+	<!-- 条件查询总数据量 -->
+	<select id="queryCountVo" parameterType="com.sinosafe.xszc.review.vo.ReviewRankHistory" resultType="long">
+	select count(1)
+	from REVIEW_RANK_HISTORY <include refid="Base_Where_Sql" />
+	</select>
+
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_RANK_HISTORY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!--查询列表-->
+	<select id="queryHistoryListPage" parameterType="map" resultType="map">
+		select * from(
+		  select rownum rown,
+		         t2.calc_month as "calcMonth",
+		         t2.dept_code_two as "deptCodeTwo",
+		         t2.dept_name_two as "deptNameTwo",
+		         t2.dept_code_three as "deptCodeThree",
+		         t2.dept_name_three as "deptNameThree",
+		         t2.dept_code_four  as "deptCodeFour",
+		         t2.dept_name_four  as "deptNameFour",
+		         t2.group_code as "groupCode",
+		         t2.group_name as "groupName",
+		         t2.salesman_code as "salesmanCode",
+		         t2.salesman_name as "salesmanName",
+		         t1.before_rank as "beforeRank",
+		         t3.rank_name as "beforeRankName",
+		         t1.after_rank as "afterRank",
+		         t4.rank_name as "afterRankName",
+		         t1.changeuser  as "changeUser" ,
+		         to_char(t1.changedate,'yyyy-MM-dd HH24:mi:ss') as "changeDate"
+		    from review_rank_history t1
+		    left join review_rank t2
+		      on t1.rank_id = t2.rank_id 
+		    left join t_law_rank_def t3
+		      on t1.before_rank=t3.rank_code 
+		    left join t_law_rank_def t4
+		      on t1.after_rank = t4.rank_code 
+		    where 1=1 
+		    <if test="deptCodeTwo != null and deptCodeTwo != ''">
+			    and t2.dept_code_two = #{deptCodeTwo,jdbcType=VARCHAR}
+		    </if>
+		    <if test="deptCodeThree != null and deptCodeThree != ''">
+			    and t2.dept_code_three = #{deptCodeThree,jdbcType=VARCHAR}
+		    </if>
+		    <if test="deptCodeFour != null and deptCodeFour != ''">
+			    and t2.dept_code_four = #{deptCodeFour,jdbcType=VARCHAR}
+		    </if>
+		    <if test="calcMonth != null and calcMonth != ''">
+			    and t2.calc_Month = #{calcMonth,jdbcType=VARCHAR}
+		    </if>
+		    <if test="groupName != null and groupName != ''">
+			    and t2.group_name like #{groupName,jdbcType=VARCHAR}||'%'
+		    </if>
+		    <if test="salesmanName != null and salesmanName != ''">
+			    and t2.salesman_name like #{salesmanName,jdbcType=VARCHAR}||'%'
+		    </if>
+		    and rownum &lt;= #{endpoint}
+		) tp  where tp.rown &gt;= #{startpoint}
+	</select>
+	
+	<select id="queryHistoryListPageCount" parameterType="map" resultType="long">
+	      select count(1) count 
+		    from review_rank_history t1
+		    left join review_rank t2
+		      on t1.rank_id = t2.rank_id 
+		    left join t_law_rank_def t3
+		      on t1.before_rank=t3.rank_code 
+		    left join t_law_rank_def t4
+		      on t1.after_rank = t4.rank_code 
+		    where 1=1 
+		    <if test="deptCodeTwo != null and deptCodeTwo != ''">
+			    and t2.dept_code_two = #{deptCodeTwo,jdbcType=VARCHAR}
+		    </if>
+		    <if test="deptCodeThree != null and deptCodeThree != ''">
+			    and t2.dept_code_three = #{deptCodeThree,jdbcType=VARCHAR}
+		    </if>
+		    <if test="deptCodeFour != null and deptCodeFour != ''">
+			    and t2.dept_code_four = #{deptCodeFour,jdbcType=VARCHAR}
+		    </if>
+		    <if test="calcMonth != null and calcMonth != ''">
+			    and t2.calc_Month = #{calcMonth,jdbcType=VARCHAR}
+		    </if>
+		    <if test="groupName != null and groupName != ''">
+			    and t2.group_name like #{groupName,jdbcType=VARCHAR}||'%'
+		    </if>
+		    <if test="salesmanName != null and salesmanName != ''">
+			    and t2.salesman_name like #{salesmanName,jdbcType=VARCHAR}||'%'
+		    </if>
+	</select>
+	
+	
+	
+	<!-- 单独条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryListPageVo" parameterType="map" resultMap="BaseResultVo">
+	select * from (
+		select a.*,rownum rn from (
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_RANK_HISTORY
+		<include refid="Base_Where_Sql"/>
+		) a where rownum &lt;= #{endpoint}
+	) where rn &gt;= #{startpoint}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="query" parameterType="map" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_RANK_HISTORY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryVo" parameterType="map" resultMap="BaseResultVo">
+		select 
+		<include refid="Base_Column_List"/>
+		from REVIEW_RANK_HISTORY
+		<include refid="Base_Where_Sql"/>
+	</select>
+	
+	<!-- 综合条件分页查询语句,注意下面语句中的endpoint和startpoint这两个名称不可修改，否则将导致sql错误 -->
+	<select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+	<choose>
+		<when test="endpoint!=null and endpoint != '' and startpoint != null and startpoint != ''">
+		select * from (
+			select a.*,rownum rn from (
+				select 
+				<include refid="Base_Column_List"/>
+				from REVIEW_RANK_HISTORY
+				<include refid="Base_Where_Sql"/>
+			) a where rownum &lt;= #{endpoint}
+		) where rn &gt;= #{startpoint}
+		</when>
+		<otherwise>
+		<!-- 这里的"count"重命名不可修改，否则会出现异常 -->
+		select count(1) "count" from REVIEW_RANK_HISTORY <include refid="Base_Where_Sql" />
+		</otherwise>
+	</choose>
+	</select>
+</mapper>
